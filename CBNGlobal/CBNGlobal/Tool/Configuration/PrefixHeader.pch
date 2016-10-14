@@ -27,4 +27,11 @@
  *  self.view.backgroundColor = UIColorFromRGB(0x006000);
  */
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define RGBColor(R, G, B, A) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:A]
+#define RGBColor_(R, G, B) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:1.0]
+
+
+
+
+
 #endif /* PrefixHeader_pch */
