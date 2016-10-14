@@ -1,5 +1,7 @@
 platform :ios, '7.0'
 target 'CBNGlobal' do
+pod 'MJRefresh'
 pod 'SDWebImage'
 pod 'AFNetworking'
+
 end
