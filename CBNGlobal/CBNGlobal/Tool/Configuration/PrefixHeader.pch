@@ -8,6 +8,11 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "UIViewController+MMDrawerController.h"
+
 //-------------------打印日志-------------------------
 //DEBUG  模式下打印日志,当前行
 #ifdef DEBUG
