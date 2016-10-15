@@ -248,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Jone;
+				ORGANIZATIONNAME = "上海第一财经传媒有限公司";
 				TargetAttributes = {
 					FE6F2CF01DB12B5B000E33F9 = {
 						CreatedOnToolsVersion = 7.0;
