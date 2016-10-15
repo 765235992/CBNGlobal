@@ -16,6 +16,11 @@
 		FE6F2D041DB12B5B000E33F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F2D021DB12B5B000E33F9 /* LaunchScreen.storyboard */; };
 		FE6F2D0F1DB12B5B000E33F9 /* CBNGlobalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2D0E1DB12B5B000E33F9 /* CBNGlobalTests.m */; };
 		FE6F2D1A1DB12B5B000E33F9 /* CBNGlobalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2D191DB12B5B000E33F9 /* CBNGlobalUITests.m */; };
+		FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */; settings = {ASSET_TAGS = (); }; };
+		FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FEDBCB8A1DB1F12E00410E94 /* CBNHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB891DB1F12E00410E94 /* CBNHomePageVC.m */; settings = {ASSET_TAGS = (); }; };
+		FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */; settings = {ASSET_TAGS = (); }; };
+		FEDBCBA31DB1F3A100410E94 /* CBNChannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEDBCBA21DB1F3A100410E94 /* CBNChannel.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,15 @@
 		FE6F2D191DB12B5B000E33F9 /* CBNGlobalUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBNGlobalUITests.m; sourceTree = "<group>"; };
 		FE6F2D1B1DB12B5B000E33F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FEDBCB821DB1F0E600410E94 /* CBNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseNavigationController.h; sourceTree = "<group>"; };
+		FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseNavigationController.m; sourceTree = "<group>"; };
+		FEDBCB851DB1F0FB00410E94 /* CBNBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseViewController.h; sourceTree = "<group>"; };
+		FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseViewController.m; sourceTree = "<group>"; };
+		FEDBCB881DB1F12E00410E94 /* CBNHomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNHomePageVC.h; sourceTree = "<group>"; };
+		FEDBCB891DB1F12E00410E94 /* CBNHomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNHomePageVC.m; sourceTree = "<group>"; };
+		FEDBCB8B1DB1F14B00410E94 /* CBNLeftChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLeftChannelVC.h; sourceTree = "<group>"; };
+		FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLeftChannelVC.m; sourceTree = "<group>"; };
+		FEDBCBA21DB1F3A100410E94 /* CBNChannel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CBNChannel.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +140,9 @@
 		FE6F2CF31DB12B5B000E33F9 /* CBNGlobal */ = {
 			isa = PBXGroup;
 			children = (
+				FEDBCB811DB1F0A400410E94 /* Framework */,
+				FEDBCB801DB1F09C00410E94 /* Thirdlib */,
+				FEDBCB661DB1F09300410E94 /* Module */,
 				FEB42EB81DB1318F00B988E9 /* Tool */,
 				FE6F2CF71DB12B5B000E33F9 /* AppDelegate.h */,
 				FE6F2CF81DB12B5B000E33F9 /* AppDelegate.m */,
@@ -169,6 +186,7 @@
 		FEB42EB81DB1318F00B988E9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				FEDBCB651DB1F07A00410E94 /* PublicImage */,
 				FEB42EB91DB1318F00B988E9 /* Configuration */,
 			);
 			path = Tool;
@@ -178,8 +196,373 @@
 			isa = PBXGroup;
 			children = (
 				FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */,
+				FEDBCBA21DB1F3A100410E94 /* CBNChannel.plist */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		FEDBCB651DB1F07A00410E94 /* PublicImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PublicImage;
+			sourceTree = "<group>";
+		};
+		FEDBCB661DB1F09300410E94 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB671DB1F09300410E94 /* BaseModule */,
+				FEDBCB6C1DB1F09300410E94 /* HomePage */,
+				FEDBCB711DB1F09300410E94 /* LeftChannel */,
+				FEDBCB761DB1F09300410E94 /* NewsDetail */,
+				FEDBCB7B1DB1F09300410E94 /* Search */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		FEDBCB671DB1F09300410E94 /* BaseModule */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB681DB1F09300410E94 /* Controller */,
+				FEDBCB691DB1F09300410E94 /* Image */,
+				FEDBCB6A1DB1F09300410E94 /* Model */,
+				FEDBCB6B1DB1F09300410E94 /* View */,
+			);
+			path = BaseModule;
+			sourceTree = "<group>";
+		};
+		FEDBCB681DB1F09300410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB821DB1F0E600410E94 /* CBNBaseNavigationController.h */,
+				FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */,
+				FEDBCB851DB1F0FB00410E94 /* CBNBaseViewController.h */,
+				FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB691DB1F09300410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCB6A1DB1F09300410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCB6B1DB1F09300410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEDBCB6C1DB1F09300410E94 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB6D1DB1F09300410E94 /* Controller */,
+				FEDBCB6E1DB1F09300410E94 /* Image */,
+				FEDBCB6F1DB1F09300410E94 /* Model */,
+				FEDBCB701DB1F09300410E94 /* View */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		FEDBCB6D1DB1F09300410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB881DB1F12E00410E94 /* CBNHomePageVC.h */,
+				FEDBCB891DB1F12E00410E94 /* CBNHomePageVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB6E1DB1F09300410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCB6F1DB1F09300410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCB701DB1F09300410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEDBCB711DB1F09300410E94 /* LeftChannel */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB721DB1F09300410E94 /* Controller */,
+				FEDBCB731DB1F09300410E94 /* Image */,
+				FEDBCB741DB1F09300410E94 /* Model */,
+				FEDBCB751DB1F09300410E94 /* View */,
+			);
+			path = LeftChannel;
+			sourceTree = "<group>";
+		};
+		FEDBCB721DB1F09300410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB8B1DB1F14B00410E94 /* CBNLeftChannelVC.h */,
+				FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB731DB1F09300410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCB741DB1F09300410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCB751DB1F09300410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEDBCB761DB1F09300410E94 /* NewsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB8E1DB1F22900410E94 /* AtlasDetail */,
+				FEDBCB931DB1F22900410E94 /* BaseDetail */,
+				FEDBCB981DB1F22900410E94 /* TextDetail */,
+				FEDBCB9D1DB1F22900410E94 /* VideoDetail */,
+			);
+			path = NewsDetail;
+			sourceTree = "<group>";
+		};
+		FEDBCB7B1DB1F09300410E94 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB7C1DB1F09300410E94 /* Controller */,
+				FEDBCB7D1DB1F09300410E94 /* Image */,
+				FEDBCB7E1DB1F09300410E94 /* Model */,
+				FEDBCB7F1DB1F09300410E94 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		FEDBCB7C1DB1F09300410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB7D1DB1F09300410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCB7E1DB1F09300410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCB7F1DB1F09300410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEDBCB801DB1F09C00410E94 /* Thirdlib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Thirdlib;
+			sourceTree = "<group>";
+		};
+		FEDBCB811DB1F0A400410E94 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		FEDBCB8E1DB1F22900410E94 /* AtlasDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB8F1DB1F22900410E94 /* Controller */,
+				FEDBCB901DB1F22900410E94 /* Image */,
+				FEDBCB911DB1F22900410E94 /* Model */,
+				FEDBCB921DB1F22900410E94 /* View */,
+			);
+			path = AtlasDetail;
+			sourceTree = "<group>";
+		};
+		FEDBCB8F1DB1F22900410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB901DB1F22900410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCB911DB1F22900410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCB921DB1F22900410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEDBCB931DB1F22900410E94 /* BaseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB941DB1F22900410E94 /* Controller */,
+				FEDBCB951DB1F22900410E94 /* Image */,
+				FEDBCB961DB1F22900410E94 /* Model */,
+				FEDBCB971DB1F22900410E94 /* View */,
+			);
+			path = BaseDetail;
+			sourceTree = "<group>";
+		};
+		FEDBCB941DB1F22900410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB951DB1F22900410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCB961DB1F22900410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCB971DB1F22900410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEDBCB981DB1F22900410E94 /* TextDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB991DB1F22900410E94 /* Controller */,
+				FEDBCB9A1DB1F22900410E94 /* Image */,
+				FEDBCB9B1DB1F22900410E94 /* Model */,
+				FEDBCB9C1DB1F22900410E94 /* View */,
+			);
+			path = TextDetail;
+			sourceTree = "<group>";
+		};
+		FEDBCB991DB1F22900410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB9A1DB1F22900410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCB9B1DB1F22900410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCB9C1DB1F22900410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEDBCB9D1DB1F22900410E94 /* VideoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBCB9E1DB1F22900410E94 /* Controller */,
+				FEDBCB9F1DB1F22900410E94 /* Image */,
+				FEDBCBA01DB1F22900410E94 /* Model */,
+				FEDBCBA11DB1F22900410E94 /* View */,
+			);
+			path = VideoDetail;
+			sourceTree = "<group>";
+		};
+		FEDBCB9E1DB1F22900410E94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEDBCB9F1DB1F22900410E94 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEDBCBA01DB1F22900410E94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDBCBA11DB1F22900410E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +630,7 @@
 		FE6F2CE91DB12B5B000E33F9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CBN;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "上海第一财经传媒有限公司";
 				TargetAttributes = {
@@ -290,6 +674,7 @@
 			files = (
 				FE6F2D041DB12B5B000E33F9 /* LaunchScreen.storyboard in Resources */,
 				FE6F2D011DB12B5B000E33F9 /* Assets.xcassets in Resources */,
+				FEDBCBA31DB1F3A100410E94 /* CBNChannel.plist in Resources */,
 				FE6F2CFF1DB12B5B000E33F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,8 +748,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */,
+				FEDBCB8A1DB1F12E00410E94 /* CBNHomePageVC.m in Sources */,
+				FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */,
 				FE6F2CFC1DB12B5B000E33F9 /* ViewController.m in Sources */,
 				FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */,
+				FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */,
 				FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +897,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CBNGlobal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +910,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CBNGlobal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
