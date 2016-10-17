@@ -1,22 +1,23 @@
 //
-//  CBNHomePageVC.m
+//  CBNTextDetailVC.m
 //  CBNGlobal
 //
-//  Created by Jone on 16/10/15.
+//  Created by Jone on 16/10/17.
 //  Copyright © 2016年 上海第一财经传媒有限公司. All rights reserved.
 //
 
-#import "CBNHomePageVC.h"
+#import "CBNTextDetailVC.h"
 
-@interface CBNHomePageVC ()
+@interface CBNTextDetailVC ()
 
 @end
 
-@implementation CBNHomePageVC
+@implementation CBNTextDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "CBNHomePageVC.h"
+#import "CBNLeftChannelVC.h"
+#import "CBNDrawerVisualStateManager.h"
 
 @interface AppDelegate ()
+@property (nonatomic,strong) MMDrawerController * drawerController;
 
 @end
 
@@ -16,7 +20,44 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    
+    
+    CBNHomePageVC *homePageVC = [[CBNHomePageVC alloc] init];
+    
+    UINavigationController *homePageNavigatonController = [[UINavigationController alloc] initWithRootViewController:homePageVC];
+    
+    CBNLeftChannelVC *leftChannelVC = [[CBNLeftChannelVC alloc] init];
+    /*
+     *  添加到抽屉上去
+     */
+    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:homePageNavigatonController leftDrawerViewController:leftChannelVC];
+    [self.drawerController setShowsShadow:YES];
+    
+    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    
+    //抽屉打开的大小
+    [self.drawerController setMaximumLeftDrawerWidth:user_Draw_open_With];
+    
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+    [self.drawerController
+     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+         MMDrawerControllerDrawerVisualStateBlock block;
+         block = [[CBNDrawerVisualStateManager sharedManager]
+                  drawerVisualStateBlockForDrawerSide:drawerSide];
+         if(block){
+             block(drawerController, drawerSide, percentVisible);
+         }
+     }];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    [self.window setRootViewController:self.drawerController];
+    [self.window makeKeyAndVisible];
+
+    
     return YES;
 }
 

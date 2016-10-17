@@ -8,10 +8,18 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+#import "Header.h"
+
+
+
+#import "NSString+CBNString.h"
+#import "UIColor+CBNColor.h"
+#import "UIDevice+CBNDevice.h"
 
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+MMDrawerController.h"
+
 
 //-------------------打印日志-------------------------
 //DEBUG  模式下打印日志,当前行
@@ -35,6 +43,15 @@
 #define RGBColor(R, G, B, A) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:A]
 #define RGBColor_(R, G, B) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:1.0]
 
+
+#define user_Draw_open_With CBN_Screen_Width*0.47
+
+#define news_Cell_Left_Or_Right_Margin 8
+#define news_Cell_Up_Or_Down_Margin 12
+
+#define news_Cell_Height [NSString getTextHeightWithFont:CBN_News_Title_Font]*4 + 2*news_Cell_Up_Or_Down_Margin
+
+#define CBN_News_Title_Font [UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:[UIDevice getFontSizeWithBaseFontSize:16]]
 
 
 

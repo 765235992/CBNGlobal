@@ -16,11 +16,32 @@
 		FE6F2D041DB12B5B000E33F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F2D021DB12B5B000E33F9 /* LaunchScreen.storyboard */; };
 		FE6F2D0F1DB12B5B000E33F9 /* CBNGlobalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2D0E1DB12B5B000E33F9 /* CBNGlobalTests.m */; };
 		FE6F2D1A1DB12B5B000E33F9 /* CBNGlobalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2D191DB12B5B000E33F9 /* CBNGlobalUITests.m */; };
-		FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */; settings = {ASSET_TAGS = (); }; };
-		FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FEDBCB8A1DB1F12E00410E94 /* CBNHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB891DB1F12E00410E94 /* CBNHomePageVC.m */; settings = {ASSET_TAGS = (); }; };
-		FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */; settings = {ASSET_TAGS = (); }; };
-		FEDBCBA31DB1F3A100410E94 /* CBNChannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEDBCBA21DB1F3A100410E94 /* CBNChannel.plist */; settings = {ASSET_TAGS = (); }; };
+		FE7FB4441DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4431DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m */; };
+		FE7FB4471DB4CB0E00F07C1E /* CBNBarBurronItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4461DB4CB0E00F07C1E /* CBNBarBurronItem.m */; };
+		FE7FB44B1DB4CBA100F07C1E /* UIColor+CBNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB44A1DB4CBA100F07C1E /* UIColor+CBNColor.m */; };
+		FE7FB44E1DB4CD7F00F07C1E /* CBNLeftChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB44D1DB4CD7F00F07C1E /* CBNLeftChannelCell.m */; };
+		FE7FB4541DB4D20500F07C1E /* CBNFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4531DB4D20500F07C1E /* CBNFileManager.m */; };
+		FE7FB4561DB4D42700F07C1E /* CBNChannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB4551DB4D42700F07C1E /* CBNChannel.plist */; };
+		FE7FB46E1DB4E81400F07C1E /* CBNHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4641DB4E81400F07C1E /* CBNHomePageVC.m */; };
+		FE7FB46F1DB4E81400F07C1E /* CBNHomePageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4691DB4E81400F07C1E /* CBNHomePageHeaderView.m */; };
+		FE7FB4701DB4E81400F07C1E /* CBNPublicChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB46D1DB4E81400F07C1E /* CBNPublicChannelVC.m */; };
+		FE7FB4791DB4E89300F07C1E /* CBNChannelNewsTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4781DB4E89300F07C1E /* CBNChannelNewsTextCell.m */; };
+		FE7FB47E1DB4E96D00F07C1E /* CBNNewsTimeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB47D1DB4E96D00F07C1E /* CBNNewsTimeLabel.m */; };
+		FE7FB4811DB4EB9600F07C1E /* CBNBaseHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4801DB4EB9600F07C1E /* CBNBaseHomePageVC.m */; };
+		FE7FB4841DB4EF0800F07C1E /* NSString+CBNString.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4831DB4EF0800F07C1E /* NSString+CBNString.m */; };
+		FE7FB4871DB4F04100F07C1E /* UIDevice+CBNDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4861DB4F04100F07C1E /* UIDevice+CBNDevice.m */; };
+		FE7FB48D1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB48C1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m */; };
+		FE7FB4901DB50CA600F07C1E /* defaultImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB48F1DB50CA600F07C1E /* defaultImage.jpg */; };
+		FE7FB4931DB50D1800F07C1E /* CBNLiveShuffingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4921DB50D1800F07C1E /* CBNLiveShuffingView.m */; };
+		FE7FB49B1DB513DC00F07C1E /* CBNLiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB49A1DB513DC00F07C1E /* CBNLiveVC.m */; };
+		FE7FB49E1DB514E200F07C1E /* CBNLiveHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB49D1DB514E200F07C1E /* CBNLiveHeaderView.m */; };
+		FE7FB4A11DB514FE00F07C1E /* CBNLiveNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4A01DB514FE00F07C1E /* CBNLiveNewsCell.m */; };
+		FE7FB4A91DB51D9D00F07C1E /* CBNTextDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4A81DB51D9D00F07C1E /* CBNTextDetailVC.m */; };
+		FE7FB4AF1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4AE1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m */; };
+		FE7FB4B21DB51E9C00F07C1E /* CBNTextDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4B11DB51E9C00F07C1E /* CBNTextDetailHeaderView.m */; };
+		FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */; };
+		FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */; };
+		FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,16 +81,58 @@
 		FE6F2D151DB12B5B000E33F9 /* CBNGlobalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBNGlobalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6F2D191DB12B5B000E33F9 /* CBNGlobalUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBNGlobalUITests.m; sourceTree = "<group>"; };
 		FE6F2D1B1DB12B5B000E33F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE7FB4421DB4C9E600F07C1E /* CBNDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNDrawerVisualStateManager.h; sourceTree = "<group>"; };
+		FE7FB4431DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNDrawerVisualStateManager.m; sourceTree = "<group>"; };
+		FE7FB4451DB4CB0E00F07C1E /* CBNBarBurronItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBarBurronItem.h; sourceTree = "<group>"; };
+		FE7FB4461DB4CB0E00F07C1E /* CBNBarBurronItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBarBurronItem.m; sourceTree = "<group>"; };
+		FE7FB4491DB4CBA100F07C1E /* UIColor+CBNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBNColor.h"; sourceTree = "<group>"; };
+		FE7FB44A1DB4CBA100F07C1E /* UIColor+CBNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBNColor.m"; sourceTree = "<group>"; };
+		FE7FB44C1DB4CD7F00F07C1E /* CBNLeftChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLeftChannelCell.h; sourceTree = "<group>"; };
+		FE7FB44D1DB4CD7F00F07C1E /* CBNLeftChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLeftChannelCell.m; sourceTree = "<group>"; };
+		FE7FB4521DB4D20500F07C1E /* CBNFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNFileManager.h; sourceTree = "<group>"; };
+		FE7FB4531DB4D20500F07C1E /* CBNFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNFileManager.m; sourceTree = "<group>"; };
+		FE7FB4551DB4D42700F07C1E /* CBNChannel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CBNChannel.plist; sourceTree = "<group>"; };
+		FE7FB4571DB4D57B00F07C1E /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FE7FB4631DB4E81400F07C1E /* CBNHomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNHomePageVC.h; sourceTree = "<group>"; };
+		FE7FB4641DB4E81400F07C1E /* CBNHomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNHomePageVC.m; sourceTree = "<group>"; };
+		FE7FB4681DB4E81400F07C1E /* CBNHomePageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNHomePageHeaderView.h; sourceTree = "<group>"; };
+		FE7FB4691DB4E81400F07C1E /* CBNHomePageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNHomePageHeaderView.m; sourceTree = "<group>"; };
+		FE7FB46C1DB4E81400F07C1E /* CBNPublicChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNPublicChannelVC.h; sourceTree = "<group>"; };
+		FE7FB46D1DB4E81400F07C1E /* CBNPublicChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNPublicChannelVC.m; sourceTree = "<group>"; };
+		FE7FB4771DB4E89300F07C1E /* CBNChannelNewsTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelNewsTextCell.h; sourceTree = "<group>"; };
+		FE7FB4781DB4E89300F07C1E /* CBNChannelNewsTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelNewsTextCell.m; sourceTree = "<group>"; };
+		FE7FB47C1DB4E96D00F07C1E /* CBNNewsTimeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsTimeLabel.h; sourceTree = "<group>"; };
+		FE7FB47D1DB4E96D00F07C1E /* CBNNewsTimeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsTimeLabel.m; sourceTree = "<group>"; };
+		FE7FB47F1DB4EB9600F07C1E /* CBNBaseHomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseHomePageVC.h; sourceTree = "<group>"; };
+		FE7FB4801DB4EB9600F07C1E /* CBNBaseHomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseHomePageVC.m; sourceTree = "<group>"; };
+		FE7FB4821DB4EF0800F07C1E /* NSString+CBNString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CBNString.h"; sourceTree = "<group>"; };
+		FE7FB4831DB4EF0800F07C1E /* NSString+CBNString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CBNString.m"; sourceTree = "<group>"; };
+		FE7FB4851DB4F04100F07C1E /* UIDevice+CBNDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+CBNDevice.h"; sourceTree = "<group>"; };
+		FE7FB4861DB4F04100F07C1E /* UIDevice+CBNDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+CBNDevice.m"; sourceTree = "<group>"; };
+		FE7FB48B1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNHomePageRecommendedNewsView.h; sourceTree = "<group>"; };
+		FE7FB48C1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNHomePageRecommendedNewsView.m; sourceTree = "<group>"; };
+		FE7FB48F1DB50CA600F07C1E /* defaultImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultImage.jpg; sourceTree = "<group>"; };
+		FE7FB4911DB50D1800F07C1E /* CBNLiveShuffingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveShuffingView.h; sourceTree = "<group>"; };
+		FE7FB4921DB50D1800F07C1E /* CBNLiveShuffingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveShuffingView.m; sourceTree = "<group>"; };
+		FE7FB4991DB513DC00F07C1E /* CBNLiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveVC.h; sourceTree = "<group>"; };
+		FE7FB49A1DB513DC00F07C1E /* CBNLiveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveVC.m; sourceTree = "<group>"; };
+		FE7FB49C1DB514E200F07C1E /* CBNLiveHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveHeaderView.h; sourceTree = "<group>"; };
+		FE7FB49D1DB514E200F07C1E /* CBNLiveHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveHeaderView.m; sourceTree = "<group>"; };
+		FE7FB49F1DB514FE00F07C1E /* CBNLiveNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveNewsCell.h; sourceTree = "<group>"; };
+		FE7FB4A01DB514FE00F07C1E /* CBNLiveNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveNewsCell.m; sourceTree = "<group>"; };
+		FE7FB4A71DB51D9D00F07C1E /* CBNTextDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextDetailVC.h; sourceTree = "<group>"; };
+		FE7FB4A81DB51D9D00F07C1E /* CBNTextDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextDetailVC.m; sourceTree = "<group>"; };
+		FE7FB4AD1DB51E8600F07C1E /* CBNBaseDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseDetailHeaderView.h; sourceTree = "<group>"; };
+		FE7FB4AE1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseDetailHeaderView.m; sourceTree = "<group>"; };
+		FE7FB4B01DB51E9C00F07C1E /* CBNTextDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextDetailHeaderView.h; sourceTree = "<group>"; };
+		FE7FB4B11DB51E9C00F07C1E /* CBNTextDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextDetailHeaderView.m; sourceTree = "<group>"; };
 		FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FEDBCB821DB1F0E600410E94 /* CBNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseNavigationController.h; sourceTree = "<group>"; };
 		FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseNavigationController.m; sourceTree = "<group>"; };
 		FEDBCB851DB1F0FB00410E94 /* CBNBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseViewController.h; sourceTree = "<group>"; };
 		FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseViewController.m; sourceTree = "<group>"; };
-		FEDBCB881DB1F12E00410E94 /* CBNHomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNHomePageVC.h; sourceTree = "<group>"; };
-		FEDBCB891DB1F12E00410E94 /* CBNHomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNHomePageVC.m; sourceTree = "<group>"; };
 		FEDBCB8B1DB1F14B00410E94 /* CBNLeftChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLeftChannelVC.h; sourceTree = "<group>"; };
 		FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLeftChannelVC.m; sourceTree = "<group>"; };
-		FEDBCBA21DB1F3A100410E94 /* CBNChannel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CBNChannel.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +203,7 @@
 		FE6F2CF31DB12B5B000E33F9 /* CBNGlobal */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB48E1DB50C9D00F07C1E /* DevelopTempFile */,
 				FEDBCB811DB1F0A400410E94 /* Framework */,
 				FEDBCB801DB1F09C00410E94 /* Thirdlib */,
 				FEDBCB661DB1F09300410E94 /* Module */,
@@ -183,9 +247,269 @@
 			path = CBNGlobalUITests;
 			sourceTree = "<group>";
 		};
+		FE7FB4411DB4C9D900F07C1E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4421DB4C9E600F07C1E /* CBNDrawerVisualStateManager.h */,
+				FE7FB4431DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m */,
+				FE7FB4521DB4D20500F07C1E /* CBNFileManager.h */,
+				FE7FB4531DB4D20500F07C1E /* CBNFileManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FE7FB4481DB4CB7F00F07C1E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4491DB4CBA100F07C1E /* UIColor+CBNColor.h */,
+				FE7FB44A1DB4CBA100F07C1E /* UIColor+CBNColor.m */,
+				FE7FB4821DB4EF0800F07C1E /* NSString+CBNString.h */,
+				FE7FB4831DB4EF0800F07C1E /* NSString+CBNString.m */,
+				FE7FB4851DB4F04100F07C1E /* UIDevice+CBNDevice.h */,
+				FE7FB4861DB4F04100F07C1E /* UIDevice+CBNDevice.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FE7FB4601DB4E81400F07C1E /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4711DB4E85C00F07C1E /* BaseChannel */,
+				FE7FB4611DB4E81400F07C1E /* HomePage */,
+				FE7FB46A1DB4E81400F07C1E /* PublicChannel */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		FE7FB4611DB4E81400F07C1E /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4621DB4E81400F07C1E /* Controller */,
+				FE7FB4651DB4E81400F07C1E /* Image */,
+				FE7FB4661DB4E81400F07C1E /* Model */,
+				FE7FB4671DB4E81400F07C1E /* View */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		FE7FB4621DB4E81400F07C1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4631DB4E81400F07C1E /* CBNHomePageVC.h */,
+				FE7FB4641DB4E81400F07C1E /* CBNHomePageVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FE7FB4651DB4E81400F07C1E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FE7FB4661DB4E81400F07C1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE7FB4671DB4E81400F07C1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4681DB4E81400F07C1E /* CBNHomePageHeaderView.h */,
+				FE7FB4691DB4E81400F07C1E /* CBNHomePageHeaderView.m */,
+				FE7FB48B1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.h */,
+				FE7FB48C1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m */,
+				FE7FB4911DB50D1800F07C1E /* CBNLiveShuffingView.h */,
+				FE7FB4921DB50D1800F07C1E /* CBNLiveShuffingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE7FB46A1DB4E81400F07C1E /* PublicChannel */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB46B1DB4E81400F07C1E /* Controller */,
+			);
+			path = PublicChannel;
+			sourceTree = "<group>";
+		};
+		FE7FB46B1DB4E81400F07C1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB46C1DB4E81400F07C1E /* CBNPublicChannelVC.h */,
+				FE7FB46D1DB4E81400F07C1E /* CBNPublicChannelVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FE7FB4711DB4E85C00F07C1E /* BaseChannel */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4721DB4E85C00F07C1E /* Cell */,
+				FE7FB4731DB4E85C00F07C1E /* Controller */,
+				FE7FB4741DB4E85C00F07C1E /* Image */,
+				FE7FB4751DB4E85C00F07C1E /* Model */,
+				FE7FB4761DB4E85C00F07C1E /* View */,
+			);
+			path = BaseChannel;
+			sourceTree = "<group>";
+		};
+		FE7FB4721DB4E85C00F07C1E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4771DB4E89300F07C1E /* CBNChannelNewsTextCell.h */,
+				FE7FB4781DB4E89300F07C1E /* CBNChannelNewsTextCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FE7FB4731DB4E85C00F07C1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB47F1DB4EB9600F07C1E /* CBNBaseHomePageVC.h */,
+				FE7FB4801DB4EB9600F07C1E /* CBNBaseHomePageVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FE7FB4741DB4E85C00F07C1E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FE7FB4751DB4E85C00F07C1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE7FB4761DB4E85C00F07C1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE7FB47A1DB4E95400F07C1E /* CoustomView */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB47B1DB4E95400F07C1E /* TimeView */,
+			);
+			path = CoustomView;
+			sourceTree = "<group>";
+		};
+		FE7FB47B1DB4E95400F07C1E /* TimeView */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB47C1DB4E96D00F07C1E /* CBNNewsTimeLabel.h */,
+				FE7FB47D1DB4E96D00F07C1E /* CBNNewsTimeLabel.m */,
+			);
+			path = TimeView;
+			sourceTree = "<group>";
+		};
+		FE7FB48E1DB50C9D00F07C1E /* DevelopTempFile */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB48F1DB50CA600F07C1E /* defaultImage.jpg */,
+			);
+			path = DevelopTempFile;
+			sourceTree = "<group>";
+		};
+		FE7FB4941DB513C300F07C1E /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4951DB513C300F07C1E /* Controller */,
+				FE7FB4961DB513C300F07C1E /* Image */,
+				FE7FB4971DB513C300F07C1E /* Model */,
+				FE7FB4981DB513C300F07C1E /* View */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		FE7FB4951DB513C300F07C1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4991DB513DC00F07C1E /* CBNLiveVC.h */,
+				FE7FB49A1DB513DC00F07C1E /* CBNLiveVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FE7FB4961DB513C300F07C1E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FE7FB4971DB513C300F07C1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE7FB4981DB513C300F07C1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB49C1DB514E200F07C1E /* CBNLiveHeaderView.h */,
+				FE7FB49D1DB514E200F07C1E /* CBNLiveHeaderView.m */,
+				FE7FB49F1DB514FE00F07C1E /* CBNLiveNewsCell.h */,
+				FE7FB4A01DB514FE00F07C1E /* CBNLiveNewsCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE7FB4A21DB51D7800F07C1E /* LiveDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4A31DB51D7800F07C1E /* Controller */,
+				FE7FB4A41DB51D7800F07C1E /* Image */,
+				FE7FB4A51DB51D7800F07C1E /* Model */,
+				FE7FB4A61DB51D7800F07C1E /* View */,
+			);
+			path = LiveDetail;
+			sourceTree = "<group>";
+		};
+		FE7FB4A31DB51D7800F07C1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FE7FB4A41DB51D7800F07C1E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FE7FB4A51DB51D7800F07C1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE7FB4A61DB51D7800F07C1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FEB42EB81DB1318F00B988E9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB47A1DB4E95400F07C1E /* CoustomView */,
+				FE7FB4481DB4CB7F00F07C1E /* Category */,
 				FEDBCB651DB1F07A00410E94 /* PublicImage */,
 				FEB42EB91DB1318F00B988E9 /* Configuration */,
 			);
@@ -196,7 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */,
-				FEDBCBA21DB1F3A100410E94 /* CBNChannel.plist */,
+				FE7FB4571DB4D57B00F07C1E /* Header.h */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -211,8 +535,9 @@
 		FEDBCB661DB1F09300410E94 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4941DB513C300F07C1E /* Live */,
+				FE7FB4601DB4E81400F07C1E /* Channel */,
 				FEDBCB671DB1F09300410E94 /* BaseModule */,
-				FEDBCB6C1DB1F09300410E94 /* HomePage */,
 				FEDBCB711DB1F09300410E94 /* LeftChannel */,
 				FEDBCB761DB1F09300410E94 /* NewsDetail */,
 				FEDBCB7B1DB1F09300410E94 /* Search */,
@@ -223,6 +548,7 @@
 		FEDBCB671DB1F09300410E94 /* BaseModule */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4411DB4C9D900F07C1E /* Manager */,
 				FEDBCB681DB1F09300410E94 /* Controller */,
 				FEDBCB691DB1F09300410E94 /* Image */,
 				FEDBCB6A1DB1F09300410E94 /* Model */,
@@ -259,47 +585,8 @@
 		FEDBCB6B1DB1F09300410E94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		FEDBCB6C1DB1F09300410E94 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-				FEDBCB6D1DB1F09300410E94 /* Controller */,
-				FEDBCB6E1DB1F09300410E94 /* Image */,
-				FEDBCB6F1DB1F09300410E94 /* Model */,
-				FEDBCB701DB1F09300410E94 /* View */,
-			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
-		FEDBCB6D1DB1F09300410E94 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				FEDBCB881DB1F12E00410E94 /* CBNHomePageVC.h */,
-				FEDBCB891DB1F12E00410E94 /* CBNHomePageVC.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		FEDBCB6E1DB1F09300410E94 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Image;
-			sourceTree = "<group>";
-		};
-		FEDBCB6F1DB1F09300410E94 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		FEDBCB701DB1F09300410E94 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				FE7FB4451DB4CB0E00F07C1E /* CBNBarBurronItem.h */,
+				FE7FB4461DB4CB0E00F07C1E /* CBNBarBurronItem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +621,7 @@
 		FEDBCB741DB1F09300410E94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4551DB4D42700F07C1E /* CBNChannel.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +629,8 @@
 		FEDBCB751DB1F09300410E94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB44C1DB4CD7F00F07C1E /* CBNLeftChannelCell.h */,
+				FE7FB44D1DB4CD7F00F07C1E /* CBNLeftChannelCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +638,7 @@
 		FEDBCB761DB1F09300410E94 /* NewsDetail */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4A21DB51D7800F07C1E /* LiveDetail */,
 				FEDBCB8E1DB1F22900410E94 /* AtlasDetail */,
 				FEDBCB931DB1F22900410E94 /* BaseDetail */,
 				FEDBCB981DB1F22900410E94 /* TextDetail */,
@@ -483,6 +774,8 @@
 		FEDBCB971DB1F22900410E94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4AD1DB51E8600F07C1E /* CBNBaseDetailHeaderView.h */,
+				FE7FB4AE1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -501,6 +794,8 @@
 		FEDBCB991DB1F22900410E94 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4A71DB51D9D00F07C1E /* CBNTextDetailVC.h */,
+				FE7FB4A81DB51D9D00F07C1E /* CBNTextDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -522,6 +817,8 @@
 		FEDBCB9C1DB1F22900410E94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4B01DB51E9C00F07C1E /* CBNTextDetailHeaderView.h */,
+				FE7FB4B11DB51E9C00F07C1E /* CBNTextDetailHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -674,7 +971,8 @@
 			files = (
 				FE6F2D041DB12B5B000E33F9 /* LaunchScreen.storyboard in Resources */,
 				FE6F2D011DB12B5B000E33F9 /* Assets.xcassets in Resources */,
-				FEDBCBA31DB1F3A100410E94 /* CBNChannel.plist in Resources */,
+				FE7FB4561DB4D42700F07C1E /* CBNChannel.plist in Resources */,
+				FE7FB4901DB50CA600F07C1E /* defaultImage.jpg in Resources */,
 				FE6F2CFF1DB12B5B000E33F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,13 +1046,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7FB4811DB4EB9600F07C1E /* CBNBaseHomePageVC.m in Sources */,
+				FE7FB4871DB4F04100F07C1E /* UIDevice+CBNDevice.m in Sources */,
+				FE7FB46E1DB4E81400F07C1E /* CBNHomePageVC.m in Sources */,
+				FE7FB4A91DB51D9D00F07C1E /* CBNTextDetailVC.m in Sources */,
+				FE7FB4441DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m in Sources */,
+				FE7FB4A11DB514FE00F07C1E /* CBNLiveNewsCell.m in Sources */,
+				FE7FB46F1DB4E81400F07C1E /* CBNHomePageHeaderView.m in Sources */,
+				FE7FB4541DB4D20500F07C1E /* CBNFileManager.m in Sources */,
+				FE7FB4471DB4CB0E00F07C1E /* CBNBarBurronItem.m in Sources */,
+				FE7FB4931DB50D1800F07C1E /* CBNLiveShuffingView.m in Sources */,
+				FE7FB44E1DB4CD7F00F07C1E /* CBNLeftChannelCell.m in Sources */,
 				FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */,
-				FEDBCB8A1DB1F12E00410E94 /* CBNHomePageVC.m in Sources */,
 				FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */,
+				FE7FB49E1DB514E200F07C1E /* CBNLiveHeaderView.m in Sources */,
+				FE7FB44B1DB4CBA100F07C1E /* UIColor+CBNColor.m in Sources */,
 				FE6F2CFC1DB12B5B000E33F9 /* ViewController.m in Sources */,
 				FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */,
+				FE7FB4701DB4E81400F07C1E /* CBNPublicChannelVC.m in Sources */,
+				FE7FB48D1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m in Sources */,
+				FE7FB47E1DB4E96D00F07C1E /* CBNNewsTimeLabel.m in Sources */,
+				FE7FB4841DB4EF0800F07C1E /* NSString+CBNString.m in Sources */,
+				FE7FB49B1DB513DC00F07C1E /* CBNLiveVC.m in Sources */,
 				FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */,
+				FE7FB4AF1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m in Sources */,
 				FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */,
+				FE7FB4791DB4E89300F07C1E /* CBNChannelNewsTextCell.m in Sources */,
+				FE7FB4B21DB51E9C00F07C1E /* CBNTextDetailHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +1214,7 @@
 			baseConfigurationReference = A7DDD6D6466BC6672D8A6618 /* Pods-CBNGlobal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CBNGlobal/Tool/Configuration/PrefixHeader.pch";
 				INFOPLIST_FILE = CBNGlobal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -909,6 +1228,7 @@
 			baseConfigurationReference = 34FEE17627E0E355EAC5CBC4 /* Pods-CBNGlobal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CBNGlobal/Tool/Configuration/PrefixHeader.pch";
 				INFOPLIST_FILE = CBNGlobal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
