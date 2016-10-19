@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		78F1F64B450F8B55BA1C78F4 /* libPods-CBNGlobal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6936100BDAE8F7C4498C70AA /* libPods-CBNGlobal.a */; };
+		FE2E24E01DB71B76007FA000 /* libJYLiveShuffingSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0452CA1DB71767005E1263 /* libJYLiveShuffingSDK.a */; };
+		FE2E24E31DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E24E21DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m */; };
+		FE5DF6A01DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5DF69F1DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png */; };
 		FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CF51DB12B5B000E33F9 /* main.m */; };
 		FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CF81DB12B5B000E33F9 /* AppDelegate.m */; };
 		FE6F2CFC1DB12B5B000E33F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CFB1DB12B5B000E33F9 /* ViewController.m */; };
@@ -37,14 +40,67 @@
 		FE7FB49E1DB514E200F07C1E /* CBNLiveHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB49D1DB514E200F07C1E /* CBNLiveHeaderView.m */; };
 		FE7FB4A11DB514FE00F07C1E /* CBNLiveNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4A01DB514FE00F07C1E /* CBNLiveNewsCell.m */; };
 		FE7FB4A91DB51D9D00F07C1E /* CBNTextDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4A81DB51D9D00F07C1E /* CBNTextDetailVC.m */; };
-		FE7FB4AF1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4AE1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m */; };
 		FE7FB4B21DB51E9C00F07C1E /* CBNTextDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4B11DB51E9C00F07C1E /* CBNTextDetailHeaderView.m */; };
+		FE7FB4B51DB5B60200F07C1E /* UIFont+CBNFont.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4B41DB5B60200F07C1E /* UIFont+CBNFont.m */; };
+		FE7FB4B81DB5C04700F07C1E /* CBNLiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4B71DB5C04700F07C1E /* CBNLiveModel.m */; };
+		FE7FB4BA1DB5C1CB00F07C1E /* live.json in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB4B91DB5C1CB00F07C1E /* live.json */; };
+		FE7FB4BD1DB5D3B600F07C1E /* CBNLiveDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4BC1DB5D3B600F07C1E /* CBNLiveDetailVC.m */; };
+		FE7FB4C01DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4BF1DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.m */; };
+		FE7FB4ED1DB5F10D00F07C1E /* libSocialEmail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4CB1DB5F10D00F07C1E /* libSocialEmail.a */; };
+		FE7FB4EE1DB5F10D00F07C1E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4CE1DB5F10D00F07C1E /* Bolts.framework */; };
+		FE7FB4EF1DB5F10D00F07C1E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4D01DB5F10D00F07C1E /* FBSDKCoreKit.framework */; };
+		FE7FB4F01DB5F10D00F07C1E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4D11DB5F10D00F07C1E /* FBSDKLoginKit.framework */; };
+		FE7FB4F11DB5F10D00F07C1E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4D21DB5F10D00F07C1E /* FBSDKShareKit.framework */; };
+		FE7FB4F21DB5F10D00F07C1E /* libSocialFacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4D31DB5F10D00F07C1E /* libSocialFacebook.a */; };
+		FE7FB4F31DB5F10D00F07C1E /* libSocialLinkedin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4D61DB5F10D00F07C1E /* libSocialLinkedin.a */; };
+		FE7FB4F41DB5F10D00F07C1E /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4D71DB5F10D00F07C1E /* linkedin-sdk.framework */; };
+		FE7FB4F51DB5F10D00F07C1E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4DA1DB5F10D00F07C1E /* Fabric.framework */; };
+		FE7FB4F61DB5F10D00F07C1E /* libSocialTwitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4DB1DB5F10D00F07C1E /* libSocialTwitter.a */; };
+		FE7FB4F71DB5F10D00F07C1E /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4DC1DB5F10D00F07C1E /* TwitterCore.framework */; };
+		FE7FB4F81DB5F10D00F07C1E /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4DD1DB5F10D00F07C1E /* TwitterKit.framework */; };
+		FE7FB4F91DB5F10D00F07C1E /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4E01DB5F10D00F07C1E /* UMSocialCore.framework */; };
+		FE7FB4FA1DB5F10D00F07C1E /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB4E11DB5F10D00F07C1E /* UMSocialNetwork.framework */; };
+		FE7FB4FB1DB5F10D00F07C1E /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB4E41DB5F10D00F07C1E /* UMSocialSDKResources.bundle */; };
+		FE7FB4FC1DB5F10D00F07C1E /* UMShareMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4E61DB5F10D00F07C1E /* UMShareMenuItem.m */; };
+		FE7FB4FD1DB5F10D00F07C1E /* UMShareMenuSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4E81DB5F10D00F07C1E /* UMShareMenuSelectionView.m */; };
+		FE7FB4FE1DB5F10D00F07C1E /* UMSocialShareScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4EA1DB5F10D00F07C1E /* UMSocialShareScrollView.m */; };
+		FE7FB4FF1DB5F10D00F07C1E /* UMSocialUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4EC1DB5F10D00F07C1E /* UMSocialUIManager.m */; };
+		FE7FB5041DB5F17900F07C1E /* CBNUMShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB5011DB5F17900F07C1E /* CBNUMShareManager.m */; };
+		FE7FB5051DB5F17900F07C1E /* UMengConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB5031DB5F17900F07C1E /* UMengConfigurationManager.m */; };
+		FE7FB50A1DB5FBC400F07C1E /* CBNBaseDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB5081DB5FBC400F07C1E /* CBNBaseDetailHeaderView.m */; };
+		FE7FB50D1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB50C1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.m */; };
+		FE7FB5101DB5FC1500F07C1E /* CBNMoreNewsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB50F1DB5FC1500F07C1E /* CBNMoreNewsHeaderView.m */; };
+		FE7FB5131DB5FC4C00F07C1E /* CBNRelatedNewsItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB5121DB5FC4C00F07C1E /* CBNRelatedNewsItemView.m */; };
+		FE7FB5161DB5FC8000F07C1E /* CBNLiveMoreNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB5151DB5FC8000F07C1E /* CBNLiveMoreNewsView.m */; };
+		FE7FB5191DB608E300F07C1E /* CBNTextMoreNewsVie.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB5181DB608E300F07C1E /* CBNTextMoreNewsVie.m */; };
+		FE7FB51D1DB60CD000F07C1E /* CBNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB51C1DB60CD000F07C1E /* CBNTextView.m */; };
+		FE7FB51F1DB61B0D00F07C1E /* text.html in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB51E1DB61B0D00F07C1E /* text.html */; };
+		FE7FB5291DB63E6C00F07C1E /* CBN_email_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB5221DB63E6C00F07C1E /* CBN_email_icon@2x.png */; };
+		FE7FB52A1DB63E6C00F07C1E /* CBN_facebook_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB5231DB63E6C00F07C1E /* CBN_facebook_icon@2x.png */; };
+		FE7FB52B1DB63E6C00F07C1E /* CBN_linkedin_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB5241DB63E6C00F07C1E /* CBN_linkedin_icon@2x.png */; };
+		FE7FB52C1DB63E6C00F07C1E /* CBN_twitter_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB5251DB63E6C00F07C1E /* CBN_twitter_icon@2x.png */; };
+		FE7FB52D1DB63E6C00F07C1E /* CBNShareBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB5281DB63E6C00F07C1E /* CBNShareBar.m */; };
+		FE7FB5341DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB5331DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png */; };
 		FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */; };
 		FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */; };
 		FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FE0452C91DB71767005E1263 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE0452C51DB71767005E1263 /* JYLiveShuffingSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE0452A81DB71717005E1263;
+			remoteInfo = JYLiveShuffingSDK;
+		};
+		FE0452CB1DB7177A005E1263 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE0452C51DB71767005E1263 /* JYLiveShuffingSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FE0452A71DB71717005E1263;
+			remoteInfo = JYLiveShuffingSDK;
+		};
 		FE6F2D0B1DB12B5B000E33F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE6F2CE91DB12B5B000E33F9 /* Project object */;
@@ -65,6 +121,10 @@
 		34FEE17627E0E355EAC5CBC4 /* Pods-CBNGlobal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNGlobal.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBNGlobal/Pods-CBNGlobal.release.xcconfig"; sourceTree = "<group>"; };
 		6936100BDAE8F7C4498C70AA /* libPods-CBNGlobal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBNGlobal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DDD6D6466BC6672D8A6618 /* Pods-CBNGlobal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNGlobal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBNGlobal/Pods-CBNGlobal.debug.xcconfig"; sourceTree = "<group>"; };
+		FE0452C51DB71767005E1263 /* JYLiveShuffingSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JYLiveShuffingSDK.xcodeproj; path = "../../../../../../../../iOS/正在封装的Demo/LiveShuffing/JYLiveShuffingSDK/JYLiveShuffingSDK.xcodeproj"; sourceTree = "<group>"; };
+		FE2E24E11DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+CBNAttributeString.h"; sourceTree = "<group>"; };
+		FE2E24E21DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+CBNAttributeString.m"; sourceTree = "<group>"; };
+		FE5DF69F1DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_Channel_Left_Bar_Image_Day@2x.png"; sourceTree = "<group>"; };
 		FE6F2CF11DB12B5B000E33F9 /* CBNGlobal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBNGlobal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6F2CF51DB12B5B000E33F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FE6F2CF71DB12B5B000E33F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,10 +182,72 @@
 		FE7FB4A01DB514FE00F07C1E /* CBNLiveNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveNewsCell.m; sourceTree = "<group>"; };
 		FE7FB4A71DB51D9D00F07C1E /* CBNTextDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextDetailVC.h; sourceTree = "<group>"; };
 		FE7FB4A81DB51D9D00F07C1E /* CBNTextDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextDetailVC.m; sourceTree = "<group>"; };
-		FE7FB4AD1DB51E8600F07C1E /* CBNBaseDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseDetailHeaderView.h; sourceTree = "<group>"; };
-		FE7FB4AE1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseDetailHeaderView.m; sourceTree = "<group>"; };
 		FE7FB4B01DB51E9C00F07C1E /* CBNTextDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextDetailHeaderView.h; sourceTree = "<group>"; };
 		FE7FB4B11DB51E9C00F07C1E /* CBNTextDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextDetailHeaderView.m; sourceTree = "<group>"; };
+		FE7FB4B31DB5B60200F07C1E /* UIFont+CBNFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CBNFont.h"; sourceTree = "<group>"; };
+		FE7FB4B41DB5B60200F07C1E /* UIFont+CBNFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CBNFont.m"; sourceTree = "<group>"; };
+		FE7FB4B61DB5C04700F07C1E /* CBNLiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveModel.h; sourceTree = "<group>"; };
+		FE7FB4B71DB5C04700F07C1E /* CBNLiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveModel.m; sourceTree = "<group>"; };
+		FE7FB4B91DB5C1CB00F07C1E /* live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live.json; sourceTree = "<group>"; };
+		FE7FB4BB1DB5D3B600F07C1E /* CBNLiveDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveDetailVC.h; sourceTree = "<group>"; };
+		FE7FB4BC1DB5D3B600F07C1E /* CBNLiveDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveDetailVC.m; sourceTree = "<group>"; };
+		FE7FB4BE1DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveDetailHeaderView.h; sourceTree = "<group>"; };
+		FE7FB4BF1DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveDetailHeaderView.m; sourceTree = "<group>"; };
+		FE7FB4C51DB5EE5700F07C1E /* CBNEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNEnumeration.h; sourceTree = "<group>"; };
+		FE7FB4CB1DB5F10D00F07C1E /* libSocialEmail.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialEmail.a; sourceTree = "<group>"; };
+		FE7FB4CC1DB5F10D00F07C1E /* UMSocialEmailHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialEmailHandler.h; sourceTree = "<group>"; };
+		FE7FB4CE1DB5F10D00F07C1E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		FE7FB4CF1DB5F10D00F07C1E /* facebook_ios_sdk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_ios_sdk_Prefix.pch; sourceTree = "<group>"; };
+		FE7FB4D01DB5F10D00F07C1E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		FE7FB4D11DB5F10D00F07C1E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		FE7FB4D21DB5F10D00F07C1E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FE7FB4D31DB5F10D00F07C1E /* libSocialFacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialFacebook.a; sourceTree = "<group>"; };
+		FE7FB4D41DB5F10D00F07C1E /* UMSocialFaceBookHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialFaceBookHandler.h; sourceTree = "<group>"; };
+		FE7FB4D61DB5F10D00F07C1E /* libSocialLinkedin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialLinkedin.a; sourceTree = "<group>"; };
+		FE7FB4D71DB5F10D00F07C1E /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
+		FE7FB4D81DB5F10D00F07C1E /* UMSocialLinkedinHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialLinkedinHandler.h; sourceTree = "<group>"; };
+		FE7FB4DA1DB5F10D00F07C1E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		FE7FB4DB1DB5F10D00F07C1E /* libSocialTwitter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialTwitter.a; sourceTree = "<group>"; };
+		FE7FB4DC1DB5F10D00F07C1E /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		FE7FB4DD1DB5F10D00F07C1E /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		FE7FB4DE1DB5F10D00F07C1E /* UMSocialTwitterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialTwitterHandler.h; sourceTree = "<group>"; };
+		FE7FB4E01DB5F10D00F07C1E /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialCore.framework; sourceTree = "<group>"; };
+		FE7FB4E11DB5F10D00F07C1E /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
+		FE7FB4E41DB5F10D00F07C1E /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		FE7FB4E51DB5F10D00F07C1E /* UMShareMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMShareMenuItem.h; sourceTree = "<group>"; };
+		FE7FB4E61DB5F10D00F07C1E /* UMShareMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMShareMenuItem.m; sourceTree = "<group>"; };
+		FE7FB4E71DB5F10D00F07C1E /* UMShareMenuSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMShareMenuSelectionView.h; sourceTree = "<group>"; };
+		FE7FB4E81DB5F10D00F07C1E /* UMShareMenuSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMShareMenuSelectionView.m; sourceTree = "<group>"; };
+		FE7FB4E91DB5F10D00F07C1E /* UMSocialShareScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialShareScrollView.h; sourceTree = "<group>"; };
+		FE7FB4EA1DB5F10D00F07C1E /* UMSocialShareScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMSocialShareScrollView.m; sourceTree = "<group>"; };
+		FE7FB4EB1DB5F10D00F07C1E /* UMSocialUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialUIManager.h; sourceTree = "<group>"; };
+		FE7FB4EC1DB5F10D00F07C1E /* UMSocialUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMSocialUIManager.m; sourceTree = "<group>"; };
+		FE7FB5001DB5F17900F07C1E /* CBNUMShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNUMShareManager.h; sourceTree = "<group>"; };
+		FE7FB5011DB5F17900F07C1E /* CBNUMShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNUMShareManager.m; sourceTree = "<group>"; };
+		FE7FB5021DB5F17900F07C1E /* UMengConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMengConfigurationManager.h; sourceTree = "<group>"; };
+		FE7FB5031DB5F17900F07C1E /* UMengConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMengConfigurationManager.m; sourceTree = "<group>"; };
+		FE7FB5071DB5FBC400F07C1E /* CBNBaseDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseDetailHeaderView.h; sourceTree = "<group>"; };
+		FE7FB5081DB5FBC400F07C1E /* CBNBaseDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseDetailHeaderView.m; sourceTree = "<group>"; };
+		FE7FB50B1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseDetailMoreNewsView.h; sourceTree = "<group>"; };
+		FE7FB50C1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseDetailMoreNewsView.m; sourceTree = "<group>"; };
+		FE7FB50E1DB5FC1500F07C1E /* CBNMoreNewsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNMoreNewsHeaderView.h; sourceTree = "<group>"; };
+		FE7FB50F1DB5FC1500F07C1E /* CBNMoreNewsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNMoreNewsHeaderView.m; sourceTree = "<group>"; };
+		FE7FB5111DB5FC4C00F07C1E /* CBNRelatedNewsItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNRelatedNewsItemView.h; sourceTree = "<group>"; };
+		FE7FB5121DB5FC4C00F07C1E /* CBNRelatedNewsItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNRelatedNewsItemView.m; sourceTree = "<group>"; };
+		FE7FB5141DB5FC8000F07C1E /* CBNLiveMoreNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveMoreNewsView.h; sourceTree = "<group>"; };
+		FE7FB5151DB5FC8000F07C1E /* CBNLiveMoreNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveMoreNewsView.m; sourceTree = "<group>"; };
+		FE7FB5171DB608E300F07C1E /* CBNTextMoreNewsVie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextMoreNewsVie.h; sourceTree = "<group>"; };
+		FE7FB5181DB608E300F07C1E /* CBNTextMoreNewsVie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextMoreNewsVie.m; sourceTree = "<group>"; };
+		FE7FB51B1DB60CD000F07C1E /* CBNTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextView.h; sourceTree = "<group>"; };
+		FE7FB51C1DB60CD000F07C1E /* CBNTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextView.m; sourceTree = "<group>"; };
+		FE7FB51E1DB61B0D00F07C1E /* text.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = text.html; sourceTree = "<group>"; };
+		FE7FB5221DB63E6C00F07C1E /* CBN_email_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_email_icon@2x.png"; sourceTree = "<group>"; };
+		FE7FB5231DB63E6C00F07C1E /* CBN_facebook_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_facebook_icon@2x.png"; sourceTree = "<group>"; };
+		FE7FB5241DB63E6C00F07C1E /* CBN_linkedin_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_linkedin_icon@2x.png"; sourceTree = "<group>"; };
+		FE7FB5251DB63E6C00F07C1E /* CBN_twitter_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_twitter_icon@2x.png"; sourceTree = "<group>"; };
+		FE7FB5271DB63E6C00F07C1E /* CBNShareBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNShareBar.h; sourceTree = "<group>"; };
+		FE7FB5281DB63E6C00F07C1E /* CBNShareBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNShareBar.m; sourceTree = "<group>"; };
+		FE7FB5331DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_Navigation_Back_Icon_Day@2x.png"; sourceTree = "<group>"; };
 		FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FEDBCB821DB1F0E600410E94 /* CBNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseNavigationController.h; sourceTree = "<group>"; };
 		FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseNavigationController.m; sourceTree = "<group>"; };
@@ -140,7 +262,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2E24E01DB71B76007FA000 /* libJYLiveShuffingSDK.a in Frameworks */,
+				FE7FB4F91DB5F10D00F07C1E /* UMSocialCore.framework in Frameworks */,
+				FE7FB4EE1DB5F10D00F07C1E /* Bolts.framework in Frameworks */,
+				FE7FB4FA1DB5F10D00F07C1E /* UMSocialNetwork.framework in Frameworks */,
+				FE7FB4F71DB5F10D00F07C1E /* TwitterCore.framework in Frameworks */,
+				FE7FB4F51DB5F10D00F07C1E /* Fabric.framework in Frameworks */,
+				FE7FB4EF1DB5F10D00F07C1E /* FBSDKCoreKit.framework in Frameworks */,
+				FE7FB4F31DB5F10D00F07C1E /* libSocialLinkedin.a in Frameworks */,
+				FE7FB4F11DB5F10D00F07C1E /* FBSDKShareKit.framework in Frameworks */,
+				FE7FB4F01DB5F10D00F07C1E /* FBSDKLoginKit.framework in Frameworks */,
+				FE7FB4F61DB5F10D00F07C1E /* libSocialTwitter.a in Frameworks */,
 				78F1F64B450F8B55BA1C78F4 /* libPods-CBNGlobal.a in Frameworks */,
+				FE7FB4F41DB5F10D00F07C1E /* linkedin-sdk.framework in Frameworks */,
+				FE7FB4ED1DB5F10D00F07C1E /* libSocialEmail.a in Frameworks */,
+				FE7FB4F81DB5F10D00F07C1E /* TwitterKit.framework in Frameworks */,
+				FE7FB4F21DB5F10D00F07C1E /* libSocialFacebook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +313,22 @@
 				6936100BDAE8F7C4498C70AA /* libPods-CBNGlobal.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE0452C41DB71757005E1263 /* LiveShuffing */ = {
+			isa = PBXGroup;
+			children = (
+				FE0452C51DB71767005E1263 /* JYLiveShuffingSDK.xcodeproj */,
+			);
+			path = LiveShuffing;
+			sourceTree = "<group>";
+		};
+		FE0452C61DB71767005E1263 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE0452CA1DB71767005E1263 /* libJYLiveShuffingSDK.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FE6F2CE81DB12B5B000E33F9 = {
@@ -267,6 +420,10 @@
 				FE7FB4831DB4EF0800F07C1E /* NSString+CBNString.m */,
 				FE7FB4851DB4F04100F07C1E /* UIDevice+CBNDevice.h */,
 				FE7FB4861DB4F04100F07C1E /* UIDevice+CBNDevice.m */,
+				FE7FB4B31DB5B60200F07C1E /* UIFont+CBNFont.h */,
+				FE7FB4B41DB5B60200F07C1E /* UIFont+CBNFont.m */,
+				FE2E24E11DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.h */,
+				FE2E24E21DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -378,6 +535,7 @@
 		FE7FB4741DB4E85C00F07C1E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB5351DB6462000F07C1E /* Day */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -399,6 +557,8 @@
 		FE7FB47A1DB4E95400F07C1E /* CoustomView */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB51A1DB60CBC00F07C1E /* TextView */,
+				FE7FB4C11DB5EBA700F07C1E /* ShareView */,
 				FE7FB47B1DB4E95400F07C1E /* TimeView */,
 			);
 			path = CoustomView;
@@ -416,6 +576,8 @@
 		FE7FB48E1DB50C9D00F07C1E /* DevelopTempFile */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4B91DB5C1CB00F07C1E /* live.json */,
+				FE7FB51E1DB61B0D00F07C1E /* text.html */,
 				FE7FB48F1DB50CA600F07C1E /* defaultImage.jpg */,
 			);
 			path = DevelopTempFile;
@@ -451,6 +613,8 @@
 		FE7FB4971DB513C300F07C1E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4B61DB5C04700F07C1E /* CBNLiveModel.h */,
+				FE7FB4B71DB5C04700F07C1E /* CBNLiveModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +644,8 @@
 		FE7FB4A31DB51D7800F07C1E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4BB1DB5D3B600F07C1E /* CBNLiveDetailVC.h */,
+				FE7FB4BC1DB5D3B600F07C1E /* CBNLiveDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -501,8 +667,215 @@
 		FE7FB4A61DB51D7800F07C1E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB4BE1DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.h */,
+				FE7FB4BF1DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.m */,
+				FE7FB5141DB5FC8000F07C1E /* CBNLiveMoreNewsView.h */,
+				FE7FB5151DB5FC8000F07C1E /* CBNLiveMoreNewsView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FE7FB4C11DB5EBA700F07C1E /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB5201DB63E6C00F07C1E /* Image */,
+				FE7FB5261DB63E6C00F07C1E /* View */,
+			);
+			path = ShareView;
+			sourceTree = "<group>";
+		};
+		FE7FB4C61DB5F10D00F07C1E /* UMeng */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4C71DB5F10D00F07C1E /* UMManager */,
+				FE7FB4C81DB5F10D00F07C1E /* UMSocial */,
+			);
+			path = UMeng;
+			sourceTree = "<group>";
+		};
+		FE7FB4C71DB5F10D00F07C1E /* UMManager */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB5001DB5F17900F07C1E /* CBNUMShareManager.h */,
+				FE7FB5011DB5F17900F07C1E /* CBNUMShareManager.m */,
+				FE7FB5021DB5F17900F07C1E /* UMengConfigurationManager.h */,
+				FE7FB5031DB5F17900F07C1E /* UMengConfigurationManager.m */,
+			);
+			path = UMManager;
+			sourceTree = "<group>";
+		};
+		FE7FB4C81DB5F10D00F07C1E /* UMSocial */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4C91DB5F10D00F07C1E /* SocialLibraries */,
+				FE7FB4DF1DB5F10D00F07C1E /* UMSocialSDK */,
+				FE7FB4E21DB5F10D00F07C1E /* UMSocialUI */,
+			);
+			path = UMSocial;
+			sourceTree = "<group>";
+		};
+		FE7FB4C91DB5F10D00F07C1E /* SocialLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4CA1DB5F10D00F07C1E /* Email */,
+				FE7FB4CD1DB5F10D00F07C1E /* Facebook */,
+				FE7FB4D51DB5F10D00F07C1E /* Linkedin */,
+				FE7FB4D91DB5F10D00F07C1E /* Twitter */,
+			);
+			path = SocialLibraries;
+			sourceTree = "<group>";
+		};
+		FE7FB4CA1DB5F10D00F07C1E /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4CB1DB5F10D00F07C1E /* libSocialEmail.a */,
+				FE7FB4CC1DB5F10D00F07C1E /* UMSocialEmailHandler.h */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		FE7FB4CD1DB5F10D00F07C1E /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4CE1DB5F10D00F07C1E /* Bolts.framework */,
+				FE7FB4CF1DB5F10D00F07C1E /* facebook_ios_sdk_Prefix.pch */,
+				FE7FB4D01DB5F10D00F07C1E /* FBSDKCoreKit.framework */,
+				FE7FB4D11DB5F10D00F07C1E /* FBSDKLoginKit.framework */,
+				FE7FB4D21DB5F10D00F07C1E /* FBSDKShareKit.framework */,
+				FE7FB4D31DB5F10D00F07C1E /* libSocialFacebook.a */,
+				FE7FB4D41DB5F10D00F07C1E /* UMSocialFaceBookHandler.h */,
+			);
+			path = Facebook;
+			sourceTree = "<group>";
+		};
+		FE7FB4D51DB5F10D00F07C1E /* Linkedin */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4D61DB5F10D00F07C1E /* libSocialLinkedin.a */,
+				FE7FB4D71DB5F10D00F07C1E /* linkedin-sdk.framework */,
+				FE7FB4D81DB5F10D00F07C1E /* UMSocialLinkedinHandler.h */,
+			);
+			path = Linkedin;
+			sourceTree = "<group>";
+		};
+		FE7FB4D91DB5F10D00F07C1E /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4DA1DB5F10D00F07C1E /* Fabric.framework */,
+				FE7FB4DB1DB5F10D00F07C1E /* libSocialTwitter.a */,
+				FE7FB4DC1DB5F10D00F07C1E /* TwitterCore.framework */,
+				FE7FB4DD1DB5F10D00F07C1E /* TwitterKit.framework */,
+				FE7FB4DE1DB5F10D00F07C1E /* UMSocialTwitterHandler.h */,
+			);
+			path = Twitter;
+			sourceTree = "<group>";
+		};
+		FE7FB4DF1DB5F10D00F07C1E /* UMSocialSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4E01DB5F10D00F07C1E /* UMSocialCore.framework */,
+				FE7FB4E11DB5F10D00F07C1E /* UMSocialNetwork.framework */,
+			);
+			path = UMSocialSDK;
+			sourceTree = "<group>";
+		};
+		FE7FB4E21DB5F10D00F07C1E /* UMSocialUI */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4E31DB5F10D00F07C1E /* Resource */,
+				FE7FB4E51DB5F10D00F07C1E /* UMShareMenuItem.h */,
+				FE7FB4E61DB5F10D00F07C1E /* UMShareMenuItem.m */,
+				FE7FB4E71DB5F10D00F07C1E /* UMShareMenuSelectionView.h */,
+				FE7FB4E81DB5F10D00F07C1E /* UMShareMenuSelectionView.m */,
+				FE7FB4E91DB5F10D00F07C1E /* UMSocialShareScrollView.h */,
+				FE7FB4EA1DB5F10D00F07C1E /* UMSocialShareScrollView.m */,
+				FE7FB4EB1DB5F10D00F07C1E /* UMSocialUIManager.h */,
+				FE7FB4EC1DB5F10D00F07C1E /* UMSocialUIManager.m */,
+			);
+			path = UMSocialUI;
+			sourceTree = "<group>";
+		};
+		FE7FB4E31DB5F10D00F07C1E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB4E41DB5F10D00F07C1E /* UMSocialSDKResources.bundle */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FE7FB5061DB5FBC400F07C1E /* DetailHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB5071DB5FBC400F07C1E /* CBNBaseDetailHeaderView.h */,
+				FE7FB5081DB5FBC400F07C1E /* CBNBaseDetailHeaderView.m */,
+			);
+			path = DetailHeaderView;
+			sourceTree = "<group>";
+		};
+		FE7FB5091DB5FBC400F07C1E /* MoreNews */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB50B1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.h */,
+				FE7FB50C1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.m */,
+				FE7FB50E1DB5FC1500F07C1E /* CBNMoreNewsHeaderView.h */,
+				FE7FB50F1DB5FC1500F07C1E /* CBNMoreNewsHeaderView.m */,
+				FE7FB5111DB5FC4C00F07C1E /* CBNRelatedNewsItemView.h */,
+				FE7FB5121DB5FC4C00F07C1E /* CBNRelatedNewsItemView.m */,
+			);
+			path = MoreNews;
+			sourceTree = "<group>";
+		};
+		FE7FB51A1DB60CBC00F07C1E /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB51B1DB60CD000F07C1E /* CBNTextView.h */,
+				FE7FB51C1DB60CD000F07C1E /* CBNTextView.m */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		FE7FB5201DB63E6C00F07C1E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB5211DB63E6C00F07C1E /* Day */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FE7FB5211DB63E6C00F07C1E /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB5221DB63E6C00F07C1E /* CBN_email_icon@2x.png */,
+				FE7FB5231DB63E6C00F07C1E /* CBN_facebook_icon@2x.png */,
+				FE7FB5241DB63E6C00F07C1E /* CBN_linkedin_icon@2x.png */,
+				FE7FB5251DB63E6C00F07C1E /* CBN_twitter_icon@2x.png */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		FE7FB5261DB63E6C00F07C1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB5271DB63E6C00F07C1E /* CBNShareBar.h */,
+				FE7FB5281DB63E6C00F07C1E /* CBNShareBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE7FB52E1DB6424300F07C1E /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				FE7FB5331DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		FE7FB5351DB6462000F07C1E /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				FE5DF69F1DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png */,
+			);
+			path = Day;
 			sourceTree = "<group>";
 		};
 		FEB42EB81DB1318F00B988E9 /* Tool */ = {
@@ -521,6 +894,7 @@
 			children = (
 				FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */,
 				FE7FB4571DB4D57B00F07C1E /* Header.h */,
+				FE7FB4C51DB5EE5700F07C1E /* CBNEnumeration.h */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -571,6 +945,7 @@
 		FEDBCB691DB1F09300410E94 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				FE7FB52E1DB6424300F07C1E /* Day */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -689,6 +1064,8 @@
 		FEDBCB801DB1F09C00410E94 /* Thirdlib */ = {
 			isa = PBXGroup;
 			children = (
+				FE0452C41DB71757005E1263 /* LiveShuffing */,
+				FE7FB4C61DB5F10D00F07C1E /* UMeng */,
 			);
 			path = Thirdlib;
 			sourceTree = "<group>";
@@ -774,8 +1151,8 @@
 		FEDBCB971DB1F22900410E94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FE7FB4AD1DB51E8600F07C1E /* CBNBaseDetailHeaderView.h */,
-				FE7FB4AE1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m */,
+				FE7FB5061DB5FBC400F07C1E /* DetailHeaderView */,
+				FE7FB5091DB5FBC400F07C1E /* MoreNews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -819,6 +1196,8 @@
 			children = (
 				FE7FB4B01DB51E9C00F07C1E /* CBNTextDetailHeaderView.h */,
 				FE7FB4B11DB51E9C00F07C1E /* CBNTextDetailHeaderView.m */,
+				FE7FB5171DB608E300F07C1E /* CBNTextMoreNewsVie.h */,
+				FE7FB5181DB608E300F07C1E /* CBNTextMoreNewsVie.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -879,6 +1258,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FE0452CC1DB7177A005E1263 /* PBXTargetDependency */,
 			);
 			name = CBNGlobal;
 			productName = CBNGlobal;
@@ -955,6 +1335,12 @@
 			mainGroup = FE6F2CE81DB12B5B000E33F9;
 			productRefGroup = FE6F2CF21DB12B5B000E33F9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FE0452C61DB71767005E1263 /* Products */;
+					ProjectRef = FE0452C51DB71767005E1263 /* JYLiveShuffingSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FE6F2CF01DB12B5B000E33F9 /* CBNGlobal */,
@@ -964,16 +1350,35 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		FE0452CA1DB71767005E1263 /* libJYLiveShuffingSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJYLiveShuffingSDK.a;
+			remoteRef = FE0452C91DB71767005E1263 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		FE6F2CEF1DB12B5B000E33F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FE6F2D041DB12B5B000E33F9 /* LaunchScreen.storyboard in Resources */,
+				FE7FB51F1DB61B0D00F07C1E /* text.html in Resources */,
 				FE6F2D011DB12B5B000E33F9 /* Assets.xcassets in Resources */,
 				FE7FB4561DB4D42700F07C1E /* CBNChannel.plist in Resources */,
+				FE7FB5291DB63E6C00F07C1E /* CBN_email_icon@2x.png in Resources */,
+				FE7FB5341DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png in Resources */,
+				FE7FB52C1DB63E6C00F07C1E /* CBN_twitter_icon@2x.png in Resources */,
+				FE7FB52B1DB63E6C00F07C1E /* CBN_linkedin_icon@2x.png in Resources */,
+				FE5DF6A01DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png in Resources */,
 				FE7FB4901DB50CA600F07C1E /* defaultImage.jpg in Resources */,
 				FE6F2CFF1DB12B5B000E33F9 /* Main.storyboard in Resources */,
+				FE7FB4FB1DB5F10D00F07C1E /* UMSocialSDKResources.bundle in Resources */,
+				FE7FB4BA1DB5C1CB00F07C1E /* live.json in Resources */,
+				FE7FB52A1DB63E6C00F07C1E /* CBN_facebook_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,30 +1452,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE7FB4811DB4EB9600F07C1E /* CBNBaseHomePageVC.m in Sources */,
+				FE7FB5101DB5FC1500F07C1E /* CBNMoreNewsHeaderView.m in Sources */,
+				FE7FB50A1DB5FBC400F07C1E /* CBNBaseDetailHeaderView.m in Sources */,
+				FE7FB4B51DB5B60200F07C1E /* UIFont+CBNFont.m in Sources */,
 				FE7FB4871DB4F04100F07C1E /* UIDevice+CBNDevice.m in Sources */,
+				FE2E24E31DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m in Sources */,
+				FE7FB50D1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.m in Sources */,
+				FE7FB51D1DB60CD000F07C1E /* CBNTextView.m in Sources */,
 				FE7FB46E1DB4E81400F07C1E /* CBNHomePageVC.m in Sources */,
 				FE7FB4A91DB51D9D00F07C1E /* CBNTextDetailVC.m in Sources */,
 				FE7FB4441DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m in Sources */,
 				FE7FB4A11DB514FE00F07C1E /* CBNLiveNewsCell.m in Sources */,
+				FE7FB52D1DB63E6C00F07C1E /* CBNShareBar.m in Sources */,
 				FE7FB46F1DB4E81400F07C1E /* CBNHomePageHeaderView.m in Sources */,
+				FE7FB5051DB5F17900F07C1E /* UMengConfigurationManager.m in Sources */,
 				FE7FB4541DB4D20500F07C1E /* CBNFileManager.m in Sources */,
 				FE7FB4471DB4CB0E00F07C1E /* CBNBarBurronItem.m in Sources */,
 				FE7FB4931DB50D1800F07C1E /* CBNLiveShuffingView.m in Sources */,
 				FE7FB44E1DB4CD7F00F07C1E /* CBNLeftChannelCell.m in Sources */,
 				FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */,
 				FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */,
+				FE7FB4FC1DB5F10D00F07C1E /* UMShareMenuItem.m in Sources */,
 				FE7FB49E1DB514E200F07C1E /* CBNLiveHeaderView.m in Sources */,
+				FE7FB5131DB5FC4C00F07C1E /* CBNRelatedNewsItemView.m in Sources */,
 				FE7FB44B1DB4CBA100F07C1E /* UIColor+CBNColor.m in Sources */,
 				FE6F2CFC1DB12B5B000E33F9 /* ViewController.m in Sources */,
 				FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */,
+				FE7FB4FF1DB5F10D00F07C1E /* UMSocialUIManager.m in Sources */,
 				FE7FB4701DB4E81400F07C1E /* CBNPublicChannelVC.m in Sources */,
+				FE7FB4BD1DB5D3B600F07C1E /* CBNLiveDetailVC.m in Sources */,
+				FE7FB5161DB5FC8000F07C1E /* CBNLiveMoreNewsView.m in Sources */,
 				FE7FB48D1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m in Sources */,
+				FE7FB5041DB5F17900F07C1E /* CBNUMShareManager.m in Sources */,
 				FE7FB47E1DB4E96D00F07C1E /* CBNNewsTimeLabel.m in Sources */,
+				FE7FB4FE1DB5F10D00F07C1E /* UMSocialShareScrollView.m in Sources */,
 				FE7FB4841DB4EF0800F07C1E /* NSString+CBNString.m in Sources */,
+				FE7FB5191DB608E300F07C1E /* CBNTextMoreNewsVie.m in Sources */,
 				FE7FB49B1DB513DC00F07C1E /* CBNLiveVC.m in Sources */,
 				FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */,
-				FE7FB4AF1DB51E8600F07C1E /* CBNBaseDetailHeaderView.m in Sources */,
+				FE7FB4B81DB5C04700F07C1E /* CBNLiveModel.m in Sources */,
 				FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */,
+				FE7FB4FD1DB5F10D00F07C1E /* UMShareMenuSelectionView.m in Sources */,
+				FE7FB4C01DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.m in Sources */,
 				FE7FB4791DB4E89300F07C1E /* CBNChannelNewsTextCell.m in Sources */,
 				FE7FB4B21DB51E9C00F07C1E /* CBNTextDetailHeaderView.m in Sources */,
 			);
@@ -1095,6 +1518,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FE0452CC1DB7177A005E1263 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JYLiveShuffingSDK;
+			targetProxy = FE0452CB1DB7177A005E1263 /* PBXContainerItemProxy */;
+		};
 		FE6F2D0C1DB12B5B000E33F9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FE6F2CF01DB12B5B000E33F9 /* CBNGlobal */;
@@ -1214,10 +1642,24 @@
 			baseConfigurationReference = A7DDD6D6466BC6672D8A6618 /* Pods-CBNGlobal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/UMSocialSDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CBNGlobal/Tool/Configuration/PrefixHeader.pch";
 				INFOPLIST_FILE = CBNGlobal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Email",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Twitter",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1228,10 +1670,24 @@
 			baseConfigurationReference = 34FEE17627E0E355EAC5CBC4 /* Pods-CBNGlobal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/UMSocialSDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CBNGlobal/Tool/Configuration/PrefixHeader.pch";
 				INFOPLIST_FILE = CBNGlobal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Email",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Twitter",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

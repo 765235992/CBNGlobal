@@ -42,7 +42,7 @@ NSString * const CBNChannelChangedAdd = @"CBNChannelChanged";
 
 - (void)setNavigationHeader
 {
-    CBNBarBurronItem *leftBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(leftBar:) andFrame:CGRectMake(0, 0, 44, 44) andImage:[UIColorFromRGB(0xBC8F8F) colorImage]];
+    CBNBarBurronItem *leftBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(leftBar:) andFrame:CGRectMake(0, 0, 44, 44) andImage:[UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"]];
     
     
     self.navigationItem.leftBarButtonItem = leftBar;

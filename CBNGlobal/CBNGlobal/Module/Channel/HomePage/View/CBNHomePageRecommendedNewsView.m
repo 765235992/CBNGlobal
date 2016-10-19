@@ -53,10 +53,13 @@
         self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin, 0)];
         _newsTitleLabel.numberOfLines = 0;
         
-        _newsTitleLabel.font = CBN_News_Title_Font;
+        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
         
-        _newsTitleLabel.backgroundColor = [UIColor clearColor];
+        _newsTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         
+        
+        _newsTitleLabel.font = [UIFont newsTitleFont];
+
         
         _newsTitleLabel.text = @"Beijing Chokes Again, Smothered by Smog for Three Days";
         

@@ -14,6 +14,19 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - DKNightVersion (2.4.1):
+    - DKNightVersion/Core (= 2.4.1)
+    - DKNightVersion/CoreAnimation (= 2.4.1)
+    - DKNightVersion/UIKit (= 2.4.1)
+  - DKNightVersion/Core (2.4.1):
+    - DKNightVersion/Core/DeallocBlockExecutor (= 2.4.1)
+    - DKNightVersion/Core/extobjc (= 2.4.1)
+  - DKNightVersion/Core/DeallocBlockExecutor (2.4.1)
+  - DKNightVersion/Core/extobjc (2.4.1)
+  - DKNightVersion/CoreAnimation (2.4.1):
+    - DKNightVersion/Core
+  - DKNightVersion/UIKit (2.4.1):
+    - DKNightVersion/Core
   - MJRefresh (3.1.12)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
@@ -33,16 +46,18 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - DKNightVersion
   - MJRefresh
   - MMDrawerController
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  DKNightVersion: 3e1c2f9fb69a57f7e850f73ea7f67971400dff0d
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: ab78e59180da13c109d568b53d0d4ca5626cd35f
+PODFILE CHECKSUM: dadfd4985607e68d652db2a886c53e433ef947b5
 
 COCOAPODS: 1.0.1

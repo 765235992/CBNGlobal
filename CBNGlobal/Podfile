@@ -4,4 +4,6 @@ pod 'MJRefresh'
 pod 'SDWebImage'
 pod 'AFNetworking'
 pod 'MMDrawerController'
+pod 'DKNightVersion'
+pod 'MJRefresh'
 end

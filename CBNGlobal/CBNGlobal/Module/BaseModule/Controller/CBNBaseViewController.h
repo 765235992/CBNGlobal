@@ -10,4 +10,10 @@
 
 @interface CBNBaseViewController : UIViewController
 
+- (void)setBackBarButtonItem;
+
+- (void)setShareBarButtonItem;
+
+- (void)setNavigationTitle:(NSString *)titleString;
+
 @end

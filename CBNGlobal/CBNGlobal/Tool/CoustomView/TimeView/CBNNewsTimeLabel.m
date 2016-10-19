@@ -36,11 +36,11 @@
     if (!_timeLabel) {
         
         self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 70, 35)];
-        _timeLabel.textColor = [UIColor grayColor];
-        _timeLabel.font =  [UIFont fontWithName:@"STHeitiSC-Light" size:[UIDevice getFontSizeWithBaseFontSize:10]];
-        _timeLabel.text = @"Yicai";
 
-        _timeLabel.backgroundColor = [UIColor clearColor];
+        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(news_Small_Tag_Color);
+        _timeLabel.font = [UIFont tagFont];
+        
+        _timeLabel.text = @"Yicai";
     }
     
     return _timeLabel;

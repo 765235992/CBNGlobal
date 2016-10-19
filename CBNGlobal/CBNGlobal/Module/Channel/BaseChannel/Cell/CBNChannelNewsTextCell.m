@@ -29,8 +29,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        CBNLog(@"创建");
+
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        self.backgroundColor = [UIColor clearColor];
         
         [self addSubview:self.newsThumbImageView];
 
@@ -64,16 +66,18 @@
 - (UILabel *)newsTitleLabel
 {
     if (!_newsTitleLabel) {
+        CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +news_Cell_Left_Or_Right_Margin*3);
+
+        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, label_Width, 0)];
         
-        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - (_newsThumbImageView.frame.size.width + 2*news_Cell_Left_Or_Right_Margin *3), 0)];
+        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
         
-        _newsTitleLabel.numberOfLines = 3;
-        
-        _newsTitleLabel.backgroundColor = [UIColor whiteColor];
-        _newsTitleLabel.font = CBN_News_Title_Font;
         _newsTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         
+        _newsTitleLabel.numberOfLines = 3;
 
+        _newsTitleLabel.font = [UIFont newsTitleFont];
+        
         
         
     }
@@ -88,8 +92,9 @@
         self.authorNameLabel = [[UILabel alloc] init];
         
         _authorNameLabel.backgroundColor = [UIColor clearColor];
-        _authorNameLabel.textColor = [UIColor grayColor];
-        _authorNameLabel.font =  [UIFont fontWithName:@"STHeitiSC-Light" size:[UIDevice getFontSizeWithBaseFontSize:10]];
+        _authorNameLabel.dk_textColorPicker = DKColorPickerWithKey(news_Small_Tag_Color);
+        _authorNameLabel.font = [UIFont tagFont];
+        
         _authorNameLabel.text = @"Yicai";
         
         [_authorNameLabel sizeToFit];
@@ -122,20 +127,21 @@
     if (!_lineImageView) {
         
         self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin,news_Cell_Height-1, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin, 1)];
-        _lineImageView.backgroundColor = [UIColor blackColor];
+        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
     }
     
     return _lineImageView;
 }
 - (void)setFontName:(NSString *)fontName
 {
-//    _newsTitleLabel.text = @"Shenzhou-11 Astronauts Take With Them 100 Tasty Meals, Will Perform Outer Space Experiments";
-//    _newsTitleLabel.font = [UIFont fontWithName:fontName size:[UIDevice getFontSizeWithBaseFontSize:14]];
     _newsTitleLabel.text = [NSString stringWithFormat:@"Beijing Chokes Again, Smothered by Smog for Three Days"];
-//    NSLog(@"%@",fontName);
+
     [_newsTitleLabel sizeToFit];
-    
+
     CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +news_Cell_Left_Or_Right_Margin*3);
+    
     _newsTitleLabel.frame = CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
+
+    
 }
 @end

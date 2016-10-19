@@ -1,0 +1,61 @@
+//
+//  CBNBaseDetailMoreNewsView.m
+//  CBNGlobal
+//
+//  Created by Jone on 16/10/18.
+//  Copyright © 2016年 上海第一财经传媒有限公司. All rights reserved.
+//
+
+#import "CBNBaseDetailMoreNewsView.h"
+#import "CBNMoreNewsHeaderView.h"
+#import "CBNRelatedNewsItemView.h"
+
+@interface CBNBaseDetailMoreNewsView ()
+@property (nonatomic, strong) CBNMoreNewsHeaderView *headerView;
+@end
+
+@implementation CBNBaseDetailMoreNewsView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addSubview:self.headerView];
+        [self setRelatedNewsItemsView];
+        
+    }
+    return self;
+}
+
+- (CBNMoreNewsHeaderView *)headerView
+{
+    if (!_headerView) {
+        
+        self.headerView = [[CBNMoreNewsHeaderView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, [NSString getTextHeightWithFont:[UIFont newsTitleFont]]+2*news_Cell_Up_Or_Down_Margin+2)];
+    }
+    
+    return _headerView;
+}
+- (void)setRelatedNewsItemsView
+{
+    
+    CGFloat height = _headerView.frame.size.height;
+    for (int i = 1; i < 6; i++) {
+        CBNRelatedNewsItemView *tempNewsItemView = [[CBNRelatedNewsItemView alloc] initWithFrame:CGRectMake(0, height, CBN_Screen_Width, 0)];
+        
+        tempNewsItemView.newsTitleString = [NSString stringWithFormat:@"%d、%@", i,@"Duterte starts a four-day state visit to China on Tuesday at the invitation of his Chinese counterpart, Xi Jinping."];
+        
+        [self addSubview:tempNewsItemView];
+        
+        height = height + tempNewsItemView.frame.size.height;
+        
+    }
+    
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, CBN_Screen_Width, height);
+    
+}
+
+
+
+
+@end

@@ -20,7 +20,6 @@
 
 + (NSInteger)getFontSizeWithBaseFontSize:(CGFloat)baseFontSize
 {
-//    CBNLog(@"字体大小 -- %f",(baseFontSize * [UIDevice getProportionOfTheScreen]));
     return (NSInteger)(baseFontSize * [UIDevice getProportionOfTheScreen]);
 }
 

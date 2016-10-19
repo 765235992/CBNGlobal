@@ -9,14 +9,15 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import "Header.h"
-
-
-
+#import "CBNEnumeration.h"
+#import "NSMutableAttributedString+CBNAttributeString.h"
+#import "UIFont+CBNFont.h"
 #import "NSString+CBNString.h"
 #import "UIColor+CBNColor.h"
 #import "UIDevice+CBNDevice.h"
-
+#import "DKNightVersion.h"
 #import "AFNetworking.h"
+#import "MJRefresh.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+MMDrawerController.h"
 
@@ -30,9 +31,6 @@
 #endif
 
 
-#define CBN_Screen_Width ([UIScreen mainScreen].bounds.size.width)
-
-#define CBN_Screen_Height ([UIScreen mainScreen].bounds.size.height)
 
 /*
  *  16进制颜色宏
@@ -43,13 +41,23 @@
 #define RGBColor(R, G, B, A) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:A]
 #define RGBColor_(R, G, B) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:1.0]
 
+#define CBN_Screen_Width ([UIScreen mainScreen].bounds.size.width)
+
+#define CBN_Screen_Height ([UIScreen mainScreen].bounds.size.height)
+
+#define CBN_Screen_Width_Ratio  (CBN_Screen_Width / 320.0)
+
+#define CBN_Width(width) (CBN_Screen_Width_Ratio(width) * CBN_Screen_Width_Ratio)
 
 #define user_Draw_open_With CBN_Screen_Width*0.47
 
 #define news_Cell_Left_Or_Right_Margin 8
 #define news_Cell_Up_Or_Down_Margin 12
-
+#define search_Bar_Height 30
 #define news_Cell_Height [NSString getTextHeightWithFont:CBN_News_Title_Font]*4 + 2*news_Cell_Up_Or_Down_Margin
+
+#define font_Name_Blod @"AppleSDGothicNeo-SemiBold"
+#define font_Name_Light @"AppleSDGothicNeo-Light"
 
 #define CBN_News_Title_Font [UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:[UIDevice getFontSizeWithBaseFontSize:16]]
 

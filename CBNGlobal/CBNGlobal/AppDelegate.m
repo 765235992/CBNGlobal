@@ -10,6 +10,8 @@
 #import "CBNHomePageVC.h"
 #import "CBNLeftChannelVC.h"
 #import "CBNDrawerVisualStateManager.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import "UMengConfigurationManager.h"
 
 @interface AppDelegate ()
 @property (nonatomic,strong) MMDrawerController * drawerController;
@@ -22,6 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     
+//    [UMengConfigurationManager configurationUMWithOptions:launchOptions];
     
     CBNHomePageVC *homePageVC = [[CBNHomePageVC alloc] init];
     
@@ -59,6 +62,23 @@
 
     
     return YES;
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        
+    }
+    return result;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        
+    }
+    return result;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
