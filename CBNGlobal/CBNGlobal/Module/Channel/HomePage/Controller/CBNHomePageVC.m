@@ -25,6 +25,10 @@
 @end
 
 @implementation CBNHomePageVC
+- (void)dealloc
+{
+    NSLog(@"aaaaaaaaa");
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -36,8 +40,7 @@
         
         for (NSString * fontName in [UIFont fontNamesForFamilyName:familyName]) {
             
-            NSLog(@"%@",fontName);
-            
+            NSLog(@"%@",familyName);
             [_sourceArray addObject:fontName];
         }
     }

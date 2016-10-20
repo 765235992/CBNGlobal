@@ -17,7 +17,6 @@
 
 @property (nonatomic, strong) UIScrollView *aScrollView;
 
-
 @property (nonatomic, strong) CBNTextDetailHeaderView *headerView;
 
 @property (nonatomic, strong) CBNTextView *contentTextView;

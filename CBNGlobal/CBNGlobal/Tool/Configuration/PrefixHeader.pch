@@ -49,17 +49,17 @@
 
 #define CBN_Width(width) (CBN_Screen_Width_Ratio(width) * CBN_Screen_Width_Ratio)
 
-#define user_Draw_open_With CBN_Screen_Width*0.47
+#define user_Draw_open_With CBN_Screen_Width*0.55
 
 #define news_Cell_Left_Or_Right_Margin 8
 #define news_Cell_Up_Or_Down_Margin 12
 #define search_Bar_Height 30
 #define news_Cell_Height [NSString getTextHeightWithFont:CBN_News_Title_Font]*4 + 2*news_Cell_Up_Or_Down_Margin
 
-#define font_Name_Blod @"AppleSDGothicNeo-SemiBold"
-#define font_Name_Light @"AppleSDGothicNeo-Light"
+#define font_Name_Blod @"DINPro-Bold"
+#define font_Name_Light @"DINPro-Light"
 
-#define CBN_News_Title_Font [UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:[UIDevice getFontSizeWithBaseFontSize:16]]
+#define CBN_News_Title_Font [UIFont fontWithName:@"DINPro-Bold" size:[UIDevice getFontSizeWithBaseFontSize:16]]
 
 
 

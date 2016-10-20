@@ -9,6 +9,9 @@
 #import "CBNLeftChannelVC.h"
 #import "CBNLeftChannelCell.h"
 #import "CBNFileManager.h"
+#import "CBNHomePageVC.h"
+#import "CBNPublicChannelVC.h"
+#import "CBNChannelNavigationController.h"
 
 NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
@@ -83,18 +86,49 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 2*[NSString getTextHeightWithFont:[UIFont newsTitleFont]];
 }
 
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSDictionary *channelInfo = [_sourceArray objectAtIndex:indexPath.row];
-        
-    [[NSNotificationCenter defaultCenter] postNotificationName:CBNChannelChanged object:channelInfo];
+    switch (indexPath.row) {
+        case 0:
+            [self homeChannel];
+            break;
+        case 1:
+  
+            [self publiChannel];
+            
+        default:
+            break;
+    }
 
+
+}
+- (void)homeChannel
+{
+
+    CBNHomePageVC *homeChangeVC = [[CBNHomePageVC alloc] init];
+    
+    CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:homeChangeVC];
+    
+    [self.mm_drawerController setCenterViewController:navigation withCloseAnimation:YES completion:^(BOOL finished) {
+        
+    }];
+
+}
+
+- (void)publiChannel
+{
+    CBNPublicChannelVC *publicChannel = [[CBNPublicChannelVC alloc] init];
+    
+    CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:publicChannel];
+    [self.mm_drawerController setCenterViewController:navigation withCloseAnimation:YES completion:^(BOOL finished) {
+        
+    }];
+ 
 }
 
 

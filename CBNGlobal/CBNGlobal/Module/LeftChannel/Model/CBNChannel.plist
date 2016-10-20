@@ -8,7 +8,7 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Home</string>
 	</dict>
 	<dict>
 		<key>newsChannelType</key>
@@ -16,7 +16,7 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Analysis</string>
 	</dict>
 	<dict>
 		<key>newsChannelType</key>
@@ -24,7 +24,7 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Business</string>
 	</dict>
 	<dict>
 		<key>newsChannelType</key>
@@ -32,7 +32,7 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Finace</string>
 	</dict>
 	<dict>
 		<key>newsChannelType</key>
@@ -40,7 +40,7 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Tech</string>
 	</dict>
 	<dict>
 		<key>newsChannelType</key>
@@ -48,7 +48,7 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Entrepreneurs</string>
 	</dict>
 	<dict>
 		<key>newsChannelType</key>
@@ -56,7 +56,7 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Column</string>
 	</dict>
 	<dict>
 		<key>newsChannelType</key>
@@ -64,7 +64,15 @@
 		<key>newsChannelID</key>
 		<string>1</string>
 		<key>newsChannelTitle</key>
-		<string>Chinese</string>
+		<string>Property</string>
+	</dict>
+	<dict>
+		<key>newsChannelType</key>
+		<string>新闻</string>
+		<key>newsChannelID</key>
+		<string>1</string>
+		<key>newsChannelTitle</key>
+		<string>Special</string>
 	</dict>
 </array>
 </plist>

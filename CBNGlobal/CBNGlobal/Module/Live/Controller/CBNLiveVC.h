@@ -6,8 +6,8 @@
 //  Copyright © 2016年 上海第一财经传媒有限公司. All rights reserved.
 //
 
-#import "CBNBaseViewController.h"
+#import "CBNBaseInfoViewController.h"
 
-@interface CBNLiveVC : CBNBaseViewController
+@interface CBNLiveVC : CBNBaseInfoViewController
 
 @end

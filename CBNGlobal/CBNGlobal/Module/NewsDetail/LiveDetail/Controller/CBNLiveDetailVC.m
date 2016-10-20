@@ -33,8 +33,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setBackBarButtonItem];
+    [self setNavigationTitle:@"Live"];
+    [self setShareBarButtonItem];
 
     _scrollViewHeight = 0.0;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.aScrollView];
@@ -78,7 +83,7 @@
     
     _scrollViewHeight = _scrollViewHeight+_moreNewsView.frame.size.height+1;
 
-    _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
+    _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight + 64);
     
 }
 

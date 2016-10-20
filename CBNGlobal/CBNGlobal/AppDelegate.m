@@ -12,6 +12,9 @@
 #import "CBNDrawerVisualStateManager.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import "UMengConfigurationManager.h"
+#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
+#import <JYGuideSDK/JYGuideSDK.h>
+#import "CBNChannelNavigationController.h"
 
 @interface AppDelegate ()
 @property (nonatomic,strong) MMDrawerController * drawerController;
@@ -28,7 +31,7 @@
     
     CBNHomePageVC *homePageVC = [[CBNHomePageVC alloc] init];
     
-    UINavigationController *homePageNavigatonController = [[UINavigationController alloc] initWithRootViewController:homePageVC];
+    CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:homePageVC];
     
     CBNLeftChannelVC *leftChannelVC = [[CBNLeftChannelVC alloc] init];
     /*
@@ -60,7 +63,11 @@
     [self.window setRootViewController:self.drawerController];
     [self.window makeKeyAndVisible];
 
+    JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
     
+    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
+    [view showWithGuideImageArrays:arr];
+
     return YES;
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

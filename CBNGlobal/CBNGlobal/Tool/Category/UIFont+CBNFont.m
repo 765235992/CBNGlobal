@@ -35,23 +35,19 @@
 
 + (UIFont *)refreshAndLoadingFont
 {
-    return [self fontWithSmallSzie:12 middleSize:14 bigSize:16 AndFontName:font_Name_Blod];
+    return [self fontWithSmallSzie:12 middleSize:13 bigSize:14 AndFontName:font_Name_Blod];
 
 }
 
 + (UIFont *)fontWithSmallSzie:(CGFloat)samllSize middleSize:(CGFloat)middelSize bigSize:(CGFloat)bigSize AndFontName:(NSString *)fontName
 {
     if (IS_IPHONE_6_PLUS == CBN_Screen_Height) {
-        NSLog(@"PLUS");
         return [UIFont fontWithName:fontName size:bigSize];
         
     }else if (IS_IPHONE_6 == CBN_Screen_Height){
-        NSLog(@"6");
         return [UIFont fontWithName:fontName size:middelSize];
 
     }else{
-        NSLog(@"5S");
-
         return [UIFont fontWithName:fontName size:samllSize];
 
     }

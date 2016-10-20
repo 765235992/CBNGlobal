@@ -10,7 +10,18 @@
 		78F1F64B450F8B55BA1C78F4 /* libPods-CBNGlobal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6936100BDAE8F7C4498C70AA /* libPods-CBNGlobal.a */; };
 		FE2E24E01DB71B76007FA000 /* libJYLiveShuffingSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0452CA1DB71767005E1263 /* libJYLiveShuffingSDK.a */; };
 		FE2E24E31DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E24E21DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m */; };
-		FE5DF6A01DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5DF69F1DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png */; };
+		FE2E25211DB72729007FA000 /* libJYGuideSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2E251E1DB72718007FA000 /* libJYGuideSDK.a */; };
+		FE2E25241DB72BD1007FA000 /* CBNBaseChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E25231DB72BD1007FA000 /* CBNBaseChannelVC.m */; };
+		FE2E25271DB76070007FA000 /* CBNChannelNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E25261DB76070007FA000 /* CBNChannelNavigationController.m */; };
+		FE2E25571DB7643A007FA000 /* libLSNavigationSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2E25541DB7642A007FA000 /* libLSNavigationSDK.a */; };
+		FE2E25591DB76782007FA000 /* CBN_Channel_Left_Bar_Image_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE2E25581DB76782007FA000 /* CBN_Channel_Left_Bar_Image_Day@2x.png */; };
+		FE2E255C1DB76A2A007FA000 /* CBNBaseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E255B1DB76A2A007FA000 /* CBNBaseInfoViewController.m */; };
+		FE2E255F1DB76D5F007FA000 /* CBN_share_Image_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE2E255D1DB76D5F007FA000 /* CBN_share_Image_Day@2x.png */; };
+		FE2E25601DB76D5F007FA000 /* CBN_share_Image_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE2E255E1DB76D5F007FA000 /* CBN_share_Image_Day@3x.png */; };
+		FE2E25681DB775A1007FA000 /* DINPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE2E25661DB775A1007FA000 /* DINPro-Bold.otf */; };
+		FE2E25691DB775A1007FA000 /* DINPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE2E25671DB775A1007FA000 /* DINPro-Light.otf */; };
+		FE2E256C1DB777B4007FA000 /* CBNLiveDetailButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E256B1DB777B4007FA000 /* CBNLiveDetailButton.m */; };
+		FE2E256F1DB7813C007FA000 /* CBNNavigationShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E256E1DB7813C007FA000 /* CBNNavigationShareView.m */; };
 		FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CF51DB12B5B000E33F9 /* main.m */; };
 		FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CF81DB12B5B000E33F9 /* AppDelegate.m */; };
 		FE6F2CFC1DB12B5B000E33F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CFB1DB12B5B000E33F9 /* ViewController.m */; };
@@ -30,7 +41,6 @@
 		FE7FB4701DB4E81400F07C1E /* CBNPublicChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB46D1DB4E81400F07C1E /* CBNPublicChannelVC.m */; };
 		FE7FB4791DB4E89300F07C1E /* CBNChannelNewsTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4781DB4E89300F07C1E /* CBNChannelNewsTextCell.m */; };
 		FE7FB47E1DB4E96D00F07C1E /* CBNNewsTimeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB47D1DB4E96D00F07C1E /* CBNNewsTimeLabel.m */; };
-		FE7FB4811DB4EB9600F07C1E /* CBNBaseHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4801DB4EB9600F07C1E /* CBNBaseHomePageVC.m */; };
 		FE7FB4841DB4EF0800F07C1E /* NSString+CBNString.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4831DB4EF0800F07C1E /* NSString+CBNString.m */; };
 		FE7FB4871DB4F04100F07C1E /* UIDevice+CBNDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4861DB4F04100F07C1E /* UIDevice+CBNDevice.m */; };
 		FE7FB48D1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB48C1DB5046E00F07C1E /* CBNHomePageRecommendedNewsView.m */; };
@@ -101,6 +111,34 @@
 			remoteGlobalIDString = FE0452A71DB71717005E1263;
 			remoteInfo = JYLiveShuffingSDK;
 		};
+		FE2E251D1DB72718007FA000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE2E25191DB72718007FA000 /* JYGuideSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2E25051DB72585007FA000;
+			remoteInfo = JYGuideSDK;
+		};
+		FE2E251F1DB72720007FA000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE2E25191DB72718007FA000 /* JYGuideSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FE2E25041DB72585007FA000;
+			remoteInfo = JYGuideSDK;
+		};
+		FE2E25531DB7642A007FA000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE2E254F1DB7642A007FA000 /* LSNavigationSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2E25311DB7634C007FA000;
+			remoteInfo = LSNavigationSDK;
+		};
+		FE2E25551DB76432007FA000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE2E254F1DB7642A007FA000 /* LSNavigationSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FE2E25301DB7634C007FA000;
+			remoteInfo = LSNavigationSDK;
+		};
 		FE6F2D0B1DB12B5B000E33F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE6F2CE91DB12B5B000E33F9 /* Project object */;
@@ -124,7 +162,23 @@
 		FE0452C51DB71767005E1263 /* JYLiveShuffingSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JYLiveShuffingSDK.xcodeproj; path = "../../../../../../../../iOS/正在封装的Demo/LiveShuffing/JYLiveShuffingSDK/JYLiveShuffingSDK.xcodeproj"; sourceTree = "<group>"; };
 		FE2E24E11DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+CBNAttributeString.h"; sourceTree = "<group>"; };
 		FE2E24E21DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+CBNAttributeString.m"; sourceTree = "<group>"; };
-		FE5DF69F1DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_Channel_Left_Bar_Image_Day@2x.png"; sourceTree = "<group>"; };
+		FE2E25191DB72718007FA000 /* JYGuideSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JYGuideSDK.xcodeproj; path = "../../../../../../../../iOS/正在封装的Demo/GuideView/JYGuideSDK/JYGuideSDK.xcodeproj"; sourceTree = "<group>"; };
+		FE2E25221DB72BD1007FA000 /* CBNBaseChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseChannelVC.h; sourceTree = "<group>"; };
+		FE2E25231DB72BD1007FA000 /* CBNBaseChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseChannelVC.m; sourceTree = "<group>"; };
+		FE2E25251DB76070007FA000 /* CBNChannelNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelNavigationController.h; sourceTree = "<group>"; };
+		FE2E25261DB76070007FA000 /* CBNChannelNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelNavigationController.m; sourceTree = "<group>"; };
+		FE2E254F1DB7642A007FA000 /* LSNavigationSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LSNavigationSDK.xcodeproj; path = "../../../../../../../../iOS/正在封装的Demo/LSNavigationSDK/LSNavigationSDK.xcodeproj"; sourceTree = "<group>"; };
+		FE2E25581DB76782007FA000 /* CBN_Channel_Left_Bar_Image_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_Channel_Left_Bar_Image_Day@2x.png"; sourceTree = "<group>"; };
+		FE2E255A1DB76A2A007FA000 /* CBNBaseInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseInfoViewController.h; sourceTree = "<group>"; };
+		FE2E255B1DB76A2A007FA000 /* CBNBaseInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseInfoViewController.m; sourceTree = "<group>"; };
+		FE2E255D1DB76D5F007FA000 /* CBN_share_Image_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_share_Image_Day@2x.png"; sourceTree = "<group>"; };
+		FE2E255E1DB76D5F007FA000 /* CBN_share_Image_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CBN_share_Image_Day@3x.png"; sourceTree = "<group>"; };
+		FE2E25661DB775A1007FA000 /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
+		FE2E25671DB775A1007FA000 /* DINPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Light.otf"; sourceTree = "<group>"; };
+		FE2E256A1DB777B4007FA000 /* CBNLiveDetailButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveDetailButton.h; sourceTree = "<group>"; };
+		FE2E256B1DB777B4007FA000 /* CBNLiveDetailButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveDetailButton.m; sourceTree = "<group>"; };
+		FE2E256D1DB7813C007FA000 /* CBNNavigationShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNavigationShareView.h; sourceTree = "<group>"; };
+		FE2E256E1DB7813C007FA000 /* CBNNavigationShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNavigationShareView.m; sourceTree = "<group>"; };
 		FE6F2CF11DB12B5B000E33F9 /* CBNGlobal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBNGlobal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6F2CF51DB12B5B000E33F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FE6F2CF71DB12B5B000E33F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,8 +217,6 @@
 		FE7FB4781DB4E89300F07C1E /* CBNChannelNewsTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelNewsTextCell.m; sourceTree = "<group>"; };
 		FE7FB47C1DB4E96D00F07C1E /* CBNNewsTimeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsTimeLabel.h; sourceTree = "<group>"; };
 		FE7FB47D1DB4E96D00F07C1E /* CBNNewsTimeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsTimeLabel.m; sourceTree = "<group>"; };
-		FE7FB47F1DB4EB9600F07C1E /* CBNBaseHomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseHomePageVC.h; sourceTree = "<group>"; };
-		FE7FB4801DB4EB9600F07C1E /* CBNBaseHomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseHomePageVC.m; sourceTree = "<group>"; };
 		FE7FB4821DB4EF0800F07C1E /* NSString+CBNString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CBNString.h"; sourceTree = "<group>"; };
 		FE7FB4831DB4EF0800F07C1E /* NSString+CBNString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CBNString.m"; sourceTree = "<group>"; };
 		FE7FB4851DB4F04100F07C1E /* UIDevice+CBNDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+CBNDevice.h"; sourceTree = "<group>"; };
@@ -262,6 +314,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2E25571DB7643A007FA000 /* libLSNavigationSDK.a in Frameworks */,
+				FE2E25211DB72729007FA000 /* libJYGuideSDK.a in Frameworks */,
 				FE2E24E01DB71B76007FA000 /* libJYLiveShuffingSDK.a in Frameworks */,
 				FE7FB4F91DB5F10D00F07C1E /* UMSocialCore.framework in Frameworks */,
 				FE7FB4EE1DB5F10D00F07C1E /* Bolts.framework in Frameworks */,
@@ -329,6 +383,47 @@
 				FE0452CA1DB71767005E1263 /* libJYLiveShuffingSDK.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FE2E25181DB7270A007FA000 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E25191DB72718007FA000 /* JYGuideSDK.xcodeproj */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		FE2E251A1DB72718007FA000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E251E1DB72718007FA000 /* libJYGuideSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE2E254E1DB7641D007FA000 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E254F1DB7642A007FA000 /* LSNavigationSDK.xcodeproj */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FE2E25501DB7642A007FA000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E25541DB7642A007FA000 /* libLSNavigationSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE2E25611DB77525007FA000 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E25661DB775A1007FA000 /* DINPro-Bold.otf */,
+				FE2E25671DB775A1007FA000 /* DINPro-Light.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FE6F2CE81DB12B5B000E33F9 = {
@@ -526,8 +621,10 @@
 		FE7FB4731DB4E85C00F07C1E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FE7FB47F1DB4EB9600F07C1E /* CBNBaseHomePageVC.h */,
-				FE7FB4801DB4EB9600F07C1E /* CBNBaseHomePageVC.m */,
+				FE2E25221DB72BD1007FA000 /* CBNBaseChannelVC.h */,
+				FE2E25231DB72BD1007FA000 /* CBNBaseChannelVC.m */,
+				FE2E25251DB76070007FA000 /* CBNChannelNavigationController.h */,
+				FE2E25261DB76070007FA000 /* CBNChannelNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -626,6 +723,8 @@
 				FE7FB49D1DB514E200F07C1E /* CBNLiveHeaderView.m */,
 				FE7FB49F1DB514FE00F07C1E /* CBNLiveNewsCell.h */,
 				FE7FB4A01DB514FE00F07C1E /* CBNLiveNewsCell.m */,
+				FE2E256A1DB777B4007FA000 /* CBNLiveDetailButton.h */,
+				FE2E256B1DB777B4007FA000 /* CBNLiveDetailButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -858,6 +957,8 @@
 			children = (
 				FE7FB5271DB63E6C00F07C1E /* CBNShareBar.h */,
 				FE7FB5281DB63E6C00F07C1E /* CBNShareBar.m */,
+				FE2E256D1DB7813C007FA000 /* CBNNavigationShareView.h */,
+				FE2E256E1DB7813C007FA000 /* CBNNavigationShareView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -865,6 +966,8 @@
 		FE7FB52E1DB6424300F07C1E /* Day */ = {
 			isa = PBXGroup;
 			children = (
+				FE2E255D1DB76D5F007FA000 /* CBN_share_Image_Day@2x.png */,
+				FE2E255E1DB76D5F007FA000 /* CBN_share_Image_Day@3x.png */,
 				FE7FB5331DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png */,
 			);
 			path = Day;
@@ -873,7 +976,7 @@
 		FE7FB5351DB6462000F07C1E /* Day */ = {
 			isa = PBXGroup;
 			children = (
-				FE5DF69F1DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png */,
+				FE2E25581DB76782007FA000 /* CBN_Channel_Left_Bar_Image_Day@2x.png */,
 			);
 			path = Day;
 			sourceTree = "<group>";
@@ -938,6 +1041,8 @@
 				FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */,
 				FEDBCB851DB1F0FB00410E94 /* CBNBaseViewController.h */,
 				FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */,
+				FE2E255A1DB76A2A007FA000 /* CBNBaseInfoViewController.h */,
+				FE2E255B1DB76A2A007FA000 /* CBNBaseInfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1064,6 +1169,9 @@
 		FEDBCB801DB1F09C00410E94 /* Thirdlib */ = {
 			isa = PBXGroup;
 			children = (
+				FE2E25611DB77525007FA000 /* Fonts */,
+				FE2E254E1DB7641D007FA000 /* Navigation */,
+				FE2E25181DB7270A007FA000 /* Guide */,
 				FE0452C41DB71757005E1263 /* LiveShuffing */,
 				FE7FB4C61DB5F10D00F07C1E /* UMeng */,
 			);
@@ -1258,6 +1366,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				FE2E25561DB76432007FA000 /* PBXTargetDependency */,
+				FE2E25201DB72720007FA000 /* PBXTargetDependency */,
 				FE0452CC1DB7177A005E1263 /* PBXTargetDependency */,
 			);
 			name = CBNGlobal;
@@ -1337,8 +1447,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = FE2E251A1DB72718007FA000 /* Products */;
+					ProjectRef = FE2E25191DB72718007FA000 /* JYGuideSDK.xcodeproj */;
+				},
+				{
 					ProductGroup = FE0452C61DB71767005E1263 /* Products */;
 					ProjectRef = FE0452C51DB71767005E1263 /* JYLiveShuffingSDK.xcodeproj */;
+				},
+				{
+					ProductGroup = FE2E25501DB7642A007FA000 /* Products */;
+					ProjectRef = FE2E254F1DB7642A007FA000 /* LSNavigationSDK.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1358,6 +1476,20 @@
 			remoteRef = FE0452C91DB71767005E1263 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FE2E251E1DB72718007FA000 /* libJYGuideSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJYGuideSDK.a;
+			remoteRef = FE2E251D1DB72718007FA000 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FE2E25541DB7642A007FA000 /* libLSNavigationSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLSNavigationSDK.a;
+			remoteRef = FE2E25531DB7642A007FA000 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1373,11 +1505,15 @@
 				FE7FB5341DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png in Resources */,
 				FE7FB52C1DB63E6C00F07C1E /* CBN_twitter_icon@2x.png in Resources */,
 				FE7FB52B1DB63E6C00F07C1E /* CBN_linkedin_icon@2x.png in Resources */,
-				FE5DF6A01DB64CAB000210F2 /* CBN_Channel_Left_Bar_Image_Day@2x.png in Resources */,
+				FE2E25691DB775A1007FA000 /* DINPro-Light.otf in Resources */,
+				FE2E25591DB76782007FA000 /* CBN_Channel_Left_Bar_Image_Day@2x.png in Resources */,
 				FE7FB4901DB50CA600F07C1E /* defaultImage.jpg in Resources */,
+				FE2E25681DB775A1007FA000 /* DINPro-Bold.otf in Resources */,
 				FE6F2CFF1DB12B5B000E33F9 /* Main.storyboard in Resources */,
 				FE7FB4FB1DB5F10D00F07C1E /* UMSocialSDKResources.bundle in Resources */,
+				FE2E25601DB76D5F007FA000 /* CBN_share_Image_Day@3x.png in Resources */,
 				FE7FB4BA1DB5C1CB00F07C1E /* live.json in Resources */,
+				FE2E255F1DB76D5F007FA000 /* CBN_share_Image_Day@2x.png in Resources */,
 				FE7FB52A1DB63E6C00F07C1E /* CBN_facebook_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1451,11 +1587,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE7FB4811DB4EB9600F07C1E /* CBNBaseHomePageVC.m in Sources */,
 				FE7FB5101DB5FC1500F07C1E /* CBNMoreNewsHeaderView.m in Sources */,
 				FE7FB50A1DB5FBC400F07C1E /* CBNBaseDetailHeaderView.m in Sources */,
 				FE7FB4B51DB5B60200F07C1E /* UIFont+CBNFont.m in Sources */,
 				FE7FB4871DB4F04100F07C1E /* UIDevice+CBNDevice.m in Sources */,
+				FE2E25241DB72BD1007FA000 /* CBNBaseChannelVC.m in Sources */,
 				FE2E24E31DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m in Sources */,
 				FE7FB50D1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.m in Sources */,
 				FE7FB51D1DB60CD000F07C1E /* CBNTextView.m in Sources */,
@@ -1469,6 +1605,8 @@
 				FE7FB4541DB4D20500F07C1E /* CBNFileManager.m in Sources */,
 				FE7FB4471DB4CB0E00F07C1E /* CBNBarBurronItem.m in Sources */,
 				FE7FB4931DB50D1800F07C1E /* CBNLiveShuffingView.m in Sources */,
+				FE2E256C1DB777B4007FA000 /* CBNLiveDetailButton.m in Sources */,
+				FE2E256F1DB7813C007FA000 /* CBNNavigationShareView.m in Sources */,
 				FE7FB44E1DB4CD7F00F07C1E /* CBNLeftChannelCell.m in Sources */,
 				FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */,
 				FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */,
@@ -1493,8 +1631,10 @@
 				FE7FB4B81DB5C04700F07C1E /* CBNLiveModel.m in Sources */,
 				FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */,
 				FE7FB4FD1DB5F10D00F07C1E /* UMShareMenuSelectionView.m in Sources */,
+				FE2E25271DB76070007FA000 /* CBNChannelNavigationController.m in Sources */,
 				FE7FB4C01DB5DA2E00F07C1E /* CBNLiveDetailHeaderView.m in Sources */,
 				FE7FB4791DB4E89300F07C1E /* CBNChannelNewsTextCell.m in Sources */,
+				FE2E255C1DB76A2A007FA000 /* CBNBaseInfoViewController.m in Sources */,
 				FE7FB4B21DB51E9C00F07C1E /* CBNTextDetailHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1522,6 +1662,16 @@
 			isa = PBXTargetDependency;
 			name = JYLiveShuffingSDK;
 			targetProxy = FE0452CB1DB7177A005E1263 /* PBXContainerItemProxy */;
+		};
+		FE2E25201DB72720007FA000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JYGuideSDK;
+			targetProxy = FE2E251F1DB72720007FA000 /* PBXContainerItemProxy */;
+		};
+		FE2E25561DB76432007FA000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LSNavigationSDK;
+			targetProxy = FE2E25551DB76432007FA000 /* PBXContainerItemProxy */;
 		};
 		FE6F2D0C1DB12B5B000E33F9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

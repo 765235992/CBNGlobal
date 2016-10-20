@@ -54,7 +54,7 @@
         
         _timeLabel.backgroundColor = [UIColor clearColor];
         
-        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
+        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(CBN_Blue_Color);
         
         _timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
         

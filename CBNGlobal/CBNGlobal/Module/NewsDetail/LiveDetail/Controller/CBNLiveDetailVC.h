@@ -6,10 +6,10 @@
 //  Copyright © 2016年 上海第一财经传媒有限公司. All rights reserved.
 //
 
-#import "CBNBaseViewController.h"
+#import "CBNBaseInfoViewController.h"
 #import "CBNLiveModel.h"
 
-@interface CBNLiveDetailVC : CBNBaseViewController
+@interface CBNLiveDetailVC : CBNBaseInfoViewController
 
 @property (nonatomic, strong) CBNLiveModel *liveModel;
 @end

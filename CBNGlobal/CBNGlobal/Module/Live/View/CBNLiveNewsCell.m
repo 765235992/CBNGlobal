@@ -7,6 +7,8 @@
 //
 
 #import "CBNLiveNewsCell.h"
+#import "CBNLiveDetailButton.h"
+
 #define detail_Button_Height 25
 #define detail_Button_Width 50
 
@@ -19,7 +21,7 @@
 @property (nonatomic, strong) UIImageView *crossLineImageView;
 @property (nonatomic, strong) UILabel *liveTitleLabel;
 @property (nonatomic, strong) UILabel *liveContenLabel;
-@property (nonatomic, strong) UIButton *detailButton;
+@property (nonatomic, strong) CBNLiveDetailButton *detailButton;
 @end
 
 @implementation CBNLiveNewsCell
@@ -50,7 +52,8 @@
         
         self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, 0, 100, 0)];
         _timeLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
-        
+        _timeLabel.textColor = UIColorFromRGB(0x595959);
+
         _timeLabel.numberOfLines = 0;
 
         _timeLabel.text = @"99:99";
@@ -141,17 +144,18 @@
     return _liveContenLabel;
 }
 
-- (UIButton *)detailButton
+- (CBNLiveDetailButton *)detailButton
 {
     if (!_detailButton) {
         
-        self.detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        CGFloat height = [NSString getTextHeightWithFont:[UIFont newsContentFont]];
+        self.detailButton = [[CBNLiveDetailButton alloc] initWithFrame:CGRectMake(0, 200, 0, 0)];
         
-        _detailButton.frame = CGRectMake(CBN_Screen_Width - 100 - news_Cell_Left_Or_Right_Margin, _liveContenLabel.frame.size.height + _liveContenLabel.frame.origin.y + news_Cell_Up_Or_Down_Margin ,100  , height);
+        _detailButton.frame = CGRectMake(CBN_Screen_Width - _detailButton.frame.size.width - news_Cell_Left_Or_Right_Margin, _liveContenLabel.frame.size.height + _liveContenLabel.frame.origin.y + news_Cell_Up_Or_Down_Margin ,_detailButton.frame.size.width  , _detailButton.frame.size.height);
+        
+        
         _detailButton.layer.masksToBounds = YES;
         
-        _detailButton.layer.cornerRadius = height/2;
+        _detailButton.layer.cornerRadius = _detailButton.frame.size.height/2;
         
         _detailButton.dk_backgroundColorPicker = DKColorPickerWithKey(CBN_Blue_Color);
         
@@ -213,7 +217,7 @@
     
     height = height + _liveContenLabel.frame.size.height + news_Cell_Up_Or_Down_Margin*1.5;
     
-    _detailButton.frame = CGRectMake(CBN_Screen_Width - detail_Button_Width - news_Cell_Left_Or_Right_Margin, height ,detail_Button_Width  , _detailButton.frame.size.height);
+    _detailButton.frame = CGRectMake(CBN_Screen_Width - _detailButton.frame.size.width - news_Cell_Left_Or_Right_Margin, height ,_detailButton.frame.size.width  , _detailButton.frame.size.height);
     
     
     height = height + _detailButton.frame.size.height + news_Cell_Up_Or_Down_Margin;
