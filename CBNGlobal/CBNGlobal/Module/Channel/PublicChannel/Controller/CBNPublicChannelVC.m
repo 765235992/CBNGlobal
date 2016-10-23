@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSMutableArray *sourceArray;
 
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -23,23 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.view.backgroundColor = [UIColor whiteColor];
-    self.sourceArray = [[NSMutableArray alloc] init];
-    for (NSString * familyName in [UIFont familyNames]) {
-        
-        
-        
-        
-        for (NSString * fontName in [UIFont fontNamesForFamilyName:familyName]) {
-            [_sourceArray addObject:fontName];
-        }
-    }
-    //    self.sourceArray = [NSMutableArray arrayWithContentsOfFile:[[CBNFileManager sharedInstance] loadPlistFilePathWithPlistName:@"CBNChannel"]];
     
     self.view.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:self.aTableView];
     
-    [self setUpTableView];
     
 }
 
@@ -49,7 +38,6 @@
 - (void)setUpTableView
 {
     
-    [self.view addSubview:self.aTableView];
     
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHomePageDataFromSever)];
@@ -66,7 +54,6 @@
     //
     //    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
     
-    
     // 设置颜色
     header.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
     
@@ -75,7 +62,6 @@
     // 设置刷新控件
     self.aTableView.mj_header = header;
     
-    [_aTableView.mj_header beginRefreshing];
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
     
@@ -99,37 +85,26 @@
 #define 数据加载和刷新
 - (void)refreshHomePageDataFromSever
 {
-    
+    _currentPage = 1;
+
     __weak typeof(self) weakSelf = self;
-    
-    //    [[CBNHomePageNewsRequest sharedInstance] refreshHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray, NSMutableArray *sliderArray) {
-    //
-    //        [self.sourceArray removeAllObjects];
-    //
-    //        NSMutableArray *arr = [[NSMutableArray alloc] init];
-    //
-    //        for (CBNNewsItemModel *tempModel in sliderArray) {
-    //            CBNShufflingModel *shufflingModel = [[CBNShufflingModel alloc] init];
-    //
-    //
-    //            shufflingModel.newsTitleStr = tempModel.chapt_title;
-    //            shufflingModel.newsThumbStr = tempModel.cover_img_big;
-    //            shufflingModel.index = [tempModel.type integerValue];
-    //
-    //            [arr addObject:shufflingModel];
-    //
-    //        }
-    //        weakSelf.headerView.sliderView.shufflingView.sourceModelArray = arr;
-    //
-    //        [_sourceArray addObjectsFromArray:homePageModelrray];
-    //
-    //        [weakSelf refreshFinished];
-    //
-    //    } failed:^(NSString *errorStr) {
-    //
-    [weakSelf refreshFinished];
-    //
-    //    }];
+
+    [CBNChannelListRequest loadNewsItemsWithChannelID:[_channelModel.ChannelID integerValue] page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        [weakSelf.sourceArray removeAllObjects];
+        [[CBNDao sharedManager] deleteDataFromTableName:_channelModel.EnglishName];
+
+        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        [[CBNNewsItemDao sharedManager] insertChannelNewsItemsWithTableName:_channelModel.EnglishName andChannelNewsItemArray:channelNewsItemsArray];;
+
+        [weakSelf refreshFinished];
+        _currentPage++;
+    } failed:^(NSError *error) {
+        [weakSelf refreshFinished];
+ 
+        
+        
+        
+    }];
     
     
 }
@@ -146,14 +121,20 @@
     
     __weak typeof(self) weakSelf = self;
     
-    //    [[CBNHomePageNewsRequest sharedInstance] loadMoreHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray) {
-    //        [_sourceArray addObjectsFromArray:homePageModelrray];
-    //        [weakSelf loadMoreFinished];
-    //
-    //    } failed:^(NSString *errorStr) {
-    [weakSelf loadMoreFinished];
-    //
-    //    }];
+    [CBNChannelListRequest loadNewsItemsWithChannelID:[_channelModel.ChannelID integerValue] page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
+        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        
+        [weakSelf loadMoreFinished];
+        
+        _currentPage++;
+        
+    } failed:^(NSError *error) {
+        
+        [weakSelf loadMoreFinished];
+        
+    }];
+
 }
 - (void)loadMoreFinished
 {
@@ -170,7 +151,7 @@
 {
     if (!_aTableView) {
         
-        self.aTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
         
         _aTableView.backgroundColor = [UIColor whiteColor];
         
@@ -201,24 +182,42 @@
         
     }
     
-    cell.fontName = [_sourceArray objectAtIndex:indexPath.row];
+    cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return news_Cell_Height;
+    return  news_Cell_Height;
 }
-
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:CBNChannelChanged object:channelInfo];
+    [self pushToTextNewsDetailWithNewsItemModel:[_sourceArray objectAtIndex:indexPath.row]];
     
 }
 
+
+- (void)setChannelModel:(CBNChannelMoel *)channelModel
+{
+    _channelModel = channelModel;
+    [self setUpTableView];
+
+    NSArray *arr =  [[CBNNewsItemDao sharedManager]  queryNewsItemsDataWithTableName:_channelModel.EnglishName];
+    [self.sourceArray addObjectsFromArray:arr];
+    [_aTableView reloadData];
+    
+    [_aTableView.mj_header beginRefreshing];
+}
+- (NSMutableArray *)sourceArray
+{
+    if (!_sourceArray) {
+        self.sourceArray = [[NSMutableArray alloc] init];
+
+    }
+    
+    return _sourceArray;
+}
 @end

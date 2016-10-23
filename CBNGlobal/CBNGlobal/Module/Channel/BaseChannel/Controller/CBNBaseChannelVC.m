@@ -9,6 +9,9 @@
 #import "CBNBaseChannelVC.h"
 #import "CBNBarBurronItem.h"
 #import "CBNLeftChannelVC.h"
+#import "CBNBaseInfoViewController.h"
+#import "CBNTextDetailVC.h"
+#import "CBNSearchVC.h"
 
 #define draw_Back_Alpha  0.8
 
@@ -106,6 +109,26 @@
 
 - (void)searchButton:(UIButton *)sender
 {
+    CBNSearchVC *searchVC = [[CBNSearchVC alloc] init];
+    [self.navigationController pushViewController:searchVC animated:YES];
+}
+
+
+
+
+
+
+
+
+
+
+- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsItemModel *)newsItemModel
+{
+    CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
+    textDetailVC.newsID = [newsItemModel.NewsID integerValue];
+    
+    [self.navigationController pushViewController:textDetailVC animated:YES];
     
 }
+
 @end

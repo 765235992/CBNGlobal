@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CBNNewsDetailModel.h"
 @interface CBNTextView : UITextView
+@property (nonatomic, strong) CBNNewsDetailModel *newsDetaileModel;
 
 @end

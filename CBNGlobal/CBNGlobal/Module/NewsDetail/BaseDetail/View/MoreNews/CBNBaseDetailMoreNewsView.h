@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class CBNBaseDetailMoreNewsView;
+@protocol CBNBaseDetailMoreNewsViewDelegate <NSObject>
+
+- (void)moreNewsView:(CBNBaseDetailMoreNewsView *)moreNewsView selectedAtIndex:(NSInteger)index;
+
+@end
+
 @interface CBNBaseDetailMoreNewsView : UIView
 
+@property (nonatomic, assign) id <CBNBaseDetailMoreNewsViewDelegate>delegate;
 @end

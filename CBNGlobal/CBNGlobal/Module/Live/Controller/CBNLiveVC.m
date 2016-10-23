@@ -9,9 +9,10 @@
 #import "CBNLiveVC.h"
 #import "CBNLiveNewsCell.h"
 #import "CBNLiveHeaderView.h"
-#import "CBNLiveModel.h"
-#import "CBNLiveDetailVC.h"
-
+#import "CBNLiveItemModel.h"
+#import "CBNTextDetailVC.h"
+#import "CBNChannelListRequest.h"
+#import "CBNLiveItemModel.h"
 @interface CBNLiveVC ()<UITableViewDataSource,UITableViewDelegate,CBNLiveNewsCellDelegate>
 
 @property (nonatomic, strong) CBNLiveHeaderView *aTableViewHeaderView;
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) UITableView *aTableView;
 
 @property (nonatomic, strong) NSMutableArray *sourceArray;
+
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -31,25 +34,20 @@
     [self setNavigationTitle:@"Live"];
     [self setShareBarButtonItem];
     
-    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"live" ofType:@"json"];
-    NSData *data=[NSData dataWithContentsOfFile:jsonPath];
-    NSError *error;
-    NSDictionary *jsonDic =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-
-    for (NSDictionary *tempDic in [jsonDic objectForKey:@"Lives"]) {
-        CBNLiveModel *tempModel = [[CBNLiveModel alloc] initWithLiveDictionary:tempDic];
-        
-        NSLog(@"--- %@",tempModel.liveTitleString);
-
-        [self.sourceArray addObject:tempModel];
-        
-    }
-    self.view.backgroundColor = [UIColor blackColor];
-    
     [self setUpTableView];
     
 }
-
+- (void)setLiveModelArray:(NSMutableArray *)liveModelArray
+{
+    _liveModelArray = liveModelArray;
+    _currentPage = 1;
+    _currentPage++;
+    
+    [self.sourceArray removeAllObjects];
+    
+    [_sourceArray addObjectsFromArray:liveModelArray];
+    [_aTableView reloadData];
+}
 
 
 #define 添加刷新效果和加载更多效果
@@ -82,7 +80,7 @@
     // 设置刷新控件
     self.aTableView.mj_header = header;
     
-    [_aTableView.mj_header beginRefreshing];
+//    [_aTableView.mj_header beginRefreshing];
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
     
@@ -106,37 +104,22 @@
 #define 数据加载和刷新
 - (void)refreshHomePageDataFromSever
 {
+    _currentPage = 1;
     
     __weak typeof(self) weakSelf = self;
     
-    //    [[CBNHomePageNewsRequest sharedInstance] refreshHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray, NSMutableArray *sliderArray) {
-    //
-    //        [self.sourceArray removeAllObjects];
-    //
-    //        NSMutableArray *arr = [[NSMutableArray alloc] init];
-    //
-    //        for (CBNNewsItemModel *tempModel in sliderArray) {
-    //            CBNShufflingModel *shufflingModel = [[CBNShufflingModel alloc] init];
-    //
-    //
-    //            shufflingModel.newsTitleStr = tempModel.chapt_title;
-    //            shufflingModel.newsThumbStr = tempModel.cover_img_big;
-    //            shufflingModel.index = [tempModel.type integerValue];
-    //
-    //            [arr addObject:shufflingModel];
-    //
-    //        }
-    //        weakSelf.headerView.sliderView.shufflingView.sourceModelArray = arr;
-    //
-    //        [_sourceArray addObjectsFromArray:homePageModelrray];
-    //
-    //        [weakSelf refreshFinished];
-    //
-    //    } failed:^(NSString *errorStr) {
-    //
-    [weakSelf refreshFinished];
-    //
-    //    }];
+    [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        [weakSelf.sourceArray removeAllObjects];
+        
+        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        
+        [weakSelf refreshFinished];
+        _currentPage++;
+        
+    } failed:^(NSError *error) {
+        [weakSelf refreshFinished];
+        
+    }];
     
     
 }
@@ -153,20 +136,27 @@
     
     __weak typeof(self) weakSelf = self;
     
-    //    [[CBNHomePageNewsRequest sharedInstance] loadMoreHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray) {
-    //        [_sourceArray addObjectsFromArray:homePageModelrray];
-    //        [weakSelf loadMoreFinished];
-    //
-    //    } failed:^(NSString *errorStr) {
-    [weakSelf loadMoreFinished];
-    //
-    //    }];
+    [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
+        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        
+        [weakSelf loadMoreFinished];
+        
+        _currentPage++;
+        
+    } failed:^(NSError *error) {
+        
+        [weakSelf loadMoreFinished];
+        
+    }];
+    
 }
 - (void)loadMoreFinished
 {
     [_aTableView reloadData];
     [_aTableView.mj_footer endRefreshing];
 }
+
 
 
 
@@ -221,11 +211,11 @@
         
         
     }
-    CBNLiveModel *tempModel = [_sourceArray objectAtIndex:indexPath.row];
+    CBNLiveItemModel *tempModel = (CBNLiveItemModel *)[_sourceArray objectAtIndex:indexPath.row];
     
-    cell.liveModel = tempModel;
+    cell.newsItemModel = tempModel;
     
-    tempModel = cell.liveModel;
+    tempModel = cell.newsItemModel;
     
     [_sourceArray replaceObjectAtIndex:indexPath.row withObject:tempModel];
     
@@ -235,9 +225,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CBNLiveModel *tempModel = [_sourceArray objectAtIndex:indexPath.row];
+    CBNLiveItemModel *tempModel = (CBNLiveItemModel *)[_sourceArray objectAtIndex:indexPath.row];
 
-    return tempModel.liveCellHeight;
+    return tempModel.height;
     
 }
 
@@ -250,11 +240,12 @@
     //    [[NSNotificationCenter defaultCenter] postNotificationName:CBNChannelChanged object:channelInfo];
     
 }
-- (void)liveNewsCell:(CBNLiveNewsCell *)liveCell detailButtonClickedWithLiveModel:(CBNLiveModel *)liveMoel
+- (void)liveNewsCell:(CBNLiveNewsCell *)liveCell detailButtonClickedWithLiveModel:(CBNNewsItemModel *)liveMoel
 {
-    CBNLiveDetailVC *liveDetailVC = [[CBNLiveDetailVC alloc] init];
+
+    CBNTextDetailVC *liveDetailVC = [[CBNTextDetailVC alloc] init];
     
-    liveDetailVC.liveModel = liveMoel;
+    liveDetailVC.newsID = [liveMoel.NewsID integerValue];
     
     [self.navigationController pushViewController:liveDetailVC animated:YES];
     

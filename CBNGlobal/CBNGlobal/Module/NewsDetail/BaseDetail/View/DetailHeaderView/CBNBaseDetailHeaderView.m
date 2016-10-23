@@ -41,7 +41,7 @@
         
         _titleLabel.numberOfLines = 0;
         
-        _titleLabel.font = [UIFont newsTitleFont];
+        _titleLabel.font = [UIFont newsDetaileTitleFont];
         
         
     }
@@ -62,21 +62,7 @@
     
     return _authorNameLabel;
 }
-- (void)setTitleString:(NSString *)titleString
-{
-    _titleString = titleString;
-    
-    _titleLabel.text = _titleString;
-    NSLog(@"%@",_titleString);
-    [_titleLabel sizeToFit];
-    
-    _titleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, CBN_Screen_Width- 2*news_Cell_Left_Or_Right_Margin, _titleLabel.frame.size.height);
-    
-    _height = _height + _titleLabel.frame.size.height + news_Cell_Up_Or_Down_Margin;
-    
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _height);
-    
-}
+
 
 - (CBNNewsTimeLabel *)timeLabel
 {
@@ -94,26 +80,61 @@
     return _timeLabel;
 }
 
-
-- (void)setAuthorNameString:(NSString *)authorNameString
+- (void)setNewsDetailModel:(CBNNewsDetailModel *)newsDetailModel
 {
-    _authorNameString = authorNameString;
-    _authorNameLabel.text = _authorNameString;
-    [_authorNameLabel sizeToFit];
+    _newsDetailModel = newsDetailModel;
     
-    _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, _authorNameLabel.frame.size.width , _authorNameLabel.frame.size.height);
-    _height = _height + _authorNameLabel.frame.size.height + news_Cell_Up_Or_Down_Margin;
+    _titleLabel.text = _newsDetailModel.NewsTitle;
+    [_titleLabel sizeToFit];
     
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _height);
+    _titleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, CBN_Screen_Width- 2*news_Cell_Left_Or_Right_Margin, _titleLabel.frame.size.height);
+    
+    _height = _height + _titleLabel.frame.size.height + news_Cell_Up_Or_Down_Margin;
+    
+    
+    
+    if (_newsDetailModel.NewsAuthor.length>0&&_newsDetailModel.NewsSource.length>0) {
+        
+        _authorNameLabel.text = [NSString stringWithFormat:@"%@,%@",_newsDetailModel.NewsAuthor,_newsDetailModel.NewsSource];
+        [_authorNameLabel sizeToFit];
+        
+        _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
+    }else{
+        
+        if (_newsDetailModel.NewsAuthor.length >0) {
+            
+            _authorNameLabel.text =  _newsDetailModel.NewsAuthor;
+            [_authorNameLabel sizeToFit];
+
+            _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
+
+            
+        }
+        if (_newsDetailModel.NewsSource.length > 0) {
+            _authorNameLabel.text =  _newsDetailModel.NewsSource;
+
+            [_authorNameLabel sizeToFit];
+
+            _authorNameLabel.text =  _newsDetailModel.NewsSource;
+            
+            _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
+
+        }
+        
+        if (_newsDetailModel.NewsAuthor.length == 0&&_newsDetailModel.NewsSource.length == 0) {
+            _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, 0, _authorNameLabel.frame.size.height);
+
+        }
+    }
+    
+    _timeLabel.text = _newsDetailModel.LastDate;
+    
+    [_timeLabel sizeToFit];
+
+    _timeLabel.frame = CGRectMake(_authorNameLabel.frame.origin.x + _authorNameLabel.frame.size.width, _height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+    
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _timeLabel.frame.size.height + _timeLabel.frame.origin.y );
 }
 
-- (void)setTimeString:(NSString *)timeString
-{
-    _timeString = timeString;
-    
-    _timeLabel.text = @"2016-10-17";
-    
-    _timeLabel.frame = CGRectMake( _authorNameLabel.frame.size.width + 2*news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.origin.y, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
-}
 
 @end

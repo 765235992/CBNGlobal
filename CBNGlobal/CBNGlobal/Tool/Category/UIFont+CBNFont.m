@@ -10,10 +10,16 @@
 #define IS_IPHONE_6 (667.0f)
 #define IS_IPHONE_6_PLUS (736.0f)
 @implementation UIFont (CBNFont)
-+ (UIFont *)newsTitleFont
++ (UIFont *)newsDetaileTitleFont
 {
     
     return [self fontWithSmallSzie:14 middleSize:18 bigSize:20 AndFontName:font_Name_Blod];
+    
+}
++ (UIFont *)newsTitleFont
+{
+    
+    return [self fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Blod];
     
 }
 + (UIFont *)newsContentFont
@@ -24,7 +30,7 @@
 }
 + (UIFont *)tagFont
 {
-    return [self fontWithSmallSzie:11 middleSize:12 bigSize:14 AndFontName:font_Name_Light];
+    return [self fontWithSmallSzie:10 middleSize:11 bigSize:12 AndFontName:font_Name_Light];
 
 }
 + (UIFont *)relatedNewsFont

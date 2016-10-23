@@ -1,4 +1,4 @@
-//
+
 //  CBNLiveShuffingView.m
 //  CBNGlobal
 //
@@ -9,7 +9,7 @@
 #import "CBNLiveShuffingView.h"
 #import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
 
-@interface CBNLiveShuffingView ()
+@interface CBNLiveShuffingView ()<JYLiveScrollViewDelegate>
 @property (nonatomic, strong) JYLiveScrollView *liveScrollView;
 
 @end
@@ -33,9 +33,9 @@
         
         self.liveScrollView = [[JYLiveScrollView alloc] initWithFrame:self.bounds];
         _liveScrollView.AutoScrollDelay = 3;
-        
-        NSArray *arr = @[@"World’s Movies Can Find Opportunities in China",@"Make in India: Finding The Right Balance",@"Philippine President Starts Four-Day State Visit to China Accompanied by 300 Businessmen"];
-        NSArray *timeArr = @[@"00:12",@"12:59",@"17:21",@"00:12",@"12:59",@"17:21",@"00:12",@"12:59",@"17:21"];
+        _liveScrollView.delegate = self;
+        NSArray *arr = @[@"  ",@"  "];
+        NSArray *timeArr = @[@"  ",@"  "];
         NSMutableArray *result = [[NSMutableArray alloc] init];
         for (int i = 0; i < arr.count; i++) {
             JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
@@ -48,6 +48,30 @@
     }
     
     return _liveScrollView;
+}
+
+- (void)setLiveModelArray:(NSMutableArray *)liveModelArray
+{
+    _liveModelArray = liveModelArray;
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+
+    for (CBNNewsItemModel *newsItemModel in _liveModelArray) {
+        JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
+        tempModel.newsTitleString = newsItemModel.NewsTitle;
+        tempModel.newsUpdataTimeString =  newsItemModel.LastDate;
+        [result addObject:tempModel];
+
+    }
+    [_liveScrollView refreshLiveNewsWithLiveShuffingModelArray:result];
+
+}
+
+-(void)didSelectedWithLiveShuffingModel:(JYLiveShuffingModel *)model index:(NSInteger)index
+{
+    if ([self.delegate respondsToSelector:@selector(liveShuffingView:didSelecteAtIndex:)]) {
+        [self.delegate liveShuffingView:self didSelecteAtIndex:index];
+        
+    }
 }
 
 @end

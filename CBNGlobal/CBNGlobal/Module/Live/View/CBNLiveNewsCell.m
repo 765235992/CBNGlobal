@@ -181,35 +181,33 @@
 - (void)detailButton:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(liveNewsCell:detailButtonClickedWithLiveModel:)]) {
-        [self.delegate liveNewsCell:self detailButtonClickedWithLiveModel:_liveModel];
+        [self.delegate liveNewsCell:self detailButtonClickedWithLiveModel:_newsItemModel];
         
     }
 }
-- (void)setLiveModel:(CBNLiveModel *)liveModel
+- (void)setNewsItemModel:(CBNLiveItemModel *)newsItemModel
 {
+    _newsItemModel = newsItemModel;
     
-    
-    _liveModel = liveModel;
-    
-    _timeLabel.text = liveModel.liveTimeString;
+    _timeLabel.text = _newsItemModel.LastDate;
     
     CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 3);
-
+    
     CGFloat height = 0.0;
     _liveTitleLabel.frame= CGRectMake(0, 0, width, 0);
-
-    _liveTitleLabel.text = _liveModel.liveTitleString;
-
+    
+    _liveTitleLabel.text = _newsItemModel.NewsTitle;
+    
     [_liveTitleLabel sizeToFit];
     
     
     _liveTitleLabel.frame = CGRectMake(_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 2, 0, width, _liveTitleLabel.frame.size.height);
-
+    
     height = _liveTitleLabel.frame.size.height + news_Cell_Up_Or_Down_Margin;
     
     _liveContenLabel.frame= CGRectMake(0, 0, width, 0);
-
-    _liveContenLabel.attributedText = [NSMutableAttributedString setLiveContentAttributeStringWithFont:_liveContenLabel.font string:_liveModel.liveContentString];
+    
+    _liveContenLabel.attributedText = [NSMutableAttributedString setLiveContentAttributeStringWithFont:_liveContenLabel.font string:_newsItemModel.NewsNotes];
     
     [_liveContenLabel sizeToFit];
     
@@ -221,17 +219,18 @@
     
     
     height = height + _detailButton.frame.size.height + news_Cell_Up_Or_Down_Margin;
-
+    
     _crossLineImageView.frame = CGRectMake(_liveContenLabel.frame.origin.x, height, width, 1);
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height+news_Cell_Up_Or_Down_Margin);
     
     _verticalLineImageView.frame = CGRectMake(_verticalLineImageView.frame.origin.x, _verticalLineImageView.frame.origin.y, _verticalLineImageView.frame.size.width, self.frame.size.height);
     
-    _liveModel.liveCellHeight = self.frame.size.height;
+    _newsItemModel.height = self.frame.size.height;
     [self setNeedsDisplay];
     
     [self setNeedsLayout];
 
+    
 }
 @end

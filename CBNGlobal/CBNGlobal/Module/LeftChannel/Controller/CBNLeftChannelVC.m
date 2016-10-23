@@ -21,6 +21,7 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 @property (nonatomic, strong) NSMutableArray *sourceArray;
 
+@property (nonatomic, assign) NSInteger currentIndex;;
 
 @end
 
@@ -29,16 +30,50 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.sourceArray = [NSMutableArray arrayWithContentsOfFile:[[CBNFileManager sharedInstance] loadPlistFilePathWithPlistName:@"CBNChannel"]];
-    
-    self.view.backgroundColor = [UIColor blackColor];
-    
-    [self.view addSubview:self.aTableView];
-    
-//    [_aTableView.tableHeaderView addSubview:self.tableViewHeaderView];
-}
 
+    _currentIndex = 0;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaa) name:@"123321" object:nil];
+
+    [self.sourceArray removeAllObjects];
+    
+    NSArray *arr = [[CBNChannelDao sharedManager] queryChannelDataWithTableName:@"ChannelList"];
+    NSLog(@"%@",arr);
+    
+    [_sourceArray addObjectsFromArray:arr];
+    [self.view addSubview:self.aTableView];
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
+
+}
+- (NSMutableArray *)sourceArray
+{
+    if (!_sourceArray) {
+        
+        self.sourceArray = [[NSMutableArray alloc] init];
+        
+    }
+    
+    return _sourceArray;
+}
+- (void)setChannelArray:(NSArray *)channelArray
+{
+    _channelArray = channelArray;
+    
+    [_sourceArray removeAllObjects];
+    
+    [_sourceArray addObjectsFromArray:_channelArray];
+    
+    [_aTableView reloadData];
+    
+}
+- (void)aaa{
+    NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0];
+    
+    [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
+//    [self publiChannel];
+
+}
 /**
  *  @创建视图
  */
@@ -79,7 +114,7 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
     }
     
     
-    cell.channelInfo = [_sourceArray objectAtIndex:indexPath.row];
+    cell.channelModel = [_sourceArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -93,15 +128,25 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == _currentIndex) {
+        [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+
+        return;
+    }else{
+        _currentIndex = indexPath.row;
+    }
+    CBNChannelMoel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
+    
     switch (indexPath.row) {
         case 0:
             [self homeChannel];
             break;
         case 1:
   
-            [self publiChannel];
             
         default:
+            [self publiChannelWithChannelModel:channelModel];
+
             break;
     }
 
@@ -120,10 +165,10 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 }
 
-- (void)publiChannel
+- (void)publiChannelWithChannelModel:(CBNChannelMoel *)channelModel
 {
     CBNPublicChannelVC *publicChannel = [[CBNPublicChannelVC alloc] init];
-    
+    publicChannel.channelModel = channelModel;
     CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:publicChannel];
     [self.mm_drawerController setCenterViewController:navigation withCloseAnimation:YES completion:^(BOOL finished) {
         

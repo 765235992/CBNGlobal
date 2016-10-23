@@ -98,9 +98,11 @@
     return _channelLineImageView;
 }
 
-- (void)setChannelInfo:(NSDictionary *)channelInfo
+- (void)setChannelModel:(CBNChannelMoel *)channelModel
 {
-    _channelTitleLabel.text = [channelInfo objectForKey:@"newsChannelTitle"];
-
+    _channelModel = channelModel;
+    
+    _channelTitleLabel.text = _channelModel.ChannelName;
+    
 }
 @end

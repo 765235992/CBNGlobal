@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CBNLiveShuffingView;
+@protocol CBNLiveShuffingViewDelegate <NSObject>
+
+- (void)liveShuffingView:(CBNLiveShuffingView *)liveShuffingView didSelecteAtIndex:(NSInteger)index;
+
+@end
 
 @interface CBNLiveShuffingView : UIView
+
+@property (nonatomic, assign) id <CBNLiveShuffingViewDelegate> delegate;
+
+@property (nonatomic, strong) NSMutableArray *liveModelArray;
 
 @end

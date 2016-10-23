@@ -9,5 +9,7 @@
 #import "CBNBaseInfoViewController.h"
 
 @interface CBNLiveVC : CBNBaseInfoViewController
+@property (nonatomic, strong) NSMutableArray *liveModelArray;
+@property (nonatomic, assign) NSInteger liveChannelID;
 
 @end

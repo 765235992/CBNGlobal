@@ -10,4 +10,6 @@
 
 @interface CBNLeftChannelVC : CBNBaseViewController
 
+@property (nonatomic, strong) NSArray *channelArray;
+
 @end

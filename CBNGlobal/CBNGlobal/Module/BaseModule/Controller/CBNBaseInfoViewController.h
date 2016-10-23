@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface CBNBaseInfoViewController : UIViewController
+- (void)setNoBarItems;
+
 - (void)setBackBarButtonItem;
 
 - (void)setShareBarButtonItem;
 
 - (void)setNavigationTitle:(NSString *)titleString;
+
+- (void)pushToTextNewsDetailWitNewsItemModel:(id)sender;
 
 @end

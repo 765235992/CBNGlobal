@@ -9,10 +9,11 @@
 #import "CBNTextDetailVC.h"
 #import "CBNTextDetailHeaderView.h"
 #import "CBNShareBar.h"
-#import "CBNTextMoreNewsVie.h"
+#import "CBNTextMoreNewsView.h"
 #import "CBNTextView.h"
+#import "CBNNewsDetailAction.h"
 
-@interface CBNTextDetailVC ()
+@interface CBNTextDetailVC ()<CBNBaseDetailMoreNewsViewDelegate>
 @property (nonatomic, assign) CGFloat scrollViewHeight;
 
 @property (nonatomic, strong) UIScrollView *aScrollView;
@@ -23,15 +24,21 @@
 
 @property (nonatomic, strong) CBNShareBar *shareBar;
 
-@property (nonatomic, strong) CBNTextMoreNewsVie *moreNewsView;
+@property (nonatomic, strong) CBNTextMoreNewsView *moreNewsView;
 
-
+@property (nonatomic, strong) CBNNewsDetailModel *newsDetailModel;
 @end
 
 @implementation CBNTextDetailVC
-
+- (void)dealloc
+{
+    NSLog(@"是否");
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setBackBarButtonItem];
+    [self setNavigationTitle:@""];
+    [self setShareBarButtonItem];
 
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -39,30 +46,53 @@
     
     [self.view addSubview:self.aScrollView];
     
-    [self setupSubViews];
+}
+- (void)setNewsID:(NSInteger)newsID
+{
+    _newsID = newsID;
+    
+    [CBNNewsDetailAction loadNewsDatetailWithNewsID:_newsID secuessed:^(CBNNewsDetailModel *newsDetailModel) {
+        _newsDetailModel = newsDetailModel;
+        
+        [self setupSubViews];
+    } failed:^(NSError *error) {
+        
+    }];
 
 }
 
 - (void)setupSubViews
 {
+    
     [_aScrollView addSubview:self.headerView];
+    _headerView.newsDetailModel = _newsDetailModel;
+     
+    _scrollViewHeight = _scrollViewHeight+_headerView.frame.size.height + news_Cell_Up_Or_Down_Margin*0.5;
     
-    _scrollViewHeight = _scrollViewHeight+_headerView.frame.size.height + news_Cell_Up_Or_Down_Margin;
-    
-    [_aScrollView addSubview:self.contentTextView];
-    
-    _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*3;
-
-    [_aScrollView addSubview:self.shareBar];
-    
-    _scrollViewHeight = _scrollViewHeight+_shareBar.frame.size.height+news_Cell_Up_Or_Down_Margin/2;
-    
-    [_aScrollView addSubview:self.moreNewsView];
-    
-    _scrollViewHeight = _scrollViewHeight+_moreNewsView.frame.size.height+1;
-    
-    _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
-
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [_aScrollView addSubview:self.contentTextView];
+            _contentTextView.newsDetaileModel =_newsDetailModel;
+            
+            _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*3;
+            
+            [_aScrollView addSubview:self.shareBar];
+            
+            _scrollViewHeight = _scrollViewHeight+_shareBar.frame.size.height+news_Cell_Up_Or_Down_Margin/2;
+            
+            [_aScrollView addSubview:self.moreNewsView];
+            
+            _scrollViewHeight = _scrollViewHeight+_moreNewsView.frame.size.height+1;
+            
+            _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
+            
+            
+            
+        });
+        
+    });
     
 }
 
@@ -70,7 +100,8 @@
 {
     if (!_aScrollView) {
         
-        self.aScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        self.aScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
+        
         _aScrollView.backgroundColor = [UIColor whiteColor];
         
     }
@@ -117,17 +148,22 @@
     return _shareBar;
 }
 
-- (CBNTextMoreNewsVie *)moreNewsView
+- (CBNTextMoreNewsView *)moreNewsView
 {
     if (!_moreNewsView) {
         
-        self.moreNewsView = [[CBNTextMoreNewsVie alloc] initWithFrame:CGRectMake(0, _scrollViewHeight, CBN_Screen_Width, 200)];
+        self.moreNewsView = [[CBNTextMoreNewsView alloc] initWithFrame:CGRectMake(0, _scrollViewHeight, CBN_Screen_Width, 200)];
+        _moreNewsView.delegate = self;
         
         _moreNewsView.backgroundColor = [UIColor clearColor];
         
     }
     
     return _moreNewsView;
+}
+- (void)moreNewsView:(CBNBaseDetailMoreNewsView *)moreNewsView selectedAtIndex:(NSInteger)index
+{
+    [self pushToTextNewsDetailWitNewsItemModel:nil];
 }
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "CBNBaseViewController.h"
-
+#import "CBNNewsItemModel.h"
 @interface CBNBaseChannelVC : CBNBaseViewController
+
+- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsItemModel *)newsItemModel;
 
 @end

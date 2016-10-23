@@ -10,4 +10,7 @@
 
 @interface CBNHomePageVC : CBNBaseChannelVC
 
+
+@property (nonatomic, assign) NSInteger liveChannelID;
+
 @end

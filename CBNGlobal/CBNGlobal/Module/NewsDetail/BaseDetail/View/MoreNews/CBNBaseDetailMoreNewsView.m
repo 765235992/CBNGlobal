@@ -46,6 +46,9 @@
         tempNewsItemView.newsTitleString = [NSString stringWithFormat:@"%d、%@", i,@"Duterte starts a four-day state visit to China on Tuesday at the invitation of his Chinese counterpart, Xi Jinping."];
         
         [self addSubview:tempNewsItemView];
+        tempNewsItemView.tag = i;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        [tempNewsItemView addGestureRecognizer:tap];
         
         height = height + tempNewsItemView.frame.size.height;
         
@@ -54,7 +57,12 @@
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, CBN_Screen_Width, height);
     
 }
-
+- (void)tap:(UITapGestureRecognizer *)sender
+{
+    if ([self.delegate respondsToSelector:@selector(moreNewsView:selectedAtIndex:)]) {
+        [self.delegate moreNewsView:self selectedAtIndex:sender.view.tag];
+    }
+}
 
 
 

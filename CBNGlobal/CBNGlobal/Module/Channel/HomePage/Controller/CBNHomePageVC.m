@@ -12,8 +12,9 @@
 #import "CBNHomePageHeaderView.h"
 #import "CBNLiveVC.h"
 #import "CBNTextDetailVC.h"
+#import "CBNChannelListRequest.h"
 
-@interface CBNHomePageVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface CBNHomePageVC ()<UITableViewDataSource,UITableViewDelegate,CBNHomePageHeaderView>
 
 @property (nonatomic, strong) UITableView *aTableView;
 
@@ -21,6 +22,7 @@
 
 @property (nonatomic, strong) CBNHomePageHeaderView *tableViewHeaderView;
 
+@property (nonatomic, strong) NSMutableArray *liveModelArray;
 
 @end
 
@@ -50,7 +52,38 @@
     [self setUpTableView];
     
 }
+- (void)setLiveChannelID:(NSInteger)liveChannelID
+{
+    _liveChannelID = liveChannelID;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:1 pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
+        [weakSelf.liveModelArray removeAllObjects];
+        
+        [weakSelf.liveModelArray addObjectsFromArray:channelNewsItemsArray];
+        
+        weakSelf.tableViewHeaderView.liveModelArray = weakSelf.liveModelArray;
+        
+    } failed:^(NSError *error) {
+        
+    }];
 
+}
+- (NSMutableArray *)liveModelArray
+{
+    if (!_liveModelArray) {
+        
+        self.liveModelArray = [[NSMutableArray alloc] init];
+        
+    }
+    
+    return _liveModelArray;
+}
+
+
+//- (void)
 
 
 #define 添加刷新效果和加载更多效果
@@ -199,22 +232,29 @@
         
         self.tableViewHeaderView = [[CBNHomePageHeaderView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Width)];
         _aTableView.backgroundColor = [UIColor whiteColor];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(aaa)];
-        [_tableViewHeaderView addGestureRecognizer:tap];
         
+        _tableViewHeaderView.delegate = self;
     }
     
     return _tableViewHeaderView;
 }
-- (void)aaa
+- (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView didSelectedAtIndex:(NSInteger)index
 {
     CBNLiveVC *liveVC = [[CBNLiveVC alloc] init];
+    liveVC.liveModelArray = _liveModelArray;
+    liveVC.liveChannelID = _liveChannelID;
     
     [self.navigationController pushViewController:liveVC animated:YES];
+
+}
+- (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView recommendedNews:(id)news
+{
+    [self pushToTextNewsDetailWithNewsItemModel:nil];
+
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _sourceArray.count;
+    return 10;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -229,7 +269,6 @@
         
     }
     
-    cell.fontName = [_sourceArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -244,10 +283,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
-    
-    [self.navigationController pushViewController:textDetailVC animated:YES];
-    
+
+    [self pushToTextNewsDetailWithNewsItemModel:nil];
 }
 
 @end

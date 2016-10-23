@@ -8,7 +8,7 @@
 
 #import "CBNBaseInfoViewController.h"
 #import "CBNNavigationShareView.h"
-
+#import "CBNTextDetailVC.h"
 @interface CBNBaseInfoViewController ()
 @property (nonatomic, strong) CBNNavigationShareView *shareView;
 @end
@@ -24,7 +24,22 @@
     
     // Do any additional setup after loading the view.
 }
+- (void)setNoBarItems
+{
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 0, 0);
+    UIBarButtonItem *leftBar = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 
+    self.navigationItem.leftBarButtonItems = @[leftBar];
+
+    UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    navigationLabel.text = @"1";
+    navigationLabel.textAlignment = NSTextAlignmentCenter;
+    navigationLabel.textColor = [UIColor clearColor];
+    navigationLabel.font = [UIFont newsTitleFont];
+    navigationLabel.backgroundColor = [UIColor clearColor];
+    
+    self.navigationItem.titleView = navigationLabel;}
 - (void)setBackBarButtonItem
 {
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -110,6 +125,12 @@
     
     self.navigationItem.titleView = navigationLabel;
 
+}
+- (void)pushToTextNewsDetailWitNewsItemModel:(id)sender
+{
+    CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
+    
+    [self.navigationController pushViewController:textDetailVC animated:YES];
 }
 
 @end

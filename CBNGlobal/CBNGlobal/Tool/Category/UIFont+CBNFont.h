@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIFont (CBNFont)
++ (UIFont *)newsDetaileTitleFont;
+
 + (UIFont *)newsTitleFont;
 + (UIFont *)newsContentFont;
 + (UIFont *)tagFont;

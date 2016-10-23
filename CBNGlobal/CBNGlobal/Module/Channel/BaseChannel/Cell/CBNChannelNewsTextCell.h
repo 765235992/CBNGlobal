@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBNNewsItemModel.h"
 
 @interface CBNChannelNewsTextCell : UITableViewCell
-@property (nonatomic, strong) UILabel *newsTitleLabel;
-@property (nonatomic, strong) NSString *fontName;
+
+@property (nonatomic, strong) CBNNewsItemModel *itemModel;
+
 @end

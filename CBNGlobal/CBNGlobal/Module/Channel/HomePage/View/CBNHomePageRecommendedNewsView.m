@@ -8,7 +8,7 @@
 
 #import "CBNHomePageRecommendedNewsView.h"
 
-@interface CBNHomePageRecommendedNewsView ()
+@interface CBNHomePageRecommendedNewsView ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIImageView *newsThumbImageView;
 
@@ -26,12 +26,23 @@
         
         [self addSubview:self.newsTitleLabel];
         
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        tap.numberOfTapsRequired = 1;
+        
+        [self addGestureRecognizer:tap];
+        
         self.frame = CGRectMake(0, 0, CBN_Screen_Width, _newsTitleLabel.frame.size.height + _newsTitleLabel.frame.origin.y + news_Cell_Up_Or_Down_Margin);
         
     }
     return self;
 }
-
+- (void)tap:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(homePageRecommendedNewsView:newsItemModel:)]) {
+        
+        [self.delegate homePageRecommendedNewsView:self newsItemModel:nil];
+    }
+}
 - (UIImageView *)newsThumbImageView
 {
     if (!_newsThumbImageView) {

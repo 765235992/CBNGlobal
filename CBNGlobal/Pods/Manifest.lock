@@ -27,6 +27,10 @@ PODS:
     - DKNightVersion/Core
   - DKNightVersion/UIKit (2.4.1):
     - DKNightVersion/Core
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
@@ -47,6 +51,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - DKNightVersion
+  - FMDB
+  - MJExtension
   - MJRefresh
   - MMDrawerController
   - SDWebImage
@@ -54,10 +60,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DKNightVersion: 3e1c2f9fb69a57f7e850f73ea7f67971400dff0d
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: dadfd4985607e68d652db2a886c53e433ef947b5
+PODFILE CHECKSUM: 5df4e855ed5d2a54a4502e1c61d9b9f2403eb732
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

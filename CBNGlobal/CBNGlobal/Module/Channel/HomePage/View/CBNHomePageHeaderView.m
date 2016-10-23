@@ -9,7 +9,7 @@
 #import "CBNHomePageHeaderView.h"
 #import "CBNHomePageRecommendedNewsView.h"
 #import "CBNLiveShuffingView.h"
-@interface CBNHomePageHeaderView ()
+@interface CBNHomePageHeaderView ()<CBNLiveShuffingViewDelegate,CBNHomePageRecommendedNewsViewDlegate>
 @property (nonatomic, strong) CBNHomePageRecommendedNewsView *recommendedNewsView;
 
 @property (nonatomic, strong) CBNLiveShuffingView *liveShuffingView;
@@ -42,17 +42,28 @@
     if (!_recommendedNewsView) {
         
         self.recommendedNewsView = [[CBNHomePageRecommendedNewsView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Width*1.4)];
-        _recommendedNewsView.backgroundColor = [UIColor clearColor];
+        
+        _recommendedNewsView.delegate = self;
     }
     
     return _recommendedNewsView;
 }
 
+- (void)homePageRecommendedNewsView:(CBNHomePageRecommendedNewsView *)homePageRecommendedNewsView newsItemModel:(CBNNewsItemModel *)newsItemModel
+{
+    if ([self.delegate respondsToSelector:@selector(homePageHeaderLiveShuffingView:recommendedNews:)]) {
+        [self.delegate homePageHeaderLiveShuffingView:self recommendedNews:newsItemModel];
+        
+    }
+}
 - (CBNLiveShuffingView *)liveShuffingView
 {
     if (!_liveShuffingView) {
         
         self.liveShuffingView = [[CBNLiveShuffingView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _recommendedNewsView.frame.size.height, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 50)];
+        
+        _liveShuffingView.delegate = self;
+        
         
         _liveShuffingView.backgroundColor = [UIColor lightGrayColor];
         
@@ -70,4 +81,22 @@
     
     return _lineImageView;
 }
+
+- (void)liveShuffingView:(CBNLiveShuffingView *)liveShuffingView didSelecteAtIndex:(NSInteger)index
+{
+    if ([self.delegate respondsToSelector:@selector(homePageHeaderLiveShuffingView:didSelectedAtIndex:)]) {
+        [self.delegate homePageHeaderLiveShuffingView:self didSelectedAtIndex:index];
+    }
+}
+
+
+- (void)setLiveModelArray:(NSMutableArray *)liveModelArray
+{
+    _liveModelArray = liveModelArray;
+    
+    _liveShuffingView.liveModelArray = _liveModelArray;
+    
+    
+}
+
 @end

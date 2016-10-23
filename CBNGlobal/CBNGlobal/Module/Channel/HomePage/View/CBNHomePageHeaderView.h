@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class CBNHomePageHeaderView;
+@protocol CBNHomePageHeaderView <NSObject>
+
+- (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView didSelectedAtIndex:(NSInteger)index;
+
+- (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView recommendedNews:(id)news;
+@end
+
 @interface CBNHomePageHeaderView : UIView
 
+@property (nonatomic, assign) id <CBNHomePageHeaderView> delegate;
+
+@property (nonatomic, strong) NSMutableArray *liveModelArray;
 @end

@@ -10,34 +10,43 @@
 #import "CBNHomePageVC.h"
 #import "CBNLeftChannelVC.h"
 #import "CBNDrawerVisualStateManager.h"
-#import <UMSocialCore/UMSocialCore.h>
-#import "UMengConfigurationManager.h"
 #import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
 #import <JYGuideSDK/JYGuideSDK.h>
 #import "CBNChannelNavigationController.h"
+#import "CBNChannelRequrst.h"
 
 @interface AppDelegate ()
 @property (nonatomic,strong) MMDrawerController * drawerController;
-
+@property (nonatomic, strong) CBNHomePageVC *homePage;
+@property (nonatomic, strong) CBNLeftChannelVC *leftChannelVC;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
     
-//    [UMengConfigurationManager configurationUMWithOptions:launchOptions];
     
-    CBNHomePageVC *homePageVC = [[CBNHomePageVC alloc] init];
     
-    CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:homePageVC];
+//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] readNewsWithNewsID:5140114]);
+//
+//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] channelURL]);
+//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:212 page:1 pageSize:20]);
+//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:213 page:1 pageSize:20]);
+//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:214 page:1 pageSize:20]);
+//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:215 page:1 pageSize:20]);
+//    /*轮播*/
+//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:206 page:1 pageSize:20]);
     
-    CBNLeftChannelVC *leftChannelVC = [[CBNLeftChannelVC alloc] init];
+    _homePage = [[CBNHomePageVC alloc] init];
+    
+    CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:_homePage];
+    
+    _leftChannelVC = [[CBNLeftChannelVC alloc] init];
     /*
      *  添加到抽屉上去
      */
-    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:homePageNavigatonController leftDrawerViewController:leftChannelVC];
+    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:homePageNavigatonController leftDrawerViewController:_leftChannelVC];
     [self.drawerController setShowsShadow:YES];
     
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
@@ -62,30 +71,17 @@
     
     [self.window setRootViewController:self.drawerController];
     [self.window makeKeyAndVisible];
-
-    JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
+    [self requestChannelItem];
     
-    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
-    [view showWithGuideImageArrays:arr];
+//    JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
+//    
+//    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
+//    [view showWithGuideImageArrays:arr];
 
+    
+    
+    
     return YES;
-}
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
-    if (!result) {
-        
-    }
-    return result;
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
-    if (!result) {
-        
-    }
-    return result;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -108,6 +104,26 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)requestChannelItem
+{
+    
+    __weak typeof(self) weakSelf = self;
+    [CBNChannelRequrst postChannelsSecuessed:^(NSArray *channelArray) {
+
+        [[CBNChannelDao sharedManager] deleteDataFromTableName:@"ChannelList"];
+
+        [[CBNChannelDao sharedManager] insertChannelItemsWithTableName:@"ChannelList" andChannelItemArray:channelArray];
+        
+        
+        weakSelf.leftChannelVC.channelArray = channelArray;
+        
+        weakSelf.homePage.liveChannelID = 206;
+        
+    } failed:^(NSError *error) {
+        
+    }];
 }
 
 @end
