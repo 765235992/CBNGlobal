@@ -38,7 +38,6 @@
     }
     
     for (CBNChannelMoel *tempModel in channelItemArray) {
-        NSLog(@"%@",channelItemArray);
         NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO %@(ChannelID, ChannelName, EnglishName,RootID,RootName,ChannelMemo,ChannelSeo) VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@');", tableName,tempModel.ChannelID, tempModel.ChannelName, tempModel.EnglishName,tempModel.RootID,tempModel.RootName,tempModel.ChannelMemo,tempModel.ChannelSeo];
 
         [self.fmdb executeUpdate:insertSql];
@@ -59,7 +58,6 @@
     
     NSMutableArray *modelArray = [NSMutableArray array];
     FMResultSet *set = [self.fmdb executeQuery:querySql];
-    NSLog(@"%@",set);
     while ([set next]) {
         
         CBNChannelMoel *model = [[CBNChannelMoel alloc] init];

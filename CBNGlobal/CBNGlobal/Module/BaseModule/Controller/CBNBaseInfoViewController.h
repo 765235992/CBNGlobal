@@ -17,6 +17,6 @@
 
 - (void)setNavigationTitle:(NSString *)titleString;
 
-- (void)pushToTextNewsDetailWitNewsItemModel:(id)sender;
+- (void)pushToTextNewsDetailWitNewsID:(NSInteger)newsID;
 
 @end

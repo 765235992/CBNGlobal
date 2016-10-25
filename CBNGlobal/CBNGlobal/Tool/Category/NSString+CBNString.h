@@ -12,5 +12,6 @@
 + (CGFloat)getTextHeightWithFont:(UIFont *)font;
 
 + (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize;
++ (NSString *)getHtmlStringWithPString:(NSString *)pString;
 
 @end

@@ -13,11 +13,7 @@
 {
     NSMutableArray *channelModelArray = [[NSMutableArray alloc] init];
     
-    CBNChannelMoel *homeModel = [[CBNChannelMoel alloc]init];
-    homeModel.EnglishName = @"Home";
-    homeModel.ChannelName = @"Home";
-
-    [channelModelArray addObject:homeModel];
+ 
     [self POST:[[JYParametersLinkManager sharedManager] channelURL] parameters:nil success:^(id result) {
         
         NSArray *channelArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
@@ -25,7 +21,6 @@
         for (NSDictionary *channelInfo in channelArray) {
             
             if ([[channelInfo objectForKey:@"RootName"] isEqualToString:@"频道"]) {
-//                CBNChannelMoel *channelModel = [[CBNChannelMoel alloc] initWithChannelInfo:channelInfo];
                 CBNChannelMoel *channelModel = [CBNChannelMoel mj_objectWithKeyValues:channelInfo];
 
                 [channelModelArray addObject:channelModel];

@@ -19,6 +19,9 @@
 
 @interface CBNHomePageRecommendedNewsView : UIView
 
+@property (nonatomic, strong) CBNNewsItemModel *recommendNewsModel;
+
+
 @property (nonatomic, assign) id <CBNHomePageRecommendedNewsViewDlegate>delegate;
 
 @end

@@ -12,6 +12,7 @@
 #import "CBNTextMoreNewsView.h"
 #import "CBNTextView.h"
 #import "CBNNewsDetailAction.h"
+#import "CBNMoreNewsModel.h"
 
 @interface CBNTextDetailVC ()<CBNBaseDetailMoreNewsViewDelegate>
 @property (nonatomic, assign) CGFloat scrollViewHeight;
@@ -32,14 +33,14 @@
 @implementation CBNTextDetailVC
 - (void)dealloc
 {
-    NSLog(@"是否");
+    CBNLog(@"新闻详情释放");
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setBackBarButtonItem];
     [self setNavigationTitle:@""];
     [self setShareBarButtonItem];
-
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     _scrollViewHeight = 0.0;
@@ -71,24 +72,27 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
+        
+        NSAttributedString *attributeString = [[NSAttributedString alloc] initWithData:[[NSString getHtmlStringWithPString:_newsDetailModel.NewsBody] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        
+        NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithAttributedString:attributeString];
+
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [_aScrollView addSubview:self.contentTextView];
-            _contentTextView.newsDetaileModel =_newsDetailModel;
-            
+            _contentTextView.attText =attr;
+
             _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*3;
             
             [_aScrollView addSubview:self.shareBar];
             
             _scrollViewHeight = _scrollViewHeight+_shareBar.frame.size.height+news_Cell_Up_Or_Down_Margin/2;
             
-            [_aScrollView addSubview:self.moreNewsView];
-            
-            _scrollViewHeight = _scrollViewHeight+_moreNewsView.frame.size.height+1;
+       
             
             _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
-            
-            
+
+            [self loadMoreNews];
             
         });
         
@@ -161,9 +165,30 @@
     
     return _moreNewsView;
 }
+
+- (void)loadMoreNews
+{
+    [CBNNewsDetailAction loadMoreNewssecuessed:^(NSArray *moreNewsArray) {
+        
+        [_aScrollView addSubview:self.moreNewsView];
+
+        _moreNewsView.moreNewsArray = moreNewsArray;
+        
+        _scrollViewHeight = _scrollViewHeight+_moreNewsView.frame.size.height+1;
+    
+        _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
+
+    } failed:^(NSError *error) {
+        _scrollViewHeight = _scrollViewHeight + 40;
+        
+        _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
+    }];
+    
+}
 - (void)moreNewsView:(CBNBaseDetailMoreNewsView *)moreNewsView selectedAtIndex:(NSInteger)index
 {
-    [self pushToTextNewsDetailWitNewsItemModel:nil];
+    CBNMoreNewsModel *temp = [moreNewsView.moreNewsArray objectAtIndex:index];
+    [self pushToTextNewsDetailWitNewsID:[temp.NewsID integerValue]];
 }
 
 @end

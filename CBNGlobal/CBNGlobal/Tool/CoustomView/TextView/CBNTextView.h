@@ -10,5 +10,5 @@
 #import "CBNNewsDetailModel.h"
 @interface CBNTextView : UITextView
 @property (nonatomic, strong) CBNNewsDetailModel *newsDetaileModel;
-
+@property (nonatomic, strong) NSMutableAttributedString *attText;
 @end

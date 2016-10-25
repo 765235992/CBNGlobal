@@ -47,9 +47,10 @@
 
 - (void)setNavigationView
 {
-    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     
-    logoImageView.backgroundColor = [UIColor redColor];
+    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 200, 24)];
+        
+    logoImageView.image = [UIImage imageNamed:@"yicaiglobal_logo@2x.png"];
     
     self.navigationItem.titleView =  logoImageView;
     
@@ -84,13 +85,14 @@
 {
     
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    
 }
 
 - (void)setSearchBar
 {
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [searchButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"],[UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"],[UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"]) forState:UIControlStateNormal];
+    [searchButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"langy_chaxun@2x.png"],[UIImage imageNamed:@"langy_chaxun@2x.png"],[UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"]) forState:UIControlStateNormal];
     
     searchButton.frame = CGRectMake(0, 0, 44, 44);
     //    [backButton setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 3, 3)];

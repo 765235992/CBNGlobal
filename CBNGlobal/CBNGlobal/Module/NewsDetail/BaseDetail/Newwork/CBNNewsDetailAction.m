@@ -7,6 +7,7 @@
 //
 
 #import "CBNNewsDetailAction.h"
+#import "CBNMoreNewsModel.h"
 
 @implementation CBNNewsDetailAction
 + (void)loadNewsDatetailWithNewsID:(NSInteger)newsID secuessed:(void (^)(CBNNewsDetailModel *newsDetailModel))secuessed failed:(void (^)(NSError *error))failed
@@ -27,5 +28,28 @@
         }
     }];
     
+}
+
++ (void)loadMoreNewssecuessed:(void (^)(NSArray *moreNewsArray))secuessed failed:(void (^)(NSError *error))failed
+{
+    [self POST:[[JYParametersLinkManager sharedManager] rankNewsMonthURL] parameters:nil success:^(id result) {
+        NSArray *moreNewsArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
+        NSMutableArray *resultArray = [[NSMutableArray alloc] init];
+        
+        if (moreNewsArray.count<5) {
+            return ;
+        }
+        for (int i = 0; i < 5; i++) {
+            CBNMoreNewsModel *tempModel = [[CBNMoreNewsModel alloc] initWithMoreNewsInfo:[moreNewsArray objectAtIndex:i]];
+            [resultArray addObject:tempModel];
+        }
+        if (secuessed) {
+            secuessed(resultArray);
+        }
+    } failed:^(NSError *error) {
+        if (failed) {
+            failed(error);
+        }
+    }];
 }
 @end

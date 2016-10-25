@@ -51,7 +51,9 @@
         
         self.tiemIconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
         
-        _tiemIconImageView.backgroundColor = [UIColor redColor];
+        _tiemIconImageView.image = [UIImage imageNamed:@"commentsCount_gray_Day.png"];
+        
+//        _tiemIconImageView.backgroundColor = [UIColor redColor];
 
     }
     

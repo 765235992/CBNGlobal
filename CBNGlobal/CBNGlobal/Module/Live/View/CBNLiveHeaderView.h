@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CBNLiveHeaderView : UIView
-
+@property (nonatomic, strong) NSString *time;
 @end

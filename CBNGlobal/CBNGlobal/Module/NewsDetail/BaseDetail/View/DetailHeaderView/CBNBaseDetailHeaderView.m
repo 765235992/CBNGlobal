@@ -127,7 +127,7 @@
         }
     }
     
-    _timeLabel.text = _newsDetailModel.LastDate;
+    _timeLabel.text = [NSDate getNormalDateFromUTCDateString:_newsDetailModel.LastDate];
     
     [_timeLabel sizeToFit];
 

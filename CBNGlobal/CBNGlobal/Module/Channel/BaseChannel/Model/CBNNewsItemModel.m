@@ -29,7 +29,7 @@
 
         self.IsEntity = [NSString stringWithFormat:@"%@",[newsItemoInfo objectForKey:@"IsEntity"]];
 
-        self.LastDate = [NSString stringWithFormat:@"%@",[NSDate getNormalDateFromUTCDateString:[newsItemoInfo objectForKey:@"LastDate"] ]];
+        self.LastDate = [NSString stringWithFormat:@"%@",[newsItemoInfo objectForKey:@"LastDate"]];
         
         self.NewsAddons = [NSString stringWithFormat:@"%@",[newsItemoInfo objectForKey:@"NewsAddons"]];
 

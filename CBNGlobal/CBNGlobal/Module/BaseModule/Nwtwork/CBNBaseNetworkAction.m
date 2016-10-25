@@ -14,7 +14,6 @@
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     [manger GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"%@ task --%@",responseObject,task);
         if (sucess)
         {
             sucess(responseObject);
@@ -36,14 +35,12 @@
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     manger.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manger POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"请求成功");
         if (sucess)
         {
             sucess(responseObject);
         }
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"请求失败");
 
         if(failed)
         {

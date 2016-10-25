@@ -20,7 +20,10 @@
 @end
 
 @implementation CBNPublicChannelVC
-
+- (void)dealloc
+{
+    CBNLog(@"公共频道释放");
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -43,16 +46,16 @@
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHomePageDataFromSever)];
     
     // 设置文字
-    [header setTitle:@"下拉开始刷新" forState:MJRefreshStateIdle];
+    [header setTitle:@"Pull down to refresh…" forState:MJRefreshStateIdle];
     
-    [header setTitle:@"正在刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"Begin to refresh" forState:MJRefreshStatePulling];
     
-    [header setTitle:@"正在加载中......" forState:MJRefreshStateRefreshing];
+    [header setTitle:@"Refreshing......" forState:MJRefreshStateRefreshing];
     
     // 设置字体
-    //    header.stateLabel.font =  [UIFont refreshAndLoadingFont];
-    //
-    //    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
+    header.stateLabel.font =  [UIFont refreshAndLoadingFont];
+    
+    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
     
     // 设置颜色
     header.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
@@ -65,18 +68,17 @@
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
     
-    [footer setTitle:@" " forState:MJRefreshStateIdle];
+    [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
     
-    [footer setTitle:@"正在加载更多数据……" forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
     
-    [footer setTitle:@"没有更多数据" forState:MJRefreshStateNoMoreData];
+    [footer setTitle:@"No more news" forState:MJRefreshStateNoMoreData];
     
     // 设置字体
     footer.stateLabel.font = [UIFont refreshAndLoadingFont];
     //
     //    // 设置颜色
     footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
-    
     // 设置footer
     self.aTableView.mj_footer = footer;
     

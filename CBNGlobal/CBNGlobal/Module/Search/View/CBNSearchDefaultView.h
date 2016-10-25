@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBNSearchChannelView.h"
+@class CBNSearchDefaultView;
+@protocol CBNSearchDefaultViewDelegate <NSObject>
+
+- (void)searchDefaultView:(CBNSearchDefaultView *)searchDefaultView channelDidSelectedAtIndex:(NSInteger)index;
+
+@end
 
 @interface CBNSearchDefaultView : UIView
-
+@property (nonatomic, assign) id <CBNSearchDefaultViewDelegate> delegate;
 @end

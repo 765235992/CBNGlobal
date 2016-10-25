@@ -1,6 +1,6 @@
 NORMAL   NIGHT    RED
 #000000  #000000  #000000 news_Title_Color
-#262626  #262626  #262626 news_Content_Color
+#000000  #000000  #000000 news_Content_Color
 #EAEAEA  #EAEAEA  #EAEAEA news_Cell_Divider_Color
 #ABABAB  #ABABAB  #ABABAB news_Small_Tag_Color
 #0096d9  #0096d9  #0096d9 CBN_Blue_Color

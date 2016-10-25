@@ -66,6 +66,10 @@
         
         _cancelButton.titleLabel.font = [UIFont fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Light];
         
+        [_cancelButton.titleLabel sizeToFit];
+        
+        _cancelButton.frame = CGRectMake(CBN_Screen_Width-15-_cancelButton.titleLabel.frame.size.width, 0, _cancelButton.titleLabel.frame.size.width, 44);
+        
         _cancelButton.dk_tintColorPicker = DKColorPickerWithColors(UIColorFromRGB(0x000000),UIColorFromRGB(0x000000),UIColorFromRGB(0x000000));
         
         [_cancelButton addTarget:self action:@selector(cancelButton:) forControlEvents:UIControlEventTouchUpInside];

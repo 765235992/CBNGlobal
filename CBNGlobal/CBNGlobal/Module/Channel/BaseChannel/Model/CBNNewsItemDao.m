@@ -7,7 +7,7 @@
 //
 
 #import "CBNNewsItemDao.h"
-
+#import "CBNLiveItemModel.h"
 @implementation CBNNewsItemDao
 
 + (CBNNewsItemDao *)sharedManager
@@ -53,57 +53,114 @@
     FMResultSet *set = [self.fmdb executeQuery:querySql];
     
     while ([set next]) {
-        CBNNewsItemModel *model = [[CBNNewsItemModel alloc] init];
-        model.ChannelID = [set stringForColumn:@"ChannelID"];
         
-        model.CreateDate = [set stringForColumn:@"CreateDate"];
-        
-        model.CreaterName = [set stringForColumn:@"CreaterName"];
-        
-        model.EntityChannel = [set stringForColumn:@"EntityChannel"];
-        
-        model.EntityNews = [set stringForColumn:@"EntityNews"];
-        
-        model.EntityPath = [set stringForColumn:@"EntityPath"];
-        
-        model.IsEntity = [set stringForColumn:@"IsEntity"];
-        
-        model.LastDate = [set stringForColumn:@"LastDate"];
-        
-        model.NewsAddons = [set stringForColumn:@"NewsAddons"];
-        
-        model.NewsAuthor = [set stringForColumn:@"NewsAuthor"];
-        
-        model.NewsID = [set stringForColumn:@"NewsID"];
-        
-        model.NewsLength = [set stringForColumn:@"NewsLength"];
-        
-        model.NewsNotes = [set stringForColumn:@"NewsNotes"];
-        
-        model.NewsSource = [set stringForColumn:@"NewsSource"];
-        
-        model.NewsThumbs = [set stringForColumn:@"NewsThumbs"];
-        
-        model.NewsTitle = [set stringForColumn:@"NewsTitle"];
-        
-        NSInteger type = [[set stringForColumn:@"NewsType"] integerValue];
-        
-        if (type > 100) {
-            model.NewsID =  [set stringForColumn:@"EntityNews"];;
+        if ([tableName isEqualToString:@"Live"]) {
+            CBNLiveItemModel *model = [[CBNLiveItemModel alloc] init];
+            model.ChannelID = [set stringForColumn:@"ChannelID"];
             
+            model.CreateDate = [set stringForColumn:@"CreateDate"];
+            
+            model.CreaterName = [set stringForColumn:@"CreaterName"];
+            
+            model.EntityChannel = [set stringForColumn:@"EntityChannel"];
+            
+            model.EntityNews = [set stringForColumn:@"EntityNews"];
+            
+            model.EntityPath = [set stringForColumn:@"EntityPath"];
+            
+            model.IsEntity = [set stringForColumn:@"IsEntity"];
+            
+            model.LastDate = [set stringForColumn:@"LastDate"];
+            
+            model.NewsAddons = [set stringForColumn:@"NewsAddons"];
+            
+            model.NewsAuthor = [set stringForColumn:@"NewsAuthor"];
+            
+            model.NewsID = [set stringForColumn:@"NewsID"];
+            
+            model.NewsLength = [set stringForColumn:@"NewsLength"];
+            
+            model.NewsNotes = [set stringForColumn:@"NewsNotes"];
+            
+            model.NewsSource = [set stringForColumn:@"NewsSource"];
+            
+            model.NewsThumbs = [set stringForColumn:@"NewsThumbs"];
+            
+            model.NewsTitle = [set stringForColumn:@"NewsTitle"];
+            
+            NSInteger type = [[set stringForColumn:@"NewsType"] integerValue];
+            
+            if (type > 100) {
+                model.NewsID =  [set stringForColumn:@"EntityNews"];;
+                
+            }
+            model.NewsType =[set stringForColumn:@"NewsType"];
+            
+            
+            model.OuterUrl = [set stringForColumn:@"OuterUrl"];
+            
+            model.Tags = [set stringForColumn:@"Tags"];
+            
+            model.UniqueTag = [set stringForColumn:@"UniqueTag"];;
+            
+            model.VideoUrl = [set stringForColumn:@"VideoUrl"];
+            model.height = 0;
+            [modelArray addObject:model];
+
+        }else{
+            CBNNewsItemModel *model = [[CBNNewsItemModel alloc] init];
+            model.ChannelID = [set stringForColumn:@"ChannelID"];
+            
+            model.CreateDate = [set stringForColumn:@"CreateDate"];
+            
+            model.CreaterName = [set stringForColumn:@"CreaterName"];
+            
+            model.EntityChannel = [set stringForColumn:@"EntityChannel"];
+            
+            model.EntityNews = [set stringForColumn:@"EntityNews"];
+            
+            model.EntityPath = [set stringForColumn:@"EntityPath"];
+            
+            model.IsEntity = [set stringForColumn:@"IsEntity"];
+            
+            model.LastDate = [set stringForColumn:@"LastDate"];
+            
+            model.NewsAddons = [set stringForColumn:@"NewsAddons"];
+            
+            model.NewsAuthor = [set stringForColumn:@"NewsAuthor"];
+            
+            model.NewsID = [set stringForColumn:@"NewsID"];
+            
+            model.NewsLength = [set stringForColumn:@"NewsLength"];
+            
+            model.NewsNotes = [set stringForColumn:@"NewsNotes"];
+            
+            model.NewsSource = [set stringForColumn:@"NewsSource"];
+            
+            model.NewsThumbs = [set stringForColumn:@"NewsThumbs"];
+            
+            model.NewsTitle = [set stringForColumn:@"NewsTitle"];
+            
+            NSInteger type = [[set stringForColumn:@"NewsType"] integerValue];
+            
+            if (type > 100) {
+                model.NewsID =  [set stringForColumn:@"EntityNews"];;
+                
+            }
+            model.NewsType =[set stringForColumn:@"NewsType"];
+            
+            
+            model.OuterUrl = [set stringForColumn:@"OuterUrl"];
+            
+            model.Tags = [set stringForColumn:@"Tags"];
+            
+            model.UniqueTag = [set stringForColumn:@"UniqueTag"];;
+            
+            model.VideoUrl = [set stringForColumn:@"VideoUrl"];
+            
+            [modelArray addObject:model];
+
         }
-        model.NewsType =[set stringForColumn:@"NewsType"];
-        
-        
-        model.OuterUrl = [set stringForColumn:@"OuterUrl"];
-        
-        model.Tags = [set stringForColumn:@"Tags"];
-        
-        model.UniqueTag = [set stringForColumn:@"UniqueTag"];;
-        
-        model.VideoUrl = [set stringForColumn:@"VideoUrl"];
-        
-        [modelArray addObject:model];
     }
     
     [self.fmdb close];

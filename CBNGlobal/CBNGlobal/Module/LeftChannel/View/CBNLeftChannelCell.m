@@ -60,8 +60,9 @@
     if (!_channelIconImageView) {
         
         self.channelIconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(left_margn, channel_Cell_Height/2, channel_Cell_Height/2, channel_Cell_Height/2)];
-        _channelIconImageView.backgroundColor = [UIColor randomColor];
-        
+//        _channelIconImageView.backgroundColor = [UIColor randomColor];
+        _channelIconImageView.image = [UIImage imageNamed:@"langy_maichu@2x.png"];
+
     }
     
     return _channelIconImageView;
@@ -91,7 +92,6 @@
         
         _channelLineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
         _channelLineImageView.backgroundColor = [UIColor grayColor];
-        
         
     }
     

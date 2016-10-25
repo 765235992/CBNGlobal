@@ -25,19 +25,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
-    
-//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] readNewsWithNewsID:5140114]);
-//
-//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] channelURL]);
-//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:212 page:1 pageSize:20]);
-//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:213 page:1 pageSize:20]);
-//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:214 page:1 pageSize:20]);
-//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:215 page:1 pageSize:20]);
-//    /*轮播*/
-//    NSLog(@"%@",[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:206 page:1 pageSize:20]);
-    
+
+
     _homePage = [[CBNHomePageVC alloc] init];
     
     CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:_homePage];
@@ -47,6 +36,8 @@
      *  添加到抽屉上去
      */
     self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:homePageNavigatonController leftDrawerViewController:_leftChannelVC];
+
+
     [self.drawerController setShowsShadow:YES];
     
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
@@ -73,10 +64,10 @@
     [self.window makeKeyAndVisible];
     [self requestChannelItem];
     
-//    JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
-//    
-//    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
-//    [view showWithGuideImageArrays:arr];
+    JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
+    
+    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
+    [view showWithGuideImageArrays:arr];
 
     
     
@@ -119,7 +110,6 @@
         
         weakSelf.leftChannelVC.channelArray = channelArray;
         
-        weakSelf.homePage.liveChannelID = 206;
         
     } failed:^(NSError *error) {
         

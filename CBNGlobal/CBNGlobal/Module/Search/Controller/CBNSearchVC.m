@@ -11,7 +11,7 @@
 #import "CBNSearchDefaultView.h"
 #import "CBNSearchResultView.h"
 
-@interface CBNSearchVC ()<CBNSearcnViewDelegate>
+@interface CBNSearchVC ()<CBNSearcnViewDelegate,CBNSearchDefaultViewDelegate>
 @property (nonatomic, strong) CBNSearcnView *searchView;
 @property (nonatomic, strong) CBNSearchDefaultView *defaultView;
 @property (nonatomic, strong) CBNSearchResultView *resultView;
@@ -80,10 +80,19 @@
         self.defaultView = [[CBNSearchDefaultView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
         
         _defaultView.backgroundColor = [UIColor whiteColor];
+        _defaultView.delegate = self;
         
     }
     
     return _defaultView;
+}
+
+- (void)searchDefaultView:(CBNSearchDefaultView *)searchDefaultView channelDidSelectedAtIndex:(NSInteger)index
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:index],@"channelIndex", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"channelChanged" object:nil userInfo:dic];
+    
 }
 - (CBNSearchResultView *)resultView
 {
@@ -91,7 +100,6 @@
         
         self.resultView = [[CBNSearchResultView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-60)];
         
-        _resultView.backgroundColor = [UIColor greenColor];
     }
     
     return _resultView;

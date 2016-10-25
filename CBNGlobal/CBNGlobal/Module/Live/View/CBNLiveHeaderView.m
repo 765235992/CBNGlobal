@@ -64,11 +64,16 @@
         
         _timeLabel.font = [UIFont newsTitleFont];
         
-        _timeLabel.text = @"2016-10-19";
+//        _timeLabel.text = @"2016-10-19";
 
     }
     
     return _timeLabel;
 }
-
+- (void)setTime:(NSString *)time
+{
+    _time = time;
+    
+    _timeLabel.text = _time;
+}
 @end

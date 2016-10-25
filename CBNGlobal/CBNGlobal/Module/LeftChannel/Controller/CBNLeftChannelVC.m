@@ -32,12 +32,19 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
     // Do any additional setup after loading the view.
 
     _currentIndex = 0;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaa) name:@"123321" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(channelChanged:) name:@"channelChanged" object:nil];
+ 
 
     [self.sourceArray removeAllObjects];
     
+    CBNChannelMoel *homeChannelModel = [[CBNChannelMoel alloc] init];
+    
+    homeChannelModel.ChannelName = @"Home";
+    homeChannelModel.EnglishName = @"Home";
+
+    [self.sourceArray addObject:homeChannelModel];
+
     NSArray *arr = [[CBNChannelDao sharedManager] queryChannelDataWithTableName:@"ChannelList"];
-    NSLog(@"%@",arr);
     
     [_sourceArray addObjectsFromArray:arr];
     [self.view addSubview:self.aTableView];
@@ -62,16 +69,34 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
     
     [_sourceArray removeAllObjects];
     
+    CBNChannelMoel *homeChannelModel = [[CBNChannelMoel alloc] init];
+    
+    homeChannelModel.ChannelName = @"Home";
+    homeChannelModel.EnglishName = @"Home";
+
+    [self.sourceArray addObject:homeChannelModel];
+
     [_sourceArray addObjectsFromArray:_channelArray];
     
     [_aTableView reloadData];
     
-}
-- (void)aaa{
-    NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
     
     [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
-//    [self publiChannel];
+    
+}
+- (void)channelChanged:(NSNotification *)notification{
+    
+    NSDictionary *userInfo = notification.userInfo;
+    NSInteger  index = [[userInfo objectForKey:@"channelIndex"] integerValue];
+    [self channelChangedWithIndex:index];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    
+    [_aTableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+//    NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0];
+//    
+//    [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
+////    [self publiChannel];
 
 }
 /**
@@ -98,7 +123,7 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _sourceArray.count;
+    return self.sourceArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -128,28 +153,33 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == _currentIndex) {
-        [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [self channelChangedWithIndex:indexPath.row];
+}
 
+- (void)channelChangedWithIndex:(NSInteger)index
+{
+    if (index == _currentIndex) {
+        [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+        
         return;
     }else{
-        _currentIndex = indexPath.row;
+        _currentIndex = index;
     }
-    CBNChannelMoel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
+    CBNChannelMoel *channelModel = [_sourceArray objectAtIndex:index];
     
-    switch (indexPath.row) {
+    switch (index) {
         case 0:
             [self homeChannel];
             break;
         case 1:
-  
+            
             
         default:
             [self publiChannelWithChannelModel:channelModel];
-
+            
             break;
     }
-
+    
 
 }
 - (void)homeChannel
@@ -167,6 +197,7 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 - (void)publiChannelWithChannelModel:(CBNChannelMoel *)channelModel
 {
+    
     CBNPublicChannelVC *publicChannel = [[CBNPublicChannelVC alloc] init];
     publicChannel.channelModel = channelModel;
     CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:publicChannel];

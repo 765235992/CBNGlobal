@@ -11,4 +11,5 @@
 
 @interface CBNNewsDetailAction : CBNBaseNetworkAction
 + (void)loadNewsDatetailWithNewsID:(NSInteger)newsID secuessed:(void (^)(CBNNewsDetailModel *newsDetailModel))secuessed failed:(void (^)(NSError *error))failed;
++ (void)loadMoreNewssecuessed:(void (^)(NSArray *moreNewsArray))secuessed failed:(void (^)(NSError *error))failed;
 @end

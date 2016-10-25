@@ -126,9 +126,10 @@
     self.navigationItem.titleView = navigationLabel;
 
 }
-- (void)pushToTextNewsDetailWitNewsItemModel:(id)sender
+- (void)pushToTextNewsDetailWitNewsID:(NSInteger)newsID
 {
     CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
+    textDetailVC.newsID = newsID;
     
     [self.navigationController pushViewController:textDetailVC animated:YES];
 }

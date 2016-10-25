@@ -64,7 +64,6 @@
         
         _liveShuffingView.delegate = self;
         
-        
         _liveShuffingView.backgroundColor = [UIColor lightGrayColor];
         
     }
@@ -97,6 +96,13 @@
     _liveShuffingView.liveModelArray = _liveModelArray;
     
     
+}
+
+- (void)setRemondNewsModel:(CBNNewsItemModel *)remondNewsModel
+{
+    _remondNewsModel = remondNewsModel;
+    
+    _recommendedNewsView.recommendNewsModel = remondNewsModel;
 }
 
 @end

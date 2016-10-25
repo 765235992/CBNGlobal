@@ -189,7 +189,7 @@
 {
     _newsItemModel = newsItemModel;
     
-    _timeLabel.text = _newsItemModel.LastDate;
+    _timeLabel.text = [NSDate getHourDateFromUTCDateString:_newsItemModel.LastDate];
     
     CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 3);
     

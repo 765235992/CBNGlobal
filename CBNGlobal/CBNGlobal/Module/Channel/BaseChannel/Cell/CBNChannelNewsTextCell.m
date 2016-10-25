@@ -139,7 +139,7 @@
     
     _itemModel = itemModel;
     
-    _timeLabel.text = _itemModel.LastDate;
+    _timeLabel.text = [NSDate getNormalDateFromUTCDateString:_itemModel.LastDate];
     
     if (_itemModel.NewsAuthor.length>0&&_itemModel.NewsSource.length>0) {
         

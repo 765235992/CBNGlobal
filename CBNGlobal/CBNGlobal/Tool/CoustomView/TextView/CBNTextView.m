@@ -37,7 +37,7 @@
 }
 - (void)dealloc
 {
-    NSLog(@"dealloc -- %@",self);
+    CBNLog(@"详情HTML文章释放");
 }
 
 - (void)setNewsDetaileModel:(CBNNewsDetailModel *)newsDetaileModel
@@ -45,40 +45,23 @@
     
     _newsDetaileModel = newsDetaileModel;
     
-    NSAttributedString *attributeString = [[NSAttributedString alloc] initWithData:[[self getHtmlStringWithPString:_newsDetaileModel.NewsBody] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+
+
     
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithAttributedString:attributeString];
     
-    self.attributedText = attr;
+}
+- (void)setAttText:(NSMutableAttributedString *)attText
+
+{
+    _attText = attText;
+    
+    self.attributedText = attText;
     
     self.autoresizingMask
     = UIViewAutoresizingFlexibleHeight;//自适应高度
     
     [self sizeToFit];
-    
+
 }
 
-- (NSString *)getHtmlStringWithPString:(NSString *)pString
-{
-    NSString *strUrl = [pString stringByReplacingOccurrencesOfString:@"background-color:rgb(245, 245, 245);" withString:@"background-colorlll"];
-
-    NSString *styleHeader = @"<style type=\"text/css\">";
-    NSString *blockquote = @"blockquote{border-left:5px solid #DDD;margin:15px 30px 0 3px; padding-left:20px}";
-    NSString *backgroundColor = @"background-color:AA;";
-    NSString *textColor = @"color:#212121;";
-    NSString *textAlignment = @"text-align:justify;";
-    NSString *textFoneSize = @"font-size:17px;";
-    NSString *textFontName = @"font-family:\"AppleSDGothicNeo-Light\";";
-    NSString *textLineSpace = @"line-height:1.7;";
-    NSString *word = @"word-wrap:break-word;word-break: normal;";
-    NSString *padding = @"padding:0 3 0 3;";
-    NSString *justify = @"text-justify:distribute-all-lines;";
-
-    NSString *p = [NSString stringWithFormat:@"p{%@%@%@%@%@%@%@%@%@}",backgroundColor,textColor,textAlignment,textFoneSize,textFontName,textLineSpace,word,padding,justify];
-    NSString *styleFooter = @"</style>";
-   
-    NSString *result = [NSString stringWithFormat:@"%@%@%@%@%@",styleHeader,blockquote,p,styleFooter,strUrl];
-    return result;
-    
-}
 @end

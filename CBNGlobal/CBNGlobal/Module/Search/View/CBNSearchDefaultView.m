@@ -9,9 +9,8 @@
 #import "CBNSearchDefaultView.h"
 #import "CBNFileManager.h"
 
-#import "CBNSearchChannelView.h"
 
-@interface CBNSearchDefaultView ()
+@interface CBNSearchDefaultView ()<CBNSearchChannelViewDelegate>
 @property (nonatomic, strong) UILabel *channelPromptView;
 
 @property (nonatomic, strong) UIImageView *lineImageView;
@@ -75,11 +74,16 @@
     if (!_channelView) {
         
         self.channelView = [[CBNSearchChannelView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _lineImageView.frame.size.height+_lineImageView.frame.origin.y+news_Cell_Up_Or_Down_Margin, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, 0)];
-        
+        _channelView.delegate = self;
         
     }
     
     return _channelView;
 }
-
+- (void)searchChannelView:(CBNSearchChannelView *)searchChannelView didSelectedAtIndex:(NSInteger)index
+{
+    if ([self.delegate respondsToSelector:@selector(searchDefaultView:channelDidSelectedAtIndex:)]) {
+        [self.delegate searchDefaultView:self channelDidSelectedAtIndex:index];
+    }
+}
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class CBNHomePageHeaderView;
-@protocol CBNHomePageHeaderView <NSObject>
+@protocol CBNHomePageHeaderViewDelegate <NSObject>
 
 - (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView didSelectedAtIndex:(NSInteger)index;
 
@@ -18,7 +18,8 @@
 
 @interface CBNHomePageHeaderView : UIView
 
-@property (nonatomic, assign) id <CBNHomePageHeaderView> delegate;
+@property (nonatomic, assign) id <CBNHomePageHeaderViewDelegate> delegate;
+@property (nonatomic, strong) CBNNewsItemModel *remondNewsModel;
 
 @property (nonatomic, strong) NSMutableArray *liveModelArray;
 @end

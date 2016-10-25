@@ -9,6 +9,7 @@
 #import "CBNBaseDetailMoreNewsView.h"
 #import "CBNMoreNewsHeaderView.h"
 #import "CBNRelatedNewsItemView.h"
+#import "CBNMoreNewsModel.h"
 
 @interface CBNBaseDetailMoreNewsView ()
 @property (nonatomic, strong) CBNMoreNewsHeaderView *headerView;
@@ -21,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.headerView];
-        [self setRelatedNewsItemsView];
+//        [self setRelatedNewsItemsView];
         
     }
     return self;
@@ -63,7 +64,31 @@
         [self.delegate moreNewsView:self selectedAtIndex:sender.view.tag];
     }
 }
+- (void)setMoreNewsArray:(NSArray *)moreNewsArray
+{
+    _moreNewsArray = moreNewsArray;
+    
+    CGFloat height = _headerView.frame.size.height;
+    for (int i = 0; i < _moreNewsArray.count; i++) {
+        
+        CBNMoreNewsModel *tempModel = [_moreNewsArray objectAtIndex:i];
+        
+        CBNRelatedNewsItemView *tempNewsItemView = [[CBNRelatedNewsItemView alloc] initWithFrame:CGRectMake(0, height, CBN_Screen_Width, 0)];
+        
+        tempNewsItemView.newsTitleString = [NSString stringWithFormat:@"%d、%@", i+1,tempModel.NewsTitle];
+        
+        [self addSubview:tempNewsItemView];
+        tempNewsItemView.tag = i;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        [tempNewsItemView addGestureRecognizer:tap];
+        
+        height = height + tempNewsItemView.frame.size.height;
+        
+    }
+    
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, CBN_Screen_Width, height);
 
+}
 
 
 @end

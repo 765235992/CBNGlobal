@@ -10,5 +10,6 @@
 
 @interface CBNChannelListRequest : CBNBaseNetworkAction
 + (void)loadNewsItemsWithChannelID:(NSInteger)channelID page:(NSInteger)page pageSize:(NSInteger)pageSize Secuessed:(void (^)(NSArray *channelNewsItemsArray))secuessed failed:(void (^)(NSError *error))failed;
++ (void)loadNewsItemsWithRootID:(NSInteger)channelID page:(NSInteger)page pageSize:(NSInteger)pageSize Secuessed:(void (^)(NSArray *channelNewsItemsArray))secuessed failed:(void (^)(NSError *error))failed;
 
 @end

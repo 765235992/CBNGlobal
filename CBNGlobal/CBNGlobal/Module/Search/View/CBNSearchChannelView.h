@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class CBNSearchChannelView;
+
+@protocol CBNSearchChannelViewDelegate <NSObject>
+
+- (void)searchChannelView:(CBNSearchChannelView *)searchChannelView didSelectedAtIndex:(NSInteger)index;
+
+@end
+
 @interface CBNSearchChannelView : UIView
 
-
+@property (nonatomic, assign) id <CBNSearchChannelViewDelegate> delegate;
 @end

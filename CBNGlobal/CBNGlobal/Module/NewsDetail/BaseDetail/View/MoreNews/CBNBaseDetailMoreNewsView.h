@@ -18,4 +18,6 @@
 @interface CBNBaseDetailMoreNewsView : UIView
 
 @property (nonatomic, assign) id <CBNBaseDetailMoreNewsViewDelegate>delegate;
+
+@property (nonatomic, strong) NSArray *moreNewsArray;
 @end

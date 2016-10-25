@@ -30,10 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
     [self setBackBarButtonItem];
     [self setNavigationTitle:@"Live"];
     [self setShareBarButtonItem];
-    
     [self setUpTableView];
     
 }
@@ -42,11 +42,14 @@
     _liveModelArray = liveModelArray;
     _currentPage = 1;
     _currentPage++;
+    CBNLiveItemModel *model = [liveModelArray firstObject];
     
+    NSString *timeStr = [NSDate getNormalDateFromUTCDateString:model.LastDate];
+    self.aTableViewHeaderView.time = timeStr;
     [self.sourceArray removeAllObjects];
     
     [_sourceArray addObjectsFromArray:liveModelArray];
-    [_aTableView reloadData];
+    [self.aTableView reloadData];
 }
 
 
@@ -137,6 +140,7 @@
     __weak typeof(self) weakSelf = self;
     
     [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+
         
         [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
         

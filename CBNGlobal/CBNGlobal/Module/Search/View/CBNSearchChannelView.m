@@ -14,6 +14,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.userInteractionEnabled = YES;
         [self createChannelItems];
         
     }
@@ -29,15 +31,26 @@
     UIFont *buttonFont = [UIFont fontWithSmallSzie:11 middleSize:13 bigSize:15 AndFontName:font_Name_Blod];
     
     CGFloat buttonHeight = [NSString getTextHeightWithFont:buttonFont]*1.5;
-    NSArray *titleArr =  [NSMutableArray arrayWithContentsOfFile:[[CBNFileManager sharedInstance] loadPlistFilePathWithPlistName:@"CBNChannel"]];;
+    NSMutableArray *titleArr =  [[NSMutableArray alloc] init];
+    CBNChannelMoel *homeChannelModel = [[CBNChannelMoel alloc] init];
+    
+    homeChannelModel.ChannelName = @"Home";
+    homeChannelModel.EnglishName = @"Home";
+    
+    [titleArr addObject:homeChannelModel];
+
+    [titleArr addObjectsFromArray:[[CBNChannelDao sharedManager] queryChannelDataWithTableName:@"ChannelList"]];
+    
+    
     //创建button
     for (int i = 0; i < titleArr.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.tag = 300 + i;
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
+        CBNChannelMoel *tempModel = titleArr[i];
         
-        CGSize titleSize = [[titleArr[i] objectForKey:@"newsChannelTitle"] boundingRectWithSize:CGSizeMake(999, 25) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:buttonFont} context:nil].size;
+        CGSize titleSize = [tempModel.ChannelName boundingRectWithSize:CGSizeMake(999, 25) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:buttonFont} context:nil].size;
         titleSize.width += buttonHeight;
         
         //自动的折行
@@ -50,7 +63,6 @@
             width = width+titleSize.width;
             number = 0;
             button.frame = CGRectMake(0, (buttonHeight+news_Cell_Up_Or_Down_Margin)*height, titleSize.width, buttonHeight);
-            NSLog(@"%@",button);
         }else{
             button.frame = CGRectMake(width+(number*news_Cell_Up_Or_Down_Margin), (buttonHeight+news_Cell_Up_Or_Down_Margin)*height, titleSize.width, buttonHeight);
             width = width+titleSize.width;
@@ -62,14 +74,24 @@
         button.dk_backgroundColorPicker = DKColorPickerWithKey(CBN_Blue_Color);
         button.titleLabel.font = buttonFont;
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setTitle:[titleArr[i] objectForKey:@"newsChannelTitle"] forState:UIControlStateNormal];
+        [button setTitle:tempModel.ChannelName forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
+        
         [self addSubview:button];
         
     }
     self.frame= CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, (buttonHeight+news_Cell_Up_Or_Down_Margin)*height + buttonHeight);
     
+}
 
-
+- (void)button:(UIButton *)sender
+{
+    NSInteger tag = sender.tag - 300;
+    if ([self.delegate respondsToSelector:@selector(searchChannelView:didSelectedAtIndex:)]) {
+        
+        [self.delegate searchChannelView:self didSelectedAtIndex:tag];
+        
+    }
 }
 
 @end

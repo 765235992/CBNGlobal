@@ -38,7 +38,6 @@
     NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"CBNGlobal.sqlite"];
 
     
-    NSLog(@"%@",filePath);
     
     return filePath;
     
@@ -49,13 +48,10 @@
     NSString *sqlPath = [self sqlPath];
     
     self.fmdb = [FMDatabase databaseWithPath:sqlPath];
-    NSLog(@"%@",_fmdb);
     BOOL isOpen = [_fmdb open];
     
     if (isOpen == YES) {
-        NSLog(@"数据库打开成功");
     }else{
-        NSLog(@"数据库打开失败");
 
     }
 

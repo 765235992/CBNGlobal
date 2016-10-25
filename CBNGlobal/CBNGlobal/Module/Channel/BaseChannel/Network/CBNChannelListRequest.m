@@ -44,7 +44,37 @@
         if (failed) {
             failed(error);
         }
-        NSLog(@"%@",error);
     }];
 }
++ (void)loadNewsItemsWithRootID:(NSInteger)channelID page:(NSInteger)page pageSize:(NSInteger)pageSize Secuessed:(void (^)(NSArray *channelNewsItemsArray))secuessed failed:(void (^)(NSError *error))failed
+{
+    
+    NSMutableArray *channelItemModelArray = [[NSMutableArray alloc] init];
+    
+    [self POST:[[JYParametersLinkManager sharedManager] getNewsListURLWithRootlID:28 page:page pageSize:pageSize]parameters:nil success:^(id result) {
+        NSArray *channelItemArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
+        
+        for (NSDictionary *tempDic  in channelItemArray) {
+                CBNNewsItemModel *tempModel = [[CBNNewsItemModel alloc] initWichNewsItemInfo:tempDic];
+                [channelItemModelArray addObject:tempModel];
+                
+                            
+            
+        }
+        
+        if (secuessed) {
+            secuessed(channelItemModelArray);
+            
+        }
+    } failed:^(NSError *error) {
+        if (failed) {
+            failed(error);
+        }
+    }];
+}
+
+
+
+
+//    ;
 @end

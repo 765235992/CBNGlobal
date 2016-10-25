@@ -14,7 +14,7 @@
 #import "CBNTextDetailVC.h"
 #import "CBNChannelListRequest.h"
 
-@interface CBNHomePageVC ()<UITableViewDataSource,UITableViewDelegate,CBNHomePageHeaderView>
+@interface CBNHomePageVC ()<UITableViewDataSource,UITableViewDelegate,CBNHomePageHeaderViewDelegate>
 
 @property (nonatomic, strong) UITableView *aTableView;
 
@@ -22,32 +22,36 @@
 
 @property (nonatomic, strong) CBNHomePageHeaderView *tableViewHeaderView;
 
+@property (nonatomic, assign) NSInteger currentPage;
+
 @property (nonatomic, strong) NSMutableArray *liveModelArray;
+
+@property (nonatomic, assign) NSInteger sliderID;
+
+@property (nonatomic, assign) NSInteger mainChannelID;
 
 @end
 
 @implementation CBNHomePageVC
 - (void)dealloc
 {
-    NSLog(@"aaaaaaaaa");
+    CBNLog(@"主频道释放");
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.sourceArray = [[NSMutableArray alloc] init];
-    for (NSString * familyName in [UIFont familyNames]) {
-        
-        
-        
-        
-        for (NSString * fontName in [UIFont fontNamesForFamilyName:familyName]) {
-            
-            NSLog(@"%@",familyName);
-            [_sourceArray addObject:fontName];
-        }
-    }
     
-    self.view.backgroundColor = [UIColor blackColor];
+    self.sliderID = 29;
+    
+    self.liveChannelID = 206;
+    
+    self.mainChannelID = 213;
+    
+    [self.sourceArray addObjectsFromArray:[[CBNNewsItemDao sharedManager]queryNewsItemsDataWithTableName:@"Main"]];
+    
+    [self.view addSubview:self.aTableView];
     
     [self setUpTableView];
     
@@ -57,8 +61,12 @@
     _liveChannelID = liveChannelID;
     
     __weak typeof(self) weakSelf = self;
-    
+
     [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:1 pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
+        [[CBNNewsItemDao sharedManager] deleteDataFromTableName:@"Live"];
+        
+        [[CBNNewsItemDao sharedManager] insertChannelNewsItemsWithTableName:@"Live" andChannelNewsItemArray:channelNewsItemsArray];
         
         [weakSelf.liveModelArray removeAllObjects];
         
@@ -71,8 +79,32 @@
     }];
 
 }
+- (void)setSliderID:(NSInteger)sliderID
+{
+    _sliderID = sliderID;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    
+    [CBNChannelListRequest loadNewsItemsWithChannelID:_sliderID page:1 pageSize:10 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
+        [[CBNNewsItemDao sharedManager] deleteDataFromTableName:@"Slider"];
+        NSArray *arr = [NSArray arrayWithObjects:[channelNewsItemsArray firstObject], nil];
+        [[CBNNewsItemDao sharedManager] insertChannelNewsItemsWithTableName:@"Slider" andChannelNewsItemArray:arr];
+        weakSelf.tableViewHeaderView.remondNewsModel = [channelNewsItemsArray firstObject];
+        
+        
+    } failed:^(NSError *error) {
+        
+    }];
+    
+}
+
+
+
 - (NSMutableArray *)liveModelArray
 {
+    
     if (!_liveModelArray) {
         
         self.liveModelArray = [[NSMutableArray alloc] init];
@@ -83,37 +115,36 @@
 }
 
 
-//- (void)
-
-
 #define 添加刷新效果和加载更多效果
 - (void)setUpTableView
 {
     
-    [self.view addSubview:self.aTableView];
     
     _aTableView.tableHeaderView = self.tableViewHeaderView;
-    
+    self.tableViewHeaderView.remondNewsModel = [[[CBNNewsItemDao sharedManager]queryNewsItemsDataWithTableName:@"Slider"] firstObject];
+    [self.liveModelArray addObjectsFromArray: [[CBNNewsItemDao sharedManager]queryNewsItemsDataWithTableName:@"Live"]];
+    _tableViewHeaderView.liveModelArray = _liveModelArray;
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHomePageDataFromSever)];
     
     // 设置文字
-    [header setTitle:@"下拉开始刷新" forState:MJRefreshStateIdle];
+    [header setTitle:@"Pull down to refresh…" forState:MJRefreshStateIdle];
     
-    [header setTitle:@"正在刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"Begin to refresh" forState:MJRefreshStatePulling];
     
-    [header setTitle:@"正在加载中......" forState:MJRefreshStateRefreshing];
-    
+    [header setTitle:@"Refreshing......" forState:MJRefreshStateRefreshing];
     // 设置字体
-//    header.stateLabel.font =  [UIFont refreshAndLoadingFont];
-//    
-//    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
-   
-
+    // 设置字体
+    header.stateLabel.font =  [UIFont refreshAndLoadingFont];
+    
+    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
+    
     // 设置颜色
     header.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
     
     header.lastUpdatedTimeLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
+    
+
     
     // 设置刷新控件
     self.aTableView.mj_header = header;
@@ -122,18 +153,17 @@
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
     
-    [footer setTitle:@" " forState:MJRefreshStateIdle];
+    [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
     
-    [footer setTitle:@"正在加载更多数据……" forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
     
-    [footer setTitle:@"没有更多数据" forState:MJRefreshStateNoMoreData];
+    [footer setTitle:@"No more news" forState:MJRefreshStateNoMoreData];
     
     // 设置字体
     footer.stateLabel.font = [UIFont refreshAndLoadingFont];
-//
-//    // 设置颜色
+    //
+    //    // 设置颜色
     footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
-    
     // 设置footer
     self.aTableView.mj_footer = footer;
     
@@ -144,35 +174,32 @@
 {
     
     __weak typeof(self) weakSelf = self;
+
+    _currentPage = 1;
     
-//    [[CBNHomePageNewsRequest sharedInstance] refreshHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray, NSMutableArray *sliderArray) {
-//        
-//        [self.sourceArray removeAllObjects];
-//        
-//        NSMutableArray *arr = [[NSMutableArray alloc] init];
-//        
-//        for (CBNNewsItemModel *tempModel in sliderArray) {
-//            CBNShufflingModel *shufflingModel = [[CBNShufflingModel alloc] init];
-//            
-//            
-//            shufflingModel.newsTitleStr = tempModel.chapt_title;
-//            shufflingModel.newsThumbStr = tempModel.cover_img_big;
-//            shufflingModel.index = [tempModel.type integerValue];
-//            
-//            [arr addObject:shufflingModel];
-//            
-//        }
-//        weakSelf.headerView.sliderView.shufflingView.sourceModelArray = arr;
-//        
-//        [_sourceArray addObjectsFromArray:homePageModelrray];
-//        
-//        [weakSelf refreshFinished];
-//        
-//    } failed:^(NSString *errorStr) {
-//        
+    self.sliderID = 29;
+    
+    self.liveChannelID = 206;
+
+    [CBNChannelListRequest loadNewsItemsWithRootID:_mainChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
+        [[CBNNewsItemDao sharedManager] deleteDataFromTableName:@"Main"];
+        
+        [[CBNNewsItemDao sharedManager] insertChannelNewsItemsWithTableName:@"Main" andChannelNewsItemArray:channelNewsItemsArray];
+        
+        [weakSelf.sourceArray removeAllObjects];
+        
+        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        
         [weakSelf refreshFinished];
-//
-//    }];
+        _currentPage++;
+        
+    } failed:^(NSError *error) {
+        [weakSelf refreshFinished];
+        
+    }];
+
+
     
     
 }
@@ -188,15 +215,19 @@
 {
     
     __weak typeof(self) weakSelf = self;
-    
-//    [[CBNHomePageNewsRequest sharedInstance] loadMoreHomePageNewsFromSeverWith:0 success:^(NSMutableArray *homePageModelrray) {
-//        [_sourceArray addObjectsFromArray:homePageModelrray];
-//        [weakSelf loadMoreFinished];
-//        
-//    } failed:^(NSString *errorStr) {
+    [CBNChannelListRequest loadNewsItemsWithRootID:_mainChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+//        [weakSelf.sourceArray removeAllObjects];
+        
+        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        
         [weakSelf loadMoreFinished];
-//
-//    }];
+        _currentPage++;
+        
+    } failed:^(NSError *error) {
+        [weakSelf loadMoreFinished];
+        
+    }];
+
 }
 - (void)loadMoreFinished
 {
@@ -241,6 +272,8 @@
 - (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView didSelectedAtIndex:(NSInteger)index
 {
     CBNLiveVC *liveVC = [[CBNLiveVC alloc] init];
+    
+    NSLog(@"%@",_liveModelArray);
     liveVC.liveModelArray = _liveModelArray;
     liveVC.liveChannelID = _liveChannelID;
     
@@ -249,12 +282,13 @@
 }
 - (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView recommendedNews:(id)news
 {
-    [self pushToTextNewsDetailWithNewsItemModel:nil];
+    
+    [self pushToTextNewsDetailWithNewsItemModel:homePageView.remondNewsModel];
 
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.sourceArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -268,6 +302,7 @@
         cell = [[CBNChannelNewsTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
         
     }
+    cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
     
     
     return cell;
@@ -283,8 +318,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-
-    [self pushToTextNewsDetailWithNewsItemModel:nil];
+    [self pushToTextNewsDetailWithNewsItemModel:[_sourceArray objectAtIndex:indexPath.row]];
 }
 
 @end
