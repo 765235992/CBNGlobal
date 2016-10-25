@@ -10,7 +10,7 @@
 
 @interface CBNLeftChannelCell : UITableViewCell
 
-@property (nonatomic, strong) CBNChannelMoel *channelModel;
+@property (nonatomic, strong) CBNChannelModel *channelModel;
 
 
 @end

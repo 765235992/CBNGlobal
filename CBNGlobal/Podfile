@@ -6,6 +6,5 @@ pod 'AFNetworking'
 pod 'MMDrawerController'
 pod 'DKNightVersion'
 pod 'MJRefresh'
-pod 'FMDB'
 pod 'MJExtension'
 end

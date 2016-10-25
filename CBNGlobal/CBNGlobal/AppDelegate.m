@@ -101,14 +101,17 @@
 {
     
     __weak typeof(self) weakSelf = self;
+    
+   
+    
     [CBNChannelRequrst postChannelsSecuessed:^(NSArray *channelArray) {
 
-        [[CBNChannelDao sharedManager] deleteDataFromTableName:@"ChannelList"];
-
-        [[CBNChannelDao sharedManager] insertChannelItemsWithTableName:@"ChannelList" andChannelItemArray:channelArray];
         
+        [[CBNChannelSqliteManager sharedManager] cleanTableWithTableName:@"ChannelList"];
         
-        weakSelf.leftChannelVC.channelArray = channelArray;
+        [[CBNChannelSqliteManager sharedManager] insertObjects:channelArray intoTable:@"ChannelList"];
+        
+        weakSelf.leftChannelVC.channelArray = [[CBNChannelSqliteManager sharedManager] dictionaryChangeToModelWithDictionaryArray:channelArray];
         
         
     } failed:^(NSError *error) {

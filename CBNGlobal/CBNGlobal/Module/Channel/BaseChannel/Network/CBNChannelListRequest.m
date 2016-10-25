@@ -7,37 +7,17 @@
 //
 
 #import "CBNChannelListRequest.h"
-#import "CBNNewsItemModel.h"
-#import "CBNLiveItemModel.h"
+#import "CBNNewsModel.h"
 @implementation CBNChannelListRequest
 + (void)loadNewsItemsWithChannelID:(NSInteger)channelID page:(NSInteger)page pageSize:(NSInteger)pageSize Secuessed:(void (^)(NSArray *channelNewsItemsArray))secuessed failed:(void (^)(NSError *error))failed
 {
-    
-    NSMutableArray *channelItemModelArray = [[NSMutableArray alloc] init];
-    
-    [self POST:[[JYParametersLinkManager sharedManager] getNewsListURLWithChannelID:channelID page:page pageSize:pageSize]parameters:nil success:^(id result) {
+        
+    [self POST:[[CBNParametersLinkManager sharedManager] getNewsListURLWithChannelID:channelID page:page pageSize:pageSize]parameters:nil success:^(id result) {
+
         NSArray *channelItemArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
-
-        for (NSDictionary *tempDic  in channelItemArray) {
-            if (channelID == 206) {
-                CBNLiveItemModel *tempModel = [[CBNLiveItemModel alloc] initWichNewsItemInfo:tempDic];
-                [channelItemModelArray addObject:tempModel];
-
-
-            }else{
-                CBNNewsItemModel *tempModel = [[CBNNewsItemModel alloc] initWichNewsItemInfo:tempDic];
-                [channelItemModelArray addObject:tempModel];
-
-
-            }
-//            CBNNewsItemModel *tempModel = [CBNNewsItemDao mj_objectWithKeyValues:tempDic];
-//            ;
-
-            
-        }
         
         if (secuessed) {
-            secuessed(channelItemModelArray);
+            secuessed(channelItemArray);
             
         }
     } failed:^(NSError *error) {
@@ -49,21 +29,12 @@
 + (void)loadNewsItemsWithRootID:(NSInteger)channelID page:(NSInteger)page pageSize:(NSInteger)pageSize Secuessed:(void (^)(NSArray *channelNewsItemsArray))secuessed failed:(void (^)(NSError *error))failed
 {
     
-    NSMutableArray *channelItemModelArray = [[NSMutableArray alloc] init];
     
-    [self POST:[[JYParametersLinkManager sharedManager] getNewsListURLWithRootlID:28 page:page pageSize:pageSize]parameters:nil success:^(id result) {
+    [self POST:[[CBNParametersLinkManager sharedManager] getNewsListURLWithRootlID:28 page:page pageSize:pageSize]parameters:nil success:^(id result) {
         NSArray *channelItemArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
         
-        for (NSDictionary *tempDic  in channelItemArray) {
-                CBNNewsItemModel *tempModel = [[CBNNewsItemModel alloc] initWichNewsItemInfo:tempDic];
-                [channelItemModelArray addObject:tempModel];
-                
-                            
-            
-        }
-        
         if (secuessed) {
-            secuessed(channelItemModelArray);
+            secuessed(channelItemArray);
             
         }
     } failed:^(NSError *error) {

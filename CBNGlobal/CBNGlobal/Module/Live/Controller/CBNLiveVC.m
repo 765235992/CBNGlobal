@@ -9,10 +9,8 @@
 #import "CBNLiveVC.h"
 #import "CBNLiveNewsCell.h"
 #import "CBNLiveHeaderView.h"
-#import "CBNLiveItemModel.h"
 #import "CBNTextDetailVC.h"
 #import "CBNChannelListRequest.h"
-#import "CBNLiveItemModel.h"
 @interface CBNLiveVC ()<UITableViewDataSource,UITableViewDelegate,CBNLiveNewsCellDelegate>
 
 @property (nonatomic, strong) CBNLiveHeaderView *aTableViewHeaderView;
@@ -42,9 +40,9 @@
     _liveModelArray = liveModelArray;
     _currentPage = 1;
     _currentPage++;
-    CBNLiveItemModel *model = [liveModelArray firstObject];
+    CBNLiveModel *model = [liveModelArray firstObject];
     
-    NSString *timeStr = [NSDate getNormalDateFromUTCDateString:model.LastDate];
+    NSString *timeStr = [NSDate getNormalDateFromUTCDateString:model.newsModel.LastDate];
     self.aTableViewHeaderView.time = timeStr;
     [self.sourceArray removeAllObjects];
     
@@ -61,7 +59,7 @@
     
     _aTableView.tableHeaderView = self.aTableViewHeaderView;
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHomePageDataFromSever)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshLiveDataFromSever)];
     
     // 设置文字
     [header setTitle:@"Pull down to refresh…" forState:MJRefreshStateIdle];
@@ -85,7 +83,7 @@
     
 //    [_aTableView.mj_header beginRefreshing];
     
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreLiveDataFromSever)];
     
     [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
     
@@ -105,13 +103,14 @@
     
 }
 #define 数据加载和刷新
-- (void)refreshHomePageDataFromSever
+- (void)refreshLiveDataFromSever
 {
     _currentPage = 1;
     
     __weak typeof(self) weakSelf = self;
     
     [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
         [weakSelf.sourceArray removeAllObjects];
         
         [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
@@ -134,7 +133,7 @@
     [_aTableView.mj_header endRefreshing];
     
 }
-- (void)loadMoreHomePageDataFromSever
+- (void)loadMoreLiveDataFromSever
 {
     
     __weak typeof(self) weakSelf = self;
@@ -164,9 +163,77 @@
 
 
 
-/**
- *  @创建视图
- */
+#pragma mark UITableViewDataSource_And_UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _sourceArray.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *indentefier = @"CBNLiveNewsCell";
+    
+    
+    CBNLiveNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
+    
+    if (cell == nil) {
+        
+        cell = [[CBNLiveNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+        
+        cell.delegate = self;
+        
+        
+    }
+    CBNLiveModel *tempModel = (CBNLiveModel *)[_sourceArray objectAtIndex:indexPath.row];
+    
+    cell.liveModel = tempModel;
+    
+    tempModel = cell.liveModel;
+    
+    [_sourceArray replaceObjectAtIndex:indexPath.row withObject:tempModel];
+    
+    return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CBNLiveModel *tempModel = (CBNLiveModel *)[_sourceArray objectAtIndex:indexPath.row];
+
+    return tempModel.height;
+    
+}
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+        
+}
+#pragma mark CBNLiveNewsCellDelegate
+
+- (void)liveNewsCell:(CBNLiveNewsCell *)liveCell detailButtonClickedWithLiveModel:(CBNLiveModel *)liveMoel
+{
+
+    CBNTextDetailVC *liveDetailVC = [[CBNTextDetailVC alloc] init];
+    
+    liveDetailVC.newsID = liveMoel.newsModel.NewsID;
+    
+    [self.navigationController pushViewController:liveDetailVC animated:YES];
+    
+}
+#pragma mark create_Objects
+
+- (NSMutableArray *)sourceArray
+{
+    if (!_sourceArray) {
+        
+        self.sourceArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _sourceArray;
+}
 - (UITableView *)aTableView
 {
     if (!_aTableView) {
@@ -196,72 +263,4 @@
     return _aTableViewHeaderView;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _sourceArray.count;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *indentefier = @"CBNLiveNewsCell";
-    
-    
-    CBNLiveNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
-    
-    if (cell == nil) {
-        
-        cell = [[CBNLiveNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
-        
-        cell.delegate = self;
-        
-        
-    }
-    CBNLiveItemModel *tempModel = (CBNLiveItemModel *)[_sourceArray objectAtIndex:indexPath.row];
-    
-    cell.newsItemModel = tempModel;
-    
-    tempModel = cell.newsItemModel;
-    
-    [_sourceArray replaceObjectAtIndex:indexPath.row withObject:tempModel];
-    
-    return cell;
-}
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CBNLiveItemModel *tempModel = (CBNLiveItemModel *)[_sourceArray objectAtIndex:indexPath.row];
-
-    return tempModel.height;
-    
-}
-
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:CBNChannelChanged object:channelInfo];
-    
-}
-- (void)liveNewsCell:(CBNLiveNewsCell *)liveCell detailButtonClickedWithLiveModel:(CBNNewsItemModel *)liveMoel
-{
-
-    CBNTextDetailVC *liveDetailVC = [[CBNTextDetailVC alloc] init];
-    
-    liveDetailVC.newsID = [liveMoel.NewsID integerValue];
-    
-    [self.navigationController pushViewController:liveDetailVC animated:YES];
-    
-}
-
-- (NSMutableArray *)sourceArray
-{
-    if (!_sourceArray) {
-        
-        self.sourceArray = [[NSMutableArray alloc] init];
-    }
-    
-    return _sourceArray;
-}
 @end

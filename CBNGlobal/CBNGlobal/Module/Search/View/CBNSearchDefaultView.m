@@ -7,7 +7,6 @@
 //
 
 #import "CBNSearchDefaultView.h"
-#import "CBNFileManager.h"
 
 
 @interface CBNSearchDefaultView ()<CBNSearchChannelViewDelegate>

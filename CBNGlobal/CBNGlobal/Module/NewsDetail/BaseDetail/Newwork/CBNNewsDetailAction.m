@@ -12,9 +12,8 @@
 @implementation CBNNewsDetailAction
 + (void)loadNewsDatetailWithNewsID:(NSInteger)newsID secuessed:(void (^)(CBNNewsDetailModel *newsDetailModel))secuessed failed:(void (^)(NSError *error))failed
 {
-    [self POST:[[JYParametersLinkManager sharedManager] readNewsWithNewsID:newsID]  parameters:nil success:^(id result) {
+    [self POST:[[CBNParametersLinkManager sharedManager] readNewsWithNewsID:newsID]  parameters:nil success:^(id result) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
-//        CBNNewsDetailModel *detailModel = [CBNNewsDetailModel mj_objectWithKeyValues:dic];
 
         
         CBNNewsDetailModel *detailModel = [[CBNNewsDetailModel alloc] initWithNewsDetailInfo:dic];
@@ -32,7 +31,7 @@
 
 + (void)loadMoreNewssecuessed:(void (^)(NSArray *moreNewsArray))secuessed failed:(void (^)(NSError *error))failed
 {
-    [self POST:[[JYParametersLinkManager sharedManager] rankNewsMonthURL] parameters:nil success:^(id result) {
+    [self POST:[[CBNParametersLinkManager sharedManager] rankNewsMonthURL] parameters:nil success:^(id result) {
         NSArray *moreNewsArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
         NSMutableArray *resultArray = [[NSMutableArray alloc] init];
         

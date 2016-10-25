@@ -19,7 +19,7 @@
 @interface CBNHomePageHeaderView : UIView
 
 @property (nonatomic, assign) id <CBNHomePageHeaderViewDelegate> delegate;
-@property (nonatomic, strong) CBNNewsItemModel *remondNewsModel;
+@property (nonatomic, strong) CBNNewsModel *remondNewsModel;
 
 @property (nonatomic, strong) NSMutableArray *liveModelArray;
 @end

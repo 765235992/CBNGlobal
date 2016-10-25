@@ -8,21 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		78F1F64B450F8B55BA1C78F4 /* libPods-CBNGlobal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6936100BDAE8F7C4498C70AA /* libPods-CBNGlobal.a */; };
-		FE12011F1DB9BAFB00D4358F /* libJYGuideSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE12010C1DB9BA1D00D4358F /* libJYGuideSDK.a */; };
-		FE1201201DB9BAFB00D4358F /* libJYLiveShuffingSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1201181DB9BA7600D4358F /* libJYLiveShuffingSDK.a */; };
-		FE1201211DB9BAFB00D4358F /* libLSNavigationSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1201061DB9BA0A00D4358F /* libLSNavigationSDK.a */; };
-		FE12015D1DBA376100D4358F /* libJYParametersLinkSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE12015A1DBA357000D4358F /* libJYParametersLinkSDK.a */; };
 		FE1201681DBB24B100D4358F /* CBNBaseNetworkAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1201671DBB24B100D4358F /* CBNBaseNetworkAction.m */; };
 		FE12016C1DBB257200D4358F /* CBNChannelRequrst.m in Sources */ = {isa = PBXBuildFile; fileRef = FE12016B1DBB257200D4358F /* CBNChannelRequrst.m */; };
-		FE12016F1DBB270500D4358F /* CBNChannelMoel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE12016E1DBB270500D4358F /* CBNChannelMoel.m */; };
 		FE1201771DBB2F8D00D4358F /* CBNChannelListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1201761DBB2F8D00D4358F /* CBNChannelListRequest.m */; };
 		FE12017A1DBBAF5000D4358F /* NSDate+CBNDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1201791DBBAF5000D4358F /* NSDate+CBNDate.m */; };
 		FE12017E1DBBB4FB00D4358F /* CBNNewsDetailAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FE12017D1DBBB4FB00D4358F /* CBNNewsDetailAction.m */; };
 		FE1201811DBBB56800D4358F /* CBNNewsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1201801DBBB56800D4358F /* CBNNewsDetailModel.m */; };
-		FE1201891DBBEB6F00D4358F /* CBNDao.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1201881DBBEB6F00D4358F /* CBNDao.m */; };
-		FE12018C1DBC052200D4358F /* CBNChannelDao.m in Sources */ = {isa = PBXBuildFile; fileRef = FE12018B1DBC052200D4358F /* CBNChannelDao.m */; };
-		FE12018F1DBC060A00D4358F /* CBNNewsItemDao.m in Sources */ = {isa = PBXBuildFile; fileRef = FE12018E1DBC060A00D4358F /* CBNNewsItemDao.m */; };
-		FE12019A1DBC724900D4358F /* CBNLiveItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1201991DBC724900D4358F /* CBNLiveItemModel.m */; };
 		FE2E24E31DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E24E21DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m */; };
 		FE2E25241DB72BD1007FA000 /* CBNBaseChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E25231DB72BD1007FA000 /* CBNBaseChannelVC.m */; };
 		FE2E25271DB76070007FA000 /* CBNChannelNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E25261DB76070007FA000 /* CBNChannelNavigationController.m */; };
@@ -34,7 +25,6 @@
 		FE2E25691DB775A1007FA000 /* DINPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE2E25671DB775A1007FA000 /* DINPro-Light.otf */; };
 		FE2E256C1DB777B4007FA000 /* CBNLiveDetailButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E256B1DB777B4007FA000 /* CBNLiveDetailButton.m */; };
 		FE2E256F1DB7813C007FA000 /* CBNNavigationShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E256E1DB7813C007FA000 /* CBNNavigationShareView.m */; };
-		FE2E25721DB85FAF007FA000 /* CBNNewsItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E25711DB85FAF007FA000 /* CBNNewsItemModel.m */; };
 		FE2E25751DB867DF007FA000 /* CBNTextMoreNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E25741DB867DF007FA000 /* CBNTextMoreNewsView.m */; };
 		FE2E25781DB86B3D007FA000 /* CBNSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E25771DB86B3D007FA000 /* CBNSearchVC.m */; };
 		FE2E257B1DB86D07007FA000 /* CBNSearcnView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E257A1DB86D07007FA000 /* CBNSearcnView.m */; };
@@ -53,18 +43,28 @@
 		FE5CCD3F1DB8C04000587D67 /* CBNSearchChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5CCD3E1DB8C04000587D67 /* CBNSearchChannelView.m */; };
 		FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CF51DB12B5B000E33F9 /* main.m */; };
 		FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CF81DB12B5B000E33F9 /* AppDelegate.m */; };
-		FE6F2CFC1DB12B5B000E33F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2CFB1DB12B5B000E33F9 /* ViewController.m */; };
 		FE6F2CFF1DB12B5B000E33F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F2CFD1DB12B5B000E33F9 /* Main.storyboard */; };
 		FE6F2D011DB12B5B000E33F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6F2D001DB12B5B000E33F9 /* Assets.xcassets */; };
 		FE6F2D041DB12B5B000E33F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F2D021DB12B5B000E33F9 /* LaunchScreen.storyboard */; };
 		FE6F2D0F1DB12B5B000E33F9 /* CBNGlobalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2D0E1DB12B5B000E33F9 /* CBNGlobalTests.m */; };
 		FE6F2D1A1DB12B5B000E33F9 /* CBNGlobalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F2D191DB12B5B000E33F9 /* CBNGlobalUITests.m */; };
+		FE7147551DBFA4D200707DFD /* libLSNavigationSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7147541DBFA4D200707DFD /* libLSNavigationSDK.a */; };
+		FE71475F1DBFA68400707DFD /* libJYGuideSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE71475E1DBFA68400707DFD /* libJYGuideSDK.a */; };
+		FE7147691DBFA76400707DFD /* libJYLiveShuffingSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7147681DBFA76400707DFD /* libJYLiveShuffingSDK.a */; };
+		FE7147851DBFA93A00707DFD /* CBNBaseSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7147801DBFA93A00707DFD /* CBNBaseSqlite.m */; };
+		FE7147861DBFA93A00707DFD /* CBNChannelSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7147821DBFA93A00707DFD /* CBNChannelSqliteManager.m */; };
+		FE7147871DBFA93A00707DFD /* CBNNewSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7147841DBFA93A00707DFD /* CBNNewSqliteManager.m */; };
+		FE71478A1DBFAA3D00707DFD /* CBNChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7147891DBFAA3D00707DFD /* CBNChannelModel.m */; };
+		FE71478D1DBFAAD600707DFD /* CBNNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE71478C1DBFAAD600707DFD /* CBNNewsModel.m */; };
+		FE7147901DBFB18300707DFD /* CBNLiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE71478F1DBFB18300707DFD /* CBNLiveModel.m */; };
+		FE7147921DBFB92100707DFD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7147911DBFB92100707DFD /* libsqlite3.tbd */; };
+		FE7147941DBFB92900707DFD /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7147931DBFB92900707DFD /* libsqlite3.0.tbd */; };
+		FE71479B1DBFC25100707DFD /* CBNParametersLinkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE71479A1DBFC25100707DFD /* CBNParametersLinkManager.m */; };
+		FE71479D1DBFC8EE00707DFD /* libJYSqliteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE71479C1DBFC8EE00707DFD /* libJYSqliteSDK.a */; };
 		FE7FB4441DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4431DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m */; };
 		FE7FB4471DB4CB0E00F07C1E /* CBNBarBurronItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4461DB4CB0E00F07C1E /* CBNBarBurronItem.m */; };
 		FE7FB44B1DB4CBA100F07C1E /* UIColor+CBNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB44A1DB4CBA100F07C1E /* UIColor+CBNColor.m */; };
 		FE7FB44E1DB4CD7F00F07C1E /* CBNLeftChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB44D1DB4CD7F00F07C1E /* CBNLeftChannelCell.m */; };
-		FE7FB4541DB4D20500F07C1E /* CBNFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4531DB4D20500F07C1E /* CBNFileManager.m */; };
-		FE7FB4561DB4D42700F07C1E /* CBNChannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE7FB4551DB4D42700F07C1E /* CBNChannel.plist */; };
 		FE7FB46E1DB4E81400F07C1E /* CBNHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4641DB4E81400F07C1E /* CBNHomePageVC.m */; };
 		FE7FB46F1DB4E81400F07C1E /* CBNHomePageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB4691DB4E81400F07C1E /* CBNHomePageHeaderView.m */; };
 		FE7FB4701DB4E81400F07C1E /* CBNPublicChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FB46D1DB4E81400F07C1E /* CBNPublicChannelVC.m */; };
@@ -100,62 +100,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FE1201051DB9BA0A00D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201011DB9BA0A00D4358F /* LSNavigationSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE2E25311DB7634C007FA000;
-			remoteInfo = LSNavigationSDK;
-		};
-		FE12010B1DB9BA1D00D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201071DB9BA1D00D4358F /* JYGuideSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE2E25051DB72585007FA000;
-			remoteInfo = JYGuideSDK;
-		};
-		FE1201171DB9BA7600D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201131DB9BA7500D4358F /* JYLiveShuffingSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE0452A81DB71717005E1263;
-			remoteInfo = JYLiveShuffingSDK;
-		};
-		FE1201191DB9BAB500D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201011DB9BA0A00D4358F /* LSNavigationSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = FE2E25301DB7634C007FA000;
-			remoteInfo = LSNavigationSDK;
-		};
-		FE12011B1DB9BAB900D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201071DB9BA1D00D4358F /* JYGuideSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = FE2E25041DB72585007FA000;
-			remoteInfo = JYGuideSDK;
-		};
-		FE12011D1DB9BABD00D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201131DB9BA7500D4358F /* JYLiveShuffingSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = FE0452A71DB71717005E1263;
-			remoteInfo = JYLiveShuffingSDK;
-		};
-		FE1201591DBA357000D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201551DBA357000D4358F /* JYParametersLinkSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE1201431DBA343F00D4358F;
-			remoteInfo = JYParametersLinkSDK;
-		};
-		FE12015B1DBA375900D4358F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE1201551DBA357000D4358F /* JYParametersLinkSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = FE1201421DBA343F00D4358F;
-			remoteInfo = JYParametersLinkSDK;
-		};
 		FE6F2D0B1DB12B5B000E33F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE6F2CE91DB12B5B000E33F9 /* Project object */;
@@ -176,16 +120,10 @@
 		34FEE17627E0E355EAC5CBC4 /* Pods-CBNGlobal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNGlobal.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBNGlobal/Pods-CBNGlobal.release.xcconfig"; sourceTree = "<group>"; };
 		6936100BDAE8F7C4498C70AA /* libPods-CBNGlobal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBNGlobal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DDD6D6466BC6672D8A6618 /* Pods-CBNGlobal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNGlobal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBNGlobal/Pods-CBNGlobal.debug.xcconfig"; sourceTree = "<group>"; };
-		FE1201011DB9BA0A00D4358F /* LSNavigationSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LSNavigationSDK.xcodeproj; path = "../../../../../../../iOS/正在封装的Demo/LSNavigationSDK/LSNavigationSDK.xcodeproj"; sourceTree = "<group>"; };
-		FE1201071DB9BA1D00D4358F /* JYGuideSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JYGuideSDK.xcodeproj; path = "../../../../../../../iOS/正在封装的Demo/GuideView/JYGuideSDK/JYGuideSDK.xcodeproj"; sourceTree = "<group>"; };
-		FE1201131DB9BA7500D4358F /* JYLiveShuffingSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JYLiveShuffingSDK.xcodeproj; path = "../../../../../../../iOS/正在封装的Demo/LiveShuffing/JYLiveShuffingSDK/JYLiveShuffingSDK.xcodeproj"; sourceTree = "<group>"; };
-		FE1201551DBA357000D4358F /* JYParametersLinkSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JYParametersLinkSDK.xcodeproj; path = "../../../../../../../iOS/正在封装的Demo/ParametersLinkUtil/JYParametersLinkSDK/JYParametersLinkSDK.xcodeproj"; sourceTree = "<group>"; };
 		FE1201661DBB24B100D4358F /* CBNBaseNetworkAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseNetworkAction.h; sourceTree = "<group>"; };
 		FE1201671DBB24B100D4358F /* CBNBaseNetworkAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseNetworkAction.m; sourceTree = "<group>"; };
 		FE12016A1DBB257200D4358F /* CBNChannelRequrst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelRequrst.h; sourceTree = "<group>"; };
-		FE12016B1DBB257200D4358F /* CBNChannelRequrst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelRequrst.m; sourceTree = "<group>"; };
-		FE12016D1DBB270500D4358F /* CBNChannelMoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelMoel.h; sourceTree = "<group>"; };
-		FE12016E1DBB270500D4358F /* CBNChannelMoel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelMoel.m; sourceTree = "<group>"; };
+		FE12016B1DBB257200D4358F /* CBNChannelRequrst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBNChannelRequrst.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FE1201751DBB2F8D00D4358F /* CBNChannelListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelListRequest.h; sourceTree = "<group>"; };
 		FE1201761DBB2F8D00D4358F /* CBNChannelListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelListRequest.m; sourceTree = "<group>"; };
 		FE1201781DBBAF5000D4358F /* NSDate+CBNDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CBNDate.h"; sourceTree = "<group>"; };
@@ -194,14 +132,6 @@
 		FE12017D1DBBB4FB00D4358F /* CBNNewsDetailAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsDetailAction.m; sourceTree = "<group>"; };
 		FE12017F1DBBB56800D4358F /* CBNNewsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsDetailModel.h; sourceTree = "<group>"; };
 		FE1201801DBBB56800D4358F /* CBNNewsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsDetailModel.m; sourceTree = "<group>"; };
-		FE1201871DBBEB6F00D4358F /* CBNDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNDao.h; sourceTree = "<group>"; };
-		FE1201881DBBEB6F00D4358F /* CBNDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNDao.m; sourceTree = "<group>"; };
-		FE12018A1DBC052200D4358F /* CBNChannelDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelDao.h; sourceTree = "<group>"; };
-		FE12018B1DBC052200D4358F /* CBNChannelDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelDao.m; sourceTree = "<group>"; };
-		FE12018D1DBC060A00D4358F /* CBNNewsItemDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsItemDao.h; sourceTree = "<group>"; };
-		FE12018E1DBC060A00D4358F /* CBNNewsItemDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsItemDao.m; sourceTree = "<group>"; };
-		FE1201981DBC724900D4358F /* CBNLiveItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveItemModel.h; sourceTree = "<group>"; };
-		FE1201991DBC724900D4358F /* CBNLiveItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveItemModel.m; sourceTree = "<group>"; };
 		FE2E24E11DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+CBNAttributeString.h"; sourceTree = "<group>"; };
 		FE2E24E21DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+CBNAttributeString.m"; sourceTree = "<group>"; };
 		FE2E25221DB72BD1007FA000 /* CBNBaseChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseChannelVC.h; sourceTree = "<group>"; };
@@ -219,8 +149,6 @@
 		FE2E256B1DB777B4007FA000 /* CBNLiveDetailButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveDetailButton.m; sourceTree = "<group>"; };
 		FE2E256D1DB7813C007FA000 /* CBNNavigationShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNavigationShareView.h; sourceTree = "<group>"; };
 		FE2E256E1DB7813C007FA000 /* CBNNavigationShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNavigationShareView.m; sourceTree = "<group>"; };
-		FE2E25701DB85FAF007FA000 /* CBNNewsItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsItemModel.h; sourceTree = "<group>"; };
-		FE2E25711DB85FAF007FA000 /* CBNNewsItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsItemModel.m; sourceTree = "<group>"; };
 		FE2E25731DB867DF007FA000 /* CBNTextMoreNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextMoreNewsView.h; sourceTree = "<group>"; };
 		FE2E25741DB867DF007FA000 /* CBNTextMoreNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextMoreNewsView.m; sourceTree = "<group>"; };
 		FE2E25761DB86B3D007FA000 /* CBNSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNSearchVC.h; sourceTree = "<group>"; };
@@ -249,8 +177,6 @@
 		FE6F2CF51DB12B5B000E33F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FE6F2CF71DB12B5B000E33F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE6F2CF81DB12B5B000E33F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FE6F2CFA1DB12B5B000E33F9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FE6F2CFB1DB12B5B000E33F9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FE6F2CFE1DB12B5B000E33F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE6F2D001DB12B5B000E33F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE6F2D031DB12B5B000E33F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -261,24 +187,58 @@
 		FE6F2D151DB12B5B000E33F9 /* CBNGlobalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBNGlobalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6F2D191DB12B5B000E33F9 /* CBNGlobalUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBNGlobalUITests.m; sourceTree = "<group>"; };
 		FE6F2D1B1DB12B5B000E33F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE7147501DBFA4D200707DFD /* LSInteractionTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSInteractionTransition.h; sourceTree = "<group>"; };
+		FE7147511DBFA4D200707DFD /* LSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSNavigationController.h; sourceTree = "<group>"; };
+		FE7147521DBFA4D200707DFD /* LSNavigationSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSNavigationSDK.h; sourceTree = "<group>"; };
+		FE7147531DBFA4D200707DFD /* UIViewController+LSNavigationBarTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LSNavigationBarTransition.h"; sourceTree = "<group>"; };
+		FE7147541DBFA4D200707DFD /* libLSNavigationSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLSNavigationSDK.a; sourceTree = "<group>"; };
+		FE71475C1DBFA68400707DFD /* JYGuideSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYGuideSDK.h; sourceTree = "<group>"; };
+		FE71475D1DBFA68400707DFD /* JYGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYGuideView.h; sourceTree = "<group>"; };
+		FE71475E1DBFA68400707DFD /* libJYGuideSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJYGuideSDK.a; sourceTree = "<group>"; };
+		FE7147651DBFA76400707DFD /* JYLiveScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYLiveScrollView.h; sourceTree = "<group>"; };
+		FE7147661DBFA76400707DFD /* JYLiveShuffingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYLiveShuffingModel.h; sourceTree = "<group>"; };
+		FE7147671DBFA76400707DFD /* JYLiveShuffingSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYLiveShuffingSDK.h; sourceTree = "<group>"; };
+		FE7147681DBFA76400707DFD /* libJYLiveShuffingSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJYLiveShuffingSDK.a; sourceTree = "<group>"; };
+		FE71476E1DBFA7A800707DFD /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		FE71476F1DBFA7A800707DFD /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		FE7147701DBFA7A800707DFD /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		FE7147711DBFA7A800707DFD /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		FE7147721DBFA7A800707DFD /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		FE7147731DBFA7A800707DFD /* FMDBMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBMigrationManager.h; sourceTree = "<group>"; };
+		FE7147741DBFA7A800707DFD /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		FE7147751DBFA7A800707DFD /* JYDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYDataBaseManager.h; sourceTree = "<group>"; };
+		FE7147761DBFA7A800707DFD /* JYSqliteSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYSqliteSDK.h; sourceTree = "<group>"; };
+		FE71477F1DBFA93A00707DFD /* CBNBaseSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseSqlite.h; sourceTree = "<group>"; };
+		FE7147801DBFA93A00707DFD /* CBNBaseSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseSqlite.m; sourceTree = "<group>"; };
+		FE7147811DBFA93A00707DFD /* CBNChannelSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelSqliteManager.h; sourceTree = "<group>"; };
+		FE7147821DBFA93A00707DFD /* CBNChannelSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelSqliteManager.m; sourceTree = "<group>"; };
+		FE7147831DBFA93A00707DFD /* CBNNewSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewSqliteManager.h; sourceTree = "<group>"; };
+		FE7147841DBFA93A00707DFD /* CBNNewSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewSqliteManager.m; sourceTree = "<group>"; };
+		FE7147881DBFAA3D00707DFD /* CBNChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelModel.h; sourceTree = "<group>"; };
+		FE7147891DBFAA3D00707DFD /* CBNChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelModel.m; sourceTree = "<group>"; };
+		FE71478B1DBFAAD600707DFD /* CBNNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsModel.h; sourceTree = "<group>"; };
+		FE71478C1DBFAAD600707DFD /* CBNNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNewsModel.m; sourceTree = "<group>"; };
+		FE71478E1DBFB18300707DFD /* CBNLiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLiveModel.h; sourceTree = "<group>"; };
+		FE71478F1DBFB18300707DFD /* CBNLiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLiveModel.m; sourceTree = "<group>"; };
+		FE7147911DBFB92100707DFD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		FE7147931DBFB92900707DFD /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FE7147991DBFC25100707DFD /* CBNParametersLinkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNParametersLinkManager.h; sourceTree = "<group>"; };
+		FE71479A1DBFC25100707DFD /* CBNParametersLinkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNParametersLinkManager.m; sourceTree = "<group>"; };
+		FE71479C1DBFC8EE00707DFD /* libJYSqliteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJYSqliteSDK.a; sourceTree = "<group>"; };
 		FE7FB4421DB4C9E600F07C1E /* CBNDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNDrawerVisualStateManager.h; sourceTree = "<group>"; };
 		FE7FB4431DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		FE7FB4451DB4CB0E00F07C1E /* CBNBarBurronItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBarBurronItem.h; sourceTree = "<group>"; };
 		FE7FB4461DB4CB0E00F07C1E /* CBNBarBurronItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBarBurronItem.m; sourceTree = "<group>"; };
 		FE7FB4491DB4CBA100F07C1E /* UIColor+CBNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBNColor.h"; sourceTree = "<group>"; };
 		FE7FB44A1DB4CBA100F07C1E /* UIColor+CBNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBNColor.m"; sourceTree = "<group>"; };
-		FE7FB44C1DB4CD7F00F07C1E /* CBNLeftChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLeftChannelCell.h; sourceTree = "<group>"; };
-		FE7FB44D1DB4CD7F00F07C1E /* CBNLeftChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLeftChannelCell.m; sourceTree = "<group>"; };
-		FE7FB4521DB4D20500F07C1E /* CBNFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNFileManager.h; sourceTree = "<group>"; };
-		FE7FB4531DB4D20500F07C1E /* CBNFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNFileManager.m; sourceTree = "<group>"; };
-		FE7FB4551DB4D42700F07C1E /* CBNChannel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CBNChannel.plist; sourceTree = "<group>"; };
-		FE7FB4571DB4D57B00F07C1E /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FE7FB44C1DB4CD7F00F07C1E /* CBNLeftChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBNLeftChannelCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		FE7FB44D1DB4CD7F00F07C1E /* CBNLeftChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBNLeftChannelCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FE7FB4631DB4E81400F07C1E /* CBNHomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNHomePageVC.h; sourceTree = "<group>"; };
 		FE7FB4641DB4E81400F07C1E /* CBNHomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNHomePageVC.m; sourceTree = "<group>"; };
 		FE7FB4681DB4E81400F07C1E /* CBNHomePageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNHomePageHeaderView.h; sourceTree = "<group>"; };
 		FE7FB4691DB4E81400F07C1E /* CBNHomePageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNHomePageHeaderView.m; sourceTree = "<group>"; };
-		FE7FB46C1DB4E81400F07C1E /* CBNPublicChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNPublicChannelVC.h; sourceTree = "<group>"; };
-		FE7FB46D1DB4E81400F07C1E /* CBNPublicChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNPublicChannelVC.m; sourceTree = "<group>"; };
+		FE7FB46C1DB4E81400F07C1E /* CBNPublicChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CBNPublicChannelVC.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		FE7FB46D1DB4E81400F07C1E /* CBNPublicChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBNPublicChannelVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FE7FB4771DB4E89300F07C1E /* CBNChannelNewsTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelNewsTextCell.h; sourceTree = "<group>"; };
 		FE7FB4781DB4E89300F07C1E /* CBNChannelNewsTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelNewsTextCell.m; sourceTree = "<group>"; };
 		FE7FB47C1DB4E96D00F07C1E /* CBNNewsTimeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNewsTimeLabel.h; sourceTree = "<group>"; };
@@ -330,7 +290,7 @@
 		FEDBCB851DB1F0FB00410E94 /* CBNBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseViewController.h; sourceTree = "<group>"; };
 		FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseViewController.m; sourceTree = "<group>"; };
 		FEDBCB8B1DB1F14B00410E94 /* CBNLeftChannelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLeftChannelVC.h; sourceTree = "<group>"; };
-		FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLeftChannelVC.m; sourceTree = "<group>"; };
+		FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBNLeftChannelVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,10 +298,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE12015D1DBA376100D4358F /* libJYParametersLinkSDK.a in Frameworks */,
-				FE12011F1DB9BAFB00D4358F /* libJYGuideSDK.a in Frameworks */,
-				FE1201201DB9BAFB00D4358F /* libJYLiveShuffingSDK.a in Frameworks */,
-				FE1201211DB9BAFB00D4358F /* libLSNavigationSDK.a in Frameworks */,
+				FE7147941DBFB92900707DFD /* libsqlite3.0.tbd in Frameworks */,
+				FE7147921DBFB92100707DFD /* libsqlite3.tbd in Frameworks */,
+				FE7147691DBFA76400707DFD /* libJYLiveShuffingSDK.a in Frameworks */,
+				FE71479D1DBFC8EE00707DFD /* libJYSqliteSDK.a in Frameworks */,
+				FE7147551DBFA4D200707DFD /* libLSNavigationSDK.a in Frameworks */,
+				FE71475F1DBFA68400707DFD /* libJYGuideSDK.a in Frameworks */,
 				78F1F64B450F8B55BA1C78F4 /* libPods-CBNGlobal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +337,8 @@
 		D2F2262283C52836CD20E787 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE7147931DBFB92900707DFD /* libsqlite3.0.tbd */,
+				FE7147911DBFB92100707DFD /* libsqlite3.tbd */,
 				6936100BDAE8F7C4498C70AA /* libPods-CBNGlobal.a */,
 			);
 			name = Frameworks;
@@ -383,49 +347,9 @@
 		FE0452C41DB71757005E1263 /* LiveShuffing */ = {
 			isa = PBXGroup;
 			children = (
-				FE1201131DB9BA7500D4358F /* JYLiveShuffingSDK.xcodeproj */,
+				FE7147621DBFA76400707DFD /* libJYLiveShuffingSDK */,
 			);
 			path = LiveShuffing;
-			sourceTree = "<group>";
-		};
-		FE1201021DB9BA0A00D4358F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FE1201061DB9BA0A00D4358F /* libLSNavigationSDK.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FE1201081DB9BA1D00D4358F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FE12010C1DB9BA1D00D4358F /* libJYGuideSDK.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FE1201141DB9BA7500D4358F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FE1201181DB9BA7600D4358F /* libJYLiveShuffingSDK.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FE1201241DBA332300D4358F /* ParametersLinkUtil */ = {
-			isa = PBXGroup;
-			children = (
-				FE1201551DBA357000D4358F /* JYParametersLinkSDK.xcodeproj */,
-			);
-			path = ParametersLinkUtil;
-			sourceTree = "<group>";
-		};
-		FE1201561DBA357000D4358F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FE12015A1DBA357000D4358F /* libJYParametersLinkSDK.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		FE1201651DBB249600D4358F /* Nwtwork */ = {
@@ -474,7 +398,7 @@
 		FE2E25181DB7270A007FA000 /* Guide */ = {
 			isa = PBXGroup;
 			children = (
-				FE1201071DB9BA1D00D4358F /* JYGuideSDK.xcodeproj */,
+				FE7147591DBFA68400707DFD /* libJYGuideSDK */,
 			);
 			path = Guide;
 			sourceTree = "<group>";
@@ -482,7 +406,7 @@
 		FE2E254E1DB7641D007FA000 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				FE1201011DB9BA0A00D4358F /* LSNavigationSDK.xcodeproj */,
+				FE71474D1DBFA4D200707DFD /* libLSNavigationSDK */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -522,14 +446,11 @@
 			isa = PBXGroup;
 			children = (
 				FE7FB48E1DB50C9D00F07C1E /* DevelopTempFile */,
-				FEDBCB811DB1F0A400410E94 /* Framework */,
 				FEDBCB801DB1F09C00410E94 /* Thirdlib */,
 				FEDBCB661DB1F09300410E94 /* Module */,
 				FEB42EB81DB1318F00B988E9 /* Tool */,
 				FE6F2CF71DB12B5B000E33F9 /* AppDelegate.h */,
 				FE6F2CF81DB12B5B000E33F9 /* AppDelegate.m */,
-				FE6F2CFA1DB12B5B000E33F9 /* ViewController.h */,
-				FE6F2CFB1DB12B5B000E33F9 /* ViewController.m */,
 				FE6F2CFD1DB12B5B000E33F9 /* Main.storyboard */,
 				FE6F2D001DB12B5B000E33F9 /* Assets.xcassets */,
 				FE6F2D021DB12B5B000E33F9 /* LaunchScreen.storyboard */,
@@ -565,13 +486,164 @@
 			path = CBNGlobalUITests;
 			sourceTree = "<group>";
 		};
+		FE71474D1DBFA4D200707DFD /* libLSNavigationSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE71474E1DBFA4D200707DFD /* include */,
+				FE7147541DBFA4D200707DFD /* libLSNavigationSDK.a */,
+			);
+			path = libLSNavigationSDK;
+			sourceTree = "<group>";
+		};
+		FE71474E1DBFA4D200707DFD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FE71474F1DBFA4D200707DFD /* LSNavigationSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FE71474F1DBFA4D200707DFD /* LSNavigationSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE7147501DBFA4D200707DFD /* LSInteractionTransition.h */,
+				FE7147511DBFA4D200707DFD /* LSNavigationController.h */,
+				FE7147521DBFA4D200707DFD /* LSNavigationSDK.h */,
+				FE7147531DBFA4D200707DFD /* UIViewController+LSNavigationBarTransition.h */,
+			);
+			path = LSNavigationSDK;
+			sourceTree = "<group>";
+		};
+		FE7147591DBFA68400707DFD /* libJYGuideSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE71475A1DBFA68400707DFD /* include */,
+				FE71475E1DBFA68400707DFD /* libJYGuideSDK.a */,
+			);
+			path = libJYGuideSDK;
+			sourceTree = "<group>";
+		};
+		FE71475A1DBFA68400707DFD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FE71475B1DBFA68400707DFD /* JYGuideSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FE71475B1DBFA68400707DFD /* JYGuideSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE71475C1DBFA68400707DFD /* JYGuideSDK.h */,
+				FE71475D1DBFA68400707DFD /* JYGuideView.h */,
+			);
+			path = JYGuideSDK;
+			sourceTree = "<group>";
+		};
+		FE7147621DBFA76400707DFD /* libJYLiveShuffingSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE7147631DBFA76400707DFD /* include */,
+				FE7147681DBFA76400707DFD /* libJYLiveShuffingSDK.a */,
+			);
+			path = libJYLiveShuffingSDK;
+			sourceTree = "<group>";
+		};
+		FE7147631DBFA76400707DFD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FE7147641DBFA76400707DFD /* JYLiveShuffingSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FE7147641DBFA76400707DFD /* JYLiveShuffingSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE7147651DBFA76400707DFD /* JYLiveScrollView.h */,
+				FE7147661DBFA76400707DFD /* JYLiveShuffingModel.h */,
+				FE7147671DBFA76400707DFD /* JYLiveShuffingSDK.h */,
+			);
+			path = JYLiveShuffingSDK;
+			sourceTree = "<group>";
+		};
+		FE71476A1DBFA7A700707DFD /* Sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				FE71476B1DBFA7A800707DFD /* libJYSqliteSDK */,
+			);
+			path = Sqlite;
+			sourceTree = "<group>";
+		};
+		FE71476B1DBFA7A800707DFD /* libJYSqliteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE71479C1DBFC8EE00707DFD /* libJYSqliteSDK.a */,
+				FE71476C1DBFA7A800707DFD /* include */,
+			);
+			path = libJYSqliteSDK;
+			sourceTree = "<group>";
+		};
+		FE71476C1DBFA7A800707DFD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FE71476D1DBFA7A800707DFD /* JYSqliteSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FE71476D1DBFA7A800707DFD /* JYSqliteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FE71476E1DBFA7A800707DFD /* FMDatabase.h */,
+				FE71476F1DBFA7A800707DFD /* FMDatabaseAdditions.h */,
+				FE7147701DBFA7A800707DFD /* FMDatabasePool.h */,
+				FE7147711DBFA7A800707DFD /* FMDatabaseQueue.h */,
+				FE7147721DBFA7A800707DFD /* FMDB.h */,
+				FE7147731DBFA7A800707DFD /* FMDBMigrationManager.h */,
+				FE7147741DBFA7A800707DFD /* FMResultSet.h */,
+				FE7147751DBFA7A800707DFD /* JYDataBaseManager.h */,
+				FE7147761DBFA7A800707DFD /* JYSqliteSDK.h */,
+			);
+			path = JYSqliteSDK;
+			sourceTree = "<group>";
+		};
+		FE71477D1DBFA93A00707DFD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FE7147951DBFC0B900707DFD /* LinkManager */,
+				FE71477E1DBFA93A00707DFD /* SqliteManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FE71477E1DBFA93A00707DFD /* SqliteManager */ = {
+			isa = PBXGroup;
+			children = (
+				FE71477F1DBFA93A00707DFD /* CBNBaseSqlite.h */,
+				FE7147801DBFA93A00707DFD /* CBNBaseSqlite.m */,
+				FE7147811DBFA93A00707DFD /* CBNChannelSqliteManager.h */,
+				FE7147821DBFA93A00707DFD /* CBNChannelSqliteManager.m */,
+				FE7147831DBFA93A00707DFD /* CBNNewSqliteManager.h */,
+				FE7147841DBFA93A00707DFD /* CBNNewSqliteManager.m */,
+			);
+			path = SqliteManager;
+			sourceTree = "<group>";
+		};
+		FE7147951DBFC0B900707DFD /* LinkManager */ = {
+			isa = PBXGroup;
+			children = (
+				FE7147991DBFC25100707DFD /* CBNParametersLinkManager.h */,
+				FE71479A1DBFC25100707DFD /* CBNParametersLinkManager.m */,
+			);
+			path = LinkManager;
+			sourceTree = "<group>";
+		};
 		FE7FB4411DB4C9D900F07C1E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				FE7FB4421DB4C9E600F07C1E /* CBNDrawerVisualStateManager.h */,
 				FE7FB4431DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m */,
-				FE7FB4521DB4D20500F07C1E /* CBNFileManager.h */,
-				FE7FB4531DB4D20500F07C1E /* CBNFileManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -714,10 +786,10 @@
 		FE7FB4751DB4E85C00F07C1E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FE2E25701DB85FAF007FA000 /* CBNNewsItemModel.h */,
-				FE2E25711DB85FAF007FA000 /* CBNNewsItemModel.m */,
-				FE12018D1DBC060A00D4358F /* CBNNewsItemDao.h */,
-				FE12018E1DBC060A00D4358F /* CBNNewsItemDao.m */,
+				FE71478B1DBFAAD600707DFD /* CBNNewsModel.h */,
+				FE71478C1DBFAAD600707DFD /* CBNNewsModel.m */,
+				FE71478E1DBFB18300707DFD /* CBNLiveModel.h */,
+				FE71478F1DBFB18300707DFD /* CBNLiveModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -793,8 +865,6 @@
 		FE7FB4971DB513C300F07C1E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FE1201981DBC724900D4358F /* CBNLiveItemModel.h */,
-				FE1201991DBC724900D4358F /* CBNLiveItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -912,6 +982,7 @@
 		FEB42EB81DB1318F00B988E9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				FE71477D1DBFA93A00707DFD /* Manager */,
 				FE7FB47A1DB4E95400F07C1E /* CoustomView */,
 				FE7FB4481DB4CB7F00F07C1E /* Category */,
 				FEDBCB651DB1F07A00410E94 /* PublicImage */,
@@ -924,7 +995,6 @@
 			isa = PBXGroup;
 			children = (
 				FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */,
-				FE7FB4571DB4D57B00F07C1E /* Header.h */,
 				FE7FB4C51DB5EE5700F07C1E /* CBNEnumeration.h */,
 			);
 			path = Configuration;
@@ -987,8 +1057,6 @@
 		FEDBCB6A1DB1F09300410E94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FE1201871DBBEB6F00D4358F /* CBNDao.h */,
-				FE1201881DBBEB6F00D4358F /* CBNDao.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1033,11 +1101,8 @@
 		FEDBCB741DB1F09300410E94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FE7FB4551DB4D42700F07C1E /* CBNChannel.plist */,
-				FE12016D1DBB270500D4358F /* CBNChannelMoel.h */,
-				FE12016E1DBB270500D4358F /* CBNChannelMoel.m */,
-				FE12018A1DBC052200D4358F /* CBNChannelDao.h */,
-				FE12018B1DBC052200D4358F /* CBNChannelDao.m */,
+				FE7147881DBFAA3D00707DFD /* CBNChannelModel.h */,
+				FE7147891DBFAA3D00707DFD /* CBNChannelModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1117,7 +1182,7 @@
 		FEDBCB801DB1F09C00410E94 /* Thirdlib */ = {
 			isa = PBXGroup;
 			children = (
-				FE1201241DBA332300D4358F /* ParametersLinkUtil */,
+				FE71476A1DBFA7A700707DFD /* Sqlite */,
 				FE2E25611DB77525007FA000 /* Fonts */,
 				FE2E254E1DB7641D007FA000 /* Navigation */,
 				FE2E25181DB7270A007FA000 /* Guide */,
@@ -1125,13 +1190,6 @@
 				FE7FB4C61DB5F10D00F07C1E /* UMeng */,
 			);
 			path = Thirdlib;
-			sourceTree = "<group>";
-		};
-		FEDBCB811DB1F0A400410E94 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Framework;
 			sourceTree = "<group>";
 		};
 		FEDBCB8E1DB1F22900410E94 /* AtlasDetail */ = {
@@ -1320,10 +1378,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FE12015C1DBA375900D4358F /* PBXTargetDependency */,
-				FE12011E1DB9BABD00D4358F /* PBXTargetDependency */,
-				FE12011C1DB9BAB900D4358F /* PBXTargetDependency */,
-				FE12011A1DB9BAB500D4358F /* PBXTargetDependency */,
 			);
 			name = CBNGlobal;
 			productName = CBNGlobal;
@@ -1373,7 +1427,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CBN;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "上海第一财经传媒有限公司";
 				TargetAttributes = {
 					FE6F2CF01DB12B5B000E33F9 = {
@@ -1402,24 +1456,6 @@
 			mainGroup = FE6F2CE81DB12B5B000E33F9;
 			productRefGroup = FE6F2CF21DB12B5B000E33F9 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FE1201081DB9BA1D00D4358F /* Products */;
-					ProjectRef = FE1201071DB9BA1D00D4358F /* JYGuideSDK.xcodeproj */;
-				},
-				{
-					ProductGroup = FE1201141DB9BA7500D4358F /* Products */;
-					ProjectRef = FE1201131DB9BA7500D4358F /* JYLiveShuffingSDK.xcodeproj */;
-				},
-				{
-					ProductGroup = FE1201561DBA357000D4358F /* Products */;
-					ProjectRef = FE1201551DBA357000D4358F /* JYParametersLinkSDK.xcodeproj */;
-				},
-				{
-					ProductGroup = FE1201021DB9BA0A00D4358F /* Products */;
-					ProjectRef = FE1201011DB9BA0A00D4358F /* LSNavigationSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FE6F2CF01DB12B5B000E33F9 /* CBNGlobal */,
@@ -1428,37 +1464,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FE1201061DB9BA0A00D4358F /* libLSNavigationSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libLSNavigationSDK.a;
-			remoteRef = FE1201051DB9BA0A00D4358F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FE12010C1DB9BA1D00D4358F /* libJYGuideSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJYGuideSDK.a;
-			remoteRef = FE12010B1DB9BA1D00D4358F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FE1201181DB9BA7600D4358F /* libJYLiveShuffingSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJYLiveShuffingSDK.a;
-			remoteRef = FE1201171DB9BA7600D4358F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FE12015A1DBA357000D4358F /* libJYParametersLinkSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJYParametersLinkSDK.a;
-			remoteRef = FE1201591DBA357000D4358F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FE6F2CEF1DB12B5B000E33F9 /* Resources */ = {
@@ -1469,7 +1474,6 @@
 				FE6F2D041DB12B5B000E33F9 /* LaunchScreen.storyboard in Resources */,
 				FE7FB51F1DB61B0D00F07C1E /* text.html in Resources */,
 				FE6F2D011DB12B5B000E33F9 /* Assets.xcassets in Resources */,
-				FE7FB4561DB4D42700F07C1E /* CBNChannel.plist in Resources */,
 				FE7FB5291DB63E6C00F07C1E /* CBN_email_icon@2x.png in Resources */,
 				FE4C5C261DBE085600AF54FF /* commentsCount_gray_Day@2x.png in Resources */,
 				FE7FB5341DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png in Resources */,
@@ -1563,16 +1567,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE7FB5101DB5FC1500F07C1E /* CBNMoreNewsHeaderView.m in Sources */,
+				FE71478D1DBFAAD600707DFD /* CBNNewsModel.m in Sources */,
 				FE7FB50A1DB5FBC400F07C1E /* CBNBaseDetailHeaderView.m in Sources */,
 				FE7FB4B51DB5B60200F07C1E /* UIFont+CBNFont.m in Sources */,
 				FE7FB4871DB4F04100F07C1E /* UIDevice+CBNDevice.m in Sources */,
+				FE7147851DBFA93A00707DFD /* CBNBaseSqlite.m in Sources */,
 				FE2E25241DB72BD1007FA000 /* CBNBaseChannelVC.m in Sources */,
 				FE2E24E31DB71DCB007FA000 /* NSMutableAttributedString+CBNAttributeString.m in Sources */,
-				FE12018F1DBC060A00D4358F /* CBNNewsItemDao.m in Sources */,
-				FE12018C1DBC052200D4358F /* CBNChannelDao.m in Sources */,
+				FE71479B1DBFC25100707DFD /* CBNParametersLinkManager.m in Sources */,
 				FE7FB50D1DB5FBEA00F07C1E /* CBNBaseDetailMoreNewsView.m in Sources */,
 				FE7FB51D1DB60CD000F07C1E /* CBNTextView.m in Sources */,
-				FE12019A1DBC724900D4358F /* CBNLiveItemModel.m in Sources */,
 				FE7FB46E1DB4E81400F07C1E /* CBNHomePageVC.m in Sources */,
 				FE7FB4A91DB51D9D00F07C1E /* CBNTextDetailVC.m in Sources */,
 				FE7FB4441DB4C9E600F07C1E /* CBNDrawerVisualStateManager.m in Sources */,
@@ -1580,13 +1584,14 @@
 				FE12016C1DBB257200D4358F /* CBNChannelRequrst.m in Sources */,
 				FE2E257B1DB86D07007FA000 /* CBNSearcnView.m in Sources */,
 				FE7FB52D1DB63E6C00F07C1E /* CBNShareBar.m in Sources */,
+				FE7147861DBFA93A00707DFD /* CBNChannelSqliteManager.m in Sources */,
 				FE7FB46F1DB4E81400F07C1E /* CBNHomePageHeaderView.m in Sources */,
-				FE7FB4541DB4D20500F07C1E /* CBNFileManager.m in Sources */,
 				FE1201681DBB24B100D4358F /* CBNBaseNetworkAction.m in Sources */,
 				FE7FB4471DB4CB0E00F07C1E /* CBNBarBurronItem.m in Sources */,
-				FE12016F1DBB270500D4358F /* CBNChannelMoel.m in Sources */,
 				FE4C5C1B1DBDEC6A00AF54FF /* CBNMoreNewsModel.m in Sources */,
 				FE5CCD391DB8B5FF00587D67 /* CBNSearchDefaultView.m in Sources */,
+				FE7147901DBFB18300707DFD /* CBNLiveModel.m in Sources */,
+				FE71478A1DBFAA3D00707DFD /* CBNChannelModel.m in Sources */,
 				FE7FB4931DB50D1800F07C1E /* CBNLiveShuffingView.m in Sources */,
 				FE1201811DBBB56800D4358F /* CBNNewsDetailModel.m in Sources */,
 				FE2E256C1DB777B4007FA000 /* CBNLiveDetailButton.m in Sources */,
@@ -1598,7 +1603,6 @@
 				FE7FB49E1DB514E200F07C1E /* CBNLiveHeaderView.m in Sources */,
 				FE7FB5131DB5FC4C00F07C1E /* CBNRelatedNewsItemView.m in Sources */,
 				FE7FB44B1DB4CBA100F07C1E /* UIColor+CBNColor.m in Sources */,
-				FE6F2CFC1DB12B5B000E33F9 /* ViewController.m in Sources */,
 				FE5CCD3C1DB8B68D00587D67 /* CBNSearchResultView.m in Sources */,
 				FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */,
 				FE7FB4701DB4E81400F07C1E /* CBNPublicChannelVC.m in Sources */,
@@ -1607,6 +1611,7 @@
 				FE7FB4841DB4EF0800F07C1E /* NSString+CBNString.m in Sources */,
 				FE5CCD361DB8AE5700587D67 /* CBNSearchField.m in Sources */,
 				FE7FB49B1DB513DC00F07C1E /* CBNLiveVC.m in Sources */,
+				FE7147871DBFA93A00707DFD /* CBNNewSqliteManager.m in Sources */,
 				FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */,
 				FE6F2CF61DB12B5B000E33F9 /* main.m in Sources */,
 				FE5CCD3F1DB8C04000587D67 /* CBNSearchChannelView.m in Sources */,
@@ -1614,8 +1619,6 @@
 				FE2E25271DB76070007FA000 /* CBNChannelNavigationController.m in Sources */,
 				FE2E25781DB86B3D007FA000 /* CBNSearchVC.m in Sources */,
 				FE12017E1DBBB4FB00D4358F /* CBNNewsDetailAction.m in Sources */,
-				FE2E25721DB85FAF007FA000 /* CBNNewsItemModel.m in Sources */,
-				FE1201891DBBEB6F00D4358F /* CBNDao.m in Sources */,
 				FE7FB4791DB4E89300F07C1E /* CBNChannelNewsTextCell.m in Sources */,
 				FE2E255C1DB76A2A007FA000 /* CBNBaseInfoViewController.m in Sources */,
 				FE7FB4B21DB51E9C00F07C1E /* CBNTextDetailHeaderView.m in Sources */,
@@ -1642,26 +1645,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FE12011A1DB9BAB500D4358F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LSNavigationSDK;
-			targetProxy = FE1201191DB9BAB500D4358F /* PBXContainerItemProxy */;
-		};
-		FE12011C1DB9BAB900D4358F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JYGuideSDK;
-			targetProxy = FE12011B1DB9BAB900D4358F /* PBXContainerItemProxy */;
-		};
-		FE12011E1DB9BABD00D4358F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JYLiveShuffingSDK;
-			targetProxy = FE12011D1DB9BABD00D4358F /* PBXContainerItemProxy */;
-		};
-		FE12015C1DBA375900D4358F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JYParametersLinkSDK;
-			targetProxy = FE12015B1DBA375900D4358F /* PBXContainerItemProxy */;
-		};
 		FE6F2D0C1DB12B5B000E33F9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FE6F2CF01DB12B5B000E33F9 /* CBNGlobal */;
@@ -1707,8 +1690,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1751,8 +1736,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1780,7 +1767,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7DDD6D6466BC6672D8A6618 /* Pods-CBNGlobal.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1803,6 +1789,10 @@
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Facebook",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Linkedin",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Navigation/libLSNavigationSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Guide/libJYGuideSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/LiveShuffing/libJYLiveShuffingSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Sqlite/libJYSqliteSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoneHua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1815,7 +1805,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34FEE17627E0E355EAC5CBC4 /* Pods-CBNGlobal.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1838,6 +1827,10 @@
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Facebook",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Linkedin",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/UMeng/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Navigation/libLSNavigationSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Guide/libJYGuideSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/LiveShuffing/libJYLiveShuffingSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Sqlite/libJYSqliteSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoneHua;
 				PRODUCT_NAME = "$(TARGET_NAME)";

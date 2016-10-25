@@ -35,14 +35,17 @@
         _liveScrollView.AutoScrollDelay = 3;
         _liveScrollView.delegate = self;
         
-        NSArray *liveNewsArray = [[CBNNewsItemDao sharedManager] queryNewsItemsDataWithTableName:@"Live"];
+        
+        NSArray *liveArr = [[CBNNewSqliteManager sharedManager] selectObjectsfromTable:@"Live"];
+        
+        NSArray *liveNewsArray = [CBNNewSqliteManager liveDictionaryChanegeToLiveModekWithDictionaryArray:liveArr];
         if (liveNewsArray.count > 0) {
             NSMutableArray *result = [[NSMutableArray alloc] init];
 
-            for (CBNNewsItemModel *newsItemModel in liveNewsArray) {
+            for (CBNLiveModel *livemodel in liveNewsArray) {
                 JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
-                tempModel.newsTitleString = newsItemModel.NewsTitle;
-                tempModel.newsUpdataTimeString =  newsItemModel.LastDate;
+                tempModel.newsTitleString = livemodel.newsModel.NewsTitle;
+                tempModel.newsUpdataTimeString =  livemodel.newsModel.LastDate;
                 [result addObject:tempModel];
                 
             }
@@ -72,10 +75,10 @@
     _liveModelArray = liveModelArray;
     NSMutableArray *result = [[NSMutableArray alloc] init];
 
-    for (CBNNewsItemModel *newsItemModel in _liveModelArray) {
+    for (CBNLiveModel *liveModel in _liveModelArray) {
         JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
-        tempModel.newsTitleString = newsItemModel.NewsTitle;
-        tempModel.newsUpdataTimeString =  [NSDate getHourDateFromUTCDateString:newsItemModel.LastDate];
+        tempModel.newsTitleString = liveModel.newsModel.NewsTitle;
+        tempModel.newsUpdataTimeString =  [NSDate getHourDateFromUTCDateString:liveModel.newsModel.LastDate];
         [result addObject:tempModel];
 
     }

@@ -181,22 +181,21 @@
 - (void)detailButton:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(liveNewsCell:detailButtonClickedWithLiveModel:)]) {
-        [self.delegate liveNewsCell:self detailButtonClickedWithLiveModel:_newsItemModel];
+        [self.delegate liveNewsCell:self detailButtonClickedWithLiveModel:_liveModel];
         
     }
 }
-- (void)setNewsItemModel:(CBNLiveItemModel *)newsItemModel
+- (void)setLiveModel:(CBNLiveModel *)liveModel
 {
-    _newsItemModel = newsItemModel;
-    
-    _timeLabel.text = [NSDate getHourDateFromUTCDateString:_newsItemModel.LastDate];
+    _liveModel = liveModel;
+    _timeLabel.text = [NSDate getHourDateFromUTCDateString:_liveModel.newsModel.LastDate];
     
     CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 3);
     
     CGFloat height = 0.0;
     _liveTitleLabel.frame= CGRectMake(0, 0, width, 0);
     
-    _liveTitleLabel.text = _newsItemModel.NewsTitle;
+    _liveTitleLabel.text = _liveModel.newsModel.NewsTitle;
     
     [_liveTitleLabel sizeToFit];
     
@@ -207,7 +206,7 @@
     
     _liveContenLabel.frame= CGRectMake(0, 0, width, 0);
     
-    _liveContenLabel.attributedText = [NSMutableAttributedString setLiveContentAttributeStringWithFont:_liveContenLabel.font string:_newsItemModel.NewsNotes];
+    _liveContenLabel.attributedText = [NSMutableAttributedString setLiveContentAttributeStringWithFont:_liveContenLabel.font string:_liveModel.newsModel.NewsNotes];
     
     [_liveContenLabel sizeToFit];
     
@@ -226,11 +225,10 @@
     
     _verticalLineImageView.frame = CGRectMake(_verticalLineImageView.frame.origin.x, _verticalLineImageView.frame.origin.y, _verticalLineImageView.frame.size.width, self.frame.size.height);
     
-    _newsItemModel.height = self.frame.size.height;
+    _liveModel.height = self.frame.size.height;
     [self setNeedsDisplay];
     
     [self setNeedsLayout];
 
-    
 }
 @end

@@ -49,7 +49,7 @@
     return _recommendedNewsView;
 }
 
-- (void)homePageRecommendedNewsView:(CBNHomePageRecommendedNewsView *)homePageRecommendedNewsView newsItemModel:(CBNNewsItemModel *)newsItemModel
+- (void)homePageRecommendedNewsView:(CBNHomePageRecommendedNewsView *)homePageRecommendedNewsView newsItemModel:(CBNNewsModel *)newsItemModel
 {
     if ([self.delegate respondsToSelector:@selector(homePageHeaderLiveShuffingView:recommendedNews:)]) {
         [self.delegate homePageHeaderLiveShuffingView:self recommendedNews:newsItemModel];
@@ -98,7 +98,7 @@
     
 }
 
-- (void)setRemondNewsModel:(CBNNewsItemModel *)remondNewsModel
+- (void)setRemondNewsModel:(CBNNewsModel *)remondNewsModel
 {
     _remondNewsModel = remondNewsModel;
     

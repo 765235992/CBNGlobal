@@ -7,6 +7,7 @@
 //
 
 #import "NSString+CBNString.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (CBNString)
 + (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize
@@ -22,6 +23,18 @@
     return size.height;
     
 }
+//MD5加密
++ (NSString *)getTheMD5EncryptedStringWithString:(NSString *)aString{
+    const char* str = [aString UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(str, (int)strlen(str), result);
+    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH*2];//
+    for(int i = 0; i<CC_MD5_DIGEST_LENGTH; i++) {
+        [ret appendFormat:@"%02x",result[i]];
+    }
+    return ret;
+}
+
 + (NSString *)getHtmlStringWithPString:(NSString *)pString
 {
     NSString *strUrl = [pString stringByReplacingOccurrencesOfString:@"background-color:rgb(245, 245, 245);" withString:@"background-colorlll"];

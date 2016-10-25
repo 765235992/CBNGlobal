@@ -134,7 +134,7 @@
     return _lineImageView;
 }
 
-- (void)setItemModel:(CBNNewsItemModel *)itemModel
+- (void)setItemModel:(CBNNewsModel *)itemModel
 {
     
     _itemModel = itemModel;
@@ -164,7 +164,7 @@
     _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height, _authorNameLabel.frame.size.width, _authorNameLabel.frame.size.height);
     _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
 
-    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[JYParametersLinkManager sharedManager] getNewsThumbName:itemModel.NewsThumbs]] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:itemModel.NewsThumbs]] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
     
     _newsTitleLabel.text = itemModel.NewsTitle;
     

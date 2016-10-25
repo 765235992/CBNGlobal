@@ -10,5 +10,5 @@
 #import "CBNChannelListRequest.h"
 
 @interface CBNPublicChannelVC : CBNBaseChannelVC
-@property (nonatomic, strong) CBNChannelMoel *channelModel;
+@property (nonatomic, strong) CBNChannelModel *channelModel;
 @end

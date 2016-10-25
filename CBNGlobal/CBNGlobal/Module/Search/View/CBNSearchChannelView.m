@@ -7,7 +7,6 @@
 //
 
 #import "CBNSearchChannelView.h"
-#import "CBNFileManager.h"
 @implementation CBNSearchChannelView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -32,14 +31,15 @@
     
     CGFloat buttonHeight = [NSString getTextHeightWithFont:buttonFont]*1.5;
     NSMutableArray *titleArr =  [[NSMutableArray alloc] init];
-    CBNChannelMoel *homeChannelModel = [[CBNChannelMoel alloc] init];
+    CBNChannelModel *homeChannelModel = [[CBNChannelModel alloc] init];
     
     homeChannelModel.ChannelName = @"Home";
     homeChannelModel.EnglishName = @"Home";
     
     [titleArr addObject:homeChannelModel];
-
-    [titleArr addObjectsFromArray:[[CBNChannelDao sharedManager] queryChannelDataWithTableName:@"ChannelList"]];
+    NSArray *channelList = [[CBNChannelSqliteManager sharedManager] selectObjectsfromTable:@"ChannelList"];
+    
+    [titleArr addObjectsFromArray:[[CBNChannelSqliteManager sharedManager]dictionaryChangeToModelWithDictionaryArray:channelList] ];
     
     
     //创建button
@@ -48,7 +48,7 @@
         button.tag = 300 + i;
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
-        CBNChannelMoel *tempModel = titleArr[i];
+        CBNChannelModel *tempModel = titleArr[i];
         
         CGSize titleSize = [tempModel.ChannelName boundingRectWithSize:CGSizeMake(999, 25) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:buttonFont} context:nil].size;
         titleSize.width += buttonHeight;

@@ -124,10 +124,10 @@
 
 
 
-- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsItemModel *)newsItemModel
+- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel
 {
     CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
-    textDetailVC.newsID = [newsItemModel.NewsID integerValue];
+    textDetailVC.newsID = newsItemModel.NewsID;
     
     [self.navigationController pushViewController:textDetailVC animated:YES];
     

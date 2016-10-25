@@ -7,19 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CBNNewsItemModel.h"
+#import "CBNNewsModel.h"
 
 @class CBNHomePageRecommendedNewsView;
 @protocol CBNHomePageRecommendedNewsViewDlegate <NSObject>
 
 
-- (void)homePageRecommendedNewsView:(CBNHomePageRecommendedNewsView *)homePageRecommendedNewsView newsItemModel:(CBNNewsItemModel *)newsItemModel;
+- (void)homePageRecommendedNewsView:(CBNHomePageRecommendedNewsView *)homePageRecommendedNewsView newsItemModel:(CBNNewsModel *)newsItemModel;
 
 @end
 
 @interface CBNHomePageRecommendedNewsView : UIView
 
-@property (nonatomic, strong) CBNNewsItemModel *recommendNewsModel;
+@property (nonatomic, strong) CBNNewsModel *recommendNewsModel;
 
 
 @property (nonatomic, assign) id <CBNHomePageRecommendedNewsViewDlegate>delegate;

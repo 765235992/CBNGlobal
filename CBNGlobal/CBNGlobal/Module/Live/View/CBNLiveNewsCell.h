@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CBNLiveItemModel.h"
 
 @class CBNLiveNewsCell;
 @protocol CBNLiveNewsCellDelegate <NSObject>
 
-- (void)liveNewsCell:(CBNLiveNewsCell *)liveCell detailButtonClickedWithLiveModel:(CBNLiveItemModel *)liveMoel;
+- (void)liveNewsCell:(CBNLiveNewsCell *)liveCell detailButtonClickedWithLiveModel:(CBNLiveModel *)liveMoel;
 
 @end
 
@@ -20,6 +19,6 @@
 
 @property (nonatomic, assign) id <CBNLiveNewsCellDelegate> delegate;
 
-@property (nonatomic, strong) CBNLiveItemModel *newsItemModel;
+@property (nonatomic, strong) CBNLiveModel *liveModel;
 
 @end

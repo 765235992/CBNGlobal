@@ -98,7 +98,7 @@
     return _channelLineImageView;
 }
 
-- (void)setChannelModel:(CBNChannelMoel *)channelModel
+- (void)setChannelModel:(CBNChannelModel *)channelModel
 {
     _channelModel = channelModel;
     

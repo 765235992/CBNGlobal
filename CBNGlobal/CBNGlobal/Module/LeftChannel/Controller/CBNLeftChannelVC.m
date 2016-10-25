@@ -8,7 +8,6 @@
 
 #import "CBNLeftChannelVC.h"
 #import "CBNLeftChannelCell.h"
-#import "CBNFileManager.h"
 #import "CBNHomePageVC.h"
 #import "CBNPublicChannelVC.h"
 #import "CBNChannelNavigationController.h"
@@ -37,54 +36,26 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
     [self.sourceArray removeAllObjects];
     
-    CBNChannelMoel *homeChannelModel = [[CBNChannelMoel alloc] init];
-    
+    CBNChannelModel *homeChannelModel = [[CBNChannelModel alloc] init];
     homeChannelModel.ChannelName = @"Home";
+
     homeChannelModel.EnglishName = @"Home";
 
     [self.sourceArray addObject:homeChannelModel];
-
-    NSArray *arr = [[CBNChannelDao sharedManager] queryChannelDataWithTableName:@"ChannelList"];
     
-    [_sourceArray addObjectsFromArray:arr];
+    NSArray *channelList = [[CBNChannelSqliteManager sharedManager] selectObjectsfromTable:@"ChannelList"];
+    
+    [_sourceArray addObjectsFromArray:[[CBNChannelSqliteManager sharedManager]dictionaryChangeToModelWithDictionaryArray:channelList] ];
+    
     [self.view addSubview:self.aTableView];
-    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
-
-}
-- (NSMutableArray *)sourceArray
-{
-    if (!_sourceArray) {
-        
-        self.sourceArray = [[NSMutableArray alloc] init];
-        
-    }
-    
-    return _sourceArray;
-}
-- (void)setChannelArray:(NSArray *)channelArray
-{
-    _channelArray = channelArray;
-    
-    [_sourceArray removeAllObjects];
-    
-    CBNChannelMoel *homeChannelModel = [[CBNChannelMoel alloc] init];
-    
-    homeChannelModel.ChannelName = @"Home";
-    homeChannelModel.EnglishName = @"Home";
-
-    [self.sourceArray addObject:homeChannelModel];
-
-    [_sourceArray addObjectsFromArray:_channelArray];
-    
-    [_aTableView reloadData];
     
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
     
     [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
-    
+
 }
+#pragma mark NSNotification
+
 - (void)channelChanged:(NSNotification *)notification{
     
     NSDictionary *userInfo = notification.userInfo;
@@ -93,33 +64,11 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     
     [_aTableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-//    NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0];
-//    
-//    [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
-////    [self publiChannel];
 
-}
-/**
- *  @创建视图
- */
-- (UITableView *)aTableView
-{
-    if (!_aTableView) {
-        
-        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, user_Draw_open_With, CBN_Screen_Height-108)];
-        
-        _aTableView.backgroundColor = [UIColor blackColor];
-        
-        _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
-        _aTableView.delegate = self;
-        
-        _aTableView.dataSource = self;
-        
-    }
     
-    return _aTableView;
 }
+
+#pragma mark UITableViewDataSource_And_UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -159,17 +108,24 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 - (void)channelChangedWithIndex:(NSInteger)index
 {
     if (index == _currentIndex) {
+        
         [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
         
         return;
+        
     }else{
+        
         _currentIndex = index;
+        
     }
-    CBNChannelMoel *channelModel = [_sourceArray objectAtIndex:index];
+    
+    CBNChannelModel *channelModel = [_sourceArray objectAtIndex:index];
     
     switch (index) {
         case 0:
+            
             [self homeChannel];
+            
             break;
         case 1:
             
@@ -182,6 +138,9 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
     
 
 }
+/*
+ *  切换为主频道
+ */
 - (void)homeChannel
 {
 
@@ -194,19 +153,77 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
     }];
 
 }
-
-- (void)publiChannelWithChannelModel:(CBNChannelMoel *)channelModel
+/*
+ *  切换为主公共频道
+ */
+- (void)publiChannelWithChannelModel:(CBNChannelModel *)channelModel
 {
     
     CBNPublicChannelVC *publicChannel = [[CBNPublicChannelVC alloc] init];
+    
     publicChannel.channelModel = channelModel;
+    
     CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:publicChannel];
+    
     [self.mm_drawerController setCenterViewController:navigation withCloseAnimation:YES completion:^(BOOL finished) {
         
     }];
  
 }
+#pragma mark reset
+- (void)setChannelArray:(NSArray *)channelArray
+{
+    _channelArray = channelArray;
+    
+    [_sourceArray removeAllObjects];
+    
+    CBNChannelModel *homeChannelModel = [[CBNChannelModel alloc] init];
+    
+    homeChannelModel.EnglishName = @"Home";
+    homeChannelModel.ChannelName = @"Home";
+
+    [self.sourceArray addObject:homeChannelModel];
+    
+    [_sourceArray addObjectsFromArray:_channelArray];
+    
+    [_aTableView reloadData];
+    
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
+    
+}
 
 
+#pragma mark create_Object
+
+- (NSMutableArray *)sourceArray
+{
+    if (!_sourceArray) {
+        
+        self.sourceArray = [[NSMutableArray alloc] init];
+        
+    }
+    
+    return _sourceArray;
+}
+- (UITableView *)aTableView
+{
+    if (!_aTableView) {
+        
+        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, user_Draw_open_With, CBN_Screen_Height-108)];
+        
+        _aTableView.backgroundColor = [UIColor blackColor];
+        
+        _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        _aTableView.delegate = self;
+        
+        _aTableView.dataSource = self;
+        
+    }
+    
+    return _aTableView;
+}
 
 @end

@@ -41,9 +41,8 @@
 - (void)setUpTableView
 {
     
-    
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHomePageDataFromSever)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshPublicChannelNewsDataFromSever)];
     
     // 设置文字
     [header setTitle:@"Pull down to refresh…" forState:MJRefreshStateIdle];
@@ -66,14 +65,14 @@
     self.aTableView.mj_header = header;
     
     
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMorePublicChannelNewsDataFromSever)];
     
     [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
     
     [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
     
     [footer setTitle:@"No more news" forState:MJRefreshStateNoMoreData];
-    
+
     // 设置字体
     footer.stateLabel.font = [UIFont refreshAndLoadingFont];
     //
@@ -85,18 +84,18 @@
     
 }
 #define 数据加载和刷新
-- (void)refreshHomePageDataFromSever
+- (void)refreshPublicChannelNewsDataFromSever
 {
     _currentPage = 1;
 
     __weak typeof(self) weakSelf = self;
 
     [CBNChannelListRequest loadNewsItemsWithChannelID:[_channelModel.ChannelID integerValue] page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        [[CBNNewSqliteManager sharedManager] cleanTableWithTableName:_channelModel.EnglishName];
+        [[CBNNewSqliteManager sharedManager] insertObjects:channelNewsItemsArray intoTable:_channelModel.EnglishName];
         [weakSelf.sourceArray removeAllObjects];
-        [[CBNDao sharedManager] deleteDataFromTableName:_channelModel.EnglishName];
-
-        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
-        [[CBNNewsItemDao sharedManager] insertChannelNewsItemsWithTableName:_channelModel.EnglishName andChannelNewsItemArray:channelNewsItemsArray];;
+        
+        [weakSelf.sourceArray addObjectsFromArray:[CBNNewSqliteManager  dictionaryChangeToModelWithDictionaryArray:channelNewsItemsArray]];
 
         [weakSelf refreshFinished];
         _currentPage++;
@@ -118,17 +117,21 @@
     [_aTableView.mj_header endRefreshing];
     
 }
-- (void)loadMoreHomePageDataFromSever
+- (void)loadMorePublicChannelNewsDataFromSever
 {
     
     __weak typeof(self) weakSelf = self;
     
     [CBNChannelListRequest loadNewsItemsWithChannelID:[_channelModel.ChannelID integerValue] page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
-        
-        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        [weakSelf.sourceArray addObjectsFromArray:[CBNNewSqliteManager  dictionaryChangeToModelWithDictionaryArray:channelNewsItemsArray]];
         
         [weakSelf loadMoreFinished];
-        
+        if (channelNewsItemsArray.count == 0) {
+            
+            [_aTableView.mj_footer endRefreshingWithNoMoreData];
+            
+        }
+
         _currentPage++;
         
     } failed:^(NSError *error) {
@@ -146,26 +149,7 @@
 
 
 
-/**
- *  @创建视图
- */
-- (UITableView *)aTableView
-{
-    if (!_aTableView) {
-        
-        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
-        
-        _aTableView.backgroundColor = [UIColor whiteColor];
-        
-        _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
-        _aTableView.delegate = self;
-        
-        _aTableView.dataSource = self;
-    }
-    
-    return _aTableView;
-}
+#pragma mark UITableViewDataSource_And_UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -201,18 +185,42 @@
     
 }
 
-
-- (void)setChannelModel:(CBNChannelMoel *)channelModel
+#pragma mark reset
+- (void)setChannelModel:(CBNChannelModel *)channelModel
 {
     _channelModel = channelModel;
+    
     [self setUpTableView];
-
-    NSArray *arr =  [[CBNNewsItemDao sharedManager]  queryNewsItemsDataWithTableName:_channelModel.EnglishName];
-    [self.sourceArray addObjectsFromArray:arr];
+    
+    [self.sourceArray removeAllObjects];
+    
+    [_sourceArray addObjectsFromArray:[CBNNewSqliteManager  dictionaryChangeToModelWithDictionaryArray:[[CBNNewSqliteManager sharedManager]selectObjectsfromTable:_channelModel.EnglishName]]];
+    
     [_aTableView reloadData];
     
     [_aTableView.mj_header beginRefreshing];
 }
+
+
+#pragma mark create_Objects
+- (UITableView *)aTableView
+{
+    if (!_aTableView) {
+        
+        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
+        
+        _aTableView.backgroundColor = [UIColor whiteColor];
+        
+        _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        _aTableView.delegate = self;
+        
+        _aTableView.dataSource = self;
+    }
+    
+    return _aTableView;
+}
+
 - (NSMutableArray *)sourceArray
 {
     if (!_sourceArray) {

@@ -24,6 +24,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self.navigationController.navigationBar addSubview:self.searchView];
 }
 - (void)viewWillDisappear:(BOOL)animated
@@ -41,19 +42,7 @@
     [self.view addSubview:self.defaultView];
 
 }
-
-- (CBNSearcnView *)searchView
-{
-    if (!_searchView) {
-        
-        self.searchView = [[CBNSearcnView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, 44)];
-        _searchView.backgroundColor = [UIColor clearColor];
-        
-        _searchView.delegate = self;
-    }
-    
-    return _searchView;
-}
+#pragma mark CBNSearcnViewDelegate
 
 - (void)searchView:(CBNSearcnView *)searcnView cancleButtonClicked:(UIButton *)sender
 {
@@ -73,6 +62,33 @@
     [self.view bringSubviewToFront:_defaultView];
 
 }
+
+#pragma mark CBNSearchDefaultViewDelegate
+
+- (void)searchDefaultView:(CBNSearchDefaultView *)searchDefaultView channelDidSelectedAtIndex:(NSInteger)index
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:index],@"channelIndex", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"channelChanged" object:nil userInfo:dic];
+    
+}
+
+#pragma mark create_Object
+
+
+- (CBNSearcnView *)searchView
+{
+    if (!_searchView) {
+        
+        self.searchView = [[CBNSearcnView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, 44)];
+        _searchView.backgroundColor = [UIColor clearColor];
+        
+        _searchView.delegate = self;
+    }
+    
+    return _searchView;
+}
+
 - (CBNSearchDefaultView *)defaultView
 {
     if (!_defaultView) {
@@ -87,13 +103,6 @@
     return _defaultView;
 }
 
-- (void)searchDefaultView:(CBNSearchDefaultView *)searchDefaultView channelDidSelectedAtIndex:(NSInteger)index
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:index],@"channelIndex", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"channelChanged" object:nil userInfo:dic];
-    
-}
 - (CBNSearchResultView *)resultView
 {
     if (!_resultView) {
@@ -104,4 +113,6 @@
     
     return _resultView;
 }
+
+
 @end

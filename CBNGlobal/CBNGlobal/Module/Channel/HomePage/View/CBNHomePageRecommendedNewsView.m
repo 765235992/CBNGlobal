@@ -83,7 +83,7 @@
 }
 
 
-- (void)setRecommendNewsModel:(CBNNewsItemModel *)recommendNewsModel
+- (void)setRecommendNewsModel:(CBNNewsModel *)recommendNewsModel
 {
     _recommendNewsModel = recommendNewsModel;
     
@@ -93,7 +93,7 @@
     
     _newsTitleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin + _newsThumbImageView.frame.size.height, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin , _newsTitleLabel.frame.size.height);
     
-    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[JYParametersLinkManager sharedManager] getNewsThumbName:recommendNewsModel.NewsThumbs]] placeholderImage:nil];
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:recommendNewsModel.NewsThumbs]] placeholderImage:nil];
     
 }
 @end
