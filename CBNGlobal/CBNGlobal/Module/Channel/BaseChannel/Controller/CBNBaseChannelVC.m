@@ -36,7 +36,7 @@
     
     self.navigationController.navigationBar.dk_barTintColorPicker = DKColorPickerWithColors([UIColor whiteColor],RGBColor(3, 3, 3, 0.6),[UIColor orangeColor]);
     [self.navigationController.navigationBar setBackgroundImage:[UIColorFromRGB(0x333333) colorImage] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIColorFromRGB(0xE7E7E7) colorImage]];
+    [self.navigationController.navigationBar setShadowImage:[UIColorFromRGB(0x333333) colorImage]];
     [self setNavigationView];
     [self setNavigationHeader];
     [self setSearchBar];
@@ -92,10 +92,10 @@
 {
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [searchButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"langy_chaxun@2x.png"],[UIImage imageNamed:@"langy_chaxun@2x.png"],[UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"]) forState:UIControlStateNormal];
+    [searchButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"searchWhite@2x.png"],[UIImage imageNamed:@"searchWhite@2x.png"],[UIImage imageNamed:@"searchWhite@2x.png"]) forState:UIControlStateNormal];
     
     searchButton.frame = CGRectMake(0, 0, 44, 44);
-    //    [backButton setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 3, 3)];
+    [searchButton setImageEdgeInsets:UIEdgeInsetsMake(12, 12, 12, 12)];
     searchButton.backgroundColor = [UIColor clearColor];
     [searchButton addTarget:self action:@selector(searchButton:) forControlEvents:UIControlEventTouchUpInside];
     
