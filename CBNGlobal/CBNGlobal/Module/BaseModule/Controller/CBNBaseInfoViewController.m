@@ -10,7 +10,6 @@
 #import "CBNNavigationShareView.h"
 #import "CBNTextDetailVC.h"
 @interface CBNBaseInfoViewController ()
-@property (nonatomic, strong) CBNNavigationShareView *shareView;
 @end
 
 @implementation CBNBaseInfoViewController
@@ -20,7 +19,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.dk_barTintColorPicker = DKColorPickerWithColors([UIColor whiteColor],RGBColor(3, 3, 3, 0.6),[UIColor orangeColor]);
     [self.navigationController.navigationBar setBackgroundImage:[UIColorFromRGB(0x333333) colorImage] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIColorFromRGB(0xE7E7E7) colorImage]];
+    [self.navigationController.navigationBar setShadowImage:[UIColorFromRGB(0x333333) colorImage]];
     
     // Do any additional setup after loading the view.
 }
@@ -69,17 +68,19 @@
 {
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [shareButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"CBN_share_Image_Day.png"],[UIImage imageNamed:@"CBN_share_Image_Day.png"],[UIImage imageNamed:@"CBN_share_Image_Day.png"]) forState:UIControlStateNormal];
+    [shareButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"share-white.png"],[UIImage imageNamed:@"share-white.png"],[UIImage imageNamed:@"share-white.png"]) forState:UIControlStateNormal];
     
     shareButton.frame = CGRectMake(0, 0, 44, 44);
     
-    [shareButton setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [shareButton setImageEdgeInsets:UIEdgeInsetsMake(11, 11, 11, 11)];
     
     shareButton.backgroundColor = [UIColor clearColor];
     shareButton.hidden = NO;
-
-    [shareButton addTarget:self action:@selector(shareButton:) forControlEvents:UIControlEventTouchUpInside];
+    shareButton.selected = YES;
     
+    [shareButton addTarget:self action:@selector(shareButton:) forControlEvents:UIControlEventTouchUpInside];
+    self.shareButton = shareButton;
+
     UIBarButtonItem *shareBar = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
     
     UIBarButtonItem *rightSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -91,28 +92,36 @@
 }
 - (void)shareButton:(UIButton *)sender
 {
-    if (_shareView == nil) {
+//    if (_shareView == nil) {
+//        
         [self.view addSubview:self.shareView];
-    }else{
-        if (sender.selected == YES) {
+//    }else{
+//        if (_shareButton.selected == YES) {
             _shareView.hidden = NO;
-        }else{
-            _shareView.hidden = YES;
-        }
-    }
+//        }else{
+//            _shareView.hidden = YES;
+//        }
+//    }
     
-    sender.selected = !sender.selected;
+    _shareButton.selected = !_shareButton.selected;
+
 }
 
 - (CBNNavigationShareView *)shareView
 {
     if (!_shareView) {
         
-        self.shareView = [[CBNNavigationShareView alloc] initWithFrame:CGRectMake(CBN_Screen_Width-search_Bar_Height*1.5, 0, search_Bar_Height*1.5, 100)];
+        self.shareView = [[CBNNavigationShareView alloc] initWithFrame:CGRectMake(CBN_Screen_Width-search_Bar_Height*1.5-4, 0, search_Bar_Height*1.5, 100)];
+        _shareView.delegate = self;
         
     }
     
     return _shareView;
+}
+
+- (void)sharePlateFromTag:(NSInteger)tag
+{
+    NSLog(@"111   点击类型");
 }
 - (void)setNavigationTitle:(NSString *)titleString
 {

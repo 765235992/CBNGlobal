@@ -55,9 +55,9 @@
         
         CGFloat imageHeight = [NSString getTextHeightWithFont:[UIFont newsTitleFont]]*4.5;
         
-        self.newsThumbImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, imageHeight *1.6, imageHeight)];
-        
-        _newsThumbImageView.image = [UIImage imageNamed:@"defaultImage.jpg"];
+        self.newsThumbImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, imageHeight *1.6,  imageHeight * 1.6* 0.6)];
+        _newsThumbImageView.contentMode = UIViewContentModeScaleToFill;
+        _newsThumbImageView.image = [UIImage imageNamed:@"default-image.png"];
         
     }
     
@@ -164,7 +164,7 @@
     _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height, _authorNameLabel.frame.size.width, _authorNameLabel.frame.size.height);
     _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
 
-    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:itemModel.NewsThumbs]] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:itemModel.NewsThumbs]] placeholderImage:[UIImage imageNamed:@"default-image.png"]];
     
     _newsTitleLabel.text = itemModel.NewsTitle;
     

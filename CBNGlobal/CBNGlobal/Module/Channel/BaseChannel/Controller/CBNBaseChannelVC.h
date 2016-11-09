@@ -12,4 +12,10 @@
 
 - (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel;
 
+
+- (CBNRefreshHeader *)refreshHeader;
+- (void)refreshData;
+- (MJRefreshAutoNormalFooter *)refreshFooter;
+- (void)loadMoreData;
+
 @end

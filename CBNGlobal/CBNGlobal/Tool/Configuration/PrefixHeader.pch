@@ -18,7 +18,7 @@
 #import "UIViewController+MMDrawerController.h"
 #import "CBNParametersLinkManager.h"
 #import "MJExtension.h"
-
+//#import  "IQKeyboardManager.h"
 /*
  *  分类
  */
@@ -28,6 +28,7 @@
 #import "UIFont+CBNFont.h"
 #import "NSString+CBNString.h"
 #import "UIColor+CBNColor.h"
+#import<Social/Social.h>
 
 /*
  *  数据库
@@ -42,6 +43,7 @@
 #import "CBNLiveModel.h"
 
 #import "CBNEnumeration.h"
+#import "CBNRefreshHeader.h"
 
 //-------------------打印日志-------------------------
 //DEBUG  模式下打印日志,当前行
@@ -74,7 +76,7 @@
 
 #define news_Cell_Left_Or_Right_Margin 8
 #define news_Cell_Up_Or_Down_Margin 15
-#define search_Bar_Height 30
+#define search_Bar_Height 36
 #define news_Cell_Height  [NSString getTextHeightWithFont:[UIFont newsTitleFont]]*4.5 + 2*news_Cell_Up_Or_Down_Margin
 
 #define font_Name_Blod @"DINPro-Bold"

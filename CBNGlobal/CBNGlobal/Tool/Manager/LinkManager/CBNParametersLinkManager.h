@@ -12,14 +12,19 @@
 + (CBNParametersLinkManager *)sharedManager;
 
 - (NSString *)channelURL;
+
 - (NSString *)getNewsListURLWithRootlID:(NSInteger)channelID page:(NSInteger)page pageSize:(NSInteger)pageSize;
 
 - (NSString *)getNewsListURLWithChannelID:(NSInteger)channelID page:(NSInteger)page pageSize:(NSInteger)pageSize;
 
 - (NSString *)getNewsThumbName:(NSString *)newsThumb;
 
+- (NSString *)getOriginalNewsThumbName:(NSString *)newsThumb;
+
 - (NSString *)readNewsWithNewsID:(NSInteger)newsID;
 
 - (NSString *)rankNewsMonthURL;
+
+- (NSString *)searchWithKeyword:(NSString *)keyword page:(NSInteger)page pageSize:(NSInteger)pagesize;
 
 @end

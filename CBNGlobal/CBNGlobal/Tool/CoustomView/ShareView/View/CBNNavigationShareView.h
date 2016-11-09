@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CBNNavigationShareViewDelegate <NSObject>
+
+- (void)sharePlateFromTag:(NSInteger)tag;
+
+@end
+
 @interface CBNNavigationShareView : UIView
 
+@property (nonatomic, assign) id <CBNNavigationShareViewDelegate> delegate;
 @end

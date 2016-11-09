@@ -18,6 +18,11 @@
 @end
 
 @implementation CBNTextDetailHeaderView
+
+- (void)dealloc
+{
+    NSLog(@"CBNTextDetailHeaderView 释放");
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

@@ -9,7 +9,7 @@
 #import "CBNParametersLinkManager.h"
 #define k_Base_URLString(type) [NSString stringWithFormat:@"https://appcdn.yicai.com/handler/cbnglobal/%@.ashx?",type]
 #define k_Base_URLKey @"wuTbBGxk1J8NTzye"
-#define k_Base_NewsCover_URl @"http://cmss.yicai.com/uppics/slides/"//图片拼接网址
+#define k_Base_NewsCover_URl @"http://imgcdn.yicai.com/uppics/slides/"//图片拼接网址
 
 
 @implementation CBNParametersLinkManager
@@ -55,17 +55,21 @@
 }
 - (NSString *)getNewsThumbName:(NSString *)newsThumb
 {
-    NSString *imageURL = [NSString stringWithFormat:@"%@%@",k_Base_NewsCover_URl,newsThumb];
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@@320w_213h_1e_1c",k_Base_NewsCover_URl,newsThumb];
     return imageURL;
 }
-
+- (NSString *)getOriginalNewsThumbName:(NSString *)newsThumb
+{
+    NSString *imageURL = [NSString stringWithFormat:@"http://cmss.yicai.com/uppics/slides/%@",newsThumb];
+    return imageURL;
+}
 - (NSString *)readNewsWithNewsID:(NSInteger)newsID
 {
     
     NSString *str = [NSString stringWithFormat:@"%ld%@",(long)newsID,k_Base_URLKey];
     
     NSString *urlString = [NSString stringWithFormat:@"%@nid=%ld&check=%@",k_Base_URLString(@"GetNews"),(long)newsID,[NSString getTheMD5EncryptedStringWithString:str]];
-    
+    CBNLog(@"%@",urlString);
     
     return urlString;
     
@@ -80,7 +84,19 @@
     
 }
 
-
+- (NSString *)searchWithKeyword:(NSString *)keyword page:(NSInteger)page pageSize:(NSInteger)pagesize
+{
+    
+    NSString* keywordResultSring=keyword;
+    keywordResultSring = [keywordResultSring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];  //去除掉首尾的空白字符和换行字符
+    keywordResultSring = [keywordResultSring stringByReplacingOccurrencesOfString:@" " withString:@""];
+    keywordResultSring = [keywordResultSring stringByReplacingOccurrencesOfString:@"\n" withString:@""];    NSLog(@"%@--%@",keyword,keywordResultSring);
+    NSString *urlStr  = [NSString stringWithFormat:@"http://www.yicai.com/api/appsearch/?type=108contenttype=0&searchKeyWords=%@&start=%ld&pagecount=%ld",keywordResultSring,(long)page,(long)pagesize];
+    
+    CBNLog(@"%@",urlStr);
+    
+    return urlStr;
+}
 
 
 

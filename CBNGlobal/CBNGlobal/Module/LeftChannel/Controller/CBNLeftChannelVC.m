@@ -95,7 +95,7 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 2*[NSString getTextHeightWithFont:[UIFont newsTitleFont]];
+    return 2.5*[NSString getTextHeightWithFont:[UIFont newsTitleFont]];
 }
 
 

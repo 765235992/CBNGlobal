@@ -9,7 +9,7 @@
 #import "CBNLeftChannelCell.h"
 
 #define left_margn 20.0f
-#define channel_Cell_Height 2*[NSString getTextHeightWithFont:[UIFont newsTitleFont]]
+#define channel_Cell_Height 2.5*[NSString getTextHeightWithFont:[UIFont newsTitleFont]]
 @interface CBNLeftChannelCell ()
 
 @property (nonatomic, strong) UIImageView *channelIconImageView;
@@ -32,8 +32,8 @@
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        [self addSubview:self.channelIconImageView];
-        _channelIconImageView.center = CGPointMake(_channelIconImageView.center.x, channel_Cell_Height/2);
+//        [self addSubview:self.channelIconImageView];
+//        _channelIconImageView.center = CGPointMake(_channelIconImageView.center.x, channel_Cell_Height/2);
         
         [self addSubview:self.channelTitleLabel];
         
@@ -50,6 +50,7 @@
         _channelTitleLabel.textColor = [UIColor whiteColor];
 
     }else{
+        
         _channelTitleLabel.textColor = [UIColor lightGrayColor];
 
     }
@@ -60,7 +61,7 @@
     if (!_channelIconImageView) {
         
         self.channelIconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(left_margn, channel_Cell_Height/2, channel_Cell_Height/2, channel_Cell_Height/2)];
-//        _channelIconImageView.backgroundColor = [UIColor randomColor];
+
         _channelIconImageView.image = [UIImage imageNamed:@"langy_maichu@2x.png"];
 
     }
@@ -72,7 +73,9 @@
 {
     if (!_channelTitleLabel) {
         
-        self.channelTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(left_margn*2+_channelIconImageView.frame.size.width, 0, user_Draw_open_With-2*left_margn, channel_Cell_Height)];
+        self.channelTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(left_margn, 0, user_Draw_open_With-2*left_margn, channel_Cell_Height)];
+        
+        _channelTitleLabel.font = [UIFont newsTitleFont];
         
         _channelTitleLabel.textColor = [UIColor whiteColor];
         

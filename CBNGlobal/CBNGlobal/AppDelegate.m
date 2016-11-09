@@ -10,11 +10,13 @@
 #import "CBNHomePageVC.h"
 #import "CBNLeftChannelVC.h"
 #import "CBNDrawerVisualStateManager.h"
-#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
-#import <JYGuideSDK/JYGuideSDK.h>
+#import <UMSocialCore/UMSocialCore.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+#import "JYGuideSDK.h"
+#import "JYShareManager.h"
 #import "CBNChannelNavigationController.h"
 #import "CBNChannelRequrst.h"
-
 @interface AppDelegate ()
 @property (nonatomic,strong) MMDrawerController * drawerController;
 @property (nonatomic, strong) CBNHomePageVC *homePage;
@@ -25,8 +27,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-
+    
+    [[JYShareManager shareManager] shareConfig];
+  
+    
     _homePage = [[CBNHomePageVC alloc] init];
     
     CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:_homePage];
@@ -63,18 +67,39 @@
     [self.window setRootViewController:self.drawerController];
     [self.window makeKeyAndVisible];
     [self requestChannelItem];
-    
     JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
     
     NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
     [view showWithGuideImageArrays:arr];
 
     
-    
+
     
     return YES;
 }
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    
+    NSLog(@"结果 -- %d",result);
+    if (!result) {
+        
+    }
+    return result;
+}
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    NSLog(@"%s url=%@","app delegate application openURL called ", [url absoluteString]);
+    
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        
+    }
+    return result;
+}
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -87,10 +112,6 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

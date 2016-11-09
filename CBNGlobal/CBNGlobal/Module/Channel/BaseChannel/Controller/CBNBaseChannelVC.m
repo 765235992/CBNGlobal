@@ -48,9 +48,11 @@
 - (void)setNavigationView
 {
     
-    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 200, 24)];
-        
-    logoImageView.image = [UIImage imageNamed:@"yicaiglobal_logo@2x.png"];
+    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 92, 34)];
+    logoImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    
+    logoImageView.image = [UIImage imageNamed:@"navigation-logo.png"];
     
     self.navigationItem.titleView =  logoImageView;
     
@@ -60,10 +62,10 @@
 {
     UIButton *drawButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [drawButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"],[UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"],[UIImage imageNamed:@"CBN_Channel_Left_Bar_Image_Day@2x.png"]) forState:UIControlStateNormal];
+    [drawButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"channel-white.png"],[UIImage imageNamed:@"channel-white.png"],[UIImage imageNamed:@"channel-white.png"]) forState:UIControlStateNormal];
     
     drawButton.frame = CGRectMake(0, 0, 44, 44);
-    //    [backButton setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 3, 3)];
+    [drawButton setImageEdgeInsets:UIEdgeInsetsMake(8, 11, 8, 11)];
     drawButton.backgroundColor = [UIColor clearColor];
     [drawButton addTarget:self action:@selector(leftBar:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -91,10 +93,11 @@
 - (void)setSearchBar
 {
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [searchButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"searchWhite@2x.png"],[UIImage imageNamed:@"searchWhite@2x.png"],[UIImage imageNamed:@"searchWhite@2x.png"]) forState:UIControlStateNormal];
-    
     searchButton.frame = CGRectMake(0, 0, 44, 44);
+
+//    [searchButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"search-white-magnifier.png"],[UIImage imageNamed:@"search-white-magnifier.png"],[UIImage imageNamed:@"search-white-magnifier.png"]) forState:UIControlStateNormal];
+    [searchButton setImage:[UIImage imageNamed:@"search-white-magnifier.png"] forState:UIControlStateNormal];
+    
     [searchButton setImageEdgeInsets:UIEdgeInsetsMake(12, 12, 12, 12)];
     searchButton.backgroundColor = [UIColor clearColor];
     [searchButton addTarget:self action:@selector(searchButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -116,6 +119,40 @@
 }
 
 
+- (CBNRefreshHeader *)refreshHeader
+{
+    CBNRefreshHeader *header = [CBNRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    
+    // 设置刷新控件
+    return  header;
+}
+- (void)refreshData
+{
+    
+}
+- (MJRefreshAutoNormalFooter *)refreshFooter
+{
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
+    
+    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
+    
+    [footer setTitle:@"No more news" forState:MJRefreshStateNoMoreData];
+   
+    // 设置字体
+    footer.stateLabel.font = [UIFont refreshAndLoadingFont];
+    //
+    //    // 设置颜色
+    footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
+
+    return footer;
+    
+}
+- (void)loadMoreData
+{
+    
+}
 
 
 
@@ -127,10 +164,17 @@
 - (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel
 {
     CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
-    textDetailVC.newsID = newsItemModel.NewsID;
+    if (newsItemModel.IsEntity) {
+
+        textDetailVC.newsID = newsItemModel.NewsID;
+
+    }else{
+        textDetailVC.newsID = newsItemModel.EntityNews;
+
+    }
+    
     
     [self.navigationController pushViewController:textDetailVC animated:YES];
     
 }
-
 @end

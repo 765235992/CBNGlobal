@@ -10,6 +10,8 @@
 
 @interface NSDate (CBNDate)
 
++ (NSString *)getNormalDateFromDateString:(NSString *)aDateString;
+
 + (NSString *)getNormalDateFromUTCDateString:(NSString *)utcDateString;
 
 + (NSString *)getHourDateFromUTCDateString:(NSString *)utcDateString;

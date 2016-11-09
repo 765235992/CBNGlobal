@@ -40,7 +40,6 @@
         _timeLabel.dk_textColorPicker = DKColorPickerWithKey(news_Small_Tag_Color);
         _timeLabel.font = [UIFont tagFont];
         
-        _timeLabel.text = @"Yicai";
     }
     
     return _timeLabel;

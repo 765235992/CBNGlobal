@@ -27,6 +27,25 @@
 
 }
 
++ (NSString *)getNormalDateFromDateString:(NSString *)aDateString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //输入格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
+    [dateFormatter setTimeZone:localTimeZone];
+    
+    NSDate *dateFormatted = [dateFormatter dateFromString:aDateString];
+    //输出格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
+    
+    return dateString;
+    
+}
+
+
 + (NSString *)getHourDateFromUTCDateString:(NSString *)utcDateString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

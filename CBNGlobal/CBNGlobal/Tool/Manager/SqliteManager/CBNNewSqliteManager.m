@@ -133,7 +133,7 @@
     
     if (isHaveTable == NO) {
         
-        return nil;
+        return NO;
     }
 
     return [[JYDataBaseManager shareInstance] dataBase:self.dataBase clearTable:tableName];

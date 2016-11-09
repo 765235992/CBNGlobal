@@ -110,11 +110,11 @@
     __weak typeof(self) weakSelf = self;
     
     [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
-        
+        NSLog(@"%@",channelNewsItemsArray);
         [weakSelf.sourceArray removeAllObjects];
         
-        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
-        
+        [weakSelf.sourceArray addObjectsFromArray:[CBNNewSqliteManager  liveDictionaryChanegeToLiveModekWithDictionaryArray:channelNewsItemsArray]];
+
         [weakSelf refreshFinished];
         _currentPage++;
         
@@ -140,8 +140,7 @@
     
     [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
 
-        
-        [weakSelf.sourceArray addObjectsFromArray:channelNewsItemsArray];
+        [weakSelf.sourceArray addObjectsFromArray:[CBNNewSqliteManager  liveDictionaryChanegeToLiveModekWithDictionaryArray:channelNewsItemsArray]];
         
         [weakSelf loadMoreFinished];
         
@@ -157,6 +156,7 @@
 - (void)loadMoreFinished
 {
     [_aTableView reloadData];
+    
     [_aTableView.mj_footer endRefreshing];
 }
 
@@ -199,7 +199,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CBNLiveModel *tempModel = (CBNLiveModel *)[_sourceArray objectAtIndex:indexPath.row];
-
+    NSLog(@"%f",tempModel.height);
     return tempModel.height;
     
 }

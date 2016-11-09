@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CBNSearchResultView;
+@protocol CBNSearchResultViewDelegate <NSObject>
+
+- (void)tableViewSelectedWithNewsModel:(CBNNewsModel *)newsModel;
+
+- (void)loadMoreNews;
+
+@end
 
 @interface CBNSearchResultView : UIView
 
+@property (nonatomic, assign) id <CBNSearchResultViewDelegate> delegate;
+
+@property (nonatomic, strong) NSMutableArray *sourceArray;
+
+@property (nonatomic, strong) NSMutableArray *moreNewsArray;
 @end

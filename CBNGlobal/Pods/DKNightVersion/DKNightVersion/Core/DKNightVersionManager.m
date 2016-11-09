@@ -68,7 +68,7 @@ NSString * const DKNightVersionCurrentThemeVersionKey = @"com.dknightversion.man
         if ([themeVersion isEqualToString:DKThemeVersionNight]) {
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         } else {
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         }
 #pragma clang diagnostic pop
     }

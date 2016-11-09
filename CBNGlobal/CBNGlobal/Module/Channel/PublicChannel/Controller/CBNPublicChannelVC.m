@@ -8,6 +8,7 @@
 
 #import "CBNPublicChannelVC.h"
 #import "CBNChannelNewsTextCell.h"
+#import "CBNChannelNoImageCell.h"
 
 @interface CBNPublicChannelVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -41,50 +42,19 @@
 - (void)setUpTableView
 {
     
-    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshPublicChannelNewsDataFromSever)];
-    
-    // 设置文字
-    [header setTitle:@"Pull down to refresh…" forState:MJRefreshStateIdle];
-    
-    [header setTitle:@"Begin to refresh" forState:MJRefreshStatePulling];
-    
-    [header setTitle:@"Refreshing......" forState:MJRefreshStateRefreshing];
-    
-    // 设置字体
-    header.stateLabel.font =  [UIFont refreshAndLoadingFont];
-    
-    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
-    
-    // 设置颜色
-    header.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
-    
-    header.lastUpdatedTimeLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
+
     
     // 设置刷新控件
-    self.aTableView.mj_header = header;
+    self.aTableView.mj_header = [self refreshHeader];
     
     
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMorePublicChannelNewsDataFromSever)];
-    
-    [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
-    
-    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
-    
-    [footer setTitle:@"No more news" forState:MJRefreshStateNoMoreData];
-
-    // 设置字体
-    footer.stateLabel.font = [UIFont refreshAndLoadingFont];
-    //
-    //    // 设置颜色
-    footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
     // 设置footer
-    self.aTableView.mj_footer = footer;
+    self.aTableView.mj_footer = [self refreshFooter];
     
     
 }
 #define 数据加载和刷新
-- (void)refreshPublicChannelNewsDataFromSever
+- (void)refreshData
 {
     _currentPage = 1;
 
@@ -117,7 +87,7 @@
     [_aTableView.mj_header endRefreshing];
     
 }
-- (void)loadMorePublicChannelNewsDataFromSever
+- (void)loadMoreData
 {
     
     __weak typeof(self) weakSelf = self;
@@ -157,24 +127,50 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *indentefier = @"CBNChannelNewsTextCell";
+    CBNNewsModel *tempModel =  [_sourceArray objectAtIndex:indexPath.row];
     
-    
-    CBNChannelNewsTextCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
-    
-    if (cell == nil) {
+    if (tempModel.NewsThumbs.length < 5) {
+        static NSString *indentefier = @"CBNChannelNoImageCell";
         
-        cell = [[CBNChannelNewsTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+        CBNChannelNoImageCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNChannelNoImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+            
+        }
+        
+        cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
+        
+        return cell;
+    }else{
+        static NSString *indentefier = @"CBNChannelNewsTextCell";
+        
+        CBNChannelNewsTextCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNChannelNewsTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+            
+        }
+        
+        cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
+        
+        return cell;
         
     }
-    
-    cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
-    
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CBNNewsModel *tempModel =  [_sourceArray objectAtIndex:indexPath.row];
+    if (tempModel.NewsThumbs.length < 5) {
+        CBNChannelNoImageCell *cell = (CBNChannelNoImageCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        
+        return cell.frame.size.height;
+        
+    }
+
     return  news_Cell_Height;
 }
 

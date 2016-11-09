@@ -41,7 +41,7 @@
 {
     if (!_recommendedNewsView) {
         
-        self.recommendedNewsView = [[CBNHomePageRecommendedNewsView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Width*1.4)];
+        self.recommendedNewsView = [[CBNHomePageRecommendedNewsView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Width*1.6)];
         
         _recommendedNewsView.delegate = self;
     }
@@ -64,7 +64,6 @@
         
         _liveShuffingView.delegate = self;
         
-        _liveShuffingView.backgroundColor = [UIColor lightGrayColor];
         
     }
     
@@ -93,7 +92,14 @@
 {
     _liveModelArray = liveModelArray;
     
+    _liveShuffingView.frame = CGRectMake(_liveShuffingView.frame.origin.x, _recommendedNewsView.frame.size.height, _liveShuffingView.frame.size.width, _liveShuffingView.frame.size.height);
+    
+    
     _liveShuffingView.liveModelArray = _liveModelArray;
+    
+    self.frame = CGRectMake(0, 0, CBN_Screen_Width, _liveShuffingView.frame.size.height + _liveShuffingView.frame.origin.y + news_Cell_Up_Or_Down_Margin);
+    
+    _lineImageView.frame = CGRectMake(news_Cell_Left_Or_Right_Margin,self.frame.size.height-1,CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 1);
     
     
 }
@@ -102,7 +108,13 @@
 {
     _remondNewsModel = remondNewsModel;
     
-    _recommendedNewsView.recommendNewsModel = remondNewsModel;
+    _recommendedNewsView.recommendNewsModel = _remondNewsModel;
+    
+    _liveShuffingView.frame = CGRectMake(_liveShuffingView.frame.origin.x, _recommendedNewsView.frame.size.height, _liveShuffingView.frame.size.width, _liveShuffingView.frame.size.height);
+
+    self.frame = CGRectMake(0, 0, CBN_Screen_Width, _liveShuffingView.frame.size.height + _liveShuffingView.frame.origin.y + news_Cell_Up_Or_Down_Margin);
+    
+    _lineImageView.frame = CGRectMake(news_Cell_Left_Or_Right_Margin,self.frame.size.height-1,CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 1);
 }
 
 @end

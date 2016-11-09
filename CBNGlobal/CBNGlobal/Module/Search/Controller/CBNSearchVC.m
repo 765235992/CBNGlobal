@@ -10,29 +10,55 @@
 #import "CBNSearcnView.h"
 #import "CBNSearchDefaultView.h"
 #import "CBNSearchResultView.h"
+#import "CBNSearchRequest.h"
+#import "CBNSearchModel.h"
+#define isitIncludeLowercaseLettersAndNumbers(str) [[NSPredicate predicateWithFormat:@"SELF MATCHES %@"@"<[a-zA-Z]+(s+[a-zA-Z]+s*=s*(\"([^\"]*)\"|'([^']*)'))*s*/>"] evaluateWithObject:str]
 
-@interface CBNSearchVC ()<CBNSearcnViewDelegate,CBNSearchDefaultViewDelegate>
+@interface CBNSearchVC ()<CBNSearcnViewDelegate,CBNSearchDefaultViewDelegate,CBNSearchResultViewDelegate>
 @property (nonatomic, strong) CBNSearcnView *searchView;
 @property (nonatomic, strong) CBNSearchDefaultView *defaultView;
 @property (nonatomic, strong) CBNSearchResultView *resultView;
+@property (nonatomic, strong) NSMutableArray *sourceArray;
+@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, strong) NSString *currentKeyWord;
+
 @end
 
 @implementation CBNSearchVC
 - (void)dealloc
 {
+    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     [self.navigationController.navigationBar addSubview:self.searchView];
+
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    _searchView.hidden = NO;
+
+    [self.navigationController.navigationBar addSubview:self.searchView];
+
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    _searchView.hidden = YES;
+
     [_searchView removeFromSuperview];
 
 }
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_searchView removeFromSuperview];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -40,8 +66,59 @@
     [self setNoBarItems];
     [self.view addSubview:self.resultView];
     [self.view addSubview:self.defaultView];
+    
 
 }
+#pragma mark Request
+
+- (void)loadSearchWithSearchText:(NSString *)searchtext
+{
+    _currentPage = 0;
+    _currentKeyWord = searchtext;
+    NSLog(@"%@",self);
+    [CBNSearchRequest loadNewsItemsWithSearchText:searchtext page:_currentPage pageSize:10 Secuessed:^(NSArray *searchReaultArray) {
+        
+        
+        [self.sourceArray removeAllObjects];
+        
+        for (NSDictionary *dic in searchReaultArray) {
+            CBNSearchModel *searchModel = [CBNSearchModel mj_objectWithKeyValues:dic];
+            
+            [_sourceArray addObject:searchModel];
+            
+        }
+        
+        _resultView.sourceArray = _sourceArray;
+        _currentPage++;
+        
+    } failed:^(NSError *error) {
+        
+    }];
+}
+
+- (void)loadMoreSearchNews
+{
+    [CBNSearchRequest loadNewsItemsWithSearchText:_currentKeyWord page:1 pageSize:10 Secuessed:^(NSArray *searchReaultArray) {
+        
+        
+        [self.sourceArray removeAllObjects];
+
+        for (NSDictionary *dic in searchReaultArray) {
+            CBNSearchModel *searchModel = [CBNSearchModel mj_objectWithKeyValues:dic];
+            
+            [_sourceArray addObject:searchModel];
+            
+        }
+        
+        _resultView.moreNewsArray = _sourceArray;
+        _currentPage++;
+        
+    } failed:^(NSError *error) {
+        
+    }];
+
+}
+
 #pragma mark CBNSearcnViewDelegate
 
 - (void)searchView:(CBNSearcnView *)searcnView cancleButtonClicked:(UIButton *)sender
@@ -50,7 +127,9 @@
 }
 - (void)searchView:(CBNSearcnView *)searcnView searchText:(NSString *)searchText
 {
-    NSLog(@"%@",searchText);
+    
+    [self loadSearchWithSearchText:searchText];
+    
 }
 
 - (void)searchView:(CBNSearcnView *)searchView BeginEdit:(BOOL)beginEdit
@@ -75,7 +154,15 @@
 
 #pragma mark create_Object
 
-
+- (NSMutableArray *)sourceArray
+{
+    if (!_sourceArray) {
+        
+        self.sourceArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _sourceArray;
+}
 - (CBNSearcnView *)searchView
 {
     if (!_searchView) {
@@ -107,12 +194,22 @@
 {
     if (!_resultView) {
         
-        self.resultView = [[CBNSearchResultView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-60)];
-        
+        self.resultView = [[CBNSearchResultView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
+        _resultView.delegate = self;
     }
     
     return _resultView;
 }
+- (void)tableViewSelectedWithNewsModel:(CBNNewsModel *)newsModel
+{
+    [self pushToTextNewsDetailWitNewsID:newsModel.NewsID];
+    
+}
 
+- (void)loadMoreNews
+{
+    [self loadMoreSearchNews];
+    
+}
 
 @end

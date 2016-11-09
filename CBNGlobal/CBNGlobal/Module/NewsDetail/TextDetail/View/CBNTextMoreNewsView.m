@@ -9,6 +9,10 @@
 #import "CBNTextMoreNewsView.h"
 
 @implementation CBNTextMoreNewsView
+- (void)dealloc
+{
+    NSLog(@"CBNTextMoreNewsView");
+}
 
 
 @end

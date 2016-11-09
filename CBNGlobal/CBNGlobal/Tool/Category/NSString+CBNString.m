@@ -41,6 +41,8 @@
     
     NSString *styleHeader = @"<style type=\"text/css\">";
     NSString *blockquote = @"blockquote{border-left:5px solid #DDD;margin:15px 30px 0 3px; padding-left:20px}";
+    
+    NSString *iframe = @"iframe{display: none;}";
     NSString *backgroundColor = @"background-color:AA;";
     NSString *textColor = @"color:#212121;";
     NSString *textAlignment = @"text-align:justify;";
@@ -51,12 +53,33 @@
     NSString *padding = @"padding:0 3 0 3;";
     NSString *justify = @"text-justify:distribute-all-lines;";
     
-    NSString *p = [NSString stringWithFormat:@"p{%@%@%@%@%@%@%@%@%@}",backgroundColor,textColor,textAlignment,textFoneSize,textFontName,textLineSpace,word,padding,justify];
+    NSString *p = [NSString stringWithFormat:@"%@p{%@%@%@%@%@%@%@%@%@}",iframe,backgroundColor,textColor,textAlignment,textFoneSize,textFontName,textLineSpace,word,padding,justify];
     NSString *styleFooter = @"</style>";
     
     NSString *result = [NSString stringWithFormat:@"%@%@%@%@%@",styleHeader,blockquote,p,styleFooter,strUrl];
     return result;
     
 }
+
++ (BOOL)isHaveIsframeOrGifWithString:(NSString *)htmlString
+{
+    NSRange iframeRange = [htmlString rangeOfString:@"<iframe"];//匹配得到的下标
+    if (iframeRange.length > 0) {
+        NSLog(@"包含iframe");
+        
+        return YES;
+    }
+    
+    NSRange Gifrange = [htmlString rangeOfString:@".gif"];//匹配得到的下标
+    
+    if (Gifrange.length > 0) {
+        NSLog(@"包含gif");
+        return YES;
+    }
+    
+    return NO;
+
+}
+
 
 @end

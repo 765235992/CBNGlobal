@@ -14,7 +14,7 @@
 
 @end
 
-@interface CBNLiveShuffingView : UIView
+@interface CBNLiveShuffingView : UIImageView
 
 @property (nonatomic, assign) id <CBNLiveShuffingViewDelegate> delegate;
 

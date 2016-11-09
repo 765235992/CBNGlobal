@@ -12,6 +12,7 @@
 #import "CBNLiveVC.h"
 #import "CBNTextDetailVC.h"
 #import "CBNChannelListRequest.h"
+#import "CBNChannelNoImageCell.h"
 
 @interface CBNHomePageVC ()<UITableViewDataSource,UITableViewDelegate,CBNHomePageHeaderViewDelegate>
 
@@ -71,7 +72,8 @@
         [weakSelf.liveModelArray addObjectsFromArray:[CBNNewSqliteManager liveDictionaryChanegeToLiveModekWithDictionaryArray:channelNewsItemsArray]];
         
         weakSelf.tableViewHeaderView.liveModelArray = weakSelf.liveModelArray;
-        
+        weakSelf.aTableView.tableHeaderView = weakSelf.tableViewHeaderView;
+
     } failed:^(NSError *error) {
         
     }];
@@ -85,7 +87,6 @@
     
     [CBNChannelListRequest loadNewsItemsWithChannelID:_sliderID page:1 pageSize:1 Secuessed:^(NSArray *channelNewsItemsArray) {
         
-        
         [[CBNNewSqliteManager sharedManager] cleanTableWithTableName:@"Slider"];
 
         
@@ -94,6 +95,7 @@
 
         
         weakSelf.tableViewHeaderView.remondNewsModel = [[CBNNewSqliteManager  dictionaryChangeToModelWithDictionaryArray:channelNewsItemsArray] firstObject];
+        weakSelf.aTableView.tableHeaderView = weakSelf.tableViewHeaderView;
         
         
     } failed:^(NSError *error) {
@@ -121,56 +123,18 @@
     [self.liveModelArray addObjectsFromArray:[CBNNewSqliteManager liveDictionaryChanegeToLiveModekWithDictionaryArray:liveArr]];
     
     _tableViewHeaderView.liveModelArray = _liveModelArray;
-    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHomePageDataFromSever)];
-    
-    // 设置文字
-    [header setTitle:@"Pull down to refresh…" forState:MJRefreshStateIdle];
-    
-    [header setTitle:@"Begin to refresh" forState:MJRefreshStatePulling];
-    
-    [header setTitle:@"Refreshing......" forState:MJRefreshStateRefreshing];
-    
 
-    
-    // 设置字体
-    // 设置字体
-    header.stateLabel.font =  [UIFont refreshAndLoadingFont];
-    
-    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
-    
-    // 设置颜色
-    header.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
-    
-    header.lastUpdatedTimeLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
-    
+    self.aTableView.mj_header = [self refreshHeader];
 
-    
-    // 设置刷新控件
-    self.aTableView.mj_header = header;
-    
-    [_aTableView.mj_header beginRefreshing];
-    
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreHomePageDataFromSever)];
-    
-    [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
-    
-    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
-    
-    [footer setTitle:@"No more news" forState:MJRefreshStateNoMoreData];
+    [self.aTableView.mj_header beginRefreshing];
 
-    // 设置字体
-    footer.stateLabel.font = [UIFont refreshAndLoadingFont];
-    //
-    //    // 设置颜色
-    footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
     // 设置footer
-    self.aTableView.mj_footer = footer;
+    self.aTableView.mj_footer = [self refreshFooter];
     
     
 }
 #define 数据加载和刷新
-- (void)refreshHomePageDataFromSever
+- (void)refreshData
 {
     
     __weak typeof(self) weakSelf = self;
@@ -183,7 +147,8 @@
 
     
     [CBNChannelListRequest loadNewsItemsWithRootID:_mainChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
-        
+        NSLog(@"%@",channelNewsItemsArray);
+
         [[CBNNewSqliteManager sharedManager] cleanTableWithTableName:@"Main"];
 
         
@@ -214,7 +179,7 @@
     [_aTableView.mj_header endRefreshing];
     
 }
-- (void)loadMoreHomePageDataFromSever
+- (void)loadMoreData
 {
     
     __weak typeof(self) weakSelf = self;
@@ -265,24 +230,52 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *indentefier = @"CBNChannelNewsTextCell";
     
     
-    CBNChannelNewsTextCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
+    CBNNewsModel *tempModel =  [_sourceArray objectAtIndex:indexPath.row];
     
-    if (cell == nil) {
+    if (tempModel.NewsThumbs.length < 5) {
+        static NSString *indentefier = @"CBNChannelNoImageCell";
+
+        CBNChannelNoImageCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
         
-        cell = [[CBNChannelNewsTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+        if (cell == nil) {
+            
+            cell = [[CBNChannelNoImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+            
+        }
         
+        cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
+        
+        return cell;
+    }else{
+        static NSString *indentefier = @"CBNChannelNewsTextCell";
+
+        CBNChannelNewsTextCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNChannelNewsTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+            
+        }
+        
+        cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
+        
+        return cell;
+
     }
-    cell.itemModel = [_sourceArray objectAtIndex:indexPath.row];
-    
-    
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    CBNNewsModel *tempModel =  [_sourceArray objectAtIndex:indexPath.row];
+    if (tempModel.NewsThumbs.length < 5) {
+        CBNChannelNoImageCell *cell = (CBNChannelNoImageCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        
+        return cell.frame.size.height;
+        
+    }
     return news_Cell_Height;
 }
 

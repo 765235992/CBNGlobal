@@ -54,6 +54,8 @@
         _searchTextView.autocapitalizationType = UITextAutocapitalizationTypeNone;
         _searchTextView.returnKeyType = UIReturnKeySearch;
         _searchTextView.clearButtonMode = UITextFieldViewModeWhileEditing; //编辑时会出现个修改X
+        _searchTextView.keyboardType = UIKeyboardTypeASCIICapable;
+
         _searchTextView.borderStyle = UITextBorderStyleRoundedRect;
         _searchTextView.translatesAutoresizingMaskIntoConstraints = NO;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChanged:) name:UITextFieldTextDidChangeNotification object:nil];
@@ -93,7 +95,6 @@
 
     return YES;
 }
-
 
 
 @end

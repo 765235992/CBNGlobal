@@ -9,5 +9,12 @@
 #import "CBNLiveModel.h"
 
 @implementation CBNLiveModel
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _height = 0;
+    }
+    return self;
+}
 @end

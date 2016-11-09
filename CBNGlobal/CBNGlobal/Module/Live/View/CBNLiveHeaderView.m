@@ -37,8 +37,8 @@
         
         self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width, self.frame.size.height- 2*news_Cell_Up_Or_Down_Margin)];
         
-        _backgroundImageView.backgroundColor = [UIColor grayColor];
-        
+        _backgroundImageView.image = [UIImage imageNamed:@"live-background.png"];
+
         [_backgroundImageView addSubview:self.timeLabel];
 
     }

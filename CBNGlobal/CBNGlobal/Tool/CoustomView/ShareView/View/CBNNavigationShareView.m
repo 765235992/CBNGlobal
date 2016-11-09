@@ -30,33 +30,38 @@
 }
 - (void)setArrow
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 15)];
+    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 9)];
+    view.image = [UIImage imageNamed:@"up-arrow.png"];
+    view.contentMode = UIViewContentModeScaleAspectFit;
+    view.center = CGPointMake(self.frame.size.width-18, 9/2);
     
-    view.backgroundColor = [UIColor redColor];
     
     [self addSubview:view];
 }
 - (void)setupSubviews
 {
     CGFloat height = 15;
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, height, self.frame.size.width, 0)];
-    backgroundView.backgroundColor= [UIColor whiteColor];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 8, self.frame.size.width, 0)];
+    backgroundView.layer.cornerRadius = 6;
+    backgroundView.layer.masksToBounds = YES;
+
+    backgroundView.backgroundColor= [UIColor blackColor];
     [self addSubview:backgroundView];
     NSArray *typeArray = @[[NSNumber numberWithInt:CBNShareFaceBookType],[NSNumber numberWithInt:CBNShareTwitterType],[NSNumber numberWithInt:CBNShareLinKedInType],[NSNumber numberWithInt:CBNShareEmailType]];
-    NSArray *imageArray = @[@"CBN_facebook_icon@2x.png",@"CBN_twitter_icon@2x.png",@"CBN_linkedin_icon@2x.png",@"CBN_email_icon@2x.png"];
+    NSArray *imageArray = @[@"share-white-facebook.png",@"share-white-twitter.png",@"share-white-in.png",@"share-white-email.png"];
     CGFloat width = self.frame.size.width/1.5;
     for (int i = 0; i < typeArray.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         
         button.frame = CGRectMake(0, height, width, width);
         
-//        button.backgroundColor = [UIColor randomColor];
+        button.backgroundColor = [UIColor clearColor];
         
         button.tag = [[typeArray objectAtIndex:i] integerValue];
         
-        [button setImageEdgeInsets:UIEdgeInsetsMake(15, 15, 15, 15)];
+                [button setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
         
-        [button setBackgroundImage:[UIImage imageNamed:[imageArray objectAtIndex:i]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:[imageArray objectAtIndex:i]] forState:UIControlStateNormal];
         
         button.center = CGPointMake(self.frame.size.width/2, button.center.y);
         
@@ -65,18 +70,24 @@
         
         height = height + share_Up_Margin + width;
         
-//        [button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
         
         
     }
-    backgroundView.frame = CGRectMake(0, 15, self.frame.size.width, height-15);
+    backgroundView.frame = CGRectMake(0, 8, self.frame.size.width, height-8);
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
     
 
 }
 
-
+- (void)button:(UIButton *)sender
+{
+    if ([self.delegate respondsToSelector:@selector(sharePlateFromTag:)]) {
+        [self.delegate sharePlateFromTag:sender.tag];
+        
+    }
+}
 
 
 @end

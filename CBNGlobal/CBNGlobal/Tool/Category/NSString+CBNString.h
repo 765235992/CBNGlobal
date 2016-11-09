@@ -25,5 +25,6 @@
  *  MD5加密
  */
 + (NSString *)getTheMD5EncryptedStringWithString:(NSString *)aString;
++ (BOOL)isHaveIsframeOrGifWithString:(NSString *)htmlString;
 
 @end

@@ -13,8 +13,9 @@
 #import "CBNTextView.h"
 #import "CBNNewsDetailAction.h"
 #import "CBNMoreNewsModel.h"
-
-@interface CBNTextDetailVC ()<CBNBaseDetailMoreNewsViewDelegate>
+#import "CBNLoadingView.h"
+#import "JYShareManager.h"
+@interface CBNTextDetailVC ()<CBNBaseDetailMoreNewsViewDelegate,UIScrollViewDelegate,CBNShareBarDelegate>
 @property (nonatomic, assign) CGFloat scrollViewHeight;
 
 @property (nonatomic, strong) UIScrollView *aScrollView;
@@ -28,15 +29,21 @@
 @property (nonatomic, strong) CBNTextMoreNewsView *moreNewsView;
 
 @property (nonatomic, strong) CBNNewsDetailModel *newsDetailModel;
+
+@property (nonatomic, strong) CBNLoadingView *loadingView;
+
 @end
 
 @implementation CBNTextDetailVC
 - (void)dealloc
 {
-    CBNLog(@"新闻详情释放");
+    NSLog(@"新闻详情释放");
+    [[JYShareManager shareManager] stopShare];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    (lsna)
     [self setBackBarButtonItem];
     [self setNavigationTitle:@""];
     [self setShareBarButtonItem];
@@ -47,17 +54,25 @@
     
     [self.view addSubview:self.aScrollView];
     
+    [self.view addSubview:self.loadingView];
+    [_loadingView startLoading];
+    
+    
 }
 - (void)setNewsID:(NSInteger)newsID
 {
+    
     _newsID = newsID;
     
-    [CBNNewsDetailAction loadNewsDatetailWithNewsID:_newsID secuessed:^(CBNNewsDetailModel *newsDetailModel) {
+    [[CBNNewsDetailAction sharedManager] loadNewsDatetailWithNewsID:_newsID secuessed:^(CBNNewsDetailModel *newsDetailModel) {
         _newsDetailModel = newsDetailModel;
         
         [self setupSubViews];
+
     } failed:^(NSError *error) {
-        
+
+        [_loadingView loadingFailed];
+
     }];
 
 }
@@ -75,20 +90,20 @@
         
         NSAttributedString *attributeString = [[NSAttributedString alloc] initWithData:[[NSString getHtmlStringWithPString:_newsDetailModel.NewsBody] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
         
-        NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithAttributedString:attributeString];
-
         dispatch_async(dispatch_get_main_queue(), ^{
+            [_loadingView loadingSecuessed];
             
+            if (_aScrollView==nil) {
+                return ;
+            }
             [_aScrollView addSubview:self.contentTextView];
-            _contentTextView.attText =attr;
+            _contentTextView.attText =(NSMutableAttributedString *)attributeString;
 
             _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*3;
             
             [_aScrollView addSubview:self.shareBar];
             
             _scrollViewHeight = _scrollViewHeight+_shareBar.frame.size.height+news_Cell_Up_Or_Down_Margin/2;
-            
-       
             
             _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
 
@@ -106,13 +121,31 @@
         
         self.aScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
         
+        _aScrollView.delegate = self;
+        
         _aScrollView.backgroundColor = [UIColor whiteColor];
         
     }
     
     return _aScrollView;
 }
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (self.shareView.hidden == NO) {
+        
+        self.shareView.hidden = YES;
+        
+        if (self.shareButton.selected == YES) {
+            
+            self.shareButton.selected = NO;
 
+        }else{
+            
+            self.shareButton.selected = YES;;
+
+        }
+    }
+}
 
 - (CBNTextDetailHeaderView *)headerView
 {
@@ -132,9 +165,9 @@
     if (!_contentTextView) {
         
         self.contentTextView = [[CBNTextView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin/2, _scrollViewHeight, CBN_Screen_Width - news_Cell_Left_Or_Right_Margin, 0)];
+        
         _contentTextView.backgroundColor = [UIColor clearColor];
     }
-    
     return _contentTextView;
 }
 
@@ -146,12 +179,37 @@
         self.shareBar = [[CBNShareBar alloc] initWithFrame:CGRectMake(0, _scrollViewHeight, CBN_Screen_Width, search_Bar_Height)];
         
         _shareBar.backgroundColor = [UIColor clearColor];
+        _shareBar.delegate = self;
         
     }
     
     return _shareBar;
 }
+- (void)shareBar:(CBNShareBar *)shareBar shareType:(CBNShareType)shareType
+{
+    [self sharePlateFromTag:shareType];
+    
+}
 
+- (void)sharePlateFromTag:(NSInteger)tag
+{
+    [[JYShareManager shareManager] shareNewsWithNewsID:[NSString stringWithFormat:@"%ld",(long)_newsID] newsTitle:_newsDetailModel.NewsTitle newsContent:_newsDetailModel.NewsNotes newsImageURL:[[CBNParametersLinkManager sharedManager] getOriginalNewsThumbName:_newsDetailModel.NewsThumbs]newsType:JYShareType_Web platformType:tag andViewController:self];
+    if (self.shareView.hidden == NO) {
+        
+        self.shareView.hidden = YES;
+        
+        if (self.shareButton.selected == YES) {
+            
+            self.shareButton.selected = NO;
+            
+        }else{
+            
+            self.shareButton.selected = YES;;
+            
+        }
+    }
+
+}
 - (CBNTextMoreNewsView *)moreNewsView
 {
     if (!_moreNewsView) {
@@ -191,4 +249,13 @@
     [self pushToTextNewsDetailWitNewsID:[temp.NewsID integerValue]];
 }
 
+- (CBNLoadingView *)loadingView
+{
+    if (!_loadingView) {
+        
+        self.loadingView = [[CBNLoadingView alloc] initWithFrame:self.view.bounds];
+    }
+    
+    return _loadingView;
+}
 @end

@@ -11,7 +11,10 @@
 #define share_Margin 10
 
 @implementation CBNShareBar
-
+- (void)dealloc
+{
+    NSLog(@"CBNShareBar");
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,19 +31,18 @@
     CGFloat width = news_Cell_Left_Or_Right_Margin;
     
     NSArray *typeArray = @[[NSNumber numberWithInt:CBNShareFaceBookType],[NSNumber numberWithInt:CBNShareTwitterType],[NSNumber numberWithInt:CBNShareLinKedInType],[NSNumber numberWithInt:CBNShareEmailType]];
-    NSArray *imageArray = @[@"CBN_facebook_icon@2x.png",@"CBN_twitter_icon@2x.png",@"CBN_linkedin_icon@2x.png",@"CBN_email_icon@2x.png"];
+    NSArray *imageArray = @[@"share-blue-facebook.png",@"share-blue-twitter.png",@"share-blue-in.png",@"share-blue-email.png"];
     for (int i = 0; i < typeArray.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         
         button.frame = CGRectMake(width, 0, self.frame.size.height, self.frame.size.height);
         
-//        button.backgroundColor = [UIColor randomColor];
         
         button.tag = [[typeArray objectAtIndex:i] integerValue];
         
-        [button setImageEdgeInsets:UIEdgeInsetsMake(15, 15, 15, 15)];
+        [button setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
         
-        [button setBackgroundImage:[UIImage imageNamed:[imageArray objectAtIndex:i]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:[imageArray objectAtIndex:i]] forState:UIControlStateNormal];
         
         [self addSubview:button];
         
@@ -50,6 +52,8 @@
         
         
     }
+    
+    
 }
 
 

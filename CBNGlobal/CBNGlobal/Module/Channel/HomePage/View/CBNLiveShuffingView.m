@@ -7,8 +7,7 @@
 //
 
 #import "CBNLiveShuffingView.h"
-#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
-
+#import "JYLiveShuffingSDK.h"
 @interface CBNLiveShuffingView ()<JYLiveScrollViewDelegate>
 @property (nonatomic, strong) JYLiveScrollView *liveScrollView;
 
@@ -23,6 +22,9 @@
         [self addSubview:self.liveScrollView];
         
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _liveScrollView.frame.size.height);
+        self.userInteractionEnabled = YES;
+        
+        self.image = [UIImage imageNamed:@"live-background.png"];
         
     }
     return self;
@@ -61,6 +63,8 @@
                 tempModel.newsUpdataTimeString = [timeArr objectAtIndex:i];
                 [result addObject:tempModel];
             }
+            
+            
             [_liveScrollView refreshLiveNewsWithLiveShuffingModelArray:result];
 
         }
@@ -74,13 +78,16 @@
 {
     _liveModelArray = liveModelArray;
     NSMutableArray *result = [[NSMutableArray alloc] init];
-
+    
     for (CBNLiveModel *liveModel in _liveModelArray) {
         JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
         tempModel.newsTitleString = liveModel.newsModel.NewsTitle;
         tempModel.newsUpdataTimeString =  [NSDate getHourDateFromUTCDateString:liveModel.newsModel.LastDate];
         [result addObject:tempModel];
 
+    }
+    if (result.count<2) {
+        return;
     }
     [_liveScrollView refreshLiveNewsWithLiveShuffingModelArray:result];
 

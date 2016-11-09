@@ -8,12 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CBNBaseInfoViewController : UIViewController
+
+#import "CBNNavigationShareView.h"
+@interface CBNBaseInfoViewController : UIViewController<CBNNavigationShareViewDelegate>
+@property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) CBNNavigationShareView *shareView;
+
+
+
 - (void)setNoBarItems;
 
 - (void)setBackBarButtonItem;
 
 - (void)setShareBarButtonItem;
+
+- (void)sharePlateFromTag:(NSInteger)tag;
 
 - (void)setNavigationTitle:(NSString *)titleString;
 
