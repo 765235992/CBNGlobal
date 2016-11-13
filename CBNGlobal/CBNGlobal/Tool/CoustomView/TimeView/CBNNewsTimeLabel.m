@@ -65,8 +65,9 @@
     _timeLabel.text = text;
     [_timeLabel sizeToFit];
     _timeLabel.frame = CGRectMake(_timeLabel.frame.size.height+3, 0, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
-    _tiemIconImageView.frame = CGRectMake(0, 0, _timeLabel.frame.size.height, _timeLabel.frame.size.height);
+    _tiemIconImageView.frame = CGRectMake(0, 0, _timeLabel.frame.size.height*0.85, _timeLabel.frame.size.height*0.85);
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, _timeLabel.frame.size.width + _timeLabel.frame.size.height + 3, _timeLabel.frame.size.height);
+    _tiemIconImageView.center = CGPointMake( _tiemIconImageView.center.x,self.frame.size.height/2);
     
 }
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CBNRelatedNewsItemView : UIView
+@property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSString *newsTitleString;
 @end

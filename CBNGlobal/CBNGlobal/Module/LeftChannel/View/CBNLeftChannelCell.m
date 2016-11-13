@@ -46,12 +46,13 @@
 {
 
     if (selected) {
-        
+        _channelLineImageView.backgroundColor = UIColorFromRGB(0x9C9C9C);
         _channelTitleLabel.textColor = [UIColor whiteColor];
 
     }else{
-        
-        _channelTitleLabel.textColor = [UIColor lightGrayColor];
+        _channelLineImageView.backgroundColor = UIColorFromRGB(0x5C5C5C);
+
+        _channelTitleLabel.textColor = UIColorFromRGB(0x5C5C5C);
 
     }
 }
@@ -93,8 +94,7 @@
        
         self.channelLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(left_margn/2, channel_Cell_Height-1, user_Draw_open_With - left_margn, 1)];
         
-        _channelLineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
-        _channelLineImageView.backgroundColor = [UIColor grayColor];
+        _channelLineImageView.backgroundColor = UIColorFromRGB(0x5C5C5C);
         
     }
     

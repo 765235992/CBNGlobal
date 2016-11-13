@@ -59,29 +59,11 @@
     
     _aTableView.tableHeaderView = self.aTableViewHeaderView;
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshLiveDataFromSever)];
     
-    // 设置文字
-    [header setTitle:@"Pull down to refresh…" forState:MJRefreshStateIdle];
-    
-    [header setTitle:@"Begin to refresh" forState:MJRefreshStatePulling];
-    
-    [header setTitle:@"Refreshing......" forState:MJRefreshStateRefreshing];
-    
-    // 设置字体
-    header.stateLabel.font =  [UIFont refreshAndLoadingFont];
-    
-    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
-    
-    // 设置颜色
-    header.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
-    
-    header.lastUpdatedTimeLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
+    CBNRefreshHeader *header = [CBNRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshLiveDataFromSever)];
     
     // 设置刷新控件
     self.aTableView.mj_header = header;
-    
-//    [_aTableView.mj_header beginRefreshing];
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreLiveDataFromSever)];
     
@@ -199,7 +181,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CBNLiveModel *tempModel = (CBNLiveModel *)[_sourceArray objectAtIndex:indexPath.row];
-    NSLog(@"%f",tempModel.height);
+
     return tempModel.height;
     
 }

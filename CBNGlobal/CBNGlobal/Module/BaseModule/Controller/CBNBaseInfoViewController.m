@@ -121,7 +121,6 @@
 
 - (void)sharePlateFromTag:(NSInteger)tag
 {
-    NSLog(@"111   点击类型");
 }
 - (void)setNavigationTitle:(NSString *)titleString
 {

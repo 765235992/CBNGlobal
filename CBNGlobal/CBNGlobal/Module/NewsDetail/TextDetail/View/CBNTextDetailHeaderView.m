@@ -36,6 +36,8 @@
 
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _height);
         
+        self.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
+        
     }
     return self;
 }

@@ -62,7 +62,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
     [self setNoBarItems];
     [self.view addSubview:self.resultView];
     [self.view addSubview:self.defaultView];
@@ -75,7 +74,8 @@
 {
     _currentPage = 0;
     _currentKeyWord = searchtext;
-    NSLog(@"%@",self);
+
+    
     [CBNSearchRequest loadNewsItemsWithSearchText:searchtext page:_currentPage pageSize:10 Secuessed:^(NSArray *searchReaultArray) {
         
         
@@ -182,7 +182,6 @@
         
         self.defaultView = [[CBNSearchDefaultView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
         
-        _defaultView.backgroundColor = [UIColor whiteColor];
         _defaultView.delegate = self;
         
     }

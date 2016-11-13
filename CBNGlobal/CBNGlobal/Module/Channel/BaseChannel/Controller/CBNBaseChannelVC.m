@@ -134,7 +134,7 @@
 {
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
-    [footer setTitle:@"Pull up to load more…" forState:MJRefreshStateIdle];
+    [footer setTitle:@"Drag to load more…" forState:MJRefreshStateIdle];
     
     [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
     

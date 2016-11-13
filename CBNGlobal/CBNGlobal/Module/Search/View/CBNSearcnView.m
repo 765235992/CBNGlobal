@@ -64,7 +64,7 @@
         
         [_cancelButton setTitle:@"cancle" forState:UIControlStateNormal];
         
-        _cancelButton.titleLabel.font = [UIFont fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Light];
+        _cancelButton.titleLabel.font = [UIFont fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Blod];
         
         [_cancelButton.titleLabel sizeToFit];
         

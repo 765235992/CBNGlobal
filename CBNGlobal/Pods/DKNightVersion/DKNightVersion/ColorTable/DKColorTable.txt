@@ -1,7 +1,8 @@
 NORMAL   NIGHT    RED
+#F0F0F0  #F0F0F0  #F5F5F5 defaule_Background_Color
 #000000  #000000  #000000 news_Title_Color
-#000000  #000000  #000000 news_Content_Color
-#EAEAEA  #EAEAEA  #EAEAEA news_Cell_Divider_Color
+#515151  #515151  #515151 news_Content_Color
+#E5E5E5  #E5E5E5  #E5E5E5 news_Cell_Divider_Color
 #ABABAB  #ABABAB  #ABABAB news_Small_Tag_Color
 #0096d9  #0096d9  #0096d9 CBN_Blue_Color
 #999999  #999999  #999999 refresh_And_Loading_Color

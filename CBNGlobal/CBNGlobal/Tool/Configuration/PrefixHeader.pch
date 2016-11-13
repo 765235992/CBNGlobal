@@ -77,9 +77,11 @@
 #define news_Cell_Left_Or_Right_Margin 8
 #define news_Cell_Up_Or_Down_Margin 15
 #define search_Bar_Height 36
-#define news_Cell_Height  [NSString getTextHeightWithFont:[UIFont newsTitleFont]]*4.5 + 2*news_Cell_Up_Or_Down_Margin
 
-#define font_Name_Blod @"DINPro-Bold"
+#define news_Cell_Image_Width [NSString getTextHeightWithFont:[UIFont newsTitleFont]]*6
+#define news_Cell_Height   news_Cell_Image_Width*0.668 + 2*news_Cell_Up_Or_Down_Margin
+
+#define font_Name_Blod @"DINCondensedC"
 #define font_Name_Light @"DINPro-Light"
 
 

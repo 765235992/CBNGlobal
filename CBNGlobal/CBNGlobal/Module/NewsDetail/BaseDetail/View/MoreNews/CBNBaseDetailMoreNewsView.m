@@ -37,27 +37,6 @@
     
     return _headerView;
 }
-- (void)setRelatedNewsItemsView
-{
-    
-    CGFloat height = _headerView.frame.size.height;
-    for (int i = 1; i < 6; i++) {
-        CBNRelatedNewsItemView *tempNewsItemView = [[CBNRelatedNewsItemView alloc] initWithFrame:CGRectMake(0, height, CBN_Screen_Width, 0)];
-        
-        tempNewsItemView.newsTitleString = [NSString stringWithFormat:@"%d、%@", i,@"Duterte starts a four-day state visit to China on Tuesday at the invitation of his Chinese counterpart, Xi Jinping."];
-        
-        [self addSubview:tempNewsItemView];
-        tempNewsItemView.tag = i;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-        [tempNewsItemView addGestureRecognizer:tap];
-        
-        height = height + tempNewsItemView.frame.size.height;
-        
-    }
-    
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, CBN_Screen_Width, height);
-    
-}
 - (void)tap:(UITapGestureRecognizer *)sender
 {
     if ([self.delegate respondsToSelector:@selector(moreNewsView:selectedAtIndex:)]) {
@@ -74,8 +53,8 @@
         CBNMoreNewsModel *tempModel = [_moreNewsArray objectAtIndex:i];
         
         CBNRelatedNewsItemView *tempNewsItemView = [[CBNRelatedNewsItemView alloc] initWithFrame:CGRectMake(0, height, CBN_Screen_Width, 0)];
-        
-        tempNewsItemView.newsTitleString = [NSString stringWithFormat:@"%d、%@", i+1,tempModel.NewsTitle];
+        tempNewsItemView.index =  i+1;
+        tempNewsItemView.newsTitleString = [NSString stringWithFormat:@"%@",tempModel.NewsTitle];
         
         [self addSubview:tempNewsItemView];
         tempNewsItemView.tag = i;

@@ -7,10 +7,11 @@
 //
 
 #import "CBNRelatedNewsItemView.h"
+#import "JYLabel.h"
 
 @interface CBNRelatedNewsItemView ()
 
-@property (nonatomic, strong) UILabel *newsTitleLabel;
+@property (nonatomic, strong) JYLabel *newsTitleLabel;
 
 @property (nonatomic, strong) UIImageView *lineImageView;
 
@@ -18,7 +19,10 @@
 
 @implementation CBNRelatedNewsItemView
 
-
+- (void)dealloc
+{
+    
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -30,18 +34,14 @@
     return self;
 }
 
-- (UILabel *)newsTitleLabel
+- (JYLabel *)newsTitleLabel
 {
     if (!_newsTitleLabel) {
         
-        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 0)];
-        
-        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
+        self.newsTitleLabel = [[JYLabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 0)];
         
         _newsTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        
-        _newsTitleLabel.numberOfLines = 0;
-        
+                
         _newsTitleLabel.font = [UIFont relatedNewsFont];
         
     }
@@ -60,16 +60,30 @@
     
     return _lineImageView;
 }
+- (void)setIndex:(NSInteger)index
+{
+    _index = index;
+}
 - (void)setNewsTitleString:(NSString *)newsTitleString
 {
     _newsTitleString = newsTitleString;
-    _newsTitleLabel.text = _newsTitleString;
     
-    
-    [_newsTitleLabel sizeToFit];
     
     CGFloat label_Width = CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin;
     
+    
+    NSString *resultString = [NSString stringWithFormat:@"<font color='#ADADAD'>%ld、</font><font color='000000'>%@</font>",(long)_index,_newsTitleString];
+    
+    [_newsTitleLabel setText:resultString];
+
+    CGSize optimumSize = [_newsTitleLabel optimumSize];
+    
+    CGRect frame = [_newsTitleLabel frame];
+    
+    frame.size.height = (int)optimumSize.height;
+    
+    [_newsTitleLabel setFrame:frame];
+
     _newsTitleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _newsTitleLabel.frame.size.height + 2*news_Cell_Up_Or_Down_Margin);

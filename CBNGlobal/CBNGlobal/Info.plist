@@ -108,6 +108,8 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>DINCond-Light.otf</string>
+		<string>DINCondensedC.otf</string>
 		<string>DINPro-Bold.otf</string>
 		<string>DINPro-Light.otf</string>
 	</array>

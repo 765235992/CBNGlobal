@@ -44,14 +44,16 @@
         
         self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         
-        _textLabel.textColor = RGBColor_(245, 245, 245);
-//        _textLabel.backgroundColor = [UIColor randomColor];
+        _textLabel.textColor = RGBColor_(255, 255, 255);
+
         _textLabel.numberOfLines = 0;
-        _textLabel.font = [UIFont fontWithSmallSzie:11 middleSize:13 bigSize:14 AndFontName:font_Name_Blod];
+        _textLabel.font = [UIFont fontWithSmallSzie:12 middleSize:14 bigSize:16 AndFontName:font_Name_Blod];
         
         _textLabel.text = @"Details";
         
+        
         [_textLabel sizeToFit];
+        
         _textLabel.frame = CGRectMake(0, 0, _textLabel.frame.size.width, _textLabel.frame.size.height);
         
         
@@ -64,7 +66,7 @@
 {
     if (!_crossImageView) {
         
-        self.crossImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.height*0.35, 2, self.frame.size.height-6, 2)];
+        self.crossImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.height*0.35, 2, self.frame.size.height*0.6, 2)];
         
         _crossImageView.backgroundColor = [UIColor whiteColor];
         
@@ -79,7 +81,7 @@
 {
     if (!_verticalImageView) {
         
-        self.verticalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.height-2, 1, 2, self.frame.size.height-6)];
+        self.verticalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.height-2, 1, 2, self.frame.size.height*0.6)];
         
         _verticalImageView.backgroundColor = [UIColor whiteColor];
         

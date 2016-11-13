@@ -27,6 +27,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         self.frame = CGRectMake(0, 0, 100, 100);
         self.backgroundColor = [UIColor clearColor];
         

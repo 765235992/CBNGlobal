@@ -92,6 +92,8 @@
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        self.backgroundColor = [UIColor clearColor];
+        
         _height = news_Cell_Up_Or_Down_Margin;
         
         [self addSubview:self.titleLabel];

@@ -20,12 +20,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+
         self.resultArray = [[NSMutableArray alloc] init];
-        
+        self.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
+
         [self addSubview:self.aTableView];
         
-        [self setupTableView];
         
     }
     return self;
@@ -63,7 +63,7 @@
         
         self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
         
-        _aTableView.backgroundColor = [UIColor whiteColor];
+        _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
         
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
@@ -91,6 +91,8 @@
         [_aTableView.mj_footer endRefreshingWithNoMoreData];
         
     }else{
+        [self setupTableView];
+
         [_aTableView reloadData];
 
         [_aTableView.mj_footer endRefreshing];
@@ -104,7 +106,6 @@
 - (void)setMoreNewsArray:(NSMutableArray *)moreNewsArray
 {
     _moreNewsArray = moreNewsArray;
-    NSLog(@"%@",_moreNewsArray);
     if (_moreNewsArray.count == 0) {
         
         [_aTableView.mj_footer endRefreshingWithNoMoreData];
@@ -139,8 +140,6 @@
     
     searchModel = cell.searchModel;
     
-//    [_resultArray replaceObjectAtIndex:indexPath.row withObject:searchModel];
-
     return cell;
     
 }

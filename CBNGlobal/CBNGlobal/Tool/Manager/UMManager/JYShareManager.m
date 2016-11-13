@@ -135,6 +135,7 @@ static JYShareManager *shareManager;
         [mailCompose setMessageBody:emailContent isHTML:NO];
         // 如使用HTML格式，则为以下代码
         [mailCompose setMessageBody:[NSString stringWithFormat:@"<html><body><p>I saw this on YiCaiGlobal App and thought you should see it:</p><h3><a href=\"%@\">%@</a></h3></body></html>" ,[self shareWebURLWithNewsID:newsID],newsTitle] isHTML:YES];
+    
         /**
          *  添加附件
          */

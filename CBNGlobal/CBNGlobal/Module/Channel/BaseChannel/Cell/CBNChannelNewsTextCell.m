@@ -53,11 +53,11 @@
 {
     if (!_newsThumbImageView) {
         
-        CGFloat imageHeight = [NSString getTextHeightWithFont:[UIFont newsTitleFont]]*4.5;
+        self.newsThumbImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, news_Cell_Image_Width,  news_Cell_Image_Width* 0.668)];
         
-        self.newsThumbImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, imageHeight *1.6,  imageHeight * 1.6* 0.6)];
         _newsThumbImageView.contentMode = UIViewContentModeScaleToFill;
-        _newsThumbImageView.image = [UIImage imageNamed:@"default-image.png"];
+        
+        _newsThumbImageView.image = [UIImage imageNamed:@"samll-Defaule-Image.png"];
         
     }
     
@@ -141,6 +141,8 @@
     
     _timeLabel.text = [NSDate getNormalDateFromUTCDateString:_itemModel.LastDate];
     
+    _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+
     if (_itemModel.NewsAuthor.length>0&&_itemModel.NewsSource.length>0) {
         
         _authorNameLabel.text = [NSString stringWithFormat:@"%@,%@",itemModel.NewsAuthor,itemModel.NewsSource];
@@ -152,6 +154,7 @@
             _authorNameLabel.text =  itemModel.NewsAuthor;
             
         }
+        
         if (_itemModel.NewsSource.length > 0) {
             
             _authorNameLabel.text =  itemModel.NewsSource;
@@ -161,10 +164,9 @@
     
     [_authorNameLabel sizeToFit];
     
-    _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height, _authorNameLabel.frame.size.width, _authorNameLabel.frame.size.height);
-    _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+    _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height,CBN_Screen_Width - news_Cell_Left_Or_Right_Margin*4- news_Cell_Image_Width - _timeLabel.frame.size.width, _authorNameLabel.frame.size.height);
 
-    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:itemModel.NewsThumbs]] placeholderImage:[UIImage imageNamed:@"default-image.png"]];
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:itemModel.NewsThumbs]] placeholderImage:[UIImage imageNamed:@"samll-Defaule-Image.png"]];
     
     _newsTitleLabel.text = itemModel.NewsTitle;
     

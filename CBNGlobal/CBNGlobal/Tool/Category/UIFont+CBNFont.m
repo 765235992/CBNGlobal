@@ -13,35 +13,38 @@
 + (UIFont *)newsDetaileTitleFont
 {
     
-    return [self fontWithSmallSzie:14 middleSize:18 bigSize:20 AndFontName:font_Name_Blod];
+    return [self fontWithSmallSzie:20 middleSize:24 bigSize:28 AndFontName:font_Name_Blod];
     
 }
+
 + (UIFont *)newsTitleFont
 {
     
-    return [self fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Blod];
+    return [self fontWithSmallSzie:18 middleSize:20 bigSize:22 AndFontName:font_Name_Blod];
     
 }
+
 + (UIFont *)newsContentFont
 {
     
-    return [self fontWithSmallSzie:13 middleSize:15 bigSize:17 AndFontName:font_Name_Light];
+    return [self fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Light];
 
 }
 + (UIFont *)tagFont
 {
-    return [self fontWithSmallSzie:10 middleSize:11 bigSize:12 AndFontName:font_Name_Light];
+    
+    return [self fontWithSmallSzie:10 middleSize:12 bigSize:14 AndFontName:font_Name_Light];
 
 }
 + (UIFont *)relatedNewsFont
 {
-    return [self fontWithSmallSzie:13 middleSize:15 bigSize:17 AndFontName:font_Name_Blod];
+    return [self fontWithSmallSzie:16 middleSize:20 bigSize:24 AndFontName:font_Name_Blod];
 
 }
 
 + (UIFont *)refreshAndLoadingFont
 {
-    return [self fontWithSmallSzie:12 middleSize:13 bigSize:14 AndFontName:font_Name_Blod];
+    return [self fontWithSmallSzie:12 middleSize:14 bigSize:16 AndFontName:font_Name_Blod];
 
 }
 

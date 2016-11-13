@@ -8,6 +8,8 @@
 
 #import "NSString+CBNString.h"
 #import <CommonCrypto/CommonDigest.h>
+#define IS_IPHONE_6 (667.0f)
+#define IS_IPHONE_6_PLUS (736.0f)
 
 @implementation NSString (CBNString)
 + (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize
@@ -46,8 +48,19 @@
     NSString *backgroundColor = @"background-color:AA;";
     NSString *textColor = @"color:#212121;";
     NSString *textAlignment = @"text-align:justify;";
-    NSString *textFoneSize = @"font-size:17px;";
-    NSString *textFontName = @"font-family:\"AppleSDGothicNeo-Light\";";
+    NSString *size;
+    if (IS_IPHONE_6_PLUS == CBN_Screen_Height) {
+        size = @"18";
+    }else if (IS_IPHONE_6 == CBN_Screen_Height){
+        size = @"16";
+
+    }else{
+        size = @"14";
+
+    }
+
+    NSString *textFoneSize = [NSString stringWithFormat:@"font-size:%@px;",size];
+    NSString *textFontName = @"font-family:\"DINPro-Light\";";
     NSString *textLineSpace = @"line-height:1.7;";
     NSString *word = @"word-wrap:break-word;word-break: normal;";
     NSString *padding = @"padding:0 3 0 3;";

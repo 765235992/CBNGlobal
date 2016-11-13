@@ -140,7 +140,7 @@
     _loadingImageView.image = [UIImage imageNamed:@"refresh-Arrow@2x.png"];
 
     [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
-        self.promptLbabel.text = @"Pull down to refresh...";
+        self.promptLbabel.text = @"Pull to refresh...";
 
         _loadingImageView.transform = CGAffineTransformIdentity;
     }];

@@ -29,7 +29,7 @@
 @property (nonatomic, assign) NSInteger sliderID;
 @property (nonatomic, assign) NSInteger liveChannelID;
 @property (nonatomic, assign) NSInteger mainChannelID;
-
+@property (nonatomic, assign) BOOL refreshSecuessed;
 @end
 
 @implementation CBNHomePageVC
@@ -41,12 +41,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
+
     self.sliderID = 29;
     
     self.liveChannelID = 206;
     
     self.mainChannelID = 213;
+    self.refreshSecuessed = NO;
     
    [self.sourceArray addObjectsFromArray:[CBNNewSqliteManager  dictionaryChangeToModelWithDictionaryArray:[[CBNNewSqliteManager sharedManager]selectObjectsfromTable:@"Main"]] ];
     
@@ -112,8 +114,8 @@
 - (void)setUpTableView
 {
     
-    
     _aTableView.tableHeaderView = self.tableViewHeaderView;
+
     
     self.tableViewHeaderView.remondNewsModel = [[CBNNewSqliteManager  dictionaryChangeToModelWithDictionaryArray:[[CBNNewSqliteManager sharedManager]selectObjectsfromTable:@"Slider"]] firstObject];
     
@@ -123,13 +125,12 @@
     [self.liveModelArray addObjectsFromArray:[CBNNewSqliteManager liveDictionaryChanegeToLiveModekWithDictionaryArray:liveArr]];
     
     _tableViewHeaderView.liveModelArray = _liveModelArray;
+    
+    _aTableView.tableHeaderView = self.tableViewHeaderView;
 
     self.aTableView.mj_header = [self refreshHeader];
 
     [self.aTableView.mj_header beginRefreshing];
-
-    // 设置footer
-    self.aTableView.mj_footer = [self refreshFooter];
     
     
 }
@@ -147,7 +148,15 @@
 
     
     [CBNChannelListRequest loadNewsItemsWithRootID:_mainChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
-        NSLog(@"%@",channelNewsItemsArray);
+        
+        if (weakSelf.refreshSecuessed == NO) {
+            
+            weakSelf.aTableView.mj_footer = [self refreshFooter];
+
+        }
+
+        weakSelf.refreshSecuessed = YES;
+        
 
         [[CBNNewSqliteManager sharedManager] cleanTableWithTableName:@"Main"];
 
@@ -182,6 +191,14 @@
 - (void)loadMoreData
 {
     
+    if (_currentPage == 1) {
+        
+        [_aTableView.mj_footer endRefreshing];
+
+        [self refreshData];
+        
+        return;
+    }
     __weak typeof(self) weakSelf = self;
     [CBNChannelListRequest loadNewsItemsWithRootID:_mainChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
 
@@ -295,7 +312,7 @@
         
         self.aTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         
-        _aTableView.backgroundColor = [UIColor whiteColor];
+        _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
         
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
@@ -311,7 +328,7 @@
     if (!_tableViewHeaderView) {
         
         self.tableViewHeaderView = [[CBNHomePageHeaderView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Width)];
-        _aTableView.backgroundColor = [UIColor whiteColor];
+        _aTableView.backgroundColor = [UIColor clearColor];
         
         _tableViewHeaderView.delegate = self;
     }

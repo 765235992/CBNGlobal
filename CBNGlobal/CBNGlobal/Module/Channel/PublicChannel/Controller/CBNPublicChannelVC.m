@@ -18,6 +18,8 @@
 
 @property (nonatomic, assign) NSInteger currentPage;
 
+@property (nonatomic, assign) BOOL refreshSecuessed;
+
 @end
 
 @implementation CBNPublicChannelVC
@@ -28,9 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.refreshSecuessed = NO;
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
     
-    self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.aTableView];
     
     
@@ -48,9 +50,6 @@
     self.aTableView.mj_header = [self refreshHeader];
     
     
-    // 设置footer
-    self.aTableView.mj_footer = [self refreshFooter];
-    
     
 }
 #define 数据加载和刷新
@@ -61,6 +60,15 @@
     __weak typeof(self) weakSelf = self;
 
     [CBNChannelListRequest loadNewsItemsWithChannelID:[_channelModel.ChannelID integerValue] page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
+        
+        if (weakSelf.refreshSecuessed == NO) {
+            
+            weakSelf.aTableView.mj_footer = [self refreshFooter];
+            
+        }
+
+        weakSelf.refreshSecuessed = YES;
+        
         [[CBNNewSqliteManager sharedManager] cleanTableWithTableName:_channelModel.EnglishName];
         [[CBNNewSqliteManager sharedManager] insertObjects:channelNewsItemsArray intoTable:_channelModel.EnglishName];
         [weakSelf.sourceArray removeAllObjects];
@@ -205,7 +213,7 @@
         
         self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
         
-        _aTableView.backgroundColor = [UIColor whiteColor];
+        _aTableView.dk_backgroundColorPicker =DKColorPickerWithKey(defaule_Background_Color);
         
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         

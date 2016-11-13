@@ -49,8 +49,8 @@
         
         self.newsThumbImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Width * 0.6)];
         
-        
-        _newsThumbImageView.image = [UIImage imageNamed:@"default-image.png"];
+//        _newsThumbImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _newsThumbImageView.image = [UIImage imageNamed:@"big-Defaule-Image.png"];
 
     }
     
@@ -69,11 +69,8 @@
         _newsTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         
         
-        _newsTitleLabel.font = [UIFont newsTitleFont];
+        _newsTitleLabel.font = [UIFont newsDetaileTitleFont];
 
-        
-        _newsTitleLabel.text = @"Beijing Chokes Again, Smothered by Smog for Three Days";
-        
         [_newsTitleLabel sizeToFit];
         
         _newsTitleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin + _newsThumbImageView.frame.size.height, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin , _newsTitleLabel.frame.size.height);
@@ -93,7 +90,7 @@
     
     _newsTitleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin + _newsThumbImageView.frame.size.height, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin , _newsTitleLabel.frame.size.height);
     
-    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:recommendNewsModel.NewsThumbs]] placeholderImage: [UIImage imageNamed:@"default-image.png"]];
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getOriginalNewsThumbName:recommendNewsModel.NewsThumbs]] placeholderImage: [UIImage imageNamed:@"big-Defaule-Image.png"]];
     
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _newsTitleLabel.frame.origin.y+_newsTitleLabel.frame.size.height + news_Cell_Up_Or_Down_Margin);

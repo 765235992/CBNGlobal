@@ -48,7 +48,7 @@
     [self setNavigationTitle:@""];
     [self setShareBarButtonItem];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
     
     _scrollViewHeight = 0.0;
     
@@ -123,7 +123,8 @@
         
         _aScrollView.delegate = self;
         
-        _aScrollView.backgroundColor = [UIColor whiteColor];
+        _aScrollView.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
+
         
     }
     
@@ -152,8 +153,6 @@
     if (!_headerView) {
         
         self.headerView = [[CBNTextDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, 200)];
-        
-        _headerView.backgroundColor = [UIColor clearColor];
         
     }
     

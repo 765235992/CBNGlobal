@@ -16,7 +16,7 @@
     /**
      *  设置字体颜色
      */
-    [attributeDic setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
+//    [attributeDic setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
     /**
      *  设置字体样式
      */

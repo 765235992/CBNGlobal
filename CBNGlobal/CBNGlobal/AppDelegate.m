@@ -12,6 +12,7 @@
 #import "CBNDrawerVisualStateManager.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "CBNNetworkState.h"
 
 #import "JYGuideSDK.h"
 #import "JYShareManager.h"
@@ -30,49 +31,19 @@
     
     [[JYShareManager shareManager] shareConfig];
   
+    [[CBNNetworkState shareManager] ListeningNetworking];
     
-    _homePage = [[CBNHomePageVC alloc] init];
-    
-    CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:_homePage];
-    
-    _leftChannelVC = [[CBNLeftChannelVC alloc] init];
-    /*
-     *  添加到抽屉上去
-     */
-    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:homePageNavigatonController leftDrawerViewController:_leftChannelVC];
-
-
-    [self.drawerController setShowsShadow:YES];
-    
-    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
-    
-    //抽屉打开的大小
-    [self.drawerController setMaximumLeftDrawerWidth:user_Draw_open_With];
-    
-    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    
-    [self.drawerController
-     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
-         MMDrawerControllerDrawerVisualStateBlock block;
-         block = [[CBNDrawerVisualStateManager sharedManager]
-                  drawerVisualStateBlockForDrawerSide:drawerSide];
-         if(block){
-             block(drawerController, drawerSide, percentVisible);
-         }
-     }];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    [self.window setRootViewController:[self setDrawerVC]];
     
-    [self.window setRootViewController:self.drawerController];
     [self.window makeKeyAndVisible];
+    
     [self requestChannelItem];
-    JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
     
-    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
-    [view showWithGuideImageArrays:arr];
-
+    [self setGuideView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:@"networkState" object:nil];
 
     
     return YES;
@@ -116,6 +87,66 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (MMDrawerController *)setDrawerVC{
+    
+    _homePage = [[CBNHomePageVC alloc] init];
+    
+    CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:_homePage];
+    
+    _leftChannelVC = [[CBNLeftChannelVC alloc] init];
+    /*
+     *  添加到抽屉上去
+     */
+    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:homePageNavigatonController leftDrawerViewController:_leftChannelVC];
+    
+    
+    [self.drawerController setShowsShadow:YES];
+    
+    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    
+    //抽屉打开的大小
+    [self.drawerController setMaximumLeftDrawerWidth:user_Draw_open_With];
+    
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+    [self.drawerController
+     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+         MMDrawerControllerDrawerVisualStateBlock block;
+         block = [[CBNDrawerVisualStateManager sharedManager]
+                  drawerVisualStateBlockForDrawerSide:drawerSide];
+         if(block){
+             block(drawerController, drawerSide, percentVisible);
+         }
+     }];
+    
+    return self.drawerController;
+    
+}
+
+
+
+- (void)setGuideView{
+    JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
+    
+    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
+    
+    [view showWithGuideImageArrays:arr];
+
+}
+- (void)networkChanged:(NSNotification *)notification{
+    
+    NSDictionary *dic = notification.userInfo;
+    
+    BOOL isHaveNetwork = [[dic objectForKey:@"isHavenetwork"] boolValue];
+    
+    if (isHaveNetwork == YES) {
+        
+        [self requestChannelItem];
+        
+    }
 }
 
 - (void)requestChannelItem

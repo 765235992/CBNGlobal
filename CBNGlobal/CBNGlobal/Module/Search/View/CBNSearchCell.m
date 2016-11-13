@@ -97,6 +97,8 @@
         
         _height = news_Cell_Up_Or_Down_Margin;
         
+        self.backgroundColor = [UIColor clearColor];
+        
         [self addSubview:self.titleLabel];
         
         [self addSubview:self.authorNameLabel];

@@ -29,7 +29,8 @@
         [self addSubview:self.lineImageView];
         
         [self addSubview:self.channelView];
-        
+        self.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
+
     }
     return self;
 }
@@ -40,9 +41,9 @@
         
         self.channelPromptView = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, 100, 0)];
         
-        _channelPromptView.font = [UIFont fontWithSmallSzie:11 middleSize:13 bigSize:15 AndFontName:font_Name_Blod];
+        _channelPromptView.font = [UIFont fontWithSmallSzie:12 middleSize:13 bigSize:15 AndFontName:font_Name_Blod];
         
-        _channelPromptView.dk_textColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
+        _channelPromptView.dk_textColorPicker = DKColorPickerWithKey(news_Small_Tag_Color);
 
         _channelPromptView.text = @"您感兴趣的频道";
         

@@ -27,9 +27,10 @@
     int height = 0;
     int number = 0;
     int han = 0;
-    UIFont *buttonFont = [UIFont fontWithSmallSzie:11 middleSize:13 bigSize:15 AndFontName:font_Name_Blod];
+    UIFont *buttonFont = [UIFont fontWithSmallSzie:14 middleSize:16 bigSize:20 AndFontName:font_Name_Blod];
     
     CGFloat buttonHeight = [NSString getTextHeightWithFont:buttonFont]*1.5;
+    
     NSMutableArray *titleArr =  [[NSMutableArray alloc] init];
     CBNChannelModel *homeChannelModel = [[CBNChannelModel alloc] init];
     
@@ -69,6 +70,8 @@
         }
         number++;
         button.titleLabel.font = buttonFont;
+        
+        button.titleLabel.textAlignment =NSTextAlignmentCenter;
         button.layer.masksToBounds = YES;
         button.layer.cornerRadius = buttonHeight/2;
         button.dk_backgroundColorPicker = DKColorPickerWithKey(CBN_Blue_Color);

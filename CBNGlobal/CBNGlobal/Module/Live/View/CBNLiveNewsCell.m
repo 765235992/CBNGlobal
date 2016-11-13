@@ -56,7 +56,7 @@
 
         _timeLabel.numberOfLines = 0;
 
-        _timeLabel.text = @"99:99";
+        _timeLabel.text = @"-- : --";
         
         _timeLabel.font = [UIFont fontWithSmallSzie:13 middleSize:15 bigSize:18 AndFontName:font_Name_Blod];
 
@@ -105,6 +105,7 @@
         CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 3);
         
         self.liveTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 2, news_Cell_Up_Or_Down_Margin, width, 0)];
+        
         _liveTitleLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
         
         _liveTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -129,14 +130,13 @@
         CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 3);
 
         self.liveContenLabel =  [[UILabel alloc] initWithFrame:CGRectMake(_timeLabel.frame.size.width + _timeLabel.frame.origin.x + news_Cell_Left_Or_Right_Margin * 2, 0 + _liveTitleLabel.frame.size.height, width, 0)];
-        _liveContenLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
+        _liveContenLabel.dk_textColorPicker = DKColorPickerWithKey(news_Content_Color);
         
         _liveContenLabel.lineBreakMode = NSLineBreakByWordWrapping;
         
         _liveContenLabel.numberOfLines = 0;
         
         _liveContenLabel.font = [UIFont newsContentFont];
-
         
 
     }
@@ -188,7 +188,7 @@
 - (void)setLiveModel:(CBNLiveModel *)liveModel
 {
     _liveModel = liveModel;
-    _timeLabel.text = [NSDate getHourDateFromUTCDateString:_liveModel.newsModel.LastDate];
+    _timeLabel.text = [NSDate getHourDateFromUTCDateString:_liveModel.newsModel.CreateDate];
     
     CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 3);
     
