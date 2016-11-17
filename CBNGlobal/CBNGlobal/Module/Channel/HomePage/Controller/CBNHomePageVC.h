@@ -10,6 +10,7 @@
 
 @interface CBNHomePageVC : CBNBaseChannelVC
 
+@property (nonatomic, strong) NSString *channelName;
 
 
 @end

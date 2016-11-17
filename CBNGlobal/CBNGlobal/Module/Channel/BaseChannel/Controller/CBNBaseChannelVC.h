@@ -8,10 +8,13 @@
 
 #import "CBNBaseViewController.h"
 #import "CBNNewsModel.h"
+#import "CBNSearchVC.h"
 @interface CBNBaseChannelVC : CBNBaseViewController
 
-- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel;
+- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel withChannelName:(NSString *)channelName;
 
+- (void)setNavigationTitle:(NSString *)titleString;
+- (void)searchButton:(UIButton *)sender;
 
 - (MJRefreshNormalHeader *)refreshHeader;
 - (void)refreshData;

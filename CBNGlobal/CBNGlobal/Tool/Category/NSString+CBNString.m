@@ -39,10 +39,13 @@
 
 + (NSString *)getHtmlStringWithPString:(NSString *)pString
 {
+    
+    NSLog(@"%@",pString);
+    
     NSString *strUrl = [[pString stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""] stringByReplacingOccurrencesOfString:@"background-color:rgb(245, 245, 245);" withString:@"background-colorlll"];
     
     
-    NSString *styleHeader = @"<style type=\"text/css\">";
+    NSString *styleHeader = @"<head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"><style type=\"text/css\">body{margin: 0;padding: 0;}";
     
     NSString *blockquote = @"blockquote{}";
     
@@ -70,19 +73,18 @@
     NSString *textFontName = @"font-family:\"DINPro-Light\";";
     NSString *textLineSpace = @"line-height:1.7;";
     NSString *word = @"word-wrap:break-word;word-break: normal;";
-    NSString *padding = @"padding:0 3 0 3";
-    NSString *justify = @"text-justify:distribute-all-lines;";
+//    NSString *padding = @"padding:7px 7px 7px 7px;margin: 40px 30px 0px 10px;";
+    NSString *padding = @"";
+
+    NSString *justify = @"text-justify:distribute;";
+
     NSString *p = [NSString stringWithFormat:@"%@p{%@%@%@%@%@%@%@%@%@}",iframe,backgroundColor,textColor,textAlignment,textFoneSize,textFontName,textLineSpace,word,padding,justify];
-//    NSString *img = @"p img{max-width: 100%!important;height: auto!important;width:expression(this.width > 150 ? \"150px\" : this.width)!important;}";
+    NSString *img = [NSString stringWithFormat:@"img{max-width: %fpx!important;height:auto!important;margin:auto;}",CBN_Screen_Width-4*news_Cell_Left_Or_Right_Margin-3];
 
-    NSString *styleFooter = [NSString stringWithFormat:@"</style>"];
+    NSString *styleFooter = [NSString stringWithFormat:@"</style></head><body>"];
 
-    NSString *js = @"<script language=\"javascript\">var image = document.getElementsByTagName(\"img\"); for (var i=0;i<image.length;i++){var t = image[i];.src= \"sd\";if (t.style.width > \"300px\"){t.style.width = \"100px\";t.style.height =  \"t.style.height*300/t.style.width\";}}</script>";
-    NSString *result = [NSString stringWithFormat:@"%@%@%@%@%@%@",styleHeader,blockquote,p,styleFooter,strUrl,js];
-    
-    
+    NSString *result = [NSString stringWithFormat:@"%@%@%@%@%@%@</body></html>",styleHeader,blockquote,p,img,styleFooter,strUrl];
     NSLog(@"%@",result);
-    
     return result;
     
 }

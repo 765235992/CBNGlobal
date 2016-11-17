@@ -8,7 +8,7 @@
 
 #import "CBNLeftChannelCell.h"
 
-#define left_margn 20.0f
+#define left_margn 40.0f
 #define channel_Cell_Height 2.5*[NSString getTextHeightWithFont:[UIFont newsTitleFont]]
 @interface CBNLeftChannelCell ()
 
@@ -84,7 +84,7 @@
         
         _channelTitleLabel.backgroundColor = [UIColor clearColor];
         
-        _channelTitleLabel.textAlignment = 1;
+//        _channelTitleLabel.textAlignment = 1;
         
         _channelTitleLabel.text = @"Chinese";
     }
@@ -96,7 +96,7 @@
 {
     if (!_channelLineImageView) {
        
-        self.channelLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(left_margn/2, channel_Cell_Height-1, user_Draw_open_With - left_margn, 1)];
+        self.channelLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(left_margn/4, channel_Cell_Height-1, user_Draw_open_With - left_margn/2, 1)];
         
         _channelLineImageView.backgroundColor = UIColorFromRGB(0x5C5C5C);
         

@@ -34,8 +34,17 @@
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
     
     [self.view addSubview:self.aTableView];
+    [self setNavigationTitle:self.channelModel.EnglishName];
     
     
+}
+
+
+- (void)searchButton:(UIButton *)sender
+{
+    CBNSearchVC *searchVC = [[CBNSearchVC alloc] init];
+    searchVC.channelName = self.channelModel.EnglishName;
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 
@@ -185,7 +194,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    [self pushToTextNewsDetailWithNewsItemModel:[_sourceArray objectAtIndex:indexPath.row]];
+    [self pushToTextNewsDetailWithNewsItemModel:[_sourceArray objectAtIndex:indexPath.row] withChannelName:self.channelModel.EnglishName];
     
 }
 

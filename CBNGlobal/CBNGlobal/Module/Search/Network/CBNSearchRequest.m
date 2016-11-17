@@ -15,11 +15,6 @@
 
 
     [self GET:[[CBNParametersLinkManager sharedManager] searchWithKeyword:[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] page:page  pageSize:pageSize] parameters:nil success:^(id result) {
-        NSLog(@"%@",[[CBNParametersLinkManager sharedManager] searchWithKeyword:[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] page:page  pageSize:pageSize]);
-        
-//        NSDictionary *searchResult = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
-//        NSLog(@"%@",searchResult);
-
         if (secuessed) {
             
             secuessed([result objectForKey:@"result"]);

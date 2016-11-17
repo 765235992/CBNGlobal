@@ -144,17 +144,17 @@
 }
 - (void)shareButton:(UIButton *)sender
 {
-//    if (_shareView == nil) {
+    if (_shareView == nil) {
 //        
         [self.view addSubview:self.shareView];
-//    }else{
-//        if (_shareButton.selected == YES) {
+    }else{
+        if (_shareButton.selected == YES) {
             _shareView.hidden = NO;
-//        }else{
-//            _shareView.hidden = YES;
-//        }
-//    }
-    
+        }else{
+            _shareView.hidden = YES;
+        }
+    }
+
     _shareButton.selected = !_shareButton.selected;
 
 }
@@ -177,22 +177,25 @@
 - (void)setNavigationTitle:(NSString *)titleString
 {
     
-    [self setNavigationView];
+//    [self setNavigationView];
     
-//    UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-//    navigationLabel.text = titleString;
-//    navigationLabel.textAlignment = NSTextAlignmentCenter;
-//    navigationLabel.textColor = [UIColor whiteColor];
-//    navigationLabel.font = [UIFont newsTitleFont];
-//    navigationLabel.backgroundColor = [UIColor clearColor];
-//    
-//    self.navigationItem.titleView = navigationLabel;
+    UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    navigationLabel.text = titleString;
+    navigationLabel.textAlignment = NSTextAlignmentCenter;
+    navigationLabel.textColor = [UIColor whiteColor];
+    navigationLabel.font = [UIFont newsTitleFont];
+    navigationLabel.backgroundColor = [UIColor clearColor];
+    
+//    NSDictionary *attrDict1 = @{ NSStrokeWidthAttributeName: @(-3), NSKernAttributeName: @(5),NSStrokeColorAttributeName:UIColorFromRGB(0x0096d9)};
+//    navigationLabel.attributedText = [[NSAttributedString alloc] initWithString:titleString attributes: attrDict1];
+    self.navigationItem.titleView = navigationLabel;
 
 }
-- (void)pushToTextNewsDetailWitNewsID:(NSInteger)newsID
+- (void)pushToTextNewsDetailWitNewsID:(NSInteger)newsID withChannelName:(NSString *)channelName
 {
     CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
     textDetailVC.newsID = newsID;
+    textDetailVC.channelName = channelName;
     
     [self.navigationController pushViewController:textDetailVC animated:YES];
 }

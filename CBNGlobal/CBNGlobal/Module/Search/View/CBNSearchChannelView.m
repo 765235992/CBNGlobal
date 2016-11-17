@@ -7,13 +7,18 @@
 //
 
 #import "CBNSearchChannelView.h"
+
+@interface CBNSearchChannelView ()
+@property (nonatomic, strong) NSString *currentChannelName;
+@end
+
 @implementation CBNSearchChannelView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andCurrentChannelName:(NSString *)currentChannelName
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.currentChannelName = currentChannelName;
         self.userInteractionEnabled = YES;
         [self createChannelItems];
         
@@ -79,7 +84,12 @@
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button setTitle:tempModel.ChannelName forState:UIControlStateNormal];
         [button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
-        
+        if ([self.currentChannelName isEqualToString:tempModel.ChannelName]) {
+            [button setTitleColor:UIColorFromRGB(0xB8B8B8) forState:UIControlStateNormal];
+            button.backgroundColor = UIColorFromRGB(0x595959);
+            button.tag = 500 + i;
+
+        }
         [self addSubview:button];
         
     }

@@ -151,7 +151,9 @@
 		FEEC96031DDC6D0D00D170D8 /* open-image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEC96021DDC6D0D00D170D8 /* open-image@3x.png */; };
 		FEEC96061DDC6F7500D170D8 /* def@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEC96041DDC6F7500D170D8 /* def@2x.png */; };
 		FEEC96071DDC6F7500D170D8 /* def@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEC96051DDC6F7500D170D8 /* def@3x.png */; };
-		FEEC96101DDC959400D170D8 /* libJYLiveShuffingSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEC960D1DDC94F500D170D8 /* libJYLiveShuffingSDK.a */; };
+		FEEC961C1DDD7CA300D170D8 /* libJYLiveShuffingSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEC961B1DDD7CA300D170D8 /* libJYLiveShuffingSDK.a */; };
+		FEEC961F1DDD7D7000D170D8 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEC961D1DDD7D7000D170D8 /* default@2x.png */; };
+		FEEC96201DDD7D7000D170D8 /* default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEC961E1DDD7D7000D170D8 /* default@3x.png */; };
 		FEF76D5A1DC2EAB700459D7F /* CBNSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF76D591DC2EAB700459D7F /* CBNSearchRequest.m */; };
 		FEF76D5D1DC2F7FC00459D7F /* CBNSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF76D5C1DC2F7FC00459D7F /* CBNSearchModel.m */; };
 /* End PBXBuildFile section */
@@ -170,20 +172,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FE6F2CF01DB12B5B000E33F9;
 			remoteInfo = CBNGlobal;
-		};
-		FEEC960C1DDC94F500D170D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEEC96081DDC94F500D170D8 /* JYLiveShuffingSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE5453691DC3313400ADB1AD;
-			remoteInfo = JYLiveShuffingSDK;
-		};
-		FEEC960E1DDC958800D170D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEEC96081DDC94F500D170D8 /* JYLiveShuffingSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = FE5453681DC3313400ADB1AD;
-			remoteInfo = JYLiveShuffingSDK;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -428,7 +416,13 @@
 		FEEC96021DDC6D0D00D170D8 /* open-image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-image@3x.png"; sourceTree = "<group>"; };
 		FEEC96041DDC6F7500D170D8 /* def@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "def@2x.png"; sourceTree = "<group>"; };
 		FEEC96051DDC6F7500D170D8 /* def@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "def@3x.png"; sourceTree = "<group>"; };
-		FEEC96081DDC94F500D170D8 /* JYLiveShuffingSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JYLiveShuffingSDK.xcodeproj; path = "../../../../../../../../iOS/封装完成的Demo/竖直播/JYLiveShuffingSDK/JYLiveShuffingSDK.xcodeproj"; sourceTree = "<group>"; };
+		FEEC96171DDD7CA300D170D8 /* JYLiveScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYLiveScrollView.h; sourceTree = "<group>"; };
+		FEEC96181DDD7CA300D170D8 /* JYLiveShuffingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYLiveShuffingModel.h; sourceTree = "<group>"; };
+		FEEC96191DDD7CA300D170D8 /* JYLiveShuffingSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYLiveShuffingSDK.h; sourceTree = "<group>"; };
+		FEEC961A1DDD7CA300D170D8 /* JYShuffingAttributeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYShuffingAttributeString.h; sourceTree = "<group>"; };
+		FEEC961B1DDD7CA300D170D8 /* libJYLiveShuffingSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJYLiveShuffingSDK.a; sourceTree = "<group>"; };
+		FEEC961D1DDD7D7000D170D8 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		FEEC961E1DDD7D7000D170D8 /* default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@3x.png"; sourceTree = "<group>"; };
 		FEF76D581DC2EAB700459D7F /* CBNSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNSearchRequest.h; sourceTree = "<group>"; };
 		FEF76D591DC2EAB700459D7F /* CBNSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNSearchRequest.m; sourceTree = "<group>"; };
 		FEF76D5B1DC2F7FC00459D7F /* CBNSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNSearchModel.h; sourceTree = "<group>"; };
@@ -440,8 +434,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEEC96101DDC959400D170D8 /* libJYLiveShuffingSDK.a in Frameworks */,
 				FE5C108F1DD2C5C000E83B25 /* Social.framework in Frameworks */,
+				FEEC961C1DDD7CA300D170D8 /* libJYLiveShuffingSDK.a in Frameworks */,
 				FE7147941DBFB92900707DFD /* libsqlite3.0.tbd in Frameworks */,
 				FE7147921DBFB92100707DFD /* libsqlite3.tbd in Frameworks */,
 				FE7C2F161DC32D8B00F64D01 /* libJYLabelSDK.a in Frameworks */,
@@ -614,6 +608,8 @@
 				FE6F2CFD1DB12B5B000E33F9 /* Main.storyboard */,
 				FE6F2D001DB12B5B000E33F9 /* Assets.xcassets */,
 				FE6F2D021DB12B5B000E33F9 /* LaunchScreen.storyboard */,
+				FEEC961D1DDD7D7000D170D8 /* default@2x.png */,
+				FEEC961E1DDD7D7000D170D8 /* default@3x.png */,
 				FEEC96041DDC6F7500D170D8 /* def@2x.png */,
 				FEEC96051DDC6F7500D170D8 /* def@3x.png */,
 				FEEC96021DDC6D0D00D170D8 /* open-image@3x.png */,
@@ -1639,7 +1635,8 @@
 		FEEC95E11DDBF16900D170D8 /* libJYLiveShuffingSDK */ = {
 			isa = PBXGroup;
 			children = (
-				FEEC96081DDC94F500D170D8 /* JYLiveShuffingSDK.xcodeproj */,
+				FEEC96151DDD7CA300D170D8 /* include */,
+				FEEC961B1DDD7CA300D170D8 /* libJYLiveShuffingSDK.a */,
 			);
 			path = libJYLiveShuffingSDK;
 			sourceTree = "<group>";
@@ -1672,12 +1669,23 @@
 			path = LSNavigationSDK;
 			sourceTree = "<group>";
 		};
-		FEEC96091DDC94F500D170D8 /* Products */ = {
+		FEEC96151DDD7CA300D170D8 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				FEEC960D1DDC94F500D170D8 /* libJYLiveShuffingSDK.a */,
+				FEEC96161DDD7CA300D170D8 /* JYLiveShuffingSDK */,
 			);
-			name = Products;
+			path = include;
+			sourceTree = "<group>";
+		};
+		FEEC96161DDD7CA300D170D8 /* JYLiveShuffingSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FEEC96171DDD7CA300D170D8 /* JYLiveScrollView.h */,
+				FEEC96181DDD7CA300D170D8 /* JYLiveShuffingModel.h */,
+				FEEC96191DDD7CA300D170D8 /* JYLiveShuffingSDK.h */,
+				FEEC961A1DDD7CA300D170D8 /* JYShuffingAttributeString.h */,
+			);
+			path = JYLiveShuffingSDK;
 			sourceTree = "<group>";
 		};
 		FEF76D571DC2EA9B00459D7F /* Network */ = {
@@ -1706,7 +1714,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FEEC960F1DDC958800D170D8 /* PBXTargetDependency */,
 			);
 			name = CBNGlobal;
 			productName = CBNGlobal;
@@ -1761,8 +1768,8 @@
 				TargetAttributes = {
 					FE6F2CF01DB12B5B000E33F9 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 58Y2U9UF8Z;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = Q33D2A66DE;
+						ProvisioningStyle = Manual;
 					};
 					FE6F2D091DB12B5B000E33F9 = {
 						CreatedOnToolsVersion = 7.0;
@@ -1787,12 +1794,6 @@
 			mainGroup = FE6F2CE81DB12B5B000E33F9;
 			productRefGroup = FE6F2CF21DB12B5B000E33F9 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FEEC96091DDC94F500D170D8 /* Products */;
-					ProjectRef = FEEC96081DDC94F500D170D8 /* JYLiveShuffingSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FE6F2CF01DB12B5B000E33F9 /* CBNGlobal */,
@@ -1801,16 +1802,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FEEC960D1DDC94F500D170D8 /* libJYLiveShuffingSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJYLiveShuffingSDK.a;
-			remoteRef = FEEC960C1DDC94F500D170D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FE6F2CEF1DB12B5B000E33F9 /* Resources */ = {
@@ -1826,6 +1817,7 @@
 				FE3DD39F1DC099EB007076AF /* searchWhite@2x.png in Resources */,
 				FEE532BF1DCB2D330085B824 /* default-image@3x.png in Resources */,
 				FEE531FD1DC9C80D0085B824 /* share-white-in@2x.png in Resources */,
+				FEEC96201DDD7D7000D170D8 /* default@3x.png in Resources */,
 				FEE532BE1DCB2D330085B824 /* default-image@2x.png in Resources */,
 				FE82A13E1DD5674F00AFDD1A /* samll-Defaule-Image@2x.png in Resources */,
 				FEEC95FA1DDC674A00D170D8 /* delete-image@2x.png in Resources */,
@@ -1837,6 +1829,7 @@
 				FEEC96011DDC6CDA00D170D8 /* open-image@2x.png in Resources */,
 				FEE532AD1DCB0FE50085B824 /* loaing.gif in Resources */,
 				FEE531F21DC9C80D0085B824 /* share-blue-email@3x.png in Resources */,
+				FEEC961F1DDD7D7000D170D8 /* default@2x.png in Resources */,
 				FEE532B51DCB187B0085B824 /* refresh-Arrow@2x.png in Resources */,
 				FE82A1401DD5674F00AFDD1A /* big-Defaule-Image@2x.png in Resources */,
 				FEE531F41DC9C80D0085B824 /* share-blue-facebook@3x.png in Resources */,
@@ -2056,11 +2049,6 @@
 			target = FE6F2CF01DB12B5B000E33F9 /* CBNGlobal */;
 			targetProxy = FE6F2D161DB12B5B000E33F9 /* PBXContainerItemProxy */;
 		};
-		FEEC960F1DDC958800D170D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JYLiveShuffingSDK;
-			targetProxy = FEEC960E1DDC958800D170D8 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -2175,8 +2163,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 58Y2U9UF8Z;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = Q33D2A66DE;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2204,8 +2192,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c96261de-f498-4016-a7a0-c8e9f981b87f";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.testGlobal";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2216,8 +2204,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 58Y2U9UF8Z;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = Q33D2A66DE;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2245,8 +2233,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c96261de-f498-4016-a7a0-c8e9f981b87f";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.testGlobal";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

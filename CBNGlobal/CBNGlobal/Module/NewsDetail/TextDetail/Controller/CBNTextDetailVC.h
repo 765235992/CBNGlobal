@@ -9,6 +9,7 @@
 #import "CBNBaseInfoViewController.h"
 
 @interface CBNTextDetailVC : CBNBaseInfoViewController
+@property (nonatomic, strong) NSString *channelName;
 @property (nonatomic, assign) NSInteger newsID;
 
 @end

@@ -30,6 +30,21 @@
     }
     return self;
 }
+- (void)setNavigationTitle:(NSString *)titleString
+{
+    
+    //    [self setNavigationView];
+    
+    UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    navigationLabel.text = titleString;
+    navigationLabel.textAlignment = NSTextAlignmentCenter;
+    navigationLabel.textColor = [UIColor whiteColor];
+    navigationLabel.font = [UIFont newsTitleFont];
+    navigationLabel.backgroundColor = [UIColor clearColor];
+    
+    self.navigationItem.titleView = navigationLabel;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -95,7 +110,6 @@
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.frame = CGRectMake(0, 0, 44, 44);
 
-//    [searchButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"search-white-magnifier.png"],[UIImage imageNamed:@"search-white-magnifier.png"],[UIImage imageNamed:@"search-white-magnifier.png"]) forState:UIControlStateNormal];
     [searchButton setImage:[UIImage imageNamed:@"search-white-magnifier.png"] forState:UIControlStateNormal];
     
     [searchButton setImageEdgeInsets:UIEdgeInsetsMake(12, 12, 12, 12)];
@@ -114,8 +128,6 @@
 
 - (void)searchButton:(UIButton *)sender
 {
-    CBNSearchVC *searchVC = [[CBNSearchVC alloc] init];
-    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 
@@ -174,9 +186,12 @@
 
 
 
-- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel
+- (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel withChannelName:(NSString *)channelName
 {
     CBNTextDetailVC *textDetailVC = [[CBNTextDetailVC alloc] init];
+    
+//    [textDetailVC setNavigationTitle:channelName];
+    
     if (newsItemModel.IsEntity) {
 
         textDetailVC.newsID = newsItemModel.NewsID;
@@ -185,7 +200,7 @@
         textDetailVC.newsID = newsItemModel.EntityNews;
 
     }
-    
+    textDetailVC.channelName = channelName;
     
     [self.navigationController pushViewController:textDetailVC animated:YES];
     

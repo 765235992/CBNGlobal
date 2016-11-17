@@ -32,7 +32,7 @@
     
     [self POST:[[CBNParametersLinkManager sharedManager] getNewsListURLWithRootlID:28 page:page pageSize:pageSize]parameters:nil success:^(id result) {
         NSArray *channelItemArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
-        
+
         if (secuessed) {
             secuessed(channelItemArray);
             

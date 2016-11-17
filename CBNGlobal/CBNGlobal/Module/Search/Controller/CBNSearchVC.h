@@ -9,5 +9,5 @@
 #import "CBNBaseInfoViewController.h"
 
 @interface CBNSearchVC : CBNBaseInfoViewController
-
+@property (nonatomic, strong) NSString *channelName;
 @end

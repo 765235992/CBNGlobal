@@ -106,7 +106,7 @@
     __weak typeof(self) weakSelf = self;
     
     [CBNChannelListRequest loadNewsItemsWithChannelID:_liveChannelID page:_currentPage pageSize:20 Secuessed:^(NSArray *channelNewsItemsArray) {
-        NSLog(@"%@",channelNewsItemsArray);
+
         [weakSelf.sourceArray removeAllObjects];
         
         [weakSelf.sourceArray addObjectsFromArray:[CBNNewSqliteManager  liveDictionaryChanegeToLiveModekWithDictionaryArray:channelNewsItemsArray]];
@@ -205,18 +205,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-        
+    CBNLiveModel *tempModel = (CBNLiveModel *)[_sourceArray objectAtIndex:indexPath.row];
+
+    CBNTextDetailVC *liveDetailVC = [[CBNTextDetailVC alloc] init];
+    liveDetailVC.channelName = @"Live";
+    liveDetailVC.newsID = tempModel.newsModel.NewsID;
+    
+    [self.navigationController pushViewController:liveDetailVC animated:YES];
+
+    
 }
 #pragma mark CBNLiveNewsCellDelegate
 
 - (void)liveNewsCell:(CBNLiveNewsCell *)liveCell detailButtonClickedWithLiveModel:(CBNLiveModel *)liveMoel
 {
 
-    CBNTextDetailVC *liveDetailVC = [[CBNTextDetailVC alloc] init];
-    
-    liveDetailVC.newsID = liveMoel.newsModel.NewsID;
-    
-    [self.navigationController pushViewController:liveDetailVC animated:YES];
     
 }
 #pragma mark create_Objects

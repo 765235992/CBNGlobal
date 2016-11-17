@@ -50,19 +50,20 @@
 - (void)setAttText:(NSMutableAttributedString *)attText
 
 {
-    
-    self.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
-    
-
     _attText = attText;
     
+    self.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
+
+    _attText = attText;
+
     self.attributedText = attText;
-    
+
     [self sizeToFit];
+
     
-//    self.autoresizingMask = UIViewAutoresizingFlexibleHeight;//自适应高度
+    self.autoresizingMask = UIViewAutoresizingFlexibleHeight;//自适应高度
     
-    [self sizeToFit];
+//    [self sizeToFit];
 
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

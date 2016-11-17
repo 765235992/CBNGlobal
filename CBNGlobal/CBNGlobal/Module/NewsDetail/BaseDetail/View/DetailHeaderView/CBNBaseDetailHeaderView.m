@@ -84,6 +84,25 @@
 {
     _newsDetailModel = newsDetailModel;
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     _titleLabel.text = _newsDetailModel.NewsTitle;
     [_titleLabel sizeToFit];
     

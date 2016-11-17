@@ -10,6 +10,7 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "CBNShareLoadingView.h"
+#import "UMMobClick/MobClick.h"
 
 
 
@@ -50,7 +51,15 @@ static JYShareManager *shareManager;
 //    
 //    
 //    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Twitter appKey:@"fB5tvRpna1CKK97xZUslbxiet"  appSecret:@"YcbSvseLIwZ4hZg9YmgJPP5uWzd4zr6BpBKGZhf07zzh3oj62K" redirectURL:nil];
-    [[UMSocialManager defaultManager] setUmSocialAppkey:@"57b432afe0f55a9832001a0a"];
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"581c3375ae1bf80832000c0e"];
+    UMConfigInstance.appKey = @"581c3375ae1bf80832000c0e";
+
+    UMConfigInstance.channelId = @"App Store";
+    UMConfigInstance.eSType = E_UM_GAME; //仅适用于游戏场景，应用统计不用设置
+    
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+    
+    [MobClick setLogEnabled:YES];
 
     //设置Twitter的appKey和appSecret
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Twitter appKey:@"fB5tvRpna1CKK97xZUslbxiet"  appSecret:@"YcbSvseLIwZ4hZg9YmgJPP5uWzd4zr6BpBKGZhf07zzh3oj62K" redirectURL:nil];

@@ -17,7 +17,7 @@
 @end
 
 @interface CBNSearchDefaultView : UIView
-
+- (id)initWithFrame:(CGRect)frame andCurrentChannelName:(NSString *)currentChannelName;
 @property (nonatomic, strong) NSString *searchKeywordString;
 @property (nonatomic, assign) id <CBNSearchDefaultViewDelegate> delegate;
 @end

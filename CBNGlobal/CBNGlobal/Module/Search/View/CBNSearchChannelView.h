@@ -17,6 +17,6 @@
 @end
 
 @interface CBNSearchChannelView : UIView
-
+- (id)initWithFrame:(CGRect)frame andCurrentChannelName:(NSString *)currentChannelName;
 @property (nonatomic, assign) id <CBNSearchChannelViewDelegate> delegate;
 @end

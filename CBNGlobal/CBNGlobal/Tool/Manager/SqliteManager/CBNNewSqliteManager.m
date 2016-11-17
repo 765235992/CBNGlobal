@@ -7,7 +7,8 @@
 //
 
 #import "CBNNewSqliteManager.h"
-#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
+//#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
+#import "JYLiveShuffingSDK.h"
 
 @implementation CBNNewSqliteManager
 + (CBNNewSqliteManager *)sharedManager

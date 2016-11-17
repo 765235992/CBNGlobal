@@ -25,6 +25,8 @@
         [self addSubview:self.blodLineImageView];
         [self addSubview:self.promptLabel];
         [self addSubview:self.lineImageView];
+        
+        _promptLabel.center = CGPointMake(_promptLabel.center.x, (3+self.frame.size.height)/2);
         self.backgroundColor = [UIColor clearColor];
 
     }

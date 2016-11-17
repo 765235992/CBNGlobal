@@ -33,21 +33,21 @@
 
 @property (nonatomic, strong) NSMutableArray *sourceArray;
 
+@property (nonatomic, strong) NSString *channelName;
 @end
 
 @implementation CBNSearchDefaultView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andCurrentChannelName:(NSString *)currentChannelName
 {
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.channelName = currentChannelName;
+        
         self.sourceArray = [[NSMutableArray array] init];
 
         [_sourceArray addObjectsFromArray:[[CBNSearchSqliteManager sharedManager] selectObjectsfromTable:@"search"]];
-        
-        
-        NSLog(@"%@",self.sourceArray);
         
         self.userInteractionEnabled = YES;
         
@@ -130,7 +130,7 @@
 {
     if (!_channelView) {
         
-        self.channelView = [[CBNSearchChannelView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _channelCrossIineImageView.frame.size.height+_channelCrossIineImageView.frame.origin.y+news_Cell_Up_Or_Down_Margin, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, 0)];
+        self.channelView = [[CBNSearchChannelView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _channelCrossIineImageView.frame.size.height+_channelCrossIineImageView.frame.origin.y+news_Cell_Up_Or_Down_Margin, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, 0) andCurrentChannelName:self.channelName];
         _channelView.delegate = self;
         
     }
@@ -229,15 +229,14 @@
         
         self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        _deleteButton.frame = CGRectMake(CBN_Screen_Width-news_Cell_Left_Or_Right_Margin-_historyVerticalImageView.frame.size.height, _historyVerticalImageView.frame.origin.y, _historyVerticalImageView.frame.size.height*1.5, _historyVerticalImageView.frame.size.height*1.5) ;
+        _deleteButton.frame = CGRectMake(CBN_Screen_Width-news_Cell_Left_Or_Right_Margin-_historyVerticalImageView.frame.size.height*1.5, _historyVerticalImageView.frame.origin.y, _historyVerticalImageView.frame.size.height*1.5, _historyVerticalImageView.frame.size.height*1.5) ;
         
         [_deleteButton addTarget:self action:@selector(deleteButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [_deleteButton setImage:[UIImage imageNamed:@"delete-image.png"] forState:UIControlStateNormal];
         
-        [_deleteButton setImageEdgeInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
+        [_deleteButton setImageEdgeInsets:UIEdgeInsetsMake(6, 12, 6, 0)];
 
-        _deleteButton.backgroundColor = [UIColor clearColor];
     }
     
     return _deleteButton;

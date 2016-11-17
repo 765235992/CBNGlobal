@@ -90,7 +90,7 @@
     NSString* keywordResultSring=keyword;
     keywordResultSring = [keywordResultSring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];  //去除掉首尾的空白字符和换行字符
     keywordResultSring = [keywordResultSring stringByReplacingOccurrencesOfString:@" " withString:@""];
-    keywordResultSring = [keywordResultSring stringByReplacingOccurrencesOfString:@"\n" withString:@""];    NSLog(@"%@--%@",keyword,keywordResultSring);
+    keywordResultSring = [keywordResultSring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *urlStr  = [NSString stringWithFormat:@"http://www.yicai.com/api/appsearch/?type=108contenttype=0&searchKeyWords=%@&start=%ld&pagecount=%ld",keywordResultSring,(long)page,(long)pagesize];
     
     CBNLog(@"%@",urlStr);

@@ -65,6 +65,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNoBarItems];
+    
     [self.view addSubview:self.resultView];
     [self.view addSubview:self.defaultView];
     
@@ -150,7 +151,12 @@
 
 - (void)searchDefaultView:(CBNSearchDefaultView *)searchDefaultView channelDidSelectedAtIndex:(NSInteger)index
 {
+    
+    
     [self.navigationController popViewControllerAnimated:YES];
+    if (index > 100) {
+        return;
+    }
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:index],@"channelIndex", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"channelChanged" object:nil userInfo:dic];
     
@@ -191,7 +197,7 @@
 {
     if (!_defaultView) {
         
-        self.defaultView = [[CBNSearchDefaultView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
+        self.defaultView = [[CBNSearchDefaultView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64) andCurrentChannelName:self.channelName];
         
         _defaultView.delegate = self;
         
@@ -212,7 +218,7 @@
 }
 - (void)tableViewSelectedWithNewsModel:(CBNNewsModel *)newsModel
 {
-    [self pushToTextNewsDetailWitNewsID:newsModel.NewsID];
+    [self pushToTextNewsDetailWitNewsID:newsModel.NewsID withChannelName:@"Search"];
     
 }
 

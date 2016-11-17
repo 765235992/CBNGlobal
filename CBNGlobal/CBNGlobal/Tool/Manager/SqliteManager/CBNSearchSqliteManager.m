@@ -72,7 +72,6 @@
     
     NSArray *result = [[JYDataBaseManager shareInstance] dataBase:self.dataBase selectKeyTypes:typeDic fromTable:tableName];
     
-    NSLog(@"%@",result);
     
     return result;
     

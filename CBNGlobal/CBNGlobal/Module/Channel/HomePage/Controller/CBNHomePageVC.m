@@ -49,6 +49,8 @@
     // Do any additional setup after loading the view.
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
 
+    self.channelName = @"Home";
+    
     self.sliderID = 29;
     
     self.liveChannelID = 206;
@@ -64,6 +66,13 @@
     [self setUpTableView];
     
 }
+- (void)searchButton:(UIButton *)sender
+{
+    CBNSearchVC *searchVC = [[CBNSearchVC alloc] init];
+    searchVC.channelName = self.channelName;
+    [self.navigationController pushViewController:searchVC animated:YES];
+}
+
 - (void)setLiveChannelID:(NSInteger)liveChannelID
 {
     _liveChannelID = liveChannelID;
@@ -252,8 +261,8 @@
 }
 - (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView recommendedNews:(id)news
 {
-    
-    [self pushToTextNewsDetailWithNewsItemModel:homePageView.remondNewsModel];
+
+    [self pushToTextNewsDetailWithNewsItemModel:homePageView.remondNewsModel withChannelName:@"Home"];
 
 }
 
@@ -318,8 +327,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CBNNewsModel *tempModel =  [_sourceArray objectAtIndex:indexPath.row];
     
-    [self pushToTextNewsDetailWithNewsItemModel:[_sourceArray objectAtIndex:indexPath.row]];
+    
+    [self pushToTextNewsDetailWithNewsItemModel:[_sourceArray objectAtIndex:indexPath.row] withChannelName:@"Home"];
 }
 
 

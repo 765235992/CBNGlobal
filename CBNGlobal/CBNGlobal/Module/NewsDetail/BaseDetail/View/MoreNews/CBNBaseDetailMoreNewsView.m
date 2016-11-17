@@ -45,6 +45,7 @@
 }
 - (void)setMoreNewsArray:(NSArray *)moreNewsArray
 {
+    
     _moreNewsArray = moreNewsArray;
     
     CGFloat height = _headerView.frame.size.height;

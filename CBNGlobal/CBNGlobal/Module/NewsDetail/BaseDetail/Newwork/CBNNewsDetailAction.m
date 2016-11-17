@@ -39,8 +39,8 @@
     manger.responseSerializer = [AFHTTPResponseSerializer serializer];
    dataTask = [manger POST:[[CBNParametersLinkManager sharedManager] readNewsWithNewsID:newsID] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        
-        CBNNewsDetailModel *detailModel = [[CBNNewsDetailModel alloc] initWithNewsDetailInfo:dic];
+
+       CBNNewsDetailModel *detailModel = [[CBNNewsDetailModel alloc] initWithNewsDetailInfo:dic];
         
         if (secuessed) {
             secuessed(detailModel);
@@ -132,7 +132,7 @@
 - (BOOL)isRequesting
 {
     NSMutableDictionary *taskDic = objc_getAssociatedObject(self, @selector(addTask:));
-    NSLog(@"队列中的请求数据 -- %d",taskDic.allValues.count);
+
     if (taskDic.allValues.count > 0) {
         
         NSLog(@"队列中有请求");

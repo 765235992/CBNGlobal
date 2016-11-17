@@ -7,9 +7,9 @@
 //
 
 #import "CBNLiveShuffingView.h"
-//#import "JYLiveShuffingSDK.h"
+#import "JYLiveShuffingSDK.h"
 
-#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
+//#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
 @interface CBNLiveShuffingView ()<JYLiveScrollViewDelegate>
 @property (nonatomic, strong) JYLiveScrollView *liveScrollView;
 

@@ -45,7 +45,7 @@
     [super viewDidLoad];
 //    (lsna)
     [self setBackBarButtonItem];
-    [self setNavigationTitle:@""];
+    [self setNavigationTitle:self.channelName];
     [self setShareBarButtonItem];
     
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
@@ -98,22 +98,20 @@
             }
             [_aScrollView addSubview:self.contentTextView];
             
-            
             _contentTextView.attText =(NSMutableAttributedString *)attributeString;
-
-            _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*3;
+//            _contentTextView.backgroundColor = [UIColor redColor];
+            
+            _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*1.5;
             
             [_aScrollView addSubview:self.shareBar];
-            
+
             _scrollViewHeight = _scrollViewHeight+_shareBar.frame.size.height+news_Cell_Up_Or_Down_Margin/2;
-            
+                        
             _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
 
             [self loadMoreNews];
             
-            _contentTextView.backgroundColor = [UIColor redColor];
 
-            
         });
         
     });
@@ -166,11 +164,13 @@
 
 - (CBNTextView *)contentTextView
 {
+    
     if (!_contentTextView) {
         
-        self.contentTextView = [[CBNTextView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin/2, _scrollViewHeight, CBN_Screen_Width - news_Cell_Left_Or_Right_Margin, 0)];
+        self.contentTextView = [[CBNTextView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin*1.5, _scrollViewHeight, CBN_Screen_Width - news_Cell_Left_Or_Right_Margin*3, 0)];
         
         _contentTextView.backgroundColor = [UIColor clearColor];
+        
     }
     return _contentTextView;
 }
@@ -233,7 +233,8 @@
     [CBNNewsDetailAction loadMoreNewssecuessed:^(NSArray *moreNewsArray) {
         
         [_aScrollView addSubview:self.moreNewsView];
-
+        
+        
         _moreNewsView.moreNewsArray = moreNewsArray;
         
         _scrollViewHeight = _scrollViewHeight+_moreNewsView.frame.size.height+1;
@@ -250,7 +251,7 @@
 - (void)moreNewsView:(CBNBaseDetailMoreNewsView *)moreNewsView selectedAtIndex:(NSInteger)index
 {
     CBNMoreNewsModel *temp = [moreNewsView.moreNewsArray objectAtIndex:index];
-    [self pushToTextNewsDetailWitNewsID:[temp.NewsID integerValue]];
+    [self pushToTextNewsDetailWitNewsID:[temp.NewsID integerValue] withChannelName:self.channelName];
 }
 
 - (CBNLoadingView *)loadingView

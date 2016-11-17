@@ -44,6 +44,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - UMengAnalytics (4.1.2)
   - UMengUShare/Core (6.0.1):
     - UMengUShare/Network
   - UMengUShare/Network (6.0.1)
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - MJRefresh
   - MMDrawerController
   - SDWebImage
+  - UMengAnalytics
   - UMengUShare/Social/Email
   - UMengUShare/Social/Facebook
   - UMengUShare/Social/Linkedin
@@ -78,8 +80,9 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  UMengAnalytics: 8d95752776c32f5b954d40edc7f23944882a7c14
   UMengUShare: 418c2eaf7d8ba939916111d622bf5ea86c86285a
 
-PODFILE CHECKSUM: 42c1ed96fc6f577fd00cb843aa8b368f6fdf89f1
+PODFILE CHECKSUM: 0bdbf817fa6302443c6cadd1d598a2d787a471d5
 
 COCOAPODS: 1.1.1
