@@ -11,5 +11,6 @@
 
 @interface CBNLiveModel : NSObject
 @property (nonatomic, strong) CBNNewsModel *newsModel;
+@property (nonatomic, strong) NSAttributedString *liveTitle;
 @property (nonatomic, assign) CGFloat height;
 @end

@@ -44,7 +44,7 @@
 
 + (UIFont *)refreshAndLoadingFont
 {
-    return [self fontWithSmallSzie:12 middleSize:14 bigSize:16 AndFontName:font_Name_Blod];
+    return [self fontWithSmallSzie:14 middleSize:16 bigSize:17 AndFontName:font_Name_Blod];
 
 }
 

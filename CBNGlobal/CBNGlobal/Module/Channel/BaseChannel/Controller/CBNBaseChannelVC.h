@@ -13,7 +13,7 @@
 - (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel;
 
 
-- (CBNRefreshHeader *)refreshHeader;
+- (MJRefreshNormalHeader *)refreshHeader;
 - (void)refreshData;
 - (MJRefreshAutoNormalFooter *)refreshFooter;
 - (void)loadMoreData;

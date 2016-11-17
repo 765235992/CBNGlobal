@@ -7,6 +7,7 @@
 //
 
 #import "CBNNewSqliteManager.h"
+#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
 
 @implementation CBNNewSqliteManager
 + (CBNNewSqliteManager *)sharedManager
@@ -157,12 +158,17 @@
 {
     NSMutableArray *resultArray = [[NSMutableArray alloc] init];
     
+
     for (NSDictionary *newsDic in dictionaryArray) {
         
         CBNNewsModel *newsModel = [CBNNewsModel mj_objectWithKeyValues:newsDic];
         CBNLiveModel *liveModel = [[CBNLiveModel alloc] init];
         
         liveModel.newsModel = newsModel;
+        NSString *resultString = [NSString stringWithFormat:@"LIVE %@ %@",[NSDate getHourDateFromUTCDateString:liveModel.newsModel.LastDate],liveModel.newsModel.NewsTitle];
+
+        liveModel.liveTitle = [[JYShuffingAttributeString sharedInstance] setRedLiveWithAttributedString:[[JYShuffingAttributeString sharedInstance] setLiveShuffingTitleWithTitleString:resultString]];
+
         liveModel.height = 0.0f;
         [resultArray addObject:liveModel];
         

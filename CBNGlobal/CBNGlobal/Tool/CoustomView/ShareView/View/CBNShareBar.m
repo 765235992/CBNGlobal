@@ -40,7 +40,7 @@
         
         button.tag = [[typeArray objectAtIndex:i] integerValue];
         
-        [button setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+        [button setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
         
         [button setImage:[UIImage imageNamed:[imageArray objectAtIndex:i]] forState:UIControlStateNormal];
         

@@ -177,4 +177,46 @@
     _newsTitleLabel.frame = CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
 }
 
+- (void)setSearchModel:(CBNSearchModel *)searchModel
+{
+    _searchModel = searchModel;
+    
+    _timeLabel.text = [NSDate getNormalDateFromUTCDateString:_itemModel.LastDate];
+    
+    _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+    
+    if (_itemModel.NewsAuthor.length>0&&_itemModel.NewsSource.length>0) {
+        
+        _authorNameLabel.text = [NSString stringWithFormat:@"%@,%@",_searchModel.author,_searchModel.source];
+        
+    }else{
+        
+        if (_itemModel.NewsAuthor.length >0) {
+            
+            _authorNameLabel.text =  _searchModel.author;
+            
+        }
+        
+        if (_itemModel.NewsSource.length > 0) {
+            
+            _authorNameLabel.text =  _searchModel.source;
+            
+        }
+    }
+    
+    [_authorNameLabel sizeToFit];
+    
+    _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height,CBN_Screen_Width - news_Cell_Left_Or_Right_Margin*4- news_Cell_Image_Width - _timeLabel.frame.size.width, _authorNameLabel.frame.size.height);
+    
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:_searchModel.previewImage] placeholderImage:[UIImage imageNamed:@"samll-Defaule-Image.png"]];
+    
+    _newsTitleLabel.text = _searchModel.title;
+    
+    [_newsTitleLabel sizeToFit];
+    
+    CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +news_Cell_Left_Or_Right_Margin*3);
+    
+    _newsTitleLabel.frame = CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
+}
+
 @end

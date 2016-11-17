@@ -89,7 +89,7 @@
 {
     if (!_verticalLineImageView) {
         
-        self.verticalLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(_timeLabel.frame.size.width + news_Cell_Left_Or_Right_Margin*3 + (circle_Width-1)/2, 0, 1, self.frame.size.height)];
+        self.verticalLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(_timeLabel.frame.size.width + news_Cell_Left_Or_Right_Margin*3 + (circle_Width-1)/2, 4, 1, self.frame.size.height-4)];
         
         _verticalLineImageView.backgroundColor = [UIColor blackColor];
         
@@ -188,11 +188,16 @@
 - (void)setLiveModel:(CBNLiveModel *)liveModel
 {
     _liveModel = liveModel;
+    
     _timeLabel.text = [NSDate getHourDateFromUTCDateString:_liveModel.newsModel.CreateDate];
+    [_timeLabel sizeToFit];
     
-    CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x + news_Cell_Left_Or_Right_Margin * 3);
+    CGFloat width = CBN_Screen_Width - (_circleImageView.frame.size.width + _circleImageView.frame.origin.x  + news_Cell_Left_Or_Right_Margin * 3);
     
+    _circleImageView.frame = CGRectMake(_circleImageView.frame.origin.x, _timeLabel.frame.origin.y +(_timeLabel.frame.size.height - circle_Width*0.8 )/2, _circleImageView.frame.size.width, _circleImageView.frame.size.height);
+
     CGFloat height = 0.0;
+    
     _liveTitleLabel.frame= CGRectMake(0, 0, width, 0);
     
     _liveTitleLabel.text = _liveModel.newsModel.NewsTitle;

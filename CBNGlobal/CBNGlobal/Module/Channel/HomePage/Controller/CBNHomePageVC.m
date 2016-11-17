@@ -38,6 +38,12 @@
     CBNLog(@"主频道释放");
 
 }
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"liveBeginRefresh" object:nil];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -71,11 +77,23 @@
         [[CBNNewSqliteManager sharedManager]insertObjects:channelNewsItemsArray intoTable:@"Live"];
         
         [weakSelf.liveModelArray removeAllObjects];
-        [weakSelf.liveModelArray addObjectsFromArray:[CBNNewSqliteManager liveDictionaryChanegeToLiveModekWithDictionaryArray:channelNewsItemsArray]];
         
-        weakSelf.tableViewHeaderView.liveModelArray = weakSelf.liveModelArray;
-        weakSelf.aTableView.tableHeaderView = weakSelf.tableViewHeaderView;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            [weakSelf.liveModelArray addObjectsFromArray:[CBNNewSqliteManager liveDictionaryChanegeToLiveModekWithDictionaryArray:channelNewsItemsArray]];
 
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                weakSelf.tableViewHeaderView.liveModelArray = weakSelf.liveModelArray;
+                weakSelf.aTableView.tableHeaderView = weakSelf.tableViewHeaderView;
+
+                
+            });
+            
+        });
+
+        
     } failed:^(NSError *error) {
         
     }];

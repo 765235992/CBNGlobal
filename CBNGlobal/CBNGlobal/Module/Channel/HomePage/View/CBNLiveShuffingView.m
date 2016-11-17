@@ -7,14 +7,21 @@
 //
 
 #import "CBNLiveShuffingView.h"
-#import "JYLiveShuffingSDK.h"
+//#import "JYLiveShuffingSDK.h"
+
+#import <JYLiveShuffingSDK/JYLiveShuffingSDK.h>
 @interface CBNLiveShuffingView ()<JYLiveScrollViewDelegate>
 @property (nonatomic, strong) JYLiveScrollView *liveScrollView;
 
 @end
 
 @implementation CBNLiveShuffingView
-
+- (void)dealloc
+{
+    [_liveScrollView stop];
+    [_liveScrollView removeFromSuperview];
+    _liveScrollView = nil;
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -35,8 +42,10 @@
         
         self.liveScrollView = [[JYLiveScrollView alloc] initWithFrame:self.bounds];
         _liveScrollView.AutoScrollDelay = 3;
+        
         _liveScrollView.delegate = self;
         
+        _liveScrollView.font = [UIFont fontWithSmallSzie:16 middleSize:18 bigSize:20 AndFontName:font_Name_Light];
         
         NSArray *liveArr = [[CBNNewSqliteManager sharedManager] selectObjectsfromTable:@"Live"];
         
@@ -46,7 +55,7 @@
 
             for (CBNLiveModel *livemodel in liveNewsArray) {
                 JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
-                tempModel.newsTitleString = livemodel.newsModel.NewsTitle;
+                tempModel.newsTitleString = livemodel.liveTitle;
                 tempModel.newsUpdataTimeString =  livemodel.newsModel.LastDate;
                 [result addObject:tempModel];
                 
@@ -59,11 +68,10 @@
             NSMutableArray *result = [[NSMutableArray alloc] init];
             for (int i = 0; i < arr.count; i++) {
                 JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
-                tempModel.newsTitleString = [arr objectAtIndex:i];
+                tempModel.newsTitleString = [[NSAttributedString alloc]initWithString:@" " attributes:nil];
                 tempModel.newsUpdataTimeString = [timeArr objectAtIndex:i];
                 [result addObject:tempModel];
             }
-            
             
             [_liveScrollView refreshLiveNewsWithLiveShuffingModelArray:result];
 
@@ -81,7 +89,7 @@
     
     for (CBNLiveModel *liveModel in _liveModelArray) {
         JYLiveShuffingModel *tempModel = [[JYLiveShuffingModel alloc] init];
-        tempModel.newsTitleString = liveModel.newsModel.NewsTitle;
+        tempModel.newsTitleString = liveModel.liveTitle;
         tempModel.newsUpdataTimeString =  [NSDate getHourDateFromUTCDateString:liveModel.newsModel.LastDate];
         [result addObject:tempModel];
 

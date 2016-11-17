@@ -14,7 +14,9 @@
 @property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) CBNNavigationShareView *shareView;
 
+- (void)setNavigationView;
 
+- (void)cleanRightBar;
 
 - (void)setNoBarItems;
 

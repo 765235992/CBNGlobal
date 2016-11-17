@@ -46,8 +46,10 @@
 {
 
     if (selected) {
-        _channelLineImageView.backgroundColor = UIColorFromRGB(0x9C9C9C);
-        _channelTitleLabel.textColor = [UIColor whiteColor];
+        
+        _channelLineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(CBN_Blue_Color);
+        
+        _channelTitleLabel.dk_textColorPicker = DKColorPickerWithKey(CBN_Blue_Color);
 
     }else{
         _channelLineImageView.backgroundColor = UIColorFromRGB(0x5C5C5C);
@@ -81,6 +83,8 @@
         _channelTitleLabel.textColor = [UIColor whiteColor];
         
         _channelTitleLabel.backgroundColor = [UIColor clearColor];
+        
+        _channelTitleLabel.textAlignment = 1;
         
         _channelTitleLabel.text = @"Chinese";
     }

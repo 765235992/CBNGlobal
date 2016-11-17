@@ -21,7 +21,37 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIColorFromRGB(0x333333) colorImage] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIColorFromRGB(0x333333) colorImage]];
     
+    
     // Do any additional setup after loading the view.
+}
+
+
+- (void)setNavigationView
+{
+    
+    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 34)];
+    logoImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    logoImageView.userInteractionEnabled = YES;
+    
+    logoImageView.image = [UIImage imageNamed:@"navigation-logo.png"];
+    
+    
+    UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    but.frame = logoImageView.bounds;
+    
+    [logoImageView addSubview:but];
+    
+    
+    [but addTarget:self action:@selector(popToSuperView) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.titleView =  logoImageView;
+    
+}
+- (void)popToSuperView
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (void)setNoBarItems
 {
@@ -63,6 +93,28 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+- (void)cleanRightBar
+{
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    
+    shareButton.frame = CGRectMake(0, 0, 44, 44);
+    
+    [shareButton setImageEdgeInsets:UIEdgeInsetsMake(11, 11, 11, 11)];
+    
+    shareButton.backgroundColor = [UIColor clearColor];
+    shareButton.hidden = NO;
+    
+    
+    UIBarButtonItem *shareBar = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
+    
+    UIBarButtonItem *rightSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    rightSpacer.width = -15;
+    
+    self.navigationItem.rightBarButtonItems = @[rightSpacer,shareBar];
+
 }
 - (void)setShareBarButtonItem
 {
@@ -124,14 +176,17 @@
 }
 - (void)setNavigationTitle:(NSString *)titleString
 {
-    UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-    navigationLabel.text = titleString;
-    navigationLabel.textAlignment = NSTextAlignmentCenter;
-    navigationLabel.textColor = [UIColor whiteColor];
-    navigationLabel.font = [UIFont newsTitleFont];
-    navigationLabel.backgroundColor = [UIColor clearColor];
     
-    self.navigationItem.titleView = navigationLabel;
+    [self setNavigationView];
+    
+//    UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+//    navigationLabel.text = titleString;
+//    navigationLabel.textAlignment = NSTextAlignmentCenter;
+//    navigationLabel.textColor = [UIColor whiteColor];
+//    navigationLabel.font = [UIFont newsTitleFont];
+//    navigationLabel.backgroundColor = [UIColor clearColor];
+//    
+//    self.navigationItem.titleView = navigationLabel;
 
 }
 - (void)pushToTextNewsDetailWitNewsID:(NSInteger)newsID

@@ -31,7 +31,7 @@
     
     [self setBackBarButtonItem];
     [self setNavigationTitle:@"Live"];
-    [self setShareBarButtonItem];
+    [self cleanRightBar];
     [self setUpTableView];
     
 }
@@ -59,8 +59,22 @@
     
     _aTableView.tableHeaderView = self.aTableViewHeaderView;
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshLiveDataFromSever)];
     
-    CBNRefreshHeader *header = [CBNRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshLiveDataFromSever)];
+    // 设置文字
+    [header setTitle:@"Pull down to refresh" forState:MJRefreshStateIdle];
+    [header setTitle:@"Release to refresh" forState:MJRefreshStatePulling];
+    [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
+    
+    // 设置字体
+    header.stateLabel.font = [UIFont refreshAndLoadingFont];
+    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
+    
+    // 设置颜色
+    header.stateLabel.textColor = [UIColor grayColor];
+    header.lastUpdatedTimeLabel.textColor = [UIColor grayColor];
+
+//    CBNRefreshHeader *header = [CBNRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshLiveDataFromSever)];
     
     // 设置刷新控件
     self.aTableView.mj_header = header;

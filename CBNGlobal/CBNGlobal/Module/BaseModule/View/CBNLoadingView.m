@@ -107,14 +107,14 @@
     JYAnimatedImage *animatedImage1 = [JYAnimatedImage animatedImageWithGIFData:data1];
     _loadingImageView.animatedImage = animatedImage1;
     
-    _promptLabel.text = @"Loading......";
+    _promptLabel.text = @" ";
     
 }
 
 - (void)loadingFailed
 {
     [_loadingImageView stopAnimating];
-    _loadingImageView.image = [UIImage imageNamed:@"langy_chaxun@2x.png"];
+    _loadingImageView.image = [UIImage imageNamed:@"loadingFailed-image.png"];
     _promptLabel.text = @"Loading failed";
 
 

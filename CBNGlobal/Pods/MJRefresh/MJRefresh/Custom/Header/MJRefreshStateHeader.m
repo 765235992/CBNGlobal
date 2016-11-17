@@ -51,6 +51,7 @@
     if (title == nil) return;
     self.stateTitles[@(state)] = title;
     self.stateLabel.text = self.stateTitles[@(self.state)];
+
 }
 
 #pragma mark - 日历获取在9.x之后的系统使用currentCalendar会出异常。在8.0之后使用系统新API。
@@ -139,7 +140,7 @@
         // 状态
         if (noConstrainsOnStatusLabel) {
             self.stateLabel.mj_x = 0;
-            self.stateLabel.mj_y = 0;
+            self.stateLabel.mj_y = 7;
             self.stateLabel.mj_w = self.mj_w;
             self.stateLabel.mj_h = stateLabelH;
         }

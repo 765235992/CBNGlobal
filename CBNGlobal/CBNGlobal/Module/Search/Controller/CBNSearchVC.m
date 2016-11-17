@@ -12,6 +12,8 @@
 #import "CBNSearchResultView.h"
 #import "CBNSearchRequest.h"
 #import "CBNSearchModel.h"
+#import "CBNSearchSqliteManager.h"
+
 #define isitIncludeLowercaseLettersAndNumbers(str) [[NSPredicate predicateWithFormat:@"SELF MATCHES %@"@"<[a-zA-Z]+(s+[a-zA-Z]+s*=s*(\"([^\"]*)\"|'([^']*)'))*s*/>"] evaluateWithObject:str]
 
 @interface CBNSearchVC ()<CBNSearcnViewDelegate,CBNSearchDefaultViewDelegate,CBNSearchResultViewDelegate>
@@ -75,6 +77,7 @@
     _currentPage = 0;
     _currentKeyWord = searchtext;
 
+    _defaultView.searchKeywordString = _currentKeyWord;
     
     [CBNSearchRequest loadNewsItemsWithSearchText:searchtext page:_currentPage pageSize:10 Secuessed:^(NSArray *searchReaultArray) {
         
@@ -82,6 +85,7 @@
         [self.sourceArray removeAllObjects];
         
         for (NSDictionary *dic in searchReaultArray) {
+            
             CBNSearchModel *searchModel = [CBNSearchModel mj_objectWithKeyValues:dic];
             
             [_sourceArray addObject:searchModel];
@@ -127,9 +131,9 @@
 }
 - (void)searchView:(CBNSearcnView *)searcnView searchText:(NSString *)searchText
 {
-    
+
     [self loadSearchWithSearchText:searchText];
-    
+
 }
 
 - (void)searchView:(CBNSearcnView *)searchView BeginEdit:(BOOL)beginEdit
@@ -149,6 +153,13 @@
     [self.navigationController popViewControllerAnimated:YES];
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:index],@"channelIndex", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"channelChanged" object:nil userInfo:dic];
+    
+}
+- (void)historySearchText:(NSString *)searText
+{
+    [self loadSearchWithSearchText:searText];
+    [self.view bringSubviewToFront:_resultView];
+
     
 }
 

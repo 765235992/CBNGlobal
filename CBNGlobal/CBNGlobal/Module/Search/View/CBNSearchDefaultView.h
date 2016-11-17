@@ -13,8 +13,11 @@
 
 - (void)searchDefaultView:(CBNSearchDefaultView *)searchDefaultView channelDidSelectedAtIndex:(NSInteger)index;
 
+- (void)historySearchText:(NSString *)searText;
 @end
 
 @interface CBNSearchDefaultView : UIView
+
+@property (nonatomic, strong) NSString *searchKeywordString;
 @property (nonatomic, assign) id <CBNSearchDefaultViewDelegate> delegate;
 @end

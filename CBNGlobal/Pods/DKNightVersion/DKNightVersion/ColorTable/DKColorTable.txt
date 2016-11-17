@@ -1,5 +1,5 @@
 NORMAL   NIGHT    RED
-#F0F0F0  #F0F0F0  #F5F5F5 defaule_Background_Color
+#ffffff  #ffffff  #ffffff defaule_Background_Color
 #000000  #000000  #000000 news_Title_Color
 #515151  #515151  #515151 news_Content_Color
 #E5E5E5  #E5E5E5  #E5E5E5 news_Cell_Divider_Color

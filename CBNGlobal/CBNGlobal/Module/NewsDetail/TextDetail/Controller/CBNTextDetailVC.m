@@ -97,6 +97,8 @@
                 return ;
             }
             [_aScrollView addSubview:self.contentTextView];
+            
+            
             _contentTextView.attText =(NSMutableAttributedString *)attributeString;
 
             _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*3;
@@ -108,6 +110,9 @@
             _aScrollView.contentSize = CGSizeMake(CBN_Screen_Width, _scrollViewHeight);
 
             [self loadMoreNews];
+            
+            _contentTextView.backgroundColor = [UIColor redColor];
+
             
         });
         

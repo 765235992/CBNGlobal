@@ -119,9 +119,22 @@
 }
 
 
-- (CBNRefreshHeader *)refreshHeader
+- (MJRefreshNormalHeader *)refreshHeader
 {
-    CBNRefreshHeader *header = [CBNRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    
+    // 设置文字
+    [header setTitle:@"Pull down to refresh" forState:MJRefreshStateIdle];
+    [header setTitle:@"Release to refresh" forState:MJRefreshStatePulling];
+    [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
+    
+    // 设置字体
+    header.stateLabel.font = [UIFont refreshAndLoadingFont];
+    header.lastUpdatedTimeLabel.font = [UIFont refreshAndLoadingFont];
+    
+    // 设置颜色
+    header.stateLabel.textColor = [UIColor grayColor];
+    header.lastUpdatedTimeLabel.textColor = [UIColor grayColor];
     
     // 设置刷新控件
     return  header;

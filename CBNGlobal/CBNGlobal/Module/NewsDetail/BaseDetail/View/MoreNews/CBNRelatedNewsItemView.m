@@ -41,8 +41,8 @@
         self.newsTitleLabel = [[JYLabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 0)];
         
         _newsTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-                
-        _newsTitleLabel.font = [UIFont relatedNewsFont];
+        
+        _newsTitleLabel.font = [UIFont newsTitleFont];
         
     }
     
@@ -72,7 +72,7 @@
     CGFloat label_Width = CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin;
     
     
-    NSString *resultString = [NSString stringWithFormat:@"<font color='#ADADAD'>%ld、</font><font color='000000'>%@</font>",(long)_index,_newsTitleString];
+    NSString *resultString = [NSString stringWithFormat:@"<font color='#ADADAD'>%ld.</font> <font color='000000'>%@</font>",(long)_index,_newsTitleString];
     
     [_newsTitleLabel setText:resultString];
 

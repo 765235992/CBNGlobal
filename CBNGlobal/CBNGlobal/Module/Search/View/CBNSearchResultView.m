@@ -8,7 +8,7 @@
 
 #import "CBNSearchResultView.h"
 #import "CBNSearchCell.h"
-
+#import "CBNChannelNewsTextCell.h"
 @interface CBNSearchResultView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *aTableView;
 @property (nonatomic, strong) NSMutableArray *resultArray;
@@ -126,27 +126,59 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *indentfier = @"CBNSearchCell";
+    
+    
+    
+    
     CBNSearchModel *searchModel = [_resultArray objectAtIndex:indexPath.row];
-
-    CBNSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:indentfier];
     
-    if (cell == nil) {
+    if (searchModel.previewImage.length>5) {
+        static NSString *indentefier = @"CBNChannelNewsTextCell";
         
-        cell = [[CBNSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentfier];
+        CBNChannelNewsTextCell *cell = [tableView dequeueReusableCellWithIdentifier:indentefier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNChannelNewsTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentefier];
+            
+        }
+        
+        cell.searchModel = searchModel;
+        
+        return cell;
+
+    }else{
+        CBNSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:indentfier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentfier];
+        }
+        
+        
+        cell.searchModel = searchModel;
+        
+        searchModel = cell.searchModel;
+        return cell;
+
     }
+
     
-    
-    cell.searchModel = searchModel;
-    
-    searchModel = cell.searchModel;
-    
-    return cell;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+    
+    CBNSearchModel *searchModel = [_resultArray objectAtIndex:indexPath.row];
+    
+    if (searchModel.previewImage.length>5) {
+        return  news_Cell_Height;
+
+    }else{
+        
+    }
     CBNSearchCell *cell = (CBNSearchCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
     
     return cell.frame.size.height;

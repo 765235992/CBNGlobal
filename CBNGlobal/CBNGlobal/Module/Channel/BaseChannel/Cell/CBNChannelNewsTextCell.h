@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CBNNewsModel.h"
-
+#import "CBNSearchModel.h"
 @interface CBNChannelNewsTextCell : UITableViewCell
 
 @property (nonatomic, strong) CBNNewsModel *itemModel;
 
+@property (nonatomic, strong) CBNSearchModel *searchModel;
 @end

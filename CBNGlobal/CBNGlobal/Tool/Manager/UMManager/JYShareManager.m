@@ -164,9 +164,6 @@ static JYShareManager *shareManager;
         
         loadingView.center = CGPointMake(_viewController.view.frame.size.width/2, _viewController.view.frame.size.height/2);
         [loadingView start];
-
-//        UMSocialUserInfoResponse *userinfo =result;
-//        NSString *message = [NSString stringWithFormat:@"用户信息\n name: %@\n icon: %@\n gender: %@\n",userinfo.name,userinfo.iconurl,userinfo.gender];
         
         //创建分享消息对象
         UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
