@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.CBNYiCaiGlobal</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -25,9 +25,11 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>liyinIdentifier</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>li4768945</string>
+				<string>li4633363</string>
 			</array>
 		</dict>
 		<dict>
@@ -35,18 +37,18 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1800600910196224</string>
+				<string>fb1314536311921866</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>1800600910196224</string>
+	<string>1314536311921866</string>
 	<key>FacebookDisplayName</key>
-	<string>YiCaiGlobal</string>
+	<string>YicaiGlobal</string>
 	<key>LIAppId</key>
-	<string>4768945</string>
+	<string>4633363</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>

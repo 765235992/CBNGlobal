@@ -32,41 +32,35 @@ static JYShareManager *shareManager;
         return shareManager;
     }
 }
-
+- (void)dealloc
+{
+    
+}
 - (void)shareConfig
 {
-    [[UMSocialManager defaultManager] openLog:YES];
-
-    //设置友盟社会化组件appkey
-//    [[UMSocialManager defaultManager] setUmSocialAppkey:@"581c3375ae1bf80832000c0e"];
-//
-//    
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Linkedin appKey:@"811qx7h3151vsv"  appSecret:@"F509NxrWFQEtZfyQ" redirectURL:@"https://api.linkedin.com/v1/people"];
-//    
-//    
-//    
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Facebook appKey:@"107704292745179"  appSecret:@"38053202e1a5fe26c80c753071f0b573" redirectURL:nil];
-//    
-//    
-//    
-//    
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Twitter appKey:@"fB5tvRpna1CKK97xZUslbxiet"  appSecret:@"YcbSvseLIwZ4hZg9YmgJPP5uWzd4zr6BpBKGZhf07zzh3oj62K" redirectURL:nil];
-    [[UMSocialManager defaultManager] setUmSocialAppkey:@"581c3375ae1bf80832000c0e"];
-    UMConfigInstance.appKey = @"581c3375ae1bf80832000c0e";
-
+    
+    
+    UMConfigInstance.appKey = @"58327b68f29d9808920018e2";
+    
     UMConfigInstance.channelId = @"App Store";
-    UMConfigInstance.eSType = E_UM_GAME; //仅适用于游戏场景，应用统计不用设置
     
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     
     [MobClick setLogEnabled:YES];
 
-    //设置Twitter的appKey和appSecret
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Twitter appKey:@"fB5tvRpna1CKK97xZUslbxiet"  appSecret:@"YcbSvseLIwZ4hZg9YmgJPP5uWzd4zr6BpBKGZhf07zzh3oj62K" redirectURL:nil];
     
-    //设置Facebook的appKey和UrlString
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Facebook appKey:@"506027402887373"  appSecret:nil redirectURL:@"http://www.umeng.com/social"];
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Linkedin appKey:@"81t5eiem37d2sc"  appSecret:@"7dgUXPLH8kA8WHMV" redirectURL:@"https://api.linkedin.com/v1/people"];
+    
+    [[UMSocialManager defaultManager] openLog:YES];
+
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"58327b68f29d9808920018e2"];
+
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Facebook appKey:@"1314536311921866"  appSecret:nil redirectURL:@"http://www.umeng.com/social"];
+
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Linkedin appKey:@"77aq4wlhrao62a"  appSecret:@"ckJ2kcod9vw2IOh0" redirectURL:@"https://api.linkedin.com/v1/people"];
+    
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Twitter appKey:@"fB5tvRpna1CKK97xZUslbxiet"  appSecret:@"YcbSvseLIwZ4hZg9YmgJPP5uWzd4zr6BpBKGZhf07zzh3oj62K" redirectURL:nil];
+
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Twitter appKey:@"zUxfYOXHn47rbNGRkG7cNVwVm"  appSecret:@"mXcwdwNbDhwO9YchjCwI7uhrcSevNcIGttw2q8hVPEV0lsBa1v" redirectURL:nil];
 
 }
 
@@ -122,67 +116,88 @@ static JYShareManager *shareManager;
 - (void)emailShareWithNewsID:(NSString *)newsID  newsTitle:(NSString *)newsTitle newsContent:(NSString *)newsContent newsImageURL:(NSString *)imageURL
 {
     MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
+    [_viewController.view addSubview:loadingView];
     
+    loadingView.center = CGPointMake(_viewController.view.frame.size.width/2, _viewController.view.frame.size.height/2);
+    [loadingView start];
     if (mailCompose == nil) {
+        [loadingView failed];
         return;
     }
         // 设置邮件代理
-        [mailCompose setMailComposeDelegate:self];
+    [mailCompose setMailComposeDelegate:self];
         // 设置邮件主题
-    [mailCompose setSubject:[NSString stringWithFormat:@"YiCaiGlobal: %@",newsTitle]];
-        // 设置收件人
-//        [mailCompose setToRecipients:@[@"765235992@qq.com"]];
-        // 设置抄送人
-//        [mailCompose setCcRecipients:@[@"huaxianwei@yicai.com"]];
-        // 设置密抄送
-        /**
-         *  设置邮件的正文内容
-         */
-        NSString *emailContent = newsContent;
-        // 是否为HTML格式
+    [mailCompose setSubject:[NSString stringWithFormat:@"YicaiGlobal: %@",newsTitle]];
+    /**
+     *  设置邮件的正文内容
+     */
+    NSString *emailContent = newsContent;
+    // 是否为HTML格式
     
-        [mailCompose setMessageBody:emailContent isHTML:NO];
-        // 如使用HTML格式，则为以下代码
-        [mailCompose setMessageBody:[NSString stringWithFormat:@"<html><body><p>I saw this on YiCaiGlobal App and thought you should see it:</p><h3><a href=\"%@\">%@</a></h3></body></html>" ,[self shareWebURLWithNewsID:newsID],newsTitle] isHTML:YES];
+    [mailCompose setMessageBody:emailContent isHTML:NO];
+    // 如使用HTML格式，则为以下代码
+    [mailCompose setMessageBody:[NSString stringWithFormat:@"<html><body><p>I saw this on YicaiGlobal App and thought you should see it:</p><h3><a href=\"%@\">%@</a></h3></body></html>" ,[self shareWebURLWithNewsID:newsID],newsTitle] isHTML:YES];
     
-        /**
-         *  添加附件
-         */
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+    
+    /**
+     *  添加附件
+     */
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+    
+    if (imageData != NULL) {
+        
         [mailCompose addAttachmentData:imageData mimeType:@"" fileName:@"defaultImage.jpg"];
-        // 弹出邮件发送视图
-        [_viewController presentViewController:mailCompose animated:YES completion:nil];
+        
+    }
+    // 弹出邮件发送视图
+    [_viewController presentViewController:mailCompose animated:YES completion:nil];
     
 
 }
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    [_viewController dismissViewControllerAnimated:YES completion:nil];
+    
+    [_viewController dismissViewControllerAnimated:YES completion:^{
+        if (result == MFMailComposeResultSent) {
+            [loadingView secuessed];
+        }else{
+            [loadingView failed];
+            
+        }
+
+    }];
+
 }
 - (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType newsID:(NSString *)newsID  newsTitle:(NSString *)newsTitle newsContent:(NSString *)newsContent newsImageURL:(NSString *)imageURL
 {
+    if (platformType == UMSocialPlatformType_Twitter) {
+        
+        [self TwitterWithNewsID:newsID newsTitle:newsTitle newsContent:newsContent newsImageURL:imageURL];
+        
+        return;
+    }
     
-    /*获取授权*/
+    [_viewController.view addSubview:loadingView];
+    
+    loadingView.center = CGPointMake(_viewController.view.frame.size.width/2, _viewController.view.frame.size.height/2);
+    [loadingView start];
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:_viewController completion:^(id result, NSError *error) {
-        NSLog(@"授权失败");
-        if (error) {
-
-            return ;
-        }
-        [_viewController.view addSubview:loadingView];
-        
-        loadingView.center = CGPointMake(_viewController.view.frame.size.width/2, _viewController.view.frame.size.height/2);
-        [loadingView start];
-        
-        //创建分享消息对象
+                //创建分享消息对象
         UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-        messageObject.text = newsTitle;
         
-        //创建网页内容对象
-        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:newsTitle descr:nil thumImage:[NSURL URLWithString:imageURL]];
+        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:newsTitle descr:newsContent thumImage:[NSURL URLWithString:imageURL]];
         
-        //设置网页地址
-        shareObject.webpageUrl = [self shareWebURLWithNewsID:newsID];
+        if (platformType == UMSocialPlatformType_Twitter) {
+            
+            messageObject.text = [NSString stringWithFormat:@"%@  %@",newsTitle,[self shareWebURLWithNewsID:newsID]];
+            
+        }else{
+            messageObject.text = newsTitle;
+            
+            //设置网页地址
+            shareObject.webpageUrl = [self shareWebURLWithNewsID:newsID];
+        }
+        
         //分享消息对象设置分享内容对象
         messageObject.shareObject = shareObject;
         
@@ -190,24 +205,146 @@ static JYShareManager *shareManager;
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:_viewController completion:^(id data, NSError *error) {
             if (error) {
                 [loadingView failed];
-
+                
                 NSLog(@"分享失败  %@",error);
-
+                
             }else{
                 [loadingView secuessed];
-
+                
                 NSLog(@"分享成功");
                 
             }
         }];
 
     }];
+
+
     
+//    if (platformType == UMSocialPlatformType_Facebook) {
+//       // [self faceBookWithNewsID:newsID newsTitle:newsTitle newsContent:newsContent newsImageURL:imageURL];
+//        //return;
+//    }else if (platformType == UMSocialPlatformType_Twitter){
+////        [self TwitterWithNewsID:newsID newsTitle:newsTitle newsContent:newsContent newsImageURL:imageURL];
+////        return;
+//    }
+////
+//    NSLog(@"_viewController -- %@",_viewController);
+//    /*获取授权*/
 
 
 }
 
+- (void)linkedInWithNewsID:(NSString *)newsID  newsTitle:(NSString *)newsTitle newsContent:(NSString *)newsContent newsImageURL:(NSString *)imageURL
+{
+    
+}
 
+- (void)TwitterWithNewsID:(NSString *)newsID  newsTitle:(NSString *)newsTitle newsContent:(NSString *)newsContent newsImageURL:(NSString *)imageURL
+{
+    
+    [_viewController.view addSubview:loadingView];
+    loadingView.center = CGPointMake(_viewController.view.frame.size.width/2, _viewController.view.frame.size.height/2);
+    [loadingView start];
+
+    if (![SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        NSLog(@"不可用");
+        UIAlertView *alter =[ [UIAlertView alloc] initWithTitle:@"Oops" message:@"setup your TwitterID please, go to configuration - Twitter - add account. You can share after your account is added" delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:nil, nil];
+        
+        [alter show];
+        [loadingView failed];
+
+        return;
+    }
+    SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    
+    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:imageURL];
+
+    if (cachedImage != nil) {
+        [composeVC addImage:cachedImage];
+
+    }else{
+        [composeVC addImage:[UIImage imageWithContentsOfFile:@"AppIcon"]];
+
+    }
+
+    // 添加要分享的文字
+    [composeVC setInitialText:newsTitle];
+    // 添加要分享的url
+    [composeVC addURL:[NSURL URLWithString:[self shareWebURLWithNewsID:newsID]]];
+    // 弹出分享控制器
+    [_viewController presentViewController:composeVC animated:YES completion:nil];
+    // 监听用户点击事件
+    composeVC.completionHandler = ^(SLComposeViewControllerResult result){
+        if (result == SLComposeViewControllerResultDone) {
+            NSLog(@"sendOver");
+            [loadingView secuessed];
+
+        }
+        else if (result == SLComposeViewControllerResultCancelled)
+        {
+            [loadingView failed];
+
+            NSLog(@"cancle");
+        }
+    };
+    
+}
+
+- (void)faceBookWithNewsID:(NSString *)newsID  newsTitle:(NSString *)newsTitle newsContent:(NSString *)newsContent newsImageURL:(NSString *)imageURL
+{
+    [_viewController.view addSubview:loadingView];
+    loadingView.center = CGPointMake(_viewController.view.frame.size.width/2, _viewController.view.frame.size.height/2);
+    [loadingView start];
+
+    if (![SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        NSLog(@"不可用");
+        UIAlertView *alter =[ [UIAlertView alloc] initWithTitle:@"Oops" message:@"setup your FacebookID please, go to configuration - Facebook - add account. You can share after your account is added" delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:nil, nil];
+        
+        [alter show];
+        [loadingView failed];
+
+
+        return;
+    }
+
+    SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+
+    NSLog(@"composeVC -- %@",composeVC);
+
+    if (composeVC == NULL) {
+        [loadingView failed];
+
+        return;
+    }
+    // 添加要分享的文字
+    [composeVC setInitialText:newsTitle];
+
+    // 添加要分享的图片
+    
+    NSLog(@"%@",imageURL);
+    [composeVC addImage:[UIImage imageWithContentsOfFile:imageURL]];
+        
+//    }
+    
+    // 添加要分享的url
+    [composeVC addURL:[NSURL URLWithString:[self shareWebURLWithNewsID:newsID]]];
+    NSLog(@"%@--%@",composeVC,_viewController);
+    
+    // 弹出分享控制器
+    [_viewController presentViewController:composeVC animated:YES completion:nil];
+    // 监听用户点击事件
+    composeVC.completionHandler = ^(SLComposeViewControllerResult result){
+        if (result == SLComposeViewControllerResultDone) {
+            [loadingView secuessed];
+
+        }
+        else if (result == SLComposeViewControllerResultCancelled)
+        {
+            [loadingView failed];
+        }
+    };
+
+}
 - (NSString *)shareWebURLWithNewsID:(NSString *)newsID
 {
     

@@ -26,7 +26,7 @@
         [self addSubview:self.promptLabel];
         [self addSubview:self.lineImageView];
         
-        _promptLabel.center = CGPointMake(_promptLabel.center.x, (3+self.frame.size.height)/2);
+        _promptLabel.center = CGPointMake(_promptLabel.center.x, (self.frame.size.height)/2);
         self.backgroundColor = [UIColor clearColor];
 
     }
@@ -38,7 +38,7 @@
 {
     if (!_blodLineImageView) {
         
-        self.blodLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, 0, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 2)];
+        self.blodLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, 0, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 1)];
         
         _blodLineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
         
@@ -50,7 +50,7 @@
 {
     if (!_promptLabel) {
         
-        self.promptLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, 2+news_Cell_Left_Or_Right_Margin, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, [NSString getTextHeightWithFont:[UIFont newsTitleFont]])];
+        self.promptLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin*1.5+4, 1+news_Cell_Left_Or_Right_Margin, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, [NSString getTextHeightWithFont:[UIFont newsTitleFont]])];
         
         
         _promptLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);

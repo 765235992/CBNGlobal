@@ -21,12 +21,13 @@
 - (void)setNoBarItems;
 
 - (void)setBackBarButtonItem;
+- (void)setBackBarButtonItemWithTitle:(NSString *)title;
 
 - (void)setShareBarButtonItem;
 
 - (void)sharePlateFromTag:(NSInteger)tag;
+- (void)setNavigationTitle:(NSString *)titleString withTextColor:(UIColor *)color;
 
-- (void)setNavigationTitle:(NSString *)titleString;
 
 - (void)pushToTextNewsDetailWitNewsID:(NSInteger)newsID withChannelName:(NSString *)channelName;
 @end

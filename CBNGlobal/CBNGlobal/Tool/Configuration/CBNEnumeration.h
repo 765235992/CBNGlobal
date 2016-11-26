@@ -15,7 +15,7 @@ typedef enum  {
     CBNShareTwitterType = 1,
     CBNShareLinKedInType = 2,
     CBNShareEmailType = 3,
-
+    
 } CBNShareType;
 
 

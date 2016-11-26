@@ -55,7 +55,7 @@
 {
     if (!_historyLabel) {
         
-        self.historyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, 10)];
+        self.historyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width-2*Cell_Left_Or_Right_Margin, 10)];
         
         _historyLabel.numberOfLines = 0;
         
@@ -94,12 +94,12 @@
     [_historyLabel sizeToFit];
     
     
-    _historyLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, _historyLabel.frame.size.height);
+    _historyLabel.frame = CGRectMake(Cell_Left_Or_Right_Margin, Cell_Left_Or_Right_Margin, CBN_Screen_Width-2*Cell_Left_Or_Right_Margin, _historyLabel.frame.size.height);
     
     
-    self.frame = CGRectMake(0, 0, CBN_Screen_Width, _historyLabel.frame.size.height + 2*news_Cell_Up_Or_Down_Margin+1);
+    self.frame = CGRectMake(0, 0, CBN_Screen_Width, _historyLabel.frame.size.height + 2*Cell_Left_Or_Right_Margin+1);
     
-    _lineImageView.frame = CGRectMake(0, self.frame.size.height-1, CBN_Screen_Width, 1);
+    _lineImageView.frame = CGRectMake(Cell_Left_Or_Right_Margin, self.frame.size.height-1, CBN_Screen_Width-2*Cell_Left_Or_Right_Margin, 1);
 }
 
 @end

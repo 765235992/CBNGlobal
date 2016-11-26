@@ -15,6 +15,7 @@
 
 
     [self GET:[[CBNParametersLinkManager sharedManager] searchWithKeyword:[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] page:page  pageSize:pageSize] parameters:nil success:^(id result) {
+        NSLog(@"%@  === ",result);
         if (secuessed) {
             
             secuessed([result objectForKey:@"result"]);
@@ -22,6 +23,11 @@
         }
     } failed:^(NSError *error) {
         
+        if(failed)
+        {
+            failed(error);
+        }
+
     }];
 }
 @end

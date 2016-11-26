@@ -10,4 +10,6 @@
 
 @interface CBNSearchVC : CBNBaseInfoViewController
 @property (nonatomic, strong) NSString *channelName;
+- (void)netWorkChangedWithNetWorkState:(BOOL)currentNetworkState;
+
 @end

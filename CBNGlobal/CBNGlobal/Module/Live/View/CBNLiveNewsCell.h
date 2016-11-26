@@ -19,6 +19,8 @@
 
 @property (nonatomic, assign) id <CBNLiveNewsCellDelegate> delegate;
 
+@property (nonatomic, assign) NSInteger index;
+
 @property (nonatomic, strong) CBNLiveModel *liveModel;
 
 @end

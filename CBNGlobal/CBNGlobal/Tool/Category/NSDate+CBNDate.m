@@ -11,6 +11,8 @@
 @implementation NSDate (CBNDate)
 + (NSString *)getNormalDateFromUTCDateString:(NSString *)utcDateString
 {
+    
+    NSLog(@"%@",utcDateString);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     //输入格式
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];

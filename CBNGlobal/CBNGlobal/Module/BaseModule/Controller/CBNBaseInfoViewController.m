@@ -14,6 +14,12 @@
 
 @implementation CBNBaseInfoViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.view addSubview:self.shareView];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,7 +27,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIColorFromRGB(0x333333) colorImage] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIColorFromRGB(0x333333) colorImage]];
     
-    
+
     // Do any additional setup after loading the view.
 }
 
@@ -68,7 +74,9 @@
     navigationLabel.font = [UIFont newsTitleFont];
     navigationLabel.backgroundColor = [UIColor clearColor];
     
-    self.navigationItem.titleView = navigationLabel;}
+    self.navigationItem.titleView = navigationLabel;
+
+}
 - (void)setBackBarButtonItem
 {
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -89,6 +97,43 @@
     self.navigationItem.leftBarButtonItems = @[leftSpacer,backBar];
     
 }
+
+
+- (void)setBackBarButtonItemWithTitle:(NSString *)title
+{
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = CGRectMake(0, 0, 150, 44);
+
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    [imageView dk_setImagePicker:DKImagePickerWithImages([UIImage imageNamed:@"CBN_Navigation_Back_Icon_Day.png"],[UIImage imageNamed:@"CBN_Navigation_Back_Icon_Day.png"],[UIImage imageNamed:@"CBN_Navigation_Back_Icon_Day.png"])];
+    
+    [backButton addSubview:imageView];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, backButton.frame.size.width-44, 44)];
+    
+    titleLabel.font = [UIFont newsTitleFont];
+    
+    titleLabel.text = title;
+    
+    titleLabel.textColor = [UIColor whiteColor];
+    
+    
+    [backButton addSubview:titleLabel];
+    
+    
+    [backButton addTarget:self action:@selector(backButton:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *backBar = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    UIBarButtonItem *leftSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    leftSpacer.width = -10;
+    
+    self.navigationItem.leftBarButtonItems = @[leftSpacer,backBar];
+    
+}
+
 - (void)backButton:(UIButton *)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -122,9 +167,9 @@
     
     [shareButton dk_setImage:DKImagePickerWithImages([UIImage imageNamed:@"share-white.png"],[UIImage imageNamed:@"share-white.png"],[UIImage imageNamed:@"share-white.png"]) forState:UIControlStateNormal];
     
-    shareButton.frame = CGRectMake(0, 0, 44, 44);
+    shareButton.frame = CGRectMake(0, 0, 88, 44);
     
-    [shareButton setImageEdgeInsets:UIEdgeInsetsMake(11, 11, 11, 11)];
+    [shareButton setImageEdgeInsets:UIEdgeInsetsMake(11, 55, 11, 11)];
     
     shareButton.backgroundColor = [UIColor clearColor];
     shareButton.hidden = NO;
@@ -144,19 +189,12 @@
 }
 - (void)shareButton:(UIButton *)sender
 {
-    if (_shareView == nil) {
-//        
-        [self.view addSubview:self.shareView];
+
+    if (_shareView.hidden == YES) {
+        _shareView.hidden = NO;
     }else{
-        if (_shareButton.selected == YES) {
-            _shareView.hidden = NO;
-        }else{
-            _shareView.hidden = YES;
-        }
+        _shareView.hidden = YES;
     }
-
-    _shareButton.selected = !_shareButton.selected;
-
 }
 
 - (CBNNavigationShareView *)shareView
@@ -165,6 +203,7 @@
         
         self.shareView = [[CBNNavigationShareView alloc] initWithFrame:CGRectMake(CBN_Screen_Width-search_Bar_Height*1.5-4, 0, search_Bar_Height*1.5, 100)];
         _shareView.delegate = self;
+        _shareView.hidden = YES;
         
     }
     
@@ -174,7 +213,7 @@
 - (void)sharePlateFromTag:(NSInteger)tag
 {
 }
-- (void)setNavigationTitle:(NSString *)titleString
+- (void)setNavigationTitle:(NSString *)titleString withTextColor:(UIColor *)color
 {
     
 //    [self setNavigationView];
@@ -182,7 +221,7 @@
     UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
     navigationLabel.text = titleString;
     navigationLabel.textAlignment = NSTextAlignmentCenter;
-    navigationLabel.textColor = [UIColor whiteColor];
+    navigationLabel.textColor = color;
     navigationLabel.font = [UIFont newsTitleFont];
     navigationLabel.backgroundColor = [UIColor clearColor];
     

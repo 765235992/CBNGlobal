@@ -12,11 +12,12 @@
 #import "CBNBaseInfoViewController.h"
 #import "CBNTextDetailVC.h"
 #import "CBNSearchVC.h"
+#import "CBNNetPromptView.h"
 
 #define draw_Back_Alpha  0.8
 
 @interface CBNBaseChannelVC ()
-
+@property (nonatomic, strong) CBNNetPromptView *netPromptView;
 @end
 
 @implementation CBNBaseChannelVC
@@ -33,7 +34,6 @@
 - (void)setNavigationTitle:(NSString *)titleString
 {
     
-    //    [self setNavigationView];
     
     UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
     navigationLabel.text = titleString;
@@ -46,12 +46,24 @@
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isHaveNetwork = YES;
     
+    [self.view addSubview:self.netPromptView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkState:) name:@"networkState" object:nil];
     self.navigationController.navigationBar.dk_barTintColorPicker = DKColorPickerWithColors([UIColor whiteColor],RGBColor(3, 3, 3, 0.6),[UIColor orangeColor]);
     [self.navigationController.navigationBar setBackgroundImage:[UIColorFromRGB(0x333333) colorImage] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIColorFromRGB(0x333333) colorImage]];
+    
     [self setNavigationView];
     [self setNavigationHeader];
     [self setSearchBar];
@@ -136,8 +148,8 @@
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
     
     // 设置文字
-    [header setTitle:@"Pull down to refresh" forState:MJRefreshStateIdle];
-    [header setTitle:@"Release to refresh" forState:MJRefreshStatePulling];
+    [header setTitle:@"Pull to refresh" forState:MJRefreshStateIdle];
+    [header setTitle:@"Refresh after loosen" forState:MJRefreshStatePulling];
     [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
     
     // 设置字体
@@ -154,6 +166,26 @@
 - (void)refreshData
 {
     
+}
+
+- (MJRefreshAutoNormalFooter *)noData
+{
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    [footer setTitle:@"Drag to load more…" forState:MJRefreshStateIdle];
+    
+    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
+    
+    [footer setTitle:@"No data" forState:MJRefreshStateNoMoreData];
+    
+    // 设置字体
+    footer.stateLabel.font = [UIFont refreshAndLoadingFont];
+    //
+    //    // 设置颜色
+    footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
+    
+    return footer;
+
 }
 - (MJRefreshAutoNormalFooter *)refreshFooter
 {
@@ -205,4 +237,76 @@
     [self.navigationController pushViewController:textDetailVC animated:YES];
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (CBNNetPromptView *)netPromptView
+{
+    if (!_netPromptView) {
+        
+        self.netPromptView = [[CBNNetPromptView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, 35)];
+        
+        _netPromptView.backgroundColor = [UIColor clearColor];
+        
+    }
+    
+    return _netPromptView;
+}
+
+- (void)networkState:(NSNotification *)notification
+{
+    NSDictionary *dic = notification.userInfo;
+    
+    BOOL currentNetworkState = [[dic objectForKey:@"isHavenetwork"] boolValue];
+    
+    [self netWorkChangedWithNetWorkState:currentNetworkState];
+    
+    
+}
+
+- (void)netWorkChangedWithNetWorkState:(BOOL)currentNetworkState
+{
+    if ( currentNetworkState == YES && self.isHaveNetwork == YES) {
+        
+    }else{
+        [self.view bringSubviewToFront:self.netPromptView];
+        
+        if (currentNetworkState == YES && self.isHaveNetwork == NO) {
+            
+            self.isHaveNetwork = YES;
+            [_netPromptView networkStateIsNormal];
+            
+            [self networkNormal];
+            
+            
+        }else if (self.isHaveNetwork == YES && currentNetworkState == NO){
+            self.isHaveNetwork = NO;
+            [_netPromptView networkStatusIsAbnormal];
+            
+        }
+        
+    }
+
+}
+- (void)networkNormal
+{
+    
+}
+
+
+
+
+
+
+
 @end

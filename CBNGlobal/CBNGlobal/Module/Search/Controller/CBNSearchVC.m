@@ -13,6 +13,8 @@
 #import "CBNSearchRequest.h"
 #import "CBNSearchModel.h"
 #import "CBNSearchSqliteManager.h"
+#import "CBNLoadingView.h"
+#import "CBNNetPromptView.h"
 
 #define isitIncludeLowercaseLettersAndNumbers(str) [[NSPredicate predicateWithFormat:@"SELF MATCHES %@"@"<[a-zA-Z]+(s+[a-zA-Z]+s*=s*(\"([^\"]*)\"|'([^']*)'))*s*/>"] evaluateWithObject:str]
 
@@ -23,6 +25,9 @@
 @property (nonatomic, strong) NSMutableArray *sourceArray;
 @property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, strong) NSString *currentKeyWord;
+@property (nonatomic, strong) CBNLoadingView *loadingView;
+@property (nonatomic, assign) BOOL isHaveNoNetwork;
+@property (nonatomic, strong) CBNNetPromptView *netPromptView;
 
 @end
 
@@ -34,7 +39,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:@"networkState" object:nil];
+
     [self.navigationController.navigationBar addSubview:self.searchView];
 
 }
@@ -50,6 +56,7 @@
 {
     [super viewWillDisappear:animated];
     _searchView.hidden = YES;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"networkState" object:nil];
 
     [_searchView removeFromSuperview];
 
@@ -60,31 +67,114 @@
     [_searchView removeFromSuperview];
 
 }
+- (CBNLoadingView *)loadingView
+{
+    if (!_loadingView) {
+        
+        self.loadingView = [[CBNLoadingView alloc] initWithFrame:self.view.bounds];
+    }
+    
+    return _loadingView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNoBarItems];
-    
+    self.isHaveNoNetwork = YES;
+
     [self.view addSubview:self.resultView];
     [self.view addSubview:self.defaultView];
+    [self.view addSubview:self.loadingView];
+    _loadingView.hidden = YES;
+    [self.view addSubview:self.netPromptView];
     
 
 }
+- (void)netWorkChangedWithNetWorkState:(BOOL)currentNetworkState
+{
+    if ( currentNetworkState == YES && self.isHaveNoNetwork == YES) {
+        
+    }else{
+        [self.view bringSubviewToFront:self.netPromptView];
+        
+        if (currentNetworkState == YES && self.isHaveNoNetwork == NO) {
+            
+            self.isHaveNoNetwork = YES;
+            [_netPromptView networkStateIsNormal];
+            
+            //            [self networkNormal];
+            
+            
+        }else if (self.isHaveNoNetwork == YES && currentNetworkState == NO){
+            self.isHaveNoNetwork = NO;
+            [_netPromptView networkStatusIsAbnormal];
+            
+        }
+        
+    }
+    
+}
+
+- (void)networkChanged:(NSNotification *)notification{
+    
+    NSDictionary *dic = notification.userInfo;
+    
+    BOOL currentNetworkState = [[dic objectForKey:@"isHavenetwork"] boolValue];
+    [self netWorkChangedWithNetWorkState:currentNetworkState];
+    
+    //    if (isHaveNetwork == NO && self.isHaveNoNetwork == NO) {
+    //        self.isHaveNoNetwork = YES;
+    //        [_netPromptView networkStatusIsAbnormal];
+    //
+    //
+    //    }
+    //    if (self.isHaveNoNetwork == YES && isHaveNetwork == YES) {
+    //        self.isHaveNoNetwork = NO;
+    //        [_netPromptView networkStateIsNormal];
+    //    }
+    
+    
+    
+    
+    //    _leftChannelVC.currentNetWorkState = isHaveNetwork;
+    //
+    //    if (isHaveNetwork == YES) {
+    //        
+    //        [self requestChannelItem];
+    //        
+    //    }
+}
+- (CBNNetPromptView *)netPromptView
+{
+    if (!_netPromptView) {
+        
+        self.netPromptView = [[CBNNetPromptView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, 35)];
+        
+        _netPromptView.backgroundColor = [UIColor clearColor];
+        
+    }
+    
+    return _netPromptView;
+}
+
 #pragma mark Request
 
 - (void)loadSearchWithSearchText:(NSString *)searchtext
 {
+    _loadingView.hidden = NO;
+    
     _currentPage = 0;
     _currentKeyWord = searchtext;
 
     _defaultView.searchKeywordString = _currentKeyWord;
-    
+
     [CBNSearchRequest loadNewsItemsWithSearchText:searchtext page:_currentPage pageSize:10 Secuessed:^(NSArray *searchReaultArray) {
-        
         
         [self.sourceArray removeAllObjects];
         
+        _loadingView.hidden = YES;
+
         for (NSDictionary *dic in searchReaultArray) {
             
             CBNSearchModel *searchModel = [CBNSearchModel mj_objectWithKeyValues:dic];
@@ -94,16 +184,20 @@
         }
         
         _resultView.sourceArray = _sourceArray;
+        
         _currentPage++;
         
     } failed:^(NSError *error) {
+        
+        [_loadingView loadingFailed];
         
     }];
 }
 
 - (void)loadMoreSearchNews
 {
-    [CBNSearchRequest loadNewsItemsWithSearchText:_currentKeyWord page:1 pageSize:10 Secuessed:^(NSArray *searchReaultArray) {
+    
+    [CBNSearchRequest loadNewsItemsWithSearchText:_currentKeyWord page:_currentPage pageSize:10 Secuessed:^(NSArray *searchReaultArray) {
         
         
         [self.sourceArray removeAllObjects];
@@ -119,7 +213,7 @@
         _currentPage++;
         
     } failed:^(NSError *error) {
-        
+        _resultView.refreshFiaied = YES;
     }];
 
 }
@@ -130,10 +224,12 @@
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 - (void)searchView:(CBNSearcnView *)searcnView searchText:(NSString *)searchText
 {
 
     [self loadSearchWithSearchText:searchText];
+    [self.view bringSubviewToFront:_loadingView];
 
 }
 
@@ -165,6 +261,7 @@
 {
     [self loadSearchWithSearchText:searText];
     [self.view bringSubviewToFront:_resultView];
+    [self.view bringSubviewToFront:_loadingView];
 
     
 }

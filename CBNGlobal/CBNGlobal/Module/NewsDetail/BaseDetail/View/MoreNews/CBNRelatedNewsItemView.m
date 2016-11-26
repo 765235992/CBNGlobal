@@ -38,7 +38,7 @@
 {
     if (!_newsTitleLabel) {
         
-        self.newsTitleLabel = [[JYLabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, 0)];
+        self.newsTitleLabel = [[JYLabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin*1.5+4, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 3*news_Cell_Left_Or_Right_Margin-4, 0)];
         
         _newsTitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         
@@ -69,8 +69,7 @@
     _newsTitleString = newsTitleString;
     
     
-    CGFloat label_Width = CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin;
-    
+    CGFloat label_Width = CBN_Screen_Width - 3*news_Cell_Left_Or_Right_Margin-4;
     
     NSString *resultString = [NSString stringWithFormat:@"<font color='#ADADAD'>%ld.</font> <font color='000000'>%@</font>",(long)_index,_newsTitleString];
     
@@ -84,7 +83,7 @@
     
     [_newsTitleLabel setFrame:frame];
 
-    _newsTitleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
+    _newsTitleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin*1.5+4, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _newsTitleLabel.frame.size.height + 2*news_Cell_Up_Or_Down_Margin);
     

@@ -32,9 +32,17 @@
 
 @property (nonatomic, strong) CBNLoadingView *loadingView;
 
+@property (nonatomic, assign) BOOL loadFailed;
 @end
 
 @implementation CBNTextDetailVC
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"networkState" object:nil];
+    
+}
+
 - (void)dealloc
 {
     NSLog(@"新闻详情释放");
@@ -44,8 +52,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    (lsna)
-    [self setBackBarButtonItem];
-    [self setNavigationTitle:self.channelName];
+    [self setBackBarButtonItemWithTitle:self.channelName];
+    [self setNavigationTitle:@"1" withTextColor:[UIColor clearColor]];
     [self setShareBarButtonItem];
     
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
@@ -56,8 +64,33 @@
     
     [self.view addSubview:self.loadingView];
     [_loadingView startLoading];
+    self.loadFailed = NO;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:@"networkState" object:nil];
+
+}
+
+- (void)networkChanged:(NSNotification *)notification
+{
+    NSDictionary *dic = notification.userInfo;
     
+    BOOL isHaveNetwork = [[dic objectForKey:@"isHavenetwork"] boolValue];
+ 
+    if (_loadFailed == YES && isHaveNetwork == YES) {
+        
+        if (_loadingView == nil) {
+            
+            [self.view addSubview:self.loadingView];
+            
+        }
+        
+        [_loadingView startLoading];
+
+        NSInteger newsID = _newsID;
+        
+        self.newsID = newsID;
+        
+    }
 }
 - (void)setNewsID:(NSInteger)newsID
 {
@@ -70,6 +103,7 @@
         [self setupSubViews];
 
     } failed:^(NSError *error) {
+        self.loadFailed = YES;
 
         [_loadingView loadingFailed];
 
@@ -81,6 +115,7 @@
 {
     
     [_aScrollView addSubview:self.headerView];
+    
     _headerView.newsDetailModel = _newsDetailModel;
      
     _scrollViewHeight = _scrollViewHeight+_headerView.frame.size.height + news_Cell_Up_Or_Down_Margin*0.5;
@@ -91,6 +126,7 @@
         NSAttributedString *attributeString = [[NSAttributedString alloc] initWithData:[[NSString getHtmlStringWithPString:_newsDetailModel.NewsBody] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [_loadingView loadingSecuessed];
             
             if (_aScrollView==nil) {
@@ -99,7 +135,6 @@
             [_aScrollView addSubview:self.contentTextView];
             
             _contentTextView.attText =(NSMutableAttributedString *)attributeString;
-//            _contentTextView.backgroundColor = [UIColor redColor];
             
             _scrollViewHeight = _scrollViewHeight+_contentTextView.frame.size.height+news_Cell_Up_Or_Down_Margin*1.5;
             
@@ -155,7 +190,7 @@
 {
     if (!_headerView) {
         
-        self.headerView = [[CBNTextDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, 200)];
+        self.headerView = [[CBNTextDetailHeaderView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin*1.5+4, 0, CBN_Screen_Width-news_Cell_Left_Or_Right_Margin*3-4, 200)];
         
     }
     

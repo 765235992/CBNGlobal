@@ -9,7 +9,7 @@
 #import "CBNChannelNewsTextCell.h"
 #import "CBNNewsTimeLabel.h"
 
-#define title_And_Author_Margin _newsThumbImageView.frame.size.width + 2*news_Cell_Left_Or_Right_Margin
+#define title_And_Author_Margin _newsThumbImageView.frame.size.width + 2*Cell_Left_Or_Right_Margin
 @interface CBNChannelNewsTextCell ()
 @property (nonatomic, strong) UILabel *newsTitleLabel;
 
@@ -53,7 +53,7 @@
 {
     if (!_newsThumbImageView) {
         
-        self.newsThumbImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, news_Cell_Image_Width,  news_Cell_Image_Width* 0.668)];
+        self.newsThumbImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, Cell_Left_Or_Right_Margin, news_Cell_Image_Width,  news_Cell_Image_Width* 0.668)];
         
         _newsThumbImageView.contentMode = UIViewContentModeScaleToFill;
         
@@ -67,9 +67,9 @@
 - (UILabel *)newsTitleLabel
 {
     if (!_newsTitleLabel) {
-        CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +news_Cell_Left_Or_Right_Margin*3);
+        CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +Cell_Left_Or_Right_Margin*3);
 
-        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, label_Width, 0)];
+        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(title_And_Author_Margin, Cell_Left_Or_Right_Margin, label_Width, 0)];
         
         _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
         
@@ -100,7 +100,7 @@
         
         [_authorNameLabel sizeToFit];
         
-        _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height, _authorNameLabel.frame.size.width, _authorNameLabel.frame.size.height);
+        _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+Cell_Left_Or_Right_Margin - _authorNameLabel.frame.size.height, _authorNameLabel.frame.size.width, _authorNameLabel.frame.size.height);
         
     }
     
@@ -116,7 +116,7 @@
         
         _timeLabel.text = @"";
         
-        _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _authorNameLabel.frame.origin.y, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+        _timeLabel.frame = CGRectMake(CBN_Screen_Width- Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _authorNameLabel.frame.origin.y, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
         
     }
     
@@ -127,7 +127,7 @@
 {
     if (!_lineImageView) {
         
-        self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Height-1, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin, 1)];
+        self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, news_Cell_Height-1, CBN_Screen_Width - 2* Cell_Left_Or_Right_Margin, 1)];
         _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
     }
     
@@ -141,7 +141,7 @@
     
     _timeLabel.text = [NSDate getNormalDateFromUTCDateString:_itemModel.LastDate];
     
-    _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+    _timeLabel.frame = CGRectMake(CBN_Screen_Width- Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+Cell_Left_Or_Right_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
 
     if (_itemModel.NewsAuthor.length>0&&_itemModel.NewsSource.length>0) {
         
@@ -164,7 +164,7 @@
     
     [_authorNameLabel sizeToFit];
     
-    _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height,CBN_Screen_Width - news_Cell_Left_Or_Right_Margin*4- news_Cell_Image_Width - _timeLabel.frame.size.width, _authorNameLabel.frame.size.height);
+    _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+Cell_Left_Or_Right_Margin - _authorNameLabel.frame.size.height,CBN_Screen_Width - Cell_Left_Or_Right_Margin*4- news_Cell_Image_Width - _timeLabel.frame.size.width, _authorNameLabel.frame.size.height);
 
     [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getNewsThumbName:itemModel.NewsThumbs]] placeholderImage:[UIImage imageNamed:@"samll-Defaule-Image.png"]];
     
@@ -172,32 +172,32 @@
     
     [_newsTitleLabel sizeToFit];
     
-    CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +news_Cell_Left_Or_Right_Margin*3);
+    CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +Cell_Left_Or_Right_Margin*3);
     
-    _newsTitleLabel.frame = CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
+    _newsTitleLabel.frame = CGRectMake(title_And_Author_Margin, Cell_Left_Or_Right_Margin, label_Width, _newsTitleLabel.frame.size.height);
 }
 
 - (void)setSearchModel:(CBNSearchModel *)searchModel
 {
     _searchModel = searchModel;
     
-    _timeLabel.text = [NSDate getNormalDateFromUTCDateString:_itemModel.LastDate];
+    _timeLabel.text = [NSDate getNormalDateFromDateString:_searchModel.creationDate];
     
-    _timeLabel.frame = CGRectMake(CBN_Screen_Width- news_Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+    _timeLabel.frame = CGRectMake(CBN_Screen_Width- Cell_Left_Or_Right_Margin - _timeLabel.frame.size.width, _newsThumbImageView.frame.size.height+Cell_Left_Or_Right_Margin - _timeLabel.frame.size.height, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
     
-    if (_itemModel.NewsAuthor.length>0&&_itemModel.NewsSource.length>0) {
+    if (_searchModel.author.length>0&&_searchModel.author.length>0) {
         
         _authorNameLabel.text = [NSString stringWithFormat:@"%@,%@",_searchModel.author,_searchModel.source];
         
     }else{
         
-        if (_itemModel.NewsAuthor.length >0) {
+        if (_searchModel.author.length >0) {
             
             _authorNameLabel.text =  _searchModel.author;
             
         }
         
-        if (_itemModel.NewsSource.length > 0) {
+        if (_searchModel.source.length > 0) {
             
             _authorNameLabel.text =  _searchModel.source;
             
@@ -206,7 +206,7 @@
     
     [_authorNameLabel sizeToFit];
     
-    _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+news_Cell_Up_Or_Down_Margin - _authorNameLabel.frame.size.height,CBN_Screen_Width - news_Cell_Left_Or_Right_Margin*4- news_Cell_Image_Width - _timeLabel.frame.size.width, _authorNameLabel.frame.size.height);
+    _authorNameLabel.frame = CGRectMake(title_And_Author_Margin, _newsThumbImageView.frame.size.height+Cell_Left_Or_Right_Margin - _authorNameLabel.frame.size.height,CBN_Screen_Width - Cell_Left_Or_Right_Margin*4- news_Cell_Image_Width - _timeLabel.frame.size.width, _authorNameLabel.frame.size.height);
     
     [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:_searchModel.previewImage] placeholderImage:[UIImage imageNamed:@"samll-Defaule-Image.png"]];
     
@@ -214,9 +214,9 @@
     
     [_newsTitleLabel sizeToFit];
     
-    CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +news_Cell_Left_Or_Right_Margin*3);
+    CGFloat label_Width =CBN_Screen_Width - (_newsThumbImageView.frame.size.width +Cell_Left_Or_Right_Margin*3);
     
-    _newsTitleLabel.frame = CGRectMake(title_And_Author_Margin, news_Cell_Up_Or_Down_Margin, label_Width, _newsTitleLabel.frame.size.height);
+    _newsTitleLabel.frame = CGRectMake(title_And_Author_Margin, Cell_Left_Or_Right_Margin, label_Width, _newsTitleLabel.frame.size.height);
 }
 
 @end

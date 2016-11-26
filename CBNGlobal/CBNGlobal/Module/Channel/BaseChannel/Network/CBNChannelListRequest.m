@@ -17,6 +17,8 @@
         NSArray *channelItemArray = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];
         
         if (secuessed) {
+            NSLog(@"%@",channelItemArray);
+
             secuessed(channelItemArray);
             
         }

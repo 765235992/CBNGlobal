@@ -12,6 +12,7 @@
 
 @interface CBNPublicChannelVC ()<UITableViewDataSource,UITableViewDelegate>
 
+
 @property (nonatomic, strong) UITableView *aTableView;
 
 @property (nonatomic, strong) NSMutableArray *sourceArray;
@@ -20,6 +21,9 @@
 
 @property (nonatomic, assign) BOOL refreshSecuessed;
 
+//@property (nonatomic, assign) BOOL 
+
+
 @end
 
 @implementation CBNPublicChannelVC
@@ -27,6 +31,7 @@
 {
     CBNLog(@"公共频道释放");
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -44,10 +49,20 @@
 {
     CBNSearchVC *searchVC = [[CBNSearchVC alloc] init];
     searchVC.channelName = self.channelModel.EnglishName;
+    [searchVC netWorkChangedWithNetWorkState:self.isHaveNetwork];
+
     [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 
+- (void)networkNormal
+{
+    
+    NSLog(@"网好了");
+    if (self.refreshSecuessed == NO) {
+        [self refreshData];
+    }
+}
 
 #define 添加刷新效果和加载更多效果
 - (void)setUpTableView
@@ -72,8 +87,17 @@
         
         if (weakSelf.refreshSecuessed == NO) {
             
-            weakSelf.aTableView.mj_footer = [self refreshFooter];
-            
+            if (channelNewsItemsArray.count == 0) {
+
+                weakSelf.aTableView.mj_footer = [self noData];
+
+                [_aTableView.mj_footer endRefreshingWithNoMoreData];
+                
+            }else{
+                
+                weakSelf.aTableView.mj_footer = [self refreshFooter];
+
+            }
         }
 
         weakSelf.refreshSecuessed = YES;
@@ -243,4 +267,5 @@
     
     return _sourceArray;
 }
+
 @end

@@ -49,13 +49,14 @@ static CBNNetworkState *shareManager;
             }
                 
             case AFNetworkReachabilityStatusReachableViaWiFi: {
-                //                [weakSelf loadMessage:@"Wifi已开启"];
+
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"networkState" object:nil userInfo:@{@"isHavenetwork":[NSNumber numberWithBool:YES]}];
+                
                 break;
             }
                 
             case AFNetworkReachabilityStatusReachableViaWWAN: {
-
+                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"networkState" object:nil userInfo:@{@"isHavenetwork":[NSNumber numberWithBool:YES]}];
                 break;
             }

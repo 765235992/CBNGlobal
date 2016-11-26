@@ -18,9 +18,14 @@
 #import "JYShareManager.h"
 #import "CBNChannelNavigationController.h"
 #import "CBNChannelRequrst.h"
-@interface AppDelegate ()
+
+#import "YYOpenSDK.h"
+@interface AppDelegate ()<YYOpenViewDelegate>
+{
+    CBNHomePageVC *_homePage;
+}
 @property (nonatomic,strong) MMDrawerController * drawerController;
-@property (nonatomic, strong) CBNHomePageVC *homePage;
+
 @property (nonatomic, strong) CBNLeftChannelVC *leftChannelVC;
 @end
 
@@ -28,9 +33,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [UIButton buttonWithType:UIButtonTypeCustom];
     
     [[JYShareManager shareManager] shareConfig];
-  
+    
     [[CBNNetworkState shareManager] ListeningNetworking];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -43,27 +49,57 @@
     
     [self setGuideView];
     
+    [self addOpenView];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:@"networkState" object:nil];
+
 
     
     return YES;
+}
+
+- (void)addOpenView
+{
+    
+    YYOpenView *openView = [[YYOpenView alloc] initWithADURL:nil andDefaultImage:[UIImage imageNamed:@"Portrait-736h@3x.png"]];
+    openView.frame = CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height);
+    openView.backgroundColor = [UIColor blackColor];
+    openView.contentMode = UIViewContentModeScaleToFill;
+    openView.delegate = self;
+    
+    [self.window addSubview:openView];
+    
+    [openView show];
+    
+}
+
+- (void)adImageViewClicked
+{
+
+
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
     
-    NSLog(@"结果 -- %d",result);
     if (!result) {
         
     }
     return result;
 }
-
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    NSLog(@"%s url=%@","app delegate application openURL called ", [url absoluteString]);
     
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    
     if (!result) {
         
     }
@@ -91,10 +127,9 @@
 
 - (MMDrawerController *)setDrawerVC{
     
-    _homePage = [[CBNHomePageVC alloc] init];
-    
-    CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:_homePage];
-    
+    CBNHomePageVC *ahomePage = [[CBNHomePageVC alloc] init];
+    CBNChannelNavigationController *homePageNavigatonController = [[CBNChannelNavigationController alloc] initWithRootViewController:ahomePage];
+
     _leftChannelVC = [[CBNLeftChannelVC alloc] init];
     /*
      *  添加到抽屉上去
@@ -131,7 +166,7 @@
 - (void)setGuideView{
     JYGuideView *view = [[JYGuideView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height)];
     
-    NSArray *arr = @[[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage],[[UIColor randomColor] colorImage]];
+    NSArray *arr = @[[UIImage imageNamed:@"guide_1@3x.png"],[UIImage imageNamed:@"guide_2@3x.png"]];
     
     [view showWithGuideImageArrays:arr];
 
@@ -141,6 +176,12 @@
     NSDictionary *dic = notification.userInfo;
     
     BOOL isHaveNetwork = [[dic objectForKey:@"isHavenetwork"] boolValue];
+    
+    
+    
+    
+    
+    _leftChannelVC.currentNetWorkState = isHaveNetwork;
     
     if (isHaveNetwork == YES) {
         
@@ -153,9 +194,7 @@
 {
     
     __weak typeof(self) weakSelf = self;
-    
-   
-    
+        
     [CBNChannelRequrst postChannelsSecuessed:^(NSArray *channelArray) {
 
         

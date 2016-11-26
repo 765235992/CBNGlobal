@@ -46,7 +46,7 @@
 {
     if (!_newstHeaderView) {
         
-        self.newstHeaderView = [[CBNBaseDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, 0)];
+        self.newstHeaderView = [[CBNBaseDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 0)];
     
     }
     

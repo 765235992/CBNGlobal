@@ -58,7 +58,7 @@
         
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        _cancelButton.frame = CGRectMake(CBN_Screen_Width-15 - 50, 0, 50, 44);
+        _cancelButton.frame = CGRectMake(CBN_Screen_Width-30 - 50, 0, 80, 44);
         
         _cancelButton.center = CGPointMake(_cancelButton.center.x, 44/2);
         
@@ -66,11 +66,13 @@
         
         _cancelButton.titleLabel.font = [UIFont fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Blod];
         
-        [_cancelButton.titleLabel sizeToFit];
+//        [_cancelButton.titleLabel sizeToFit];
         
-        _cancelButton.frame = CGRectMake(CBN_Screen_Width-15-_cancelButton.titleLabel.frame.size.width, 0, _cancelButton.titleLabel.frame.size.width, 44);
+        _cancelButton.frame = CGRectMake(CBN_Screen_Width - 80, 0, 80, 44);
         
         _cancelButton.dk_tintColorPicker = DKColorPickerWithColors(UIColorFromRGB(0x000000),UIColorFromRGB(0x000000),UIColorFromRGB(0x000000));
+        
+//        _cancelButton.backgroundColor = [UIColor redColor];
         
         [_cancelButton addTarget:self action:@selector(cancelButton:) forControlEvents:UIControlEventTouchUpInside];
         

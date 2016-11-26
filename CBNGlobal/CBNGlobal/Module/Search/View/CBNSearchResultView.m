@@ -12,10 +12,10 @@
 @interface CBNSearchResultView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *aTableView;
 @property (nonatomic, strong) NSMutableArray *resultArray;
+
 @end
 
 @implementation CBNSearchResultView
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -25,7 +25,7 @@
         self.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
 
         [self addSubview:self.aTableView];
-        
+
         
     }
     return self;
@@ -48,6 +48,56 @@
     // 设置footer
     self.aTableView.mj_footer = footer;
 
+}
+
+- (MJRefreshAutoNormalFooter *)noData
+{
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:nil];
+    
+    [footer setTitle:@"Drag to load more…" forState:MJRefreshStateIdle];
+    
+    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
+    
+    [footer setTitle:@"No data" forState:MJRefreshStateNoMoreData];
+    
+    // 设置字体
+    footer.stateLabel.font = [UIFont refreshAndLoadingFont];
+    //
+    //    // 设置颜色
+    footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
+    
+    return footer;
+    
+}
+- (void)loadMoreFailed
+{
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreSearchNewsDataFromSever)];
+    
+    [footer setTitle:@"Loading failed" forState:MJRefreshStateIdle];
+    
+    [footer setTitle:@"Loading more news…" forState:MJRefreshStateRefreshing];
+    
+    // 设置字体
+    footer.stateLabel.font = [UIFont refreshAndLoadingFont];
+    //
+    //    // 设置颜色
+    footer.stateLabel.dk_textColorPicker = DKColorPickerWithKey(refresh_And_Loading_Color);
+    // 设置footer
+    self.aTableView.mj_footer = footer;
+    
+    
+}
+
+- (void)setRefreshFiaied:(BOOL)refreshFiaied
+{
+    
+    [self loadMoreFailed];
+    _refreshFiaied = refreshFiaied;
+    
+    [_aTableView reloadData];
+    
+    [_aTableView.mj_footer endRefreshing];
+    
 }
 - (void)loadMoreSearchNewsDataFromSever
 {
@@ -83,7 +133,12 @@
     
     [self.resultArray removeAllObjects];
     [self.resultArray addObjectsFromArray:_sourceArray];
-    
+    if (_sourceArray.count == 0) {
+        [_aTableView reloadData];
+        _aTableView.mj_footer = [self noData];
+        [_aTableView.mj_footer endRefreshingWithNoMoreData];
+
+    }
     
     if (_resultArray.count < 10) {
         [_aTableView reloadData];

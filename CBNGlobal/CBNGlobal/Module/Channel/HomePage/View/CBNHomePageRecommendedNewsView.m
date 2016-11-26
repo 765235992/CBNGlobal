@@ -61,7 +61,7 @@
 {
     if (!_newsTitleLabel) {
         
-        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin, 0)];
+        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width - 2* Cell_Left_Or_Right_Margin, 0)];
         _newsTitleLabel.numberOfLines = 0;
         
         _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(news_Title_Color);
@@ -88,7 +88,7 @@
     
     [_newsTitleLabel sizeToFit];
     
-    _newsTitleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin + _newsThumbImageView.frame.size.height, CBN_Screen_Width - 2* news_Cell_Left_Or_Right_Margin , _newsTitleLabel.frame.size.height);
+    _newsTitleLabel.frame = CGRectMake(Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin + _newsThumbImageView.frame.size.height, CBN_Screen_Width - 2* Cell_Left_Or_Right_Margin , _newsTitleLabel.frame.size.height);
     
     [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:[[CBNParametersLinkManager sharedManager] getOriginalNewsThumbName:recommendNewsModel.NewsThumbs]] placeholderImage: [UIImage imageNamed:@"big-Defaule-Image.png"]];
     

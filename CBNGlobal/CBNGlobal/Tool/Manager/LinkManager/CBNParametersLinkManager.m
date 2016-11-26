@@ -60,7 +60,9 @@
 }
 - (NSString *)getOriginalNewsThumbName:(NSString *)newsThumb
 {
-    NSString *imageURL = [NSString stringWithFormat:@"http://cmss.yicai.com/uppics/slides/%@",newsThumb];
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@@320w_213h_1e_1c",k_Base_NewsCover_URl,newsThumb];
+
+//    NSString *imageURL = [NSString stringWithFormat:@"http://cmss.yicai.com/uppics/slides/%@",newsThumb];
     return imageURL;
 }
 - (NSString *)readNewsWithNewsID:(NSInteger)newsID
@@ -93,7 +95,6 @@
     keywordResultSring = [keywordResultSring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *urlStr  = [NSString stringWithFormat:@"http://www.yicai.com/api/appsearch/?type=108contenttype=0&searchKeyWords=%@&start=%ld&pagecount=%ld",keywordResultSring,(long)page,(long)pagesize];
     
-    CBNLog(@"%@",urlStr);
     
     return urlStr;
 }

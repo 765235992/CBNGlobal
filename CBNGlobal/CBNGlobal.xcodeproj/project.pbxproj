@@ -108,6 +108,17 @@
 		FEA0907D1DC98A2800F2791F /* navigation-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEA0907B1DC98A2800F2791F /* navigation-logo@2x.png */; };
 		FEA0907E1DC98A2800F2791F /* navigation-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEA0907C1DC98A2800F2791F /* navigation-logo@3x.png */; };
 		FEAA2CF31DC2FB0E00CAEB2C /* CBNSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAA2CF21DC2FB0E00CAEB2C /* CBNSearchCell.m */; };
+		FEB9BA4C1DE2E57B00D95A9E /* 01@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA471DE2E57B00D95A9E /* 01@3x.png */; };
+		FEB9BA4D1DE2E57B00D95A9E /* 02@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA481DE2E57B00D95A9E /* 02@3x.png */; };
+		FEB9BA4E1DE2E57B00D95A9E /* 03@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA491DE2E57B00D95A9E /* 03@3x.png */; };
+		FEB9BA4F1DE2E57B00D95A9E /* 04@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA4A1DE2E57B00D95A9E /* 04@3x.png */; };
+		FEB9BA501DE2E57B00D95A9E /* 05@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA4B1DE2E57B00D95A9E /* 05@3x.png */; };
+		FEB9BA581DE2E89800D95A9E /* libYYOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9BA571DE2E89800D95A9E /* libYYOpenSDK.a */; };
+		FEB9BA5A1DE2E97800D95A9E /* Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA591DE2E97800D95A9E /* Portrait-736h@3x.png */; };
+		FEB9BA5E1DE7D28F00D95A9E /* guide_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA5C1DE7D28F00D95A9E /* guide_1@3x.png */; };
+		FEB9BA5F1DE7D28F00D95A9E /* guide_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9BA5D1DE7D28F00D95A9E /* guide_2@3x.png */; };
+		FEB9BA631DE7D67D00D95A9E /* CBNNetPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB9BA621DE7D67D00D95A9E /* CBNNetPromptView.m */; };
+		FEB9BA651DE8611600D95A9E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9BA641DE8611600D95A9E /* Accounts.framework */; };
 		FEDBCB841DB1F0E600410E94 /* CBNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */; };
 		FEDBCB871DB1F0FB00410E94 /* CBNBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB861DB1F0FB00410E94 /* CBNBaseViewController.m */; };
 		FEDBCB8D1DB1F14B00410E94 /* CBNLeftChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDBCB8C1DB1F14B00410E94 /* CBNLeftChannelVC.m */; };
@@ -361,6 +372,20 @@
 		FEAA2CF11DC2FB0E00CAEB2C /* CBNSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNSearchCell.h; sourceTree = "<group>"; };
 		FEAA2CF21DC2FB0E00CAEB2C /* CBNSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNSearchCell.m; sourceTree = "<group>"; };
 		FEB42EBA1DB131A700B988E9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FEB9BA471DE2E57B00D95A9E /* 01@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01@3x.png"; sourceTree = "<group>"; };
+		FEB9BA481DE2E57B00D95A9E /* 02@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02@3x.png"; sourceTree = "<group>"; };
+		FEB9BA491DE2E57B00D95A9E /* 03@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03@3x.png"; sourceTree = "<group>"; };
+		FEB9BA4A1DE2E57B00D95A9E /* 04@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04@3x.png"; sourceTree = "<group>"; };
+		FEB9BA4B1DE2E57B00D95A9E /* 05@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05@3x.png"; sourceTree = "<group>"; };
+		FEB9BA551DE2E89800D95A9E /* YYOpenSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYOpenSDK.h; sourceTree = "<group>"; };
+		FEB9BA561DE2E89800D95A9E /* YYOpenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYOpenView.h; sourceTree = "<group>"; };
+		FEB9BA571DE2E89800D95A9E /* libYYOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYYOpenSDK.a; sourceTree = "<group>"; };
+		FEB9BA591DE2E97800D95A9E /* Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portrait-736h@3x.png"; sourceTree = "<group>"; };
+		FEB9BA5C1DE7D28F00D95A9E /* guide_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_1@3x.png"; sourceTree = "<group>"; };
+		FEB9BA5D1DE7D28F00D95A9E /* guide_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_2@3x.png"; sourceTree = "<group>"; };
+		FEB9BA611DE7D67D00D95A9E /* CBNNetPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNetPromptView.h; sourceTree = "<group>"; };
+		FEB9BA621DE7D67D00D95A9E /* CBNNetPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNetPromptView.m; sourceTree = "<group>"; };
+		FEB9BA641DE8611600D95A9E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		FEDBCB821DB1F0E600410E94 /* CBNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseNavigationController.h; sourceTree = "<group>"; };
 		FEDBCB831DB1F0E600410E94 /* CBNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNBaseNavigationController.m; sourceTree = "<group>"; };
 		FEDBCB851DB1F0FB00410E94 /* CBNBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNBaseViewController.h; sourceTree = "<group>"; };
@@ -434,6 +459,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEB9BA651DE8611600D95A9E /* Accounts.framework in Frameworks */,
 				FE5C108F1DD2C5C000E83B25 /* Social.framework in Frameworks */,
 				FEEC961C1DDD7CA300D170D8 /* libJYLiveShuffingSDK.a in Frameworks */,
 				FE7147941DBFB92900707DFD /* libsqlite3.0.tbd in Frameworks */,
@@ -443,6 +469,7 @@
 				FE71479D1DBFC8EE00707DFD /* libJYSqliteSDK.a in Frameworks */,
 				FEEC95F31DDBF29B00D170D8 /* libLSNavigationSDK.a in Frameworks */,
 				FE71475F1DBFA68400707DFD /* libJYGuideSDK.a in Frameworks */,
+				FEB9BA581DE2E89800D95A9E /* libYYOpenSDK.a in Frameworks */,
 				78F1F64B450F8B55BA1C78F4 /* libPods-CBNGlobal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +503,7 @@
 		D2F2262283C52836CD20E787 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEB9BA641DE8611600D95A9E /* Accounts.framework */,
 				FE5C108E1DD2C5C000E83B25 /* Social.framework */,
 				FE7147931DBFB92900707DFD /* libsqlite3.0.tbd */,
 				FE7147911DBFB92100707DFD /* libsqlite3.tbd */,
@@ -538,6 +566,7 @@
 		FE2E25181DB7270A007FA000 /* Guide */ = {
 			isa = PBXGroup;
 			children = (
+				FEB9BA5B1DE7D28500D95A9E /* Image */,
 				FE7147591DBFA68400707DFD /* libJYGuideSDK */,
 			);
 			path = Guide;
@@ -608,6 +637,7 @@
 				FE6F2CFD1DB12B5B000E33F9 /* Main.storyboard */,
 				FE6F2D001DB12B5B000E33F9 /* Assets.xcassets */,
 				FE6F2D021DB12B5B000E33F9 /* LaunchScreen.storyboard */,
+				FEB9BA591DE2E97800D95A9E /* Portrait-736h@3x.png */,
 				FEEC961D1DDD7D7000D170D8 /* default@2x.png */,
 				FEEC961E1DDD7D7000D170D8 /* default@3x.png */,
 				FEEC96041DDC6F7500D170D8 /* def@2x.png */,
@@ -950,6 +980,7 @@
 		FE7FB47A1DB4E95400F07C1E /* CoustomView */ = {
 			isa = PBXGroup;
 			children = (
+				FEB9BA601DE7D66B00D95A9E /* NetPromptView */,
 				FEA0907F1DC98C9100F2791F /* RefreshHeader */,
 				FE7FB51A1DB60CBC00F07C1E /* TextView */,
 				FE7FB4C11DB5EBA700F07C1E /* ShareView */,
@@ -971,6 +1002,11 @@
 			isa = PBXGroup;
 			children = (
 				FE7FB4B91DB5C1CB00F07C1E /* live.json */,
+				FEB9BA471DE2E57B00D95A9E /* 01@3x.png */,
+				FEB9BA481DE2E57B00D95A9E /* 02@3x.png */,
+				FEB9BA491DE2E57B00D95A9E /* 03@3x.png */,
+				FEB9BA4A1DE2E57B00D95A9E /* 04@3x.png */,
+				FEB9BA4B1DE2E57B00D95A9E /* 05@3x.png */,
 				FE7FB51E1DB61B0D00F07C1E /* text.html */,
 				FE4C5C2C1DBE1DAD00AF54FF /* yicaiglobal_logo@2x.png */,
 				FE7FB48F1DB50CA600F07C1E /* defaultImage.jpg */,
@@ -1160,6 +1196,58 @@
 				FE7FB4C51DB5EE5700F07C1E /* CBNEnumeration.h */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		FEB9BA341DE2D97500D95A9E /* Open */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9BA521DE2E89800D95A9E /* libYYOpenSDK */,
+			);
+			path = Open;
+			sourceTree = "<group>";
+		};
+		FEB9BA521DE2E89800D95A9E /* libYYOpenSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9BA531DE2E89800D95A9E /* include */,
+				FEB9BA571DE2E89800D95A9E /* libYYOpenSDK.a */,
+			);
+			path = libYYOpenSDK;
+			sourceTree = "<group>";
+		};
+		FEB9BA531DE2E89800D95A9E /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9BA541DE2E89800D95A9E /* YYOpenSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FEB9BA541DE2E89800D95A9E /* YYOpenSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9BA551DE2E89800D95A9E /* YYOpenSDK.h */,
+				FEB9BA561DE2E89800D95A9E /* YYOpenView.h */,
+			);
+			path = YYOpenSDK;
+			sourceTree = "<group>";
+		};
+		FEB9BA5B1DE7D28500D95A9E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9BA5C1DE7D28F00D95A9E /* guide_1@3x.png */,
+				FEB9BA5D1DE7D28F00D95A9E /* guide_2@3x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FEB9BA601DE7D66B00D95A9E /* NetPromptView */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9BA611DE7D67D00D95A9E /* CBNNetPromptView.h */,
+				FEB9BA621DE7D67D00D95A9E /* CBNNetPromptView.m */,
+			);
+			path = NetPromptView;
 			sourceTree = "<group>";
 		};
 		FEDBCB651DB1F07A00410E94 /* PublicImage */ = {
@@ -1355,6 +1443,7 @@
 		FEDBCB801DB1F09C00410E94 /* Thirdlib */ = {
 			isa = PBXGroup;
 			children = (
+				FEB9BA341DE2D97500D95A9E /* Open */,
 				FEE532A11DCB0EBE0085B824 /* GIF */,
 				FE7C2F0E1DC32D8B00F64D01 /* Label */,
 				FE71476A1DBFA7A700707DFD /* Sqlite */,
@@ -1773,11 +1862,13 @@
 					};
 					FE6F2D091DB12B5B000E33F9 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 58Y2U9UF8Z;
 						ProvisioningStyle = Manual;
 						TestTargetID = FE6F2CF01DB12B5B000E33F9;
 					};
 					FE6F2D141DB12B5B000E33F9 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 58Y2U9UF8Z;
 						ProvisioningStyle = Automatic;
 						TestTargetID = FE6F2CF01DB12B5B000E33F9;
 					};
@@ -1814,6 +1905,7 @@
 				FEE532041DC9C9320085B824 /* share-white@2x.png in Resources */,
 				FEA0904E1DC97E1D00F2791F /* channel-white@3x.png in Resources */,
 				FEA090501DC97E1D00F2791F /* search-white-magnifier@3x.png in Resources */,
+				FEB9BA5E1DE7D28F00D95A9E /* guide_1@3x.png in Resources */,
 				FE3DD39F1DC099EB007076AF /* searchWhite@2x.png in Resources */,
 				FEE532BF1DCB2D330085B824 /* default-image@3x.png in Resources */,
 				FEE531FD1DC9C80D0085B824 /* share-white-in@2x.png in Resources */,
@@ -1825,8 +1917,10 @@
 				FEE531F11DC9C80D0085B824 /* share-blue-email@2x.png in Resources */,
 				FEEC96061DDC6F7500D170D8 /* def@2x.png in Resources */,
 				FE82A13F1DD5674F00AFDD1A /* samll-Defaule-Image@3x.png in Resources */,
+				FEB9BA4D1DE2E57B00D95A9E /* 02@3x.png in Resources */,
 				FE82A1931DD5BC5E00AFDD1A /* DINCond-Light.otf in Resources */,
 				FEEC96011DDC6CDA00D170D8 /* open-image@2x.png in Resources */,
+				FEB9BA5F1DE7D28F00D95A9E /* guide_2@3x.png in Resources */,
 				FEE532AD1DCB0FE50085B824 /* loaing.gif in Resources */,
 				FEE531F21DC9C80D0085B824 /* share-blue-email@3x.png in Resources */,
 				FEEC961F1DDD7D7000D170D8 /* default@2x.png in Resources */,
@@ -1838,6 +1932,7 @@
 				FEA0907D1DC98A2800F2791F /* navigation-logo@2x.png in Resources */,
 				FE7FB51F1DB61B0D00F07C1E /* text.html in Resources */,
 				FEE531FC1DC9C80D0085B824 /* share-white-facebook@3x.png in Resources */,
+				FEB9BA4C1DE2E57B00D95A9E /* 01@3x.png in Resources */,
 				FE6F2D011DB12B5B000E33F9 /* Assets.xcassets in Resources */,
 				FEE532001DC9C80D0085B824 /* share-white-twitter@3x.png in Resources */,
 				FEE531FB1DC9C80D0085B824 /* share-white-facebook@2x.png in Resources */,
@@ -1846,9 +1941,12 @@
 				FEE531F71DC9C80D0085B824 /* share-blue-twitter@2x.png in Resources */,
 				FEEC95F61DDC66F200D170D8 /* time-image@2x.png in Resources */,
 				FEE532171DC9EA4D0085B824 /* up-arrow@2x.png in Resources */,
+				FEB9BA501DE2E57B00D95A9E /* 05@3x.png in Resources */,
 				FE7FB5341DB6448B00F07C1E /* CBN_Navigation_Back_Icon_Day@2x.png in Resources */,
 				FE4C5C2D1DBE1DAD00AF54FF /* yicaiglobal_logo@2x.png in Resources */,
+				FEB9BA4E1DE2E57B00D95A9E /* 03@3x.png in Resources */,
 				FE4C5C231DBE077800AF54FF /* langy_maichu@2x.png in Resources */,
+				FEB9BA4F1DE2E57B00D95A9E /* 04@3x.png in Resources */,
 				FEEC96031DDC6D0D00D170D8 /* open-image@3x.png in Resources */,
 				FE4C5C271DBE085600AF54FF /* commentsCount_gray_Day@3x.png in Resources */,
 				FEEC95FB1DDC674A00D170D8 /* delete-image@3x.png in Resources */,
@@ -1856,6 +1954,7 @@
 				FE7FB4901DB50CA600F07C1E /* defaultImage.jpg in Resources */,
 				FEEC95FF1DDC681600D170D8 /* loadingFailed-image@3x.png in Resources */,
 				FE2E25681DB775A1007FA000 /* DINPro-Bold.otf in Resources */,
+				FEB9BA5A1DE2E97800D95A9E /* Portrait-736h@3x.png in Resources */,
 				FE6F2CFF1DB12B5B000E33F9 /* Main.storyboard in Resources */,
 				FE2E25601DB76D5F007FA000 /* CBN_share_Image_Day@3x.png in Resources */,
 				FEEC95F71DDC66F200D170D8 /* time-image@3x.png in Resources */,
@@ -1990,6 +2089,7 @@
 				FE7FB49E1DB514E200F07C1E /* CBNLiveHeaderView.m in Sources */,
 				FE7FB5131DB5FC4C00F07C1E /* CBNRelatedNewsItemView.m in Sources */,
 				FE7FB44B1DB4CBA100F07C1E /* UIColor+CBNColor.m in Sources */,
+				FEB9BA631DE7D67D00D95A9E /* CBNNetPromptView.m in Sources */,
 				FEF76D5D1DC2F7FC00459D7F /* CBNSearchModel.m in Sources */,
 				FE5CCD3C1DB8B68D00587D67 /* CBNSearchResultView.m in Sources */,
 				FE6F2CF91DB12B5B000E33F9 /* AppDelegate.m in Sources */,
@@ -2109,7 +2209,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2149,7 +2249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2189,11 +2289,12 @@
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Sqlite/libJYSqliteSDK",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Label/libJYLabelSDK",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/GIF/libJYGifImageViewSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Open/libYYOpenSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testGlobal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CBNYiCaiGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c96261de-f498-4016-a7a0-c8e9f981b87f";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.testGlobal";
+				PROVISIONING_PROFILE = "a215a97b-5ef3-44ba-8583-4d3aa5b7e18a";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.CBNYiCaiGlobal";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2230,11 +2331,12 @@
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Sqlite/libJYSqliteSDK",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Label/libJYLabelSDK",
 					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/GIF/libJYGifImageViewSDK",
+					"$(PROJECT_DIR)/CBNGlobal/Thirdlib/Open/libYYOpenSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testGlobal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CBNYiCaiGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c96261de-f498-4016-a7a0-c8e9f981b87f";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.testGlobal";
+				PROVISIONING_PROFILE = "a215a97b-5ef3-44ba-8583-4d3aa5b7e18a";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.CBNYiCaiGlobal";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -2245,10 +2347,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 58Y2U9UF8Z;
 				INFOPLIST_FILE = CBNGlobalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobalTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CBNYiCaiGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2262,10 +2364,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 58Y2U9UF8Z;
 				INFOPLIST_FILE = CBNGlobalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobalTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CBNYiCaiGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2278,10 +2380,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 58Y2U9UF8Z;
 				INFOPLIST_FILE = CBNGlobalUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobalUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CBNYiCaiGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2295,10 +2397,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 58Y2U9UF8Z;
 				INFOPLIST_FILE = CBNGlobalUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.yicai.com.CBNGlobalUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CBNYiCaiGlobal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -8,6 +8,7 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+
 /*
  *  pods
  */
@@ -74,6 +75,7 @@
 
 #define user_Draw_open_With CBN_Screen_Width*0.55
 
+#define Cell_Left_Or_Right_Margin 12*CBN_Screen_Width/320
 #define news_Cell_Left_Or_Right_Margin 8
 #define news_Cell_Up_Or_Down_Margin 15
 #define search_Bar_Height 36

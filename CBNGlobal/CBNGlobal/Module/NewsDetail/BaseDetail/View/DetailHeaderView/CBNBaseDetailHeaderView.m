@@ -37,7 +37,7 @@
 {
     if (!_titleLabel) {
         
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, CBN_Screen_Width- 2*news_Cell_Left_Or_Right_Margin, 0)];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, news_Cell_Up_Or_Down_Margin, self.frame.size.width, 0)];
         
         _titleLabel.numberOfLines = 0;
         
@@ -53,7 +53,7 @@
 {
     if (!_authorNameLabel) {
         
-        self.authorNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _height, 100, 0)];
+        self.authorNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _height, 100, 0)];
         
         _authorNameLabel.backgroundColor = [UIColor clearColor];
         _authorNameLabel.dk_textColorPicker = DKColorPickerWithKey(news_Small_Tag_Color);
@@ -106,7 +106,7 @@
     _titleLabel.text = _newsDetailModel.NewsTitle;
     [_titleLabel sizeToFit];
     
-    _titleLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, CBN_Screen_Width- 2*news_Cell_Left_Or_Right_Margin, _titleLabel.frame.size.height);
+    _titleLabel.frame = CGRectMake(0, _height, self.frame.size.width ,_titleLabel.frame.size.height);
     
     _height = _height + _titleLabel.frame.size.height + news_Cell_Up_Or_Down_Margin;
     
@@ -117,7 +117,7 @@
         _authorNameLabel.text = [NSString stringWithFormat:@"%@,%@",_newsDetailModel.NewsAuthor,_newsDetailModel.NewsSource];
         [_authorNameLabel sizeToFit];
         
-        _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
+        _authorNameLabel.frame = CGRectMake(0, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
     }else{
         
         if (_newsDetailModel.NewsAuthor.length >0) {
@@ -125,7 +125,7 @@
             _authorNameLabel.text =  _newsDetailModel.NewsAuthor;
             [_authorNameLabel sizeToFit];
 
-            _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
+            _authorNameLabel.frame = CGRectMake(0, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
 
             
         }
@@ -136,12 +136,12 @@
 
             _authorNameLabel.text =  _newsDetailModel.NewsSource;
             
-            _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
+            _authorNameLabel.frame = CGRectMake(0, _height, _authorNameLabel.frame.size.width+news_Cell_Left_Or_Right_Margin, _authorNameLabel.frame.size.height);
 
         }
         
         if (_newsDetailModel.NewsAuthor.length == 0&&_newsDetailModel.NewsSource.length == 0) {
-            _authorNameLabel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin, _height, 0, _authorNameLabel.frame.size.height);
+            _authorNameLabel.frame = CGRectMake(0, _height, 0, _authorNameLabel.frame.size.height);
 
         }
     }

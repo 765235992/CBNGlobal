@@ -97,9 +97,13 @@
     
     for (NSDictionary *channelDic in dictionaryArray) {
         
-        CBNChannelModel *channelModel = [CBNChannelModel mj_objectWithKeyValues:channelDic];
         
-        [resultArray addObject:channelModel];
+        if (![[channelDic objectForKey:@"EnglishName"]isEqualToString:@"Video"]) {
+            CBNChannelModel *channelModel = [CBNChannelModel mj_objectWithKeyValues:channelDic];
+            
+            [resultArray addObject:channelModel];
+
+        }
         
     }
     

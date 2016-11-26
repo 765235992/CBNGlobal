@@ -4,10 +4,9 @@ NORMAL   NIGHT    RED
 #515151  #515151  #515151 news_Content_Color
 #E5E5E5  #E5E5E5  #E5E5E5 news_Cell_Divider_Color
 #ABABAB  #ABABAB  #ABABAB news_Small_Tag_Color
+#CD0000  #CD0000  #CD0000 promptRed
+#B5B5B5  #B5B5B5  #B5B5B5 promptNormal
 #0096d9  #0096d9  #0096d9 CBN_Blue_Color
 #999999  #999999  #999999 refresh_And_Loading_Color
 #ffffff  #444444  #ffffff BAR
 #f0f0f0  #222222  #dedede HIGHLIGHTED
-
-
-  

@@ -10,6 +10,7 @@
 #import "CBNNewsModel.h"
 #import "CBNSearchVC.h"
 @interface CBNBaseChannelVC : CBNBaseViewController
+@property (nonatomic, assign) BOOL isHaveNetwork;
 
 - (void)pushToTextNewsDetailWithNewsItemModel:(CBNNewsModel *)newsItemModel withChannelName:(NSString *)channelName;
 
@@ -18,7 +19,10 @@
 
 - (MJRefreshNormalHeader *)refreshHeader;
 - (void)refreshData;
+- (MJRefreshAutoNormalFooter *)noData;
+
 - (MJRefreshAutoNormalFooter *)refreshFooter;
 - (void)loadMoreData;
-
+- (void)netWorkChangedWithNetWorkState:(BOOL)currentNetworkState;
+- (void)networkNormal;
 @end

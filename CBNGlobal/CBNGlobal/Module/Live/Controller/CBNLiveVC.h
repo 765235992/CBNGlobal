@@ -11,5 +11,6 @@
 @interface CBNLiveVC : CBNBaseInfoViewController
 @property (nonatomic, strong) NSMutableArray *liveModelArray;
 @property (nonatomic, assign) NSInteger liveChannelID;
+- (void)netWorkChangedWithNetWorkState:(BOOL)currentNetworkState;
 
 @end

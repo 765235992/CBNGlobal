@@ -31,7 +31,6 @@
     
     NSLog(@"——————————————————————————————————————————————————————————————————————————");
     if (dataTask!=nil) {
-        NSLog(@"取消请求");
         [dataTask cancel];
         
     }
@@ -39,7 +38,6 @@
     manger.responseSerializer = [AFHTTPResponseSerializer serializer];
    dataTask = [manger POST:[[CBNParametersLinkManager sharedManager] readNewsWithNewsID:newsID] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-
        CBNNewsDetailModel *detailModel = [[CBNNewsDetailModel alloc] initWithNewsDetailInfo:dic];
         
         if (secuessed) {

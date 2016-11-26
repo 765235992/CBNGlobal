@@ -11,5 +11,6 @@
 @interface CBNLeftChannelVC : CBNBaseViewController
 
 @property (nonatomic, strong) NSArray *channelArray;
+@property (nonatomic, assign) BOOL currentNetWorkState;
 
 @end

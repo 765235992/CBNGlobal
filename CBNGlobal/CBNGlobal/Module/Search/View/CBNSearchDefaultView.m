@@ -47,7 +47,7 @@
         
         self.sourceArray = [[NSMutableArray array] init];
 
-        [_sourceArray addObjectsFromArray:[[CBNSearchSqliteManager sharedManager] selectObjectsfromTable:@"search"]];
+        [_sourceArray addObjectsFromArray:[[[[CBNSearchSqliteManager sharedManager] selectObjectsfromTable:@"search"] reverseObjectEnumerator] allObjects]];
         
         self.userInteractionEnabled = YES;
         
@@ -82,7 +82,7 @@
 {
     if (!_channelPromptView) {
         
-        self.channelPromptView = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, news_Cell_Up_Or_Down_Margin, 100, 0)];
+        self.channelPromptView = [[UILabel alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, Cell_Left_Or_Right_Margin, 100, 0)];
         
         _channelPromptView.font = [UIFont fontWithSmallSzie:14 middleSize:16 bigSize:18 AndFontName:font_Name_Blod];
         
@@ -92,7 +92,7 @@
         
         [_channelPromptView sizeToFit];
         
-        _channelPromptView.frame = CGRectMake(news_Cell_Left_Or_Right_Margin*2+5, news_Cell_Up_Or_Down_Margin, _channelPromptView.frame.size.width, _channelPromptView.frame.size.height);
+        _channelPromptView.frame = CGRectMake(Cell_Left_Or_Right_Margin*2+5, Cell_Left_Or_Right_Margin, _channelPromptView.frame.size.width, _channelPromptView.frame.size.height);
         
     }
     
@@ -102,7 +102,7 @@
 {
     if (!_channelVerticalImageView) {
         
-        self.channelVerticalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _channelPromptView.frame.origin.y, 5, _channelPromptView.frame.size.height)];
+        self.channelVerticalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, _channelPromptView.frame.origin.y, 5, _channelPromptView.frame.size.height)];
         
         _channelVerticalImageView.backgroundColor = UIColorFromRGB(0x0096d9);
         
@@ -117,7 +117,7 @@
 {
     if (!_channelCrossIineImageView) {
         
-        self.channelCrossIineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _channelPromptView.frame.size.height+_channelPromptView.frame.origin.y+news_Cell_Up_Or_Down_Margin, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, 1)];
+        self.channelCrossIineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, _channelPromptView.frame.size.height+_channelPromptView.frame.origin.y+Cell_Left_Or_Right_Margin, CBN_Screen_Width-2*Cell_Left_Or_Right_Margin, 1)];
         
         _channelCrossIineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
         
@@ -130,7 +130,7 @@
 {
     if (!_channelView) {
         
-        self.channelView = [[CBNSearchChannelView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _channelCrossIineImageView.frame.size.height+_channelCrossIineImageView.frame.origin.y+news_Cell_Up_Or_Down_Margin, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, 0) andCurrentChannelName:self.channelName];
+        self.channelView = [[CBNSearchChannelView alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, _channelCrossIineImageView.frame.size.height+_channelCrossIineImageView.frame.origin.y+Cell_Left_Or_Right_Margin, CBN_Screen_Width-2*Cell_Left_Or_Right_Margin, 0) andCurrentChannelName:self.channelName];
         _channelView.delegate = self;
         
     }
@@ -159,7 +159,7 @@
         
         [_historyLbel sizeToFit];
         
-        _historyLbel.frame = CGRectMake(news_Cell_Left_Or_Right_Margin*2+5, _channelView.frame.size.height+_channelView.frame.origin.y+news_Cell_Up_Or_Down_Margin*3, _channelPromptView.frame.size.width, _channelPromptView.frame.size.height);
+        _historyLbel.frame = CGRectMake(Cell_Left_Or_Right_Margin*2+5, _channelView.frame.size.height+_channelView.frame.origin.y+Cell_Left_Or_Right_Margin*3, _channelPromptView.frame.size.width, _channelPromptView.frame.size.height);
         
 
         
@@ -172,7 +172,7 @@
 - (UIImageView *)historyVerticalImageView
 {
     if (!_historyVerticalImageView) {
-        self.historyVerticalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _historyLbel.frame.origin.y, 5, _historyLbel.frame.size.height)];
+        self.historyVerticalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, _historyLbel.frame.origin.y, 5, _historyLbel.frame.size.height)];
         
         _historyVerticalImageView.backgroundColor = UIColorFromRGB(0x0096d9);
         
@@ -187,7 +187,7 @@
 {
     if (!_historyCrossLineImageView) {
         
-        self.historyCrossLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, _historyLbel.frame.size.height+_historyLbel.frame.origin.y+news_Cell_Up_Or_Down_Margin, CBN_Screen_Width-2*news_Cell_Left_Or_Right_Margin, 1)];
+        self.historyCrossLineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, _historyLbel.frame.size.height+_historyLbel.frame.origin.y+Cell_Left_Or_Right_Margin, CBN_Screen_Width-2*Cell_Left_Or_Right_Margin, 1)];
         
         _historyCrossLineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(news_Cell_Divider_Color);
         
@@ -216,8 +216,13 @@
 
     }
     
-//    [_sourceArray setObject:dic atIndexedSubscript:0];
-    [_sourceArray addObject:dic];
+    [_sourceArray insertObject:dic atIndex:0];
+    
+//    NSMutableArray *tempArr =_sourceArray;
+    
+//    [_sourceArray removeAllObjects];
+//    
+//    [_sourceArray addObjectsFromArray:[[tempArr reverseObjectEnumerator] allObjects]];
     [_aTableView reloadData];
     
 
@@ -229,13 +234,13 @@
         
         self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        _deleteButton.frame = CGRectMake(CBN_Screen_Width-news_Cell_Left_Or_Right_Margin-_historyVerticalImageView.frame.size.height*1.5, _historyVerticalImageView.frame.origin.y, _historyVerticalImageView.frame.size.height*1.5, _historyVerticalImageView.frame.size.height*1.5) ;
+        _deleteButton.frame = CGRectMake(CBN_Screen_Width-2*Cell_Left_Or_Right_Margin-_historyVerticalImageView.frame.size.height*1.5, _historyVerticalImageView.frame.origin.y-Cell_Left_Or_Right_Margin, _historyVerticalImageView.frame.size.height*1.5+Cell_Left_Or_Right_Margin*2, _historyVerticalImageView.frame.size.height*1.5+Cell_Left_Or_Right_Margin) ;
         
         [_deleteButton addTarget:self action:@selector(deleteButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [_deleteButton setImage:[UIImage imageNamed:@"delete-image.png"] forState:UIControlStateNormal];
-        
-        [_deleteButton setImageEdgeInsets:UIEdgeInsetsMake(6, 12, 6, 0)];
+//        _deleteButton.backgroundColor = [UIColor redColor];
+        [_deleteButton setImageEdgeInsets:UIEdgeInsetsMake((_historyVerticalImageView.frame.size.height*0.5 +Cell_Left_Or_Right_Margin)/2, (_historyVerticalImageView.frame.size.height*0.5 +Cell_Left_Or_Right_Margin)/2+Cell_Left_Or_Right_Margin, (_historyVerticalImageView.frame.size.height*0.5 +Cell_Left_Or_Right_Margin)/2, Cell_Left_Or_Right_Margin)];
 
     }
     

@@ -50,7 +50,7 @@
 {
     if (!_timeLabel) {
         
-        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(news_Cell_Left_Or_Right_Margin, 0, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, _backgroundImageView.frame.size.height)];
+        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(Cell_Left_Or_Right_Margin, 0, CBN_Screen_Width - 2*news_Cell_Left_Or_Right_Margin, _backgroundImageView.frame.size.height)];
         
         _timeLabel.backgroundColor = [UIColor clearColor];
         

@@ -35,7 +35,7 @@
 @implementation CBNHomePageVC
 - (void)dealloc
 {
-    CBNLog(@"主频道释放");
+    NSLog(@"主频道释放");
 
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -69,6 +69,8 @@
 - (void)searchButton:(UIButton *)sender
 {
     CBNSearchVC *searchVC = [[CBNSearchVC alloc] init];
+    [searchVC netWorkChangedWithNetWorkState:self.isHaveNetwork];
+
     searchVC.channelName = self.channelName;
     [self.navigationController pushViewController:searchVC animated:YES];
 }
@@ -251,6 +253,7 @@
 - (void)homePageHeaderLiveShuffingView:(CBNHomePageHeaderView *)homePageView didSelectedAtIndex:(NSInteger)index
 {
     CBNLiveVC *liveVC = [[CBNLiveVC alloc] init];
+    [liveVC netWorkChangedWithNetWorkState:self.isHaveNetwork];
     
     liveVC.liveModelArray = _liveModelArray;
     
@@ -264,6 +267,14 @@
 
     [self pushToTextNewsDetailWithNewsItemModel:homePageView.remondNewsModel withChannelName:@"Home"];
 
+}
+
+
+- (void)networkNormal
+{
+    if (self.refreshSecuessed == NO) {
+        [self refreshData];
+    }
 }
 
 #pragma mark UITableViewDataSource_And_UITableViewDelegate
@@ -327,7 +338,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CBNNewsModel *tempModel =  [_sourceArray objectAtIndex:indexPath.row];
+//    CBNNewsModel *tempModel =  [_sourceArray objectAtIndex:indexPath.row];
     
     
     [self pushToTextNewsDetailWithNewsItemModel:[_sourceArray objectAtIndex:indexPath.row] withChannelName:@"Home"];
@@ -339,7 +350,7 @@
 {
     if (!_aTableView) {
         
-        self.aTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CBN_Screen_Width, CBN_Screen_Height-64)];
         
         _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(defaule_Background_Color);
         

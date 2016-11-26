@@ -158,10 +158,9 @@
 + (NSArray *)liveDictionaryChanegeToLiveModekWithDictionaryArray:(NSArray *)dictionaryArray
 {
     NSMutableArray *resultArray = [[NSMutableArray alloc] init];
-    
 
     for (NSDictionary *newsDic in dictionaryArray) {
-        
+
         CBNNewsModel *newsModel = [CBNNewsModel mj_objectWithKeyValues:newsDic];
         CBNLiveModel *liveModel = [[CBNLiveModel alloc] init];
         

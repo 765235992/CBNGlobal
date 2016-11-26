@@ -23,4 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *sourceArray;
 
 @property (nonatomic, strong) NSMutableArray *moreNewsArray;
+
+@property (nonatomic, assign) BOOL refreshFiaied;
+
 @end

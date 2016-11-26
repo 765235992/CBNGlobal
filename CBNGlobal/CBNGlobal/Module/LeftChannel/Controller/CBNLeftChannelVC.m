@@ -28,9 +28,9 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
+    
     _currentIndex = 0;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(channelChanged:) name:@"channelChanged" object:nil];
  
 
@@ -67,7 +67,6 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
     
 }
-
 #pragma mark UITableViewDataSource_And_UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -146,8 +145,9 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 
     CBNHomePageVC *homeChangeVC = [[CBNHomePageVC alloc] init];
     
-    CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:homeChangeVC];
     
+    CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:homeChangeVC];
+    [homeChangeVC netWorkChangedWithNetWorkState:_currentNetWorkState];
     [self.mm_drawerController setCenterViewController:navigation withCloseAnimation:YES completion:^(BOOL finished) {
         
     }];
@@ -160,11 +160,12 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 {
     
     CBNPublicChannelVC *publicChannel = [[CBNPublicChannelVC alloc] init];
-    
+
     publicChannel.channelModel = channelModel;
     
     CBNChannelNavigationController *navigation = [[CBNChannelNavigationController alloc] initWithRootViewController:publicChannel];
-    
+    [publicChannel netWorkChangedWithNetWorkState:_currentNetWorkState];
+
     [self.mm_drawerController setCenterViewController:navigation withCloseAnimation:YES completion:^(BOOL finished) {
         
     }];
@@ -175,6 +176,10 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
 {
     _channelArray = channelArray;
     
+    
+    if (_sourceArray.count >3) {
+        return;
+    }
     [_sourceArray removeAllObjects];
     
     CBNChannelModel *homeChannelModel = [[CBNChannelModel alloc] init];
@@ -192,6 +197,10 @@ NSString * const CBNChannelChanged = @"CBNChannelChanged";
     
     [_aTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
     
+}
+- (void)setCurrentNetWorkState:(BOOL)currentNetWorkState
+{
+    _currentNetWorkState = currentNetWorkState;
 }
 
 
